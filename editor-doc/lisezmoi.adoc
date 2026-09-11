@@ -1,0 +1,25 @@
+= editor-doc
+
+J'attends la soutenance avant de déposer les fichiers.
+
+Cette preuve de concept a été développée dans le cadre d'une maîtrise en informatique. Ainsi, le contenu de ce mémoire compose une partie importante de la documentation. D'où une copie de celui-ci dans le projet git Editor.
+
+== Prérequis
+
+Overleaf ou éditeur LateX permettant de rouler le moteur pdfLateX version Legacy de 2021.
+
+== Construction
+
+S.O.
+
+== Usage
+
+Une version du rendu pdf est déposée dans le répertoire Result.
+
+== Licence
+
+Eclipse Public License - v 2.0
+
+== Statut
+
+Il s'agit de la version épurée et finale, elle comprend que les éléments essentiels utilisés.

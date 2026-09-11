@@ -1,0 +1,26 @@
+= Le projet Editor
+
+Le projet consiste à fournir un instrument permettant d'aider les professionnels informatiques à documenter, à construire et à maintenir adéquatement les modèles développés dans le cadre d'un procédé de développement logiciel.
+
+Les répertoires :
+
+* editor-application comprend le code source l'application;
+* editor-doc comprend le code source du mémoire;
+* editor-ldm comprend le code source du modèle logique de données;
+* editor-web-library comprend le code source de la composante web utilisé dans l'application.
+
+== Usage
+
+Pour utiliser la preuve de concept, il faut :
+
+. rouler les différents schémas contenus dans editor-ldm à l'intérieur d'une base de données Postgres ou construire un conteneur Docker, les scripts le permettant se trouvent dans le même répertoire;
+. compiler et rouler l'application contenue dans editor-application, les scripts le permettant se trouvent dans le même répertoire;
+. ouvrir avec un navigateur web la page ....
+
+== Licence
+
+Eclipse Public License - v 2.0
+
+== Statut
+
+Il s'agit d'une version préliminaire, il reste quelques fonctions et tests à implémenter.

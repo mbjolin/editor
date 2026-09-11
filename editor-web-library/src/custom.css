@@ -1,0 +1,17 @@
+/*.menuButton {*/
+/*  color: red !important;*/
+/*}*/
+
+/*.choices {*/
+/*  width: 90% !important;*/
+/*  min-height: 30px !important;*/
+/*}*/
+
+.swal2-html-container {
+  min-height: 150px !important;
+}
+
+
+.choices div {
+  box-sizing: border-box;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/static/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<style type="text/css" media="screen">
+  body {
+          overflow: hidden;
+      }
+      .resizable {
+        resize: both;
+        overflow: scroll;
+        border: 1px solid black;
+      }
+    #editor {
+      position: absolute;
+      top: 100;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      height: 80%;
+    }
+    #divRenderAdoc {
+      position: absolute;
+      top: 100;
+      width: 50%;
+      bottom: 0;
+      left: 50%;
+      height: 80%;
+    }
+</style>
+</head>
+<body>
+
+<div>
+  <button onclick="render();">render</button>
+  <button onclick="parse();">parse</button>
+  <button onclick="alert('rien');">compile</button>
+  <button onclick="alert('rien');">save</button>
+</div>
+
+<div>
+    <select class="selectmax" style="width: 50%"></select>
+    <pre id="resultfonction">
+
+    </pre>
+</div>
+
+<div id="container" class="resizable">
+<pre id="editor" class="resizable">
+
+</pre>
+</div>
+<div id="divRenderAdoc">
+
+</div>
+
+<script>
+  var objselect = $('.selectmax');
+
+  $(document).ready(function() {
+
+      $('.selectmax').select2({
+        placeholder: "Select a state",
+        allowClear: true,
+        maximumSelectionLength: 1,
+        allowClear: true,
+        ajax: {
+          url: 'https://localhost:8443/document/search',
+          dataType: 'json',
+          delay: 250,
+          data: function (params) {
+            var query = {
+              q: params.term
+            }
+            return  query;
+          },
+          processResults: function (data) {
+            return {
+              results: data.items
+            };
+          }
+        },
+        minimumInputLength: 1,
+        templateResult: formatRepo,
+        templateSelection: formatRepoSelection
+      });
+
+    function formatRepo (repo) {
+      if (repo.loading) {
+        return repo.text;
+      }
+      return repo.content;
+    }
+/*repo.text c<est pour le placeholder*/
+    function formatRepoSelection (repo) {
+      return repo.id || repo.content || repo.text;
+    }
+
+    $('.selectmax').on("select2:select", function(e) {
+      console.log('select');
+      if($('.selectmax').select2('data').length > 0 ) {
+        console.log('select2');
+        editor.setValue(objselect.select2('data')[0].content);
+        editor.resize();
+      }
+    });
+});
+</script>
+
+<script src="/static/ace/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/asciidoc");
+    editor.resize();
+</script>
+
+<!--<script src="/static/opal/opal.js"></script>-->
+<script src="/static/requirejs/require.min.js"></script>
+<script src="/static/asciidoctor/browser/asciidoctor.js"></script>
+<!--<script type="module" src="/static/asciidoctor/browser/asciidoctor.js"></script>-->
+
+<!--<script type="module">-->
+<!--  import asciidoctor from 'asciidoctor' // (1)-->
+<!--  const Asciidoctor = asciidoctor()-->
+<!--  const content = 'http://asciidoctor.org[*Asciidoctor*] ' +-->
+<!--    'running on https://opalrb.com[_Opal_] ' +-->
+<!--    'brings AsciiDoc to Node.js!'-->
+<!--  const html = Asciidoctor.convert(content)-->
+<!--  console.log(html)-->
+<!--</script>-->
+
+<script >
+  var renderAdoc
+
+  requirejs(['asciidoctor'], function (asciidoctor) {
+    renderAdoc = function (content) {
+      return asciidoctor.convert(content)
+    }
+  })
+
+  function render() {
+    console.log("render")
+    var divRenderAdoc = document.getElementById('divRenderAdoc');
+    divRenderAdoc.innerHTML = renderAdoc(editor.getValue());
+  }
+
+  function parse2() {
+    var contentsend = editor.getValue();
+    (async (contentsend) => {
+      const rawResponse = await fetch('https://localhost:8443/document/compile', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify('{ content: "test" }')
+      });
+      const content = await rawResponse.json();
+
+      console.log(content);
+    })();
+  }
+
+  function parse() {
+    var payload = {
+        //contenu: editor.getValue()
+    };
+
+    var data = new FormData();
+    data.append( "json", JSON.stringify( payload ) );
+
+    fetch("https://localhost:8443/document/compile",
+    {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: data
+    })
+    .then(function(res){ console.log(res) })
+
+    //.then(function(res){ return res.json(); })
+    //.then(function(data){ alert( JSON.stringify( data ) ) })
+  }
+
+</script>
+
+</body>
+</html>

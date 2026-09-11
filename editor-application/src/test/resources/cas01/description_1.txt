@@ -1,0 +1,39 @@
+:projetid: projetdescription1
+:documentid: DocumentModelev1
+:var1: vrai
+
+= DocumentModele_v1
+
+== SectionA
+Voici un modèle.
+ifdef::var1[]
+une utilisation de macro var1 := {var1}
+endif::var1[]
+
+=== SectionAa
+[quote]
+____
+Une citation.
+____
+
+Règle informelle
+
+```
+RegleTest=error
+```
+~~~~
+
+=== SectionAb
+Autres règles formelles
+
+```
+b=10 
+```
+
+```
+a=10
+```
+
+~~~~
+
+~~~~

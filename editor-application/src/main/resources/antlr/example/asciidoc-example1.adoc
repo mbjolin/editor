@@ -1,0 +1,30 @@
+:toc-title: Table des matières
+:projet: Mon projet
+
+= Titre astucieux
+
+== Début de l'analyse
+
+Sed lacus elit, suscipit in tellus eget, rutrum imperdiet mi.
+
+=== Conception
+
+Maecenas magna justo, tempus tincidunt sagittis quis, suscipit quis arcu. Etiam ut ultrices erat, sed aliquam arcu.
+
+[quote]
+____
+Cras rutrum elit id justo vulputate posuere.
+____
+
+```
+action(a,b) := Une personne a attache une chose b
+```
+
+=== Résultat
+
+Pellentesque et odio condimentum, sollicitudin turpis scelerisque, porttitor nibh. Pellentesque accumsan rhoncus dui, eu viverra odio fermentum vitae. Nunc vehicula consequat tincidunt. In egestas nulla in nibh sodales iaculis. Cras nec rhoncus justo. Fusce mollis non erat vitae imperdiet. Sed fermentum libero at dui convallis dictum. In ac laoreet metus. Sed volutpat ultrices est, eu vulputate magna varius sed. Mauris ornare aliquet tempor. Vivamus ut leo vitae tortor condimentum suscipit. Aenean sodales enim eros. Phasellus non nisi et neque lobortis suscipit. Nam dignissim laoreet malesuada. Aliquam augue neque, maximus vel ex non, laoreet vehicula nibh. Sed ut nulla et tortor aliquet porta nec quis felis. 
+
+
+```
+attache(a,b) := Une personne a attache une chose b
+```

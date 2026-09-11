@@ -1,0 +1,91 @@
+plugins {
+  id 'java'
+  id 'maven-publish'
+  id 'java-library'
+  id("nu.studer.jooq") version "10.2.1"
+}
+
+repositories {
+  mavenLocal()
+  maven {url "https://plugins.gradle.org/m2/"}
+  mavenCentral()
+}
+
+dependencies{
+  implementation 'org.jooq:jooq:3.19.8'
+  jooqGenerator 'org.postgresql:postgresql:42.7.8'
+}
+
+group = "ca.mbjolin"
+version = "0.0.1-SNAPSHOT"
+
+def dbhost = "localhost"
+def dbport = "5432"
+def dbname = "editor-ldm"
+def dbuser = "default-user"
+def dbpass ="default-password"
+
+jooq {
+  version = '3.19.15'
+  edition = nu.studer.gradle.jooq.JooqEdition.OSS
+  configurations {
+      "jooqClient" {
+      generateSchemaSourceOnCompilation = false
+      generationTool {
+        jdbc {
+          driver = "org.postgresql.Driver"
+          url = "jdbc:postgresql://${dbhost}:${dbport}/${dbname}"
+          user = dbuser
+          password = dbpass
+        }
+        generator {
+          name = "org.jooq.codegen.DefaultGenerator"
+          strategy.name = 'org.jooq.codegen.DefaultGeneratorStrategy'
+          database {
+            name = 'org.jooq.meta.postgres.PostgresDatabase'
+            includes = '.+_pub.+|.+_obj.+|.+_api.+'
+            excludes = 'information_schema.+|pg_.+|sys.+|public.+'
+          }
+          generate {
+            deprecated = false
+            records = true
+            immutablePojos = false
+            fluentSetters = true
+            pojosAsJavaRecordClasses = false
+            pojosToString = false
+            pojosEqualsAndHashCode = false
+            validationAnnotations = true
+          }
+          target {
+            packageName = "ca.mbjolin.gen.${project.name.replace('_', '')}" /* Keep this for Jacoco /gen/ exlude. */
+            directory = "src/gen/jooqclient"
+          }
+        }
+      }
+    }
+  }
+}
+
+tasks.named('clean') {
+  delete 'src/gen'
+}
+
+sourceSets {
+  main {
+    java {
+      srcDirs = [
+        "src/gen/jooqclient",
+        "src/main/resources"
+      ]
+    }
+  }
+}
+
+publishing {
+  publications {
+      mavenJava(MavenPublication) {
+          artifactId = 'editor-jooq-library'
+          from components.java
+      }
+  }
+}

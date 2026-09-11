@@ -1,0 +1,29 @@
+--insert into atelier_pri.intrant values 
+--('00000001-0000-0000-0000-000000000000','intrant1-titre','intrant1-content','{"intrant1-langage"}', 'EPURER');
+--
+--insert into atelier_pri.intrant values 
+--('00000002-0000-0000-0000-000000000000', 'intrant2-titre','intrant2-content','{"intrant2-langage"}', 'EPURER');
+--
+--insert into atelier_pri.intrant values 
+--('00000010-0000-0000-0000-000000000000','sec1-titre','sec1-content','{"sec1-langage"}', 'FORMALISER');
+--
+--insert into atelier_pri.intrant values 
+--('00000100-0000-0000-0000-000000000000','doc1-titre','doc1-content','{"doc1-langage"}', 'PRESENTER');
+--
+--insert into atelier_pri."intrant_intrant" (id_source, id_destination)
+--values ('00000001-0000-0000-0000-000000000000', '00000010-0000-0000-0000-000000000000');
+--
+--insert into atelier_pri."intrant_intrant" (id_source, id_destination)
+--values ('00000002-0000-0000-0000-000000000000', '00000010-0000-0000-0000-000000000000');
+--
+--insert into atelier_pri."intrant_intrant" (id_source, id_destination)
+--values ('00000010-0000-0000-0000-000000000000', '00000100-0000-0000-0000-000000000000');
+--
+--insert into atelier_pri.atelier values 
+--('00001000-0000-0000-0000-000000000000','nom', 'config', '2024-11-11 19:49:11.925902', '2024-11-11 19:49:11.925902', 
+--'FORMALISER_SUCCESS',
+--'{"00000010-0000-0000-0000-000000000000"}', '{"00000100-0000-0000-0000-000000000000"}');
+--
+--insert into ace_pri.tab values 
+--('00010000-0000-0000-0000-000000000000','doc1-titre','doc1-content','doc1-langage', 'PRESENTER', 'formeui?', 'console');
+

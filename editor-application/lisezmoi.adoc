@@ -1,0 +1,45 @@
+= L'application Editor
+
+Ce répertoire comprend le code source Java et des scripts. Ces scripts permettent la construction de l'exécutable. L'application utilise le framework Quarkus.
+
+== Prérequis
+
+* Java (version 21.0.11);
+* GNU bash pour lancer les scripts (version 5.2.21);
+* Gradle pour compiler un jar contenant l'API java, il s'installe seul (version 8.9).
+* Accès à une base de données Postgres où le modèle logique de données editor-ldm est installé pour récupérer et conserver les données;
+
+== Construction
+
+Pour construire un exécutable de l'application  :
+[source,bash]
+----
+./gradlew build -x test
+----
+
+Pour rouler l'application en développement : 
+[source,bash]
+----
+./gradlew quarkusDev
+----
+
+Pour appeler ANTLR et régénérer les parsers et lexers à partir des fichiers EBNF dans src/main/resources/antlr (fonctionnalité à améliorer) :
+----
+./gradlew test --tests "ca.mbjolin.editor.integration.GenerateLanguageTest"
+----
+
+== Usage
+
+Exécuter l'application et ouvrir l'URL "https://127.0.0.1:8443/simpleeditor".
+[source,bash]
+----
+java -jar build/quarkus-app/quarkus-run.jar
+----
+
+== Licence
+
+Eclipse Public License - v 2.0
+
+== Statut
+
+Il s'agit d'une preuve de concept qui nécessite encore des améliorations.

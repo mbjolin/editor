@@ -1,0 +1,50 @@
+= La composante web principale utilisée dans Editor
+
+Il s'agit d'un exemple suffisamment puissant de l'utilisation de Ace, un éditeur de code source web quelque peu modifié pour être réutilisé dans la preuve de concept. Le crédit principal revient :
+
+* à l'équipe de Ace https://ace.c9.io/;
+* à Azat Alimov https://github.com/mkslanc/ace-playground .
+
+== Prérequis
+
+* NPM  (version 9.2.0);
+
+== Construction
+
+Pour télécharger les dépendances :
+[source,bash]
+----
+npm install
+----
+
+Pour lancer un serveur web et avoir accès à la composante à des fins de tests ou de développement :
+[source,bash]
+----
+npm start
+----
+
+Pour obtenir la composante à intégrer :
+[source,bash]
+----
+npm run build
+----
+
+== Usage
+
+Dans le cas d'un simple changement à la composante :
+
+. Après le "build" récupérer le fichier "build/bundle.simple.js";
+. Déposer le fichier dans "editor-application/src/main/resources/web/static/playground".
+
+Dans le cas de mise à jour des dépendances ou d'un changement complexe à la composante :
+
+. Après le "build" récupérer l'ensemble des fichiers sous "build";
+. Écraser l'ensemble des fichiers dans "editor-application/src/main/resources/web/static/playground".
+
+== Licence
+
+Même licence que MIT License.
+
+== Statut
+
+Il s'agit d'une preuve de concept et avec suffisamment de connaissances, il serait éventuellement avantageux de se soustraire à l'exemple Ace-Playground.

@@ -1,0 +1,8 @@
+:documentid: DocumentModelev1
+:documentinfo: "Le document qui suit sert à des fins d'expérimentation."
+:projetid: projetdescription1
+:modeleinfo: "Représentation d'un modèle pour approbation."
+
+RegleTest=error
+a=10
+b=10 

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/static/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <style type="text/css" media="screen">
+  </style>
+</head>
+<body>
+  <table style="width: 100%;">
+    <tr> <td> Session ID : </td> <td> <select id="sessionSelect" style="width: 100%"></select></td><td>Début : </td><td><p id="debutP"></p></td></tr>
+    <tr> <td> Session titre : </td> <td> <p><input id="titleInput" size="80"></input></p></td> <td>Fin :  </td><td><p id="finP"></p></td></tr>
+    <tr> <td> Transformation : </td><td><textarea id="configTextarea" rows="10" style="width: 500px;"></textarea></td> <td></td> <td></td></tr>
+</table>
+
+  <div style="padding: 10px;">
+    <button onclick="compile();">compile</button>
+    <button onclick="save();">conserve</button>
+  </div>
+
+  <div>
+    <table style="width: 100%;">
+      <tr><td>description 1</td><td>présente</td></tr>
+      <tr>
+        <td><textarea id="description1Textarea" rows="30" style="width: 100%;"></textarea></td>
+        <td><textarea id="presente1Textarea" rows="30" style="width: 100%;"></textarea></td></td>
+      </tr>
+      <tr><td>description 2</td><td>journal</td></tr>
+      <tr>
+        <td><textarea id="description2Textarea" rows="30" style="width: 100%;"></textarea></td>
+        <td><textarea id="journal1Textarea" rows="30" style="width: 100%;" disabled></textarea></td> 
+      </tr>
+    </table>
+  </div>
+</body>
+
+
+
+<script>
+  function formatItem (item) {
+    var result;
+    if (item.loading) {
+      result = item.text;
+    } else {
+      result = JSON.stringify(item.content);
+    }
+    return result;
+  }
+
+  function formatItemSelection (item) {
+    /* repo.text c'est pour le placeholder. */
+    return item.id || JSON.stringify(item.content);
+  }
+  var sessionSelect = $('#sessionSelect');
+  sessionSelect.select2({
+    placeholder: "Choisir une session",
+    allowClear: true,
+    maximumSelectionLength: 1,
+    minimumInputLength: 1,
+    templateResult: formatItem,
+    templateSelection: formatItemSelection,
+    ajax: {
+      url: 'https://localhost:8443/session/search',
+      dataType: 'json',
+      delay: 250,
+      data: function (params) { var query = { q: params.term }; return  query; },
+      processResults: function (data) { return { results: data.items };
+      }
+    }
+  });
+
+  sessionSelect.on("select2:select", function(e) {
+    if(sessionSelect.select2('data').length > 0 ) {
+      sessionJsonToUi(sessionSelect.select2('data')[0].content);
+    }
+  });
+
+  sessionSelect.on("select2:unselect", function(e) {
+    cleanUi();
+  });
+
+</script>
+
+<script >
+  var defaultConfig = `[
+  {
+    "etape": "epure",
+    "transformation": "AsciidocMacro",
+    "intrant": "description1",
+    "extrant": "epure1"
+  },
+  {
+    "etape": "epure",
+    "transformation": "AsciidocMacro",
+    "intrant": "description2",
+    "extrant": "epure2"
+  },
+  {
+    "etape": "traduit",
+    "transformation": "Asciidoc",
+    "intrant": "epure1",
+    "extrant": "mmd"
+  },
+  {
+    "etape": "traduit",
+    "transformation": "Asciidoc",
+    "intrant": "epure2",
+    "extrant": "mmd"
+  },
+  {
+    "etape": "assure",
+    "transformation": "CustomRule",
+    "intrant": "mmd",
+    "extrant": "mmdassure"
+  },
+  {
+    "etape": "atteste",
+    "transformation": "Relationnal",
+    "intrant": "mmdassure",
+    "extrant": "mmdatteste"
+  },
+  {
+    "etape": "presente",
+    "transformation": "PresenteModelisateur",
+    "intrant": "mmdatteste",
+    "extrant": "mmdpresente"
+  }]`;
+  
+  var defaultInput = `
+:toc-title: Table des matières
+= Document title
+
+== Level 1
+
+paragraphe exemple
+
+=== Level 2
+
+Message contenant une réponse à une requête de tâche en cours d'un connecteur.
+La réponse est au format JSON.
+
+[quote]
+____
+Four score and seven years ago our fathers brought forth
+on this continent a new nation...
+____
+
+`;
+  
+  function cleanUi(){
+    $('#sessionSelect').val("");
+    $('#titleInput').val("");
+    $('#configTextarea').val("");
+    //$('#description1Textarea').val(defaultInput);
+    $('#description1Textarea').val("");
+    $('#description2Textarea').val("");
+    $('#journal1Textarea').val("");
+    $('#presente1Textarea').val("");
+    $('#configTextarea').val(defaultConfig);
+    //$('#debutP').html("1970-01-01T00:00:00");
+    //$('#finP').html("1970-01-01T00:00:00");
+  ;
+  }
+  
+  document.addEventListener("DOMContentLoaded", function() {
+      cleanUi();
+  }); 
+  
+  function uiToSessionJson(){
+    var session = {};
+    session.id_simplesession = $('#sessionSelect').val();
+    session.titre = $('#titleInput').val();
+    session.transformation = $('#configTextarea').val();
+    session.description1 = $('#description1Textarea').val();
+    session.description2 = $('#description2Textarea').val();
+    session.systemJ = $('#journal1Textarea').val();
+    session.presente =$('#presente1Textarea').val();
+    
+    if($('#debutP').html() != "") {
+      session.moment_debut = $('#debutP').html();
+      session.moment_fin = $('#finP').html();
+    }
+
+    return session;
+  } 
+  
+  function sessionJsonToUi(session){
+     $('#sessionSelect').val(session.id_simplesession);
+     $('#titleInput').val(session.titre);
+     $('#configTextarea').val(session.transformation);
+     $('#description1Textarea').val(session.description1);
+     $('#description2Textarea').val(session.description2);
+     if(session.systemJ) {
+      $('#journal1Textarea').val(session.systemJ.messagesAsString);
+     } else {
+      $('#journal1Textarea').val(session.systemj);
+     }
+     $('#presente1Textarea').val(session.presente);
+     $('#debutP').html(session.moment_debut);
+     $('#finP').html(session.moment_fin);
+  }
+
+  function compile() {
+    console.log("compile")
+
+    var sessionJson = uiToSessionJson();
+    var data =JSON.stringify(sessionJson);
+
+    fetch("https://localhost:8443/session/executeString", {
+      method: "POST",
+      headers: {'Content-Type': 'text/plain'},
+      body: data
+    })
+      .then(response => response.text())
+      .then(result => {
+        sessionJsonToUi(JSON.parse(result));
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  function save() {
+    console.log("save")
+    
+    var sessionJson = uiToSessionJson();
+    var data =JSON.stringify(sessionJson);
+
+    fetch("https://localhost:8443/session/saveString", {
+      method: "POST",
+      headers: {'Content-Type': 'text/plain'},
+      body: data
+    })
+      .then(response => response.text())
+      .then(result => {
+        sessionJsonToUi(JSON.parse(result));
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+</script>
+
+</html>

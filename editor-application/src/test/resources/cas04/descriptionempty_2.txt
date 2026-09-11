@@ -1,0 +1,9 @@
+:projetid: projetdescription1 [b12c7bf9-3232-46cd-8a4c-de838b23e673]
+:documentid: DocumentModelev1
+
+= DocumentModele_v1
+
+== SectionB [9849d016-d120-4f54-b593-bb110cbc7ac0]
+
+Sans règle
+

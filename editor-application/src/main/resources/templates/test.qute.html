@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="/static/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+
+<style>
+  .icon{
+    width: 3rem;
+  }
+  .item{
+    width: 100%;
+  }
+</style>
+<!--https://select2.org/searching-->
+<body>
+  <h1>Test</b></h1>
+  <div>
+    <select class="selectmax" multiple="multiple" style="width: 50%"></select>
+  </div>
+</body>
+<script>
+
+  $(document).ready(function() {
+    $('.selectmax').select2({
+      maximumSelectionLength: 5,
+      allowClear: true,
+      ajax: {
+        url: 'https://localhost:8443/search',
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          console.log(params);
+          var query = {
+            q: params.term
+          }
+          return  query;
+        },
+        processResults: function (data) {
+          console.log(data);
+          return {
+            results: data.items
+          };
+        }
+      },
+      minimumInputLength: 1,
+      templateResult: formatRepo,
+      templateSelection: formatRepoSelection
+    });
+
+  function formatRepo (repo) {
+    if (repo.loading) {
+      return repo.text;
+    }
+/*
+    var $container = $(
+      "<div class='select2-result-repository clearfix'>" +
+        "<div class='select2-result-repository__avatar'><img src='" + repo.owner.avatar_url + "' /></div>" +
+        "<div class='select2-result-repository__meta'>" +
+          "<div class='select2-result-repository__title'></div>" +
+          "<div class='select2-result-repository__description'></div>" +
+          "<div class='select2-result-repository__statistics'>" +
+            "<div class='select2-result-repository__forks'><i class='fa fa-flash'></i> </div>" +
+            "<div class='select2-result-repository__stargazers'><i class='fa fa-star'></i> </div>" +
+            "<div class='select2-result-repository__watchers'><i class='fa fa-eye'></i> </div>" +
+          "</div>" +
+        "</div>" +
+      "</div>"
+    );
+
+    $container.find(".select2-result-repository__title").text(repo.full_name);
+    $container.find(".select2-result-repository__description").text(repo.description);
+    $container.find(".select2-result-repository__forks").append(repo.forks_count + " Forks");
+    $container.find(".select2-result-repository__stargazers").append(repo.stargazers_count + " Stars");
+    $container.find(".select2-result-repository__watchers").append(repo.watchers_count + " Watchers");
+*/
+    return repo.content;
+  }
+
+  function formatRepoSelection (repo) {
+    return repo.id || repo.content;
+  }
+  });
+</script>
+
+</html>

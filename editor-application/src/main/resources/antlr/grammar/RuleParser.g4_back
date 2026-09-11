@@ -1,0 +1,106 @@
+parser grammar RuleParser;
+
+options {
+  tokenVocab = RuleLexer;
+}
+
+@header {
+import ca.mbjolin.editor.process._2_intermediaterepresentation.regle.Regle;
+}
+
+@parser::members {
+public Regle regle = new Regle();
+}
+
+regle : sousregle*;
+
+sousregle
+:
+  verification  correction
+;
+
+modification
+:
+  
+  OM sujet operateur etat
+  {
+    regle.addModification(_localctx.sujet().getText(), _localctx.operateur().getText(), _localctx.etat().getText());
+  }
+
+;
+
+/* S'il n'y a pas de comparateur c'est une propriété du sujet. */
+verification
+:
+  OR sujet comparateur? etat
+  {
+    regle.addVerification(_localctx.sujet().getText(), _localctx.comparateur().getText(), _localctx.etat().getText());
+  }
+
+;
+
+correction
+:
+  OC verification IMPLICATION modification*
+  {
+    //regle.addCorrection()
+  }
+
+;
+
+sujet
+:
+  (
+    objet+ SUB+ type+ SUB+ attribut+
+  )
+;
+
+objet
+:
+  SYMBOLTABLE
+  | OBJECTTABLE
+  | DOCUMENTMODEL
+;
+
+type
+:
+  TOUT
+  | META
+  | SECTION
+  | PARAGRAPHE
+  | CONTENU
+  | CITATION
+  | PREDICAT
+  | SOURCE
+;
+
+attribut
+:
+  IDENTIFIANT
+  | VALEUR
+  | DESCRIPTION
+;
+
+etat
+:
+  sujet
+  | RANDOM
+  | EMPTY
+  | FULL
+  | SHOW
+  | UNIQUE
+  | ORDERED
+  | WORD
+;
+
+operateur
+:
+  ASSIGNATION
+;
+
+comparateur
+:
+  EQUALITY
+  | DIFFERENT
+;
+

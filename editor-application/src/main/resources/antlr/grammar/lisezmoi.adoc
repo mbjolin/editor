@@ -1,0 +1,2 @@
+sudo npm install -g antlr-format-cl
+antlr-format -c antlr-format.json AsciidocMacroLexer.g4

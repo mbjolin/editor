@@ -1,0 +1,38 @@
+:identifiant_modele: "9b8f6d7a-2c11-4d8f-a7f0-3f5a8c1d2e91"
+= DocumentModele_v1
+
+== SectionA [4edd432a-05fa-4fb3-95d6-c58acec01f1b]
+
+Provenant de "github.com/AlloyTools/models/blob/master/puzzles/farmer-chicken-fox/farmer.als"
+
+The classic river crossing puzzle. A farmer is carrying a fox, a
+chicken, and a sack of grain. He must cross a river using a boat
+that can only hold the farmer and at most one other thing. If the
+farmer leaves the fox alone with the chicken, the fox will eat the
+chicken; and if he leaves the chicken alone with the grain, the
+chicken will eat the grain. How can the farmer bring everything
+to the far side of the river intact?
+
+authors: Greg Dennis, Rob Seater
+
+Acknowledgements to Derek Rayside and his students for finding and
+fixing a bug in the "crossRiver" predicate.
+
+
+++++
+open util/ordering[State] as ord
+++++
+
+The farmer and all his possessions will be represented as Objects.
+Some objects eat other objects when the Farmer's not around.
+
+++++
+abstract sig Object { eats: set Object }
+++++
+
+++++
+one sig Farmer, Fox, Chicken, Grain extends Object {}
+++++
+
+~~~~
+

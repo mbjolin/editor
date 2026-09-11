@@ -1,0 +1,49 @@
+:documentid: DocumentModelev1
+:documentinfo: "Le document qui suit sert à des fins d'expérimentation."
+:projetid: projetdescription1
+:var1: vrai
+
+= DocumentModele_v1
+
+== SectionA
+Voici un modèle.
+ifdef::var1[]
+une utilisation de macro var1 := {var1}
+endif::var1[]
+
+=== SectionAa
+[quote]
+____
+Une citation.
+____
+
+Règle informelle
+
+```
+RegleA=Le fermier ne mange pas.
+```
+~~~~
+
+=== SectionAb
+Autres règles formelles
+
+++++
+open util/ordering[State] as ord
+abstract sig Object { eats: set Object }
+one sig Farmer, Fox, Chicken, Grain extends Object {}
+++++
+
+++++
+fact eating { eats = Fox->Chicken + Chicken->Grain }
+++++
+
+++++
+sig State {
+   near: set Object,
+   far: set Object
+}
+++++
+
+~~~~
+
+~~~~

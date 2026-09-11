@@ -1,0 +1,52 @@
+= Le modèle logique de données Editor
+
+Ce répertoire comprend les schémas en code source SQL et des scripts. Ces scripts permettent la construction d'un conteneur Docker permettant de rouler ceux-ci avec une base de données Postgres et de générer une API java avec jOOQ.
+
+== Prérequis
+
+* Postgres pour exécuter les schémas (version 15.3);
+* GNU bash pour lancer les scripts de manipulation d'un conteneur Docker comprenant Postgres et les schémas, il est fourni avec les systèmes d'exploitation Linux ou macOS (version 5.2.21);
+* Docker pour créer et exécuter un conteneur Postgres et ensuite pour permettre de générer l'API java depuis jOOQ (version 29.4.1);
+* Gradle pour compiler un jar contenant l'API java, il s'installe seul (version 8.9).
+
+== Construction
+
+Pour créer le conteneur Docker contenant la base de données :
+[source,bash]
+----
+./db-build.sh
+----
+
+
+Pour créer l'API java avec JooQ
+[source,bash]
+----
+./db-startpermanent.sh 
+./gradlew generateJooqClientJooq
+./gradlew build
+./gradlew publishToMavenLocal
+----
+
+== Usage
+
+Pour démarrer le conteneur Docker contenant la base de données :
+
+[source,bash]
+----
+./db-startpermanent.sh
+----
+
+Pour arrêter le conteneur Docker contenant la base de données :
+
+[source,bash]
+----
+./db-stophardreset.sh
+----
+
+== Licence
+
+Eclipse Public License - v 2.0
+
+== Statut
+
+Il s'agit d'une preuve de concept.

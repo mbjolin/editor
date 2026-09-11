@@ -1,0 +1,91 @@
+begin transaction;
+
+drop schema if exists test cascade;
+create schema test;
+
+select dataset.insert_base();
+
+create or replace function test.insert_document_success_test()
+returns text
+language plpgsql as $fun$
+declare
+  _actual jsonb;
+  _expected jsonb;
+  _result text;
+begin
+  -- Given
+   _expected := jsonb_build_object('id_document', 1, 'domaine_par_defaut','solution', 'contenu', 'contenu text', 'id_gabarit', 1);
+
+  -- When
+  perform concevoir_api.insert_document(1, 'solution', 'contenu text', 1);
+
+  -- Then
+  select row_to_json(document) from concevoir_pri.document where id_document = 1 into _actual;
+
+  raise exception query_canceled;
+  exception
+    when query_canceled then
+    select is(_actual::text, _expected::text, 'insert_document') into _result;
+    return _result;
+
+end
+$fun$;
+
+create or replace function test.insert_document_fail_test()
+returns text
+language plpgsql as $fun$
+declare
+  _actual jsonb;
+  _expected jsonb;
+  _result text;
+begin
+  -- Given
+   _expected := jsonb_build_object('id_document', 1, 'domaine_par_defaut','solution', 'contenu', 'contenu text', 'id_gabarit', 1);
+
+  -- When
+  perform concevoir_api.insert_document(1, 'solution', 'bad contenu text', 1);
+
+  -- Then
+  select row_to_json(document) from concevoir_pri.document where id_document = 1 into _actual;
+
+  raise exception query_canceled;
+  exception
+    when query_canceled then
+    -- mettre le isnt to is pour briser le test.
+    select isnt(_actual::text, _expected::text, 'insert_document') into _result;
+    return _result;
+end
+$fun$;
+
+create or replace function test.insert_test()
+returns text
+language plpgsql as $fun$
+declare
+  _actual jsonb;
+  _expected jsonb;
+  _result text;
+begin
+  -- Given
+   _expected := jsonb_build_object('id_document', 1, 'domaine_par_defaut','solution', 'contenu', 'contenu text2', 'id_gabarit', 1);
+
+  -- When
+
+  perform concevoir_api.insert(1, 'solution', 'contenu text2', 1);
+
+  -- Then
+  select row_to_json(document) from concevoir_pri.document where id_document = 1 into _actual;
+
+  raise exception query_canceled;
+  exception
+    when query_canceled then
+    select is(_actual::text, _expected::text, 'insert_document') into _result;
+    return _result;
+end
+$fun$;
+
+select plan(3);
+select test.insert_document_success_test();
+select test.insert_document_fail_test();
+select finish();
+
+rollback;

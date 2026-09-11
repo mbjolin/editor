@@ -1,0 +1,265 @@
+/* L'engin d'exécution regroupe les classes sous les paquets :
+ * façade, handler, journal, model, preprocess, process, repository, service et util.
+ * */
+jacocoTestReport {
+  dependsOn test
+  afterEvaluate {
+      classDirectories.setFrom(files(classDirectories.files.collect {
+          fileTree(dir: it, exclude: [
+            '**/ca/mbjolin/editor/integration/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/test/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/unit/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/antlr/**', // Ces classes sont générées par ANTLR.
+            '**/ca/mbjolin/editor/config/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/web/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/dao/**', // Ces classes servent surtout au CRUD pour la persistance de l'Atelier.
+            '**/ca/mbjolin/editor/**/*Atelier*.*', //L'Atelier ne fait pas partie de l'engin d'exécution.
+            '**/ca/mbjolin/editor/model/**', //Pour la future version de l'interface utilisateur.
+            '**/ca/mbjolin/editor/facade/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/util/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/service/**' //Ne touche pas à l'engin.
+          ])
+      }))
+  }
+}
+
+
+task runCasAll(type: Test) {
+  filter {
+      includeTestsMatching 'ca.mbjolin.editor.evaluation.**'
+  }
+}
+
+task coverageCasAll(type: JacocoReport) {
+dependsOn runCasAll
+
+executionData runCasAll
+
+classDirectories.setFrom(sourceSets.main.output)
+sourceDirectories.setFrom(sourceSets.main.allSource)
+
+afterEvaluate {
+  classDirectories.setFrom(files(classDirectories.files.collect {
+      fileTree(dir: it, exclude: [
+          '**/ca/mbjolin/editor/integration/**', // Il n'y a que les tests servant à l'évaluation.
+          '**/ca/mbjolin/editor/test/**', // Il n'y a que les tests servant à l'évaluation.
+          '**/ca/mbjolin/editor/unit/**', // Il n'y a que les tests servant à l'évaluation.
+          '**/ca/mbjolin/antlr/**', // Ces classes sont générées par ANTLR.
+          '**/ca/mbjolin/editor/config/**', // Ces classes servent pour l'interface utilisateur.
+          '**/ca/mbjolin/editor/web/**', // Ces classes servent pour l'interface utilisateur.
+          '**/ca/mbjolin/editor/dao/**', // Ces classes servent surtout au CRUD pour la persistance de l'Atelier.
+          '**/ca/mbjolin/editor/**/*Atelier*.*', //L'Atelier ne fait pas partie de l'engin d'exécution.
+          '**/ca/mbjolin/editor/model/**', //Pour la future version de l'interface utilisateur.
+          '**/ca/mbjolin/editor/facade/**', //Pour la future version qui va gérer les métamodeles.
+          '**/ca/mbjolin/editor/util/**', //Pour la future version qui va gérer les métamodeles.
+          '**/ca/mbjolin/editor/service/**' //Ne touche pas à l'engin.
+      ])
+  }))
+}
+
+reports {
+    html.required = true
+    html.outputLocation = layout.buildDirectory.dir("reports/jacoco/casAll")
+    xml.required = false
+}
+}
+
+task runCas01(type: Test) {
+    filter {
+        includeTestsMatching 'ca.mbjolin.editor.evaluation.Cas01Test'
+    }
+}
+
+task coverageCas01(type: JacocoReport) {
+  dependsOn runCas01
+
+  executionData runCas01
+
+  classDirectories.setFrom(sourceSets.main.output)
+  sourceDirectories.setFrom(sourceSets.main.allSource)
+
+  afterEvaluate {
+    classDirectories.setFrom(files(classDirectories.files.collect {
+        fileTree(dir: it, exclude: [
+            '**/ca/mbjolin/editor/integration/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/test/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/unit/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/antlr/**', // Ces classes sont générées par ANTLR.
+            '**/ca/mbjolin/editor/config/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/web/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/dao/**', // Ces classes servent surtout au CRUD pour la persistance de l'Atelier.
+            '**/ca/mbjolin/editor/**/*Atelier*.*', //L'Atelier ne fait pas partie de l'engin d'exécution.
+            '**/ca/mbjolin/editor/model/**', //Pour la future version de l'interface utilisateur.
+            '**/ca/mbjolin/editor/facade/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/util/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/service/**' //Ne touche pas à l'engin.
+        ])
+    }))
+  }
+  
+  reports {
+      html.required = true
+      html.outputLocation = layout.buildDirectory.dir("reports/jacoco/cas01")
+      xml.required = false
+  }
+}
+
+task runCas02(type: Test) {
+  filter {
+      includeTestsMatching 'ca.mbjolin.editor.evaluation.Cas02Test'
+  }
+}
+
+task coverageCas02(type: JacocoReport) {
+  dependsOn runCas02
+
+  executionData runCas02
+
+  classDirectories.setFrom(sourceSets.main.output)
+  sourceDirectories.setFrom(sourceSets.main.allSource)
+
+  afterEvaluate {
+    classDirectories.setFrom(files(classDirectories.files.collect {
+        fileTree(dir: it, exclude: [
+            '**/ca/mbjolin/editor/integration/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/test/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/unit/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/antlr/**', // Ces classes sont générées par ANTLR.
+            '**/ca/mbjolin/editor/config/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/web/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/dao/**', // Ces classes servent surtout au CRUD pour la persistance de l'Atelier.
+            '**/ca/mbjolin/editor/**/*Atelier*.*', //L'Atelier ne fait pas partie de l'engin d'exécution.
+            '**/ca/mbjolin/editor/model/**', //Pour la future version de l'interface utilisateur.
+            '**/ca/mbjolin/editor/facade/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/util/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/service/**' //Ne touche pas à l'engin.
+        ])
+    }))
+  }
+  
+  reports {
+      html.required = true
+      html.outputLocation = layout.buildDirectory.dir("reports/jacoco/cas02")
+      xml.required = false
+  }
+}
+
+task runCas03(type: Test) {
+  filter {
+      includeTestsMatching 'ca.mbjolin.editor.evaluation.Cas03Test'
+  }
+}
+
+task coverageCas03(type: JacocoReport) {
+  dependsOn runCas03
+
+  executionData runCas03
+
+  classDirectories.setFrom(sourceSets.main.output)
+  sourceDirectories.setFrom(sourceSets.main.allSource)
+
+  afterEvaluate {
+    classDirectories.setFrom(files(classDirectories.files.collect {
+        fileTree(dir: it, exclude: [
+            '**/ca/mbjolin/editor/integration/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/test/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/unit/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/antlr/**', // Ces classes sont générées par ANTLR.
+            '**/ca/mbjolin/editor/config/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/web/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/dao/**', // Ces classes servent surtout au CRUD pour la persistance de l'Atelier.
+            '**/ca/mbjolin/editor/**/*Atelier*.*', //L'Atelier ne fait pas partie de l'engin d'exécution.
+            '**/ca/mbjolin/editor/model/**', //Pour la future version de l'interface utilisateur.
+            '**/ca/mbjolin/editor/facade/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/util/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/service/**' //Ne touche pas à l'engin.
+        ])
+    }))
+  }
+  
+  reports {
+      html.required = true
+      html.outputLocation = layout.buildDirectory.dir("reports/jacoco/cas03")
+      xml.required = false
+  }
+}
+
+task runCas04(type: Test) {
+  filter {
+      includeTestsMatching 'ca.mbjolin.editor.evaluation.Cas04Test'
+  }
+}
+
+task coverageCas04(type: JacocoReport) {
+  dependsOn runCas04
+
+  executionData runCas04
+
+  classDirectories.setFrom(sourceSets.main.output)
+  sourceDirectories.setFrom(sourceSets.main.allSource)
+
+  afterEvaluate {
+    classDirectories.setFrom(files(classDirectories.files.collect {
+        fileTree(dir: it, exclude: [
+            '**/ca/mbjolin/editor/integration/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/test/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/unit/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/antlr/**', // Ces classes sont générées par ANTLR.
+            '**/ca/mbjolin/editor/config/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/web/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/dao/**', // Ces classes servent surtout au CRUD pour la persistance de l'Atelier.
+            '**/ca/mbjolin/editor/**/*Atelier*.*', //L'Atelier ne fait pas partie de l'engin d'exécution.
+            '**/ca/mbjolin/editor/model/**', //Pour la future version de l'interface utilisateur.
+            '**/ca/mbjolin/editor/facade/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/util/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/service/**' //Ne touche pas à l'engin.
+        ])
+    }))
+  }
+  
+  reports {
+      html.required = true
+      html.outputLocation = layout.buildDirectory.dir("reports/jacoco/cas04")
+      xml.required = false
+  }
+}
+
+task runCas05(type: Test) {
+  filter {
+      includeTestsMatching 'ca.mbjolin.editor.evaluation.Cas05**'
+  }
+}
+
+task coverageCas05(type: JacocoReport) {
+  dependsOn runCas05
+
+  executionData runCas05
+
+  classDirectories.setFrom(sourceSets.main.output)
+  sourceDirectories.setFrom(sourceSets.main.allSource)
+
+  afterEvaluate {
+    classDirectories.setFrom(files(classDirectories.files.collect {
+        fileTree(dir: it, exclude: [
+            '**/ca/mbjolin/editor/integration/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/test/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/editor/unit/**', // Il n'y a que les tests servant à l'évaluation.
+            '**/ca/mbjolin/antlr/**', // Ces classes sont générées par ANTLR.
+            '**/ca/mbjolin/editor/config/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/web/**', // Ces classes servent pour l'interface utilisateur.
+            '**/ca/mbjolin/editor/dao/**', // Ces classes servent surtout au CRUD pour la persistance de l'Atelier.
+            '**/ca/mbjolin/editor/**/*Atelier*.*', //L'Atelier ne fait pas partie de l'engin d'exécution.
+            '**/ca/mbjolin/editor/model/**', //Pour la future version de l'interface utilisateur.
+            '**/ca/mbjolin/editor/facade/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/util/**', //Pour la future version qui va gérer les métamodeles.
+            '**/ca/mbjolin/editor/service/**' //Ne touche pas à l'engin.
+        ])
+    }))
+  }
+  
+  reports {
+      html.required = true
+      html.outputLocation = layout.buildDirectory.dir("reports/jacoco/cas05")
+      xml.required = false
+  }
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/static/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <style type="text/css" media="screen">
+  </style>
+</head>
+<body>
+  <div style="padding: 10px;">
+      <select id="document-select" style="width: 50%"></select>
+  </div>
+  <div style="padding: 10px;">
+      <select class="object-select" style="width: 50%"></select>
+  </div>
+
+  <div style="padding: 10px;">
+    <button onclick="parse();">parse</button>
+    <button onclick="tree();">tree</button>
+    <button onclick="compile();">compile</button>
+    <button onclick="save();">save</button>
+  </div>
+
+  <div>
+    <table style="width: 100%;">
+      <tr>
+        <td><textarea id="document-text" rows="30" style="width: 100%;"></textarea></td>
+        <td><textarea id="result-text" rows="30" style="width: 100%;" disabled></textarea></td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+<script>
+  function formatItem (item) {
+    var result;
+    if (item.loading) {
+      result = item.text;
+    } else {
+      result = JSON.stringify(item.content);
+    }
+    return result;
+  }
+
+  function formatItemSelection (item) {
+    /* repo.text c'est pour le placeholder. */
+    return item.id || JSON.stringify(item.content) || item.text;
+  }
+  var documentSelect = $('#document-select');
+  documentSelect.select2({
+    placeholder: "Choisir un métamodèle de document",
+    allowClear: true,
+    maximumSelectionLength: 1,
+    minimumInputLength: 1,
+    templateResult: formatItem,
+    templateSelection: formatItemSelection,
+    ajax: {
+      url: 'https://localhost:8443/intrant/search',
+      dataType: 'json',
+      delay: 250,
+      data: function (params) { var query = { q: params.term }; return  query; },
+      processResults: function (data) { return { results: data.items };
+      }
+    }
+  });
+
+  var currentDocument;
+  var lastDocument;
+
+  documentSelect.on("select2:select", function(e) {
+    if(documentSelect.select2('data').length > 0 ) {
+      lastDocument = $.extend( true, {}, documentSelect.select2('data')[0].content);
+      currentDocument = documentSelect.select2('data')[0].content;
+      $("#document-text").val(documentSelect.select2('data')[0].content.contenu);
+    }
+  });
+
+  documentSelect.on("select2:unselect", function(e) {
+    lastDocument = "";
+    currentDocument = "";
+    $("#document-text").val("");
+    $("#result-text").val("");
+  });
+
+  var objectSelect = $('#object-select');
+
+  objectSelect.select2({
+    placeholder: "Ajouter un objet",
+    allowClear: true,
+    maximumSelectionLength: 1,
+    minimumInputLength: 1,
+    templateResult: formatItem,
+    templateSelection: formatItemSelection,
+    ajax: {
+      url: 'https://localhost:8443/object/search',
+      dataType: 'json',
+      delay: 250,
+      data: function (params) { var query = { q: params.term }; return  query; },
+      processResults: function (data) { return { results: data.items };
+      }
+    }
+  });
+
+</script>
+
+<script >
+
+  function tree() {
+    console.log("tree")
+     currentDocument.contenu = $("#document-text").val();
+     var data =currentDocument.contenu;
+
+    fetch("https://localhost:8443/document/tree", {
+      method: "POST",
+      headers: {'Content-Type': 'text/plain'},
+      body: data
+    })
+      .then(response => response.text())
+      .then(result => {
+        $('#result-text').val(result)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  function parse() {
+    console.log("parse")
+     currentDocument.contenu = $("#document-text").val();
+     var data =currentDocument.contenu;
+
+    fetch("https://localhost:8443/document/parse", {
+      method: "POST",
+      headers: {'Content-Type': 'text/plain'},
+      body: data
+    })
+      .then(response => response.text())
+      .then(result => {
+        $('#result-text').val(result)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  function compile() {
+    console.log("compile")
+     currentDocument.contenu = $("#document-text").val();
+     var data =currentDocument.contenu;
+
+    fetch("https://localhost:8443/document/compile", {
+      method: "POST",
+      headers: {'Content-Type': 'text/plain'},
+      body: data
+    })
+      .then(response => response.text())
+      .then(result => {
+        $('#result-text').val(result)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  function save() {
+    console.log("save")
+    currentDocument.contenu = $("#document-text").val();
+    var data =JSON.stringify([currentDocument, lastDocument]);
+
+    fetch("https://localhost:8443/document/update", {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: data
+    })
+      .then(response => response.json())
+      .then(json => {
+        lastDocument = json;
+        const result = JSON.stringify(json, null, 2);
+        $('#result-text').val(result)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+beginmeta 12 abc endmeta beginmeta 34 abc endmeta
+beginmeta 1234 wqwe eew endmeta
+
+beginmeta 5633 eewew 32324
+endmeta
+
+beginmeta 1333 vmdsdds endmeta
+
+beginsection
+
+endsection
+
+beginsection
+
+identifiant2
+
+beginparagraphe
+begincontent
+identifiant1 descriptioncontenu sasd bla bla
+endcontent
+
+begincitation
+citation1 descriptioncitation
+endcitation
+
+endparagraphe
+
+endsection
+

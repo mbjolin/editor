@@ -1,0 +1,13 @@
+{
+  "0": {
+    "type": "pane",
+    "tabBar": {
+      "tabList": [],
+      "scrollLeft": 0
+    }
+  },
+  "ratio": 0.5,
+  "type": "hbox",
+  "fixedSize": null,
+  "hidden": false
+}

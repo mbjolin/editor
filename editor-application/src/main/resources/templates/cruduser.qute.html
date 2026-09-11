@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="/static/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+
+<body>
+  <h1>CRUD utilisateur</b></h1>
+  <div>
+    <p><select id="userSelect" style="width: 50%"></select></p>
+    <p><input id="userInput" size="100"></input></p>
+    <p>
+      <button onclick="createFunction();">create</button>
+      <button onclick="readFunction();">read</button>
+      <button onclick="updateFunction();">update</button>
+      <button onclick="deleteFunction();">delete</button>
+    </p>
+    <p>
+      <code id="userResult"> </code>
+    </p>
+  </div>
+</body>
+<script>
+
+  $(document).ready(function () {
+    $('#userSelect').select2({
+      maximumSelectionLength: 1,
+      placeholder: "Choisir un utilisateur.",
+      allowClear: true,
+      ajax: {
+        url: 'https://localhost:8443/user/search',
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          console.log(params);
+          var query = {
+            q: params.term
+          }
+          return query;
+        },
+        processResults: function (data) {
+          console.log(data);
+          return {
+            results: data.items
+          };
+        }
+      },
+      minimumInputLength: 1,
+      templateResult: formatItem,
+      templateSelection: formatItemSelection
+    });
+
+    function formatItem(item) {
+      if (item.loading) {
+        return item.text;
+      }
+      return JSON.stringify(item.content);
+    }
+
+    function formatItemSelection(item) {
+      return item.id || JSON.stringify(item.content);
+    }
+  });
+
+  $('#userSelect').on("select2:select", function (e) {
+    if ($('#userSelect').select2('data').length > 0) {
+      $('#userInput').val(JSON.stringify($('#userSelect').select2('data')[0].content));
+    }
+  });
+
+  $('#userSelect').on("select2:unselect", function (e) {
+    $('#userInput').val("");
+  });
+
+  function createFunction() {
+    console.log("createFunction")
+    var data = $('#userInput').val();
+
+    fetch("https://localhost:8443/user/create", {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: data
+    })
+      .then(response => response.json())
+      .then(json => {
+        const result = JSON.stringify(json, null, 2);
+        $('#userResult').html(result)
+      })
+      .catch(error => {
+        const result = JSON.stringify(error, null, 2);
+        $('#userResult').html(result)
+      });
+  }
+
+  function readFunction() {
+    console.log("readFunction")
+    var data = $('#userInput').val();
+
+    fetch("https://localhost:8443/user/read", {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: data
+    })
+      .then(response => response.json())
+      .then(json => {
+        const result = JSON.stringify(json, null, 2);
+        $('#userResult').html(result)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  function updateFunction() {
+    console.log("updateFunction")
+    var data = $('#userInput').val();
+
+    fetch("https://localhost:8443/user/update", {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: data
+    })
+      .then(response => response.json())
+      .then(json => {
+        const result = JSON.stringify(json, null, 2);
+        $('#userResult').html(result)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  function deleteFunction() {
+    console.log("deleteFunction")
+    var data = $('#userInput').val();
+
+    fetch("https://localhost:8443/user/delete", {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: data
+    })
+      .then(json => {
+        const result = JSON.stringify(json, null, 2);
+        $('#userResult').html(result)
+      })
+      .catch(error => {
+        const result = JSON.stringify(error, null, 2);
+        $('#userResult').html(result)
+      });
+  }
+</script>
+
+</html>

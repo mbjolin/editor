@@ -1,0 +1,13 @@
+//Comportement pour compléter le modèle intermédiaire.
+modification: document.section.identifiant = RANDOM
+
+//Assertions sur le modèle intermédiaire.
+regle: document.*.identifiant != NULL
+
+//document.*.identifiant == NULL => RANDOM
+
+//Assertions sur le modèle base de données.
+
+
+
+

@@ -1,0 +1,38 @@
+:projetid: projetdescription1
+:documentid: DocumentModelev1
+:documentinfo: "Le document qui suit sert à des fins d'expérimentation."
+:modeleinfo: "Représentation d'un modèle pour approbation."
+
+= DocumentModele_v1
+
+== SectionA
+Voici un modèle sans règle formelle.
+
+=== SectionAa
+[quote]
+____
+Une citation.
+____
+
+Règles informelles
+
+```
+RegleTest=error
+```
+~~~~
+
+=== SectionAb
+Autres règles informelles
+
+```
+b=10 
+```
+
+```
+a=10
+```
+
+
+~~~~
+
+~~~~

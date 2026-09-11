@@ -1,0 +1,52 @@
+metamulti(identifiant, valeur) ::= <<
+
+beginmeta
+<identifiant>
+"<valeur>"
+endmeta
+>>
+
+metarow(identifiant, valeur) ::= <<
+beginmeta <identifiant> "<valeur>" endmeta
+>>
+
+section(identifiant, paragraphes) ::= <<
+
+beginsection
+<identifiant>
+<paragraphes>
+endsection
+>>
+
+paragraphe(identifiant, somecontent) ::= <<
+
+beginparagraphe
+<somecontent>
+endparagraphe
+>>
+
+contenu(identifiant, description) ::= <<
+
+begincontent
+<identifiant>
+"<description>"
+endcontent
+>>
+
+citation(identifiant, description, sources) ::= <<
+
+begincite
+<identifiant>
+"<description>"
+[<sources>]
+endcite
+>>
+
+reglelogique(identifiant, descriptionFormelle, descriptionNaturelle, sources) ::= <<
+
+beginreglelogique
+<identifiant>
+"<descriptionFormelle>" ~ "<descriptionNaturelle>"
+[<sources>]
+endreglelogique
+>>

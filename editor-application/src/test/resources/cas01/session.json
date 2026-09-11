@@ -1,0 +1,9 @@
+{
+  "id_simplesession": null,
+  "titre": "projectDefaultTitle",
+  "transformation": "[\n  {\n    \"etape\": \"epure\",\n    \"transformation\": \"AsciidocMacro\",\n    \"intrant\": \"description1\",\n    \"extrant\": \"epure1\"\n  },\n  {\n    \"etape\": \"epure\",\n    \"transformation\": \"AsciidocMacro\",\n    \"intrant\": \"description2\",\n    \"extrant\": \"epure2\"\n  },\n  {\n    \"etape\": \"traduit\",\n    \"transformation\": \"Asciidoc\",\n    \"intrant\": \"epure1\",\n    \"extrant\": \"mmd\"\n  },\n  {\n    \"etape\": \"traduit\",\n    \"transformation\": \"Asciidoc\",\n    \"intrant\": \"epure2\",\n    \"extrant\": \"mmd\"\n  },\n  {\n    \"etape\": \"assure\",\n    \"transformation\": \"CustomRule\",\n    \"intrant\": \"mmd\",\n    \"extrant\": \"mmdassure\"\n  },\n  {\n    \"etape\": \"atteste\",\n    \"transformation\": \"Relationnal\",\n    \"intrant\": \"mmdassure\",\n    \"extrant\": \"mmdatteste\"\n  },\n  {\n    \"etape\": \"presente\",\n    \"transformation\": \"PresenteApprobateur\",\n    \"intrant\": \"mmdatteste\",\n    \"extrant\": \"mmdpresente\"\n  }]",
+  "description1": "",
+  "description2": "",
+  "systemJ": "2026-05-20T13:34:41.74 - INFO - Début de la lecture de la configuration.\n2026-05-20T13:34:41.75 - ERROR - La session doit avoir un titre.\n2026-05-20T13:34:41.75 - INFO - Fin de la lecture de la configuration.\n2026-05-20T13:34:41.75 - DEBUG - Il n'y a pas de description à traiter.",
+  "presente": ""
+}

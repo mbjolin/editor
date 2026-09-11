@@ -1,0 +1,8 @@
+{
+  "main": {
+	"alignTrailingComments": true,
+	"allowShortRulesOnASingleLine": true,
+	"maxEmptyLinesToKeep": 0,
+	"columnLimit": 100
+  }
+}

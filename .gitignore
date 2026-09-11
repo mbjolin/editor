@@ -1,0 +1,11 @@
+.gradle
+/build/*
+.dbeaver/
+.settings/
+/build/
+.project
+.setting
+.classpath
+/class/
+/target/
+/editor-doc-plustard.tar.gz

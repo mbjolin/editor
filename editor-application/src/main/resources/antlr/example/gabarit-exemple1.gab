@@ -1,0 +1,7 @@
+--https://medium.com/@anurag.tech/writing-your-own-rule-engine-with-antlr4-9e0e13144256
+
+identifiant est unique;
+section est ordonnancé : (titresection1, titresection3);
+--section est composé :;
+--section est nommé : (nom1 ou nom2 ou nom3);
+

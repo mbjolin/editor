@@ -1,0 +1,171 @@
+lexer grammar RuleLexer;
+
+OM
+:
+  'modification:'
+;
+
+OR
+:
+  'verification:'
+;
+
+OC
+:
+  'correction:'
+;
+
+IMPLICATION
+:
+  '=>'
+;
+
+SUB
+:
+  '.'
+;
+
+SYMBOLTABLE
+:
+  'symbolTable'
+;
+
+OBJECTTABLE
+:
+  'objectTable'
+;
+
+DOCUMENTMODEL
+:
+  'document'
+;
+
+TOUT
+:
+  '*'
+;
+
+META
+:
+  'meta'
+;
+
+SECTION
+:
+  'section'
+;
+
+PARAGRAPHE
+:
+  'paragraphe'
+;
+
+CONTENU
+:
+  'contenu'
+;
+
+CITATION
+:
+  'citation'
+;
+
+PREDICAT
+:
+  'predicat'
+;
+
+SOURCE
+:
+  'source'
+;
+
+IDENTIFIANT
+:
+  'identifiant'
+;
+
+VALEUR
+:
+  'valeur'
+;
+
+DESCRIPTION
+:
+  'description'
+;
+
+RANDOM
+:
+  'aleatoire'
+;
+
+EMPTY
+:
+  'vide'
+;
+
+FULL
+:
+  'rempli'
+;
+
+SHOW
+:
+  'affiche'
+;
+
+UNIQUE
+:
+  'unique'
+;
+
+ORDERED
+:
+  'ordonnance'
+;
+
+ASSIGNATION
+:
+  ':='
+;
+
+EQUALITY
+:
+  '=='
+;
+
+DIFFERENT
+:
+  '!='
+;
+
+DOCUMENT:
+  'document' |
+  'document.identifiant' |
+  'document.domaineParDefaut' |
+  'document.niveauParDefaut' |
+  'document.metas' |
+  'document.sections' 
+;
+
+WORD
+:
+  [A-Za-z0-9-]+
+;
+
+COMMENT
+:
+  '//' ~[\r\n]* -> skip
+;
+
+WS
+:
+  (
+    ' '
+    | '\t'
+    | '\r'
+    | '\n'
+  )+ -> skip
+;
+

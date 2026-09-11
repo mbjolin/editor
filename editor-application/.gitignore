@@ -1,0 +1,10 @@
+.gradle
+/build/*
+.dbeaver/
+.settings/
+/build/
+.project
+.setting
+.classpath
+/class/
+/target/
