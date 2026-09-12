@@ -2,7 +2,7 @@
 
 J'attends la soutenance avant de déposer les fichiers.
 
-Cette preuve de concept a été développée dans le cadre d'une maîtrise en informatique. Ainsi, le contenu de ce mémoire compose une partie importante de la documentation. D'où une copie de celui-ci dans le projet git Editor.
+Cette preuve de concept a été développée dans le cadre d'une maîtrise en informatique. Ainsi, le contenu de ce mémoire compose une partie importante de la documentation. D'où une copie de celui-ci..
 
 == Prérequis
 
@@ -10,7 +10,7 @@ Overleaf ou éditeur LateX permettant de rouler le moteur pdfLateX version Legac
 
 == Construction
 
-S.O.
+Avec Overleaf, je n'ai pas tenté de compiler en ligne de commande pour le moment.
 
 == Usage
 

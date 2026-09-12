@@ -1,0 +1,90 @@
+L'annexe C contient les descriptions formelles des trois langages utilisés lors de ce mémoire~: le diagramme entité-association, le diagramme de flux de données et le diagramme  provenant du modèle et notation des procédés métiers (BPMN, \textit{Business Process Model and Notation} en anglais).
+
+\vspace{\baselineskip}\par
+
+Le diagramme d'entité-association comprend~:
+\quoteenfrlistcustom {
+    \item[][entity:] \elide is a thing or object in the real world with an independent existence.
+    \item[][relation type:] \elide defines a set of associations — or a relationship set — among entities from these entity types.
+    \item[][cardinality ratio:] The cardinality ratio for a binary relationship specifies the maximum number of relationship instances that an entity can participate in.
+    \item[][participation constraint:] The participation constraint specifies whether the existence of an entity depends on its being related to another entity via the relationship type.
+}{
+    \item[][entité : ] \elide est une chose ou un objet du monde réel doté d'une existence indépendante.
+    \item[][type d'association :] \elide définit un ensemble d'associations — ou un ensemble de relations — entre les entités de ces types d'entités.
+    \item[][rapport de cardinalité : ] Le ratio de cardinalité d'une relation binaire spécifie le nombre maximal d'instances de relation auxquelles une entité peut participer.
+    \item[][contrainte de participation : ] La contrainte de participation spécifie si l'existence d'une entité dépend de sa relation avec une autre entité via le type de relation.
+    \item [][l'expression rectangle représente une entité;] 
+    \item [][l'expression losange représente une association;]
+    \item [][l'expression (minimum, maximum) représente les contraintes structurelles où le minimum est la participation minimale et le maximum est la contrainte de cardinalité maximale.] 
+}{\ccite{elmasri_fundamentals_2016}[p.~63-83]}{[Traduction et description libres]}
+
+\vspace{\baselineskip}\par
+
+La définition du modèle conceptuel de données en utilisant le langage de diagramme~EA nécessite des éléments supplémentaires qui sont décrits ci-dessous~:
+\quoteenfrlistcustom{
+\item [] [--- attribute definition]~: Each entity has attributes — the particular properties that describe it.
+\item [] [--- key attribute description]~: An entity type usually has one or more attributes whose values are distinct for each individual entity in the entity set. Such an attribute is called a key attribute, and its values can be used to identify each entity uniquely.
+\item [] [--- weak entity type definition]~: Entity types that do not have key attributes of their own \elide.
+\item [] [--- weak entity type description]~: A weak entity type always has a total participation constraint (existence dependency) with respect to its identifying relationship because a weak entity cannot be identified without an owner entity. However, not every existence dependency results in a weak entity type.
+\item [] [--- ISA description]~: Behavior inheritance is also known as ISA or interface inheritance \elide.
+}{
+\item [] [--- définition d'attribut]~: Chaque entité possède des attributs — les propriétés particulières qui la décrivent.
+\item [] [--- description d'un attribut clé]~: Un type d'entité possède généralement un ou plusieurs attributs dont les valeurs sont distinctes pour chaque entité de l'ensemble. Un tel attribut est appelé attribut clé, et ses valeurs permettent d'identifier chaque entité de manière unique.
+\item [] [--- définition d'un type d'entité faible]~: Les types d'entités qui ne possèdent pas d'attributs clés propres \elide.
+\item [] [--- description d'un type d'entité faible]~: Une entité faible présente toujours une contrainte de participation totale (dépendance d'existence) vis-à-vis de sa relation d'identification, car elle ne peut être identifiée sans une entité propriétaire. Cependant, toute dépendance d'existence n'entraîne pas nécessairement la création d'une entité faible.
+\item [] [--- description d'ISA]~: L'héritage de comportement est également connu sous le nom d'héritage d'interface ou d'héritage ISA \elide.
+\item [] [--- l'expression ovale représente un attribut.]
+\item [] [--- l'expression ovale avec le mot souligné représente un attribut clé.]
+\item [] [--- l'expression rectangle avec deux contours représente une entité faible.]
+\item [] [--- l'expression losange avec deux contours représente une identification d'association.]
+\item [] [--- l'expression triangle avec \emphase{Is a} représente une relation entre un type et un sous-type. L'utilisation de (d) signifie disjoint et (o) chevauchement (\textit{overlapping}, en anglais). Une ligne double signifie que la spécialisation est totale et une ligne simple qu'elle est partielle.]
+}{\ccite{elmasri_fundamentals_2016}[p.~63, 68, 79, 83, 127, 393]}{[Traduction et description libres]}
+
+%Note :  On Understanding Types, Data Abstraction, and Polymorphism, Inheritance Is Not Subtyping.
+
+\vspace{\baselineskip}\par
+
+Voici la signification du langage du diagramme de contexte et du diagramme de flux de données (DFD)~:
+\quoteenfrlistcustom{
+\item [] [---] process~: \elide a part of the system that transforms inputs into outputs \elide.
+\item [] [---] flow~: \elide describe the movement of chunks, or packets of information from one part of the system to another part.
+\item [] [---] store~: \elide is used to model a collection of data packets at rest.
+\item [] [---] terminator~: \elide represent external entities with which the system communicates.
+}{
+\item [] [--- définition de processus]~: \elide une partie du système qui transforme les intrants en extrants \elide.
+\item [] [--- définition de flux]~: \elide décrit le déplacement de blocs, ou paquets d'informations, d'une partie du système à une autre.
+\item [] [--- définition d'un dépôt]~: \elide est utilisé pour modéliser une collection de paquets de données au repos.
+\item [] [--- définition d'un agent]~: \elide représentent des entités externes avec lesquelles le système communique.
+\item [] [--- l'expression de cercle représente un processus;]
+\item [] [--- l'expression de flèche représente un flux;]
+\item [] [--- l'expression de ligne au-dessus et ligne en dessous représente un dépôt;]
+\item [] [--- l'expression de rectangle représente un agent et, lorsque la nature de l'agent est contrainte à un processus ou à un dépôt, leurs symboles respectifs (cercle, double ligne) peuvent être substitués au rectangle;]
+\item [] [--- l'expression de grande boîte centrale représente la machine qui exécute le système ou le processus.]
+}
+{\ccite{yourdon_modern_1989}[p.~139-156]}{[Traduction et description libre]}
+
+\vspace{\baselineskip}\par
+
+Le \textit{Business Process Model and Notation} (BPMN) est utilisé pour décrire des processus, la signification du langage est donnée avec les éléments suivants~:
+\quoteenfrlistcustom{
+\item [][--- event definition]~: An Event is something that “happens” during the course of a Process \elide.
+\item [][--- activity definition]~: An Activity is a generic term for work that company performs (see page 149) in a Process.
+\item [][--- gateway definition]~: A Gateway is used to control the divergence and convergence of Sequence Flows in a Process \elide.
+\item [][--- sequence flow definition]~: A Sequence Flow is used to show the order that Activities will be performed in a Process \elide.
+\item [][--- pool definition]~:A Pool is the graphical representation of a Participant in a Collaboration (see page 113). It also acts as a “swimlane” and a graphical container for partitioning a set of Activities from other Pools \elide.
+}
+{
+\item [][--- définition d'un événement]~: Un événement est quelque chose qui se produit au cours d'un processus \elide.
+\item [][--- définition d'activité]~: Une activité est un terme générique désignant le travail effectué par une entreprise (voir page 149) dans un processus.
+\item [][--- définition d'une passerelle]~: Une passerelle est utilisée pour contrôler la divergence et la convergence des flux de séquence dans un processus \elide.
+\item [][--- définition d'un flux séquentiel]~: Un flux séquentiel est utilisé pour indiquer l'ordre dans lequel les activités seront exécutées dans un processus \elide.
+\item [][--- définition d'un \textit{pool}]~: Un \textit{pool} est la représentation graphique d'un Participant dans une Collaboration (voir page 113). Il sert également de «~couloir~» et de conteneur graphique pour partitionner un ensemble d'Activités provenant d'autres \textit{pools} \elide.
+\item [][--- l'expression de cercle avec un contour mince représente un événement de départ;]
+\item [][--- l'expression de cercle avec un contour épais représente un événement d'arrivée;]
+\item [][--- l'expression de flèche représente un flux séquentiel;]
+\item [][--- l'expression de rectangle représente une activité; ]
+\item [][--- l'expression de losange ayant un symbole \emphase{X} à l'intérieur représente une porte de type exclusif;]
+\item [][--- l'expression de losange ayant un symbole \emphase{+} à l'intérieur représente une porte de type parallèle;]
+\item [][--- l'expression de boîte représente le \textit{pool}.]
+}
+{\ccite{omg-bpmn-2013}[p.~26-29]}{[Traduction et description libres]}

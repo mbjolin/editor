@@ -1,0 +1,18 @@
+{
+  "name": "soutenance",
+  "version": "1.0.0",
+  "description": "https://asciidoctor.org/docs/asciidoctor-revealjs/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@asciidoctor/reveal.js": "^5.2.0",
+    "asciidoctor": "^4.0.11",
+    "browser-sync": "^3.0.4",
+    "chokidar": "^3.6.0"
+  }
+}

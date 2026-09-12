@@ -1,0 +1,14 @@
+## Prérequis
+
+https://asciidoctor.org/docs/asciidoctor-revealjs/
+
+npm init -y
+
+npm i --save asciidoctor @asciidoctor/reveal.js
+
+npx asciidoctor-revealjs --version
+
+npx nodemon --ext 'adoc' convert-slides.js presentation.adoc
+
+//Le rendu n'est pas identique entre le pdf et le html.
+presentation.html?print-pdf

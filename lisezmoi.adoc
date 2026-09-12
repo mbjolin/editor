@@ -15,7 +15,7 @@ Pour utiliser la preuve de concept, il faut :
 
 . rouler les différents schémas contenus dans editor-ldm à l'intérieur d'une base de données Postgres ou construire un conteneur Docker, les scripts le permettant se trouvent dans le même répertoire;
 . compiler et rouler l'application contenue dans editor-application, les scripts le permettant se trouvent dans le même répertoire;
-. ouvrir avec un navigateur web la page ....
+. ouvrir avec un navigateur la page web.
 
 == Licence
 

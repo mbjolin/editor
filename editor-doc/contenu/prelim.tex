@@ -1,0 +1,107 @@
+% -------------------------------------------------
+% PAGE DE TITRE
+% -------------------------------------------------
+
+%
+% ATTENTION : ne pas utiliser les macros \title \author ou \date !!!
+%
+\auteur{Maxime Beauchesne-Jolin}
+\titre{Un instrument d'aide à la rédaction pour les documents exprimant des modèles logiciels}
+
+% n'existe que si la thèse est rédigée en anglais (pas obligatoire)
+\englishTitle{Title in english}
+
+
+% n'existent que si l'option cotutelle est présente
+\institutionPartenaire{Université XYZ} 
+\departementPartenaire{au département (centre, institut) ABC} 
+\gradePartenaire{docteur en informatique} 
+
+%\dedicace{À quelqu'un de significant} %%% ajouter un item de dédicace
+
+% -------------------------------------------------
+
+% DESCRIPTION DU SOMMAIRE (EN FRANCAIS) -----------
+\sommaire{
+Les problèmes en lien avec la documentation sont récurrents en informatique appliquée. Cette situation soulève de nombreuses interrogations qui conduisent à revenir aux fondamentaux. L'informatique appliquée comprend la création et la modification de modèles. Ces modèles, du moins, leurs expressions, sont la plupart du temps disséminés à travers la documentation informatique. Puisque les documents contiennent les modèles, ils sont les piliers des systèmes et des logiciels développés. Cependant, il faut reconnaître que le développement de la documentation informatique ne s'est pas réalisé avec la même rigueur et le même succès que l'algorithmique ou la modélisation de données. Ce mémoire tente d'en donner les raisons et de proposer une solution.
+\\
+
+La solution décrite dans ce mémoire répond au souhait d'avoir une documentation partageant certaines des caractéristiques de qualité des logiciels. Cela est possible dès lors que la documentation comme le logiciel concrétisent des modèles. Ainsi, plusieurs approches provenant de la documentation informatique et de la modélisation informatique sont utilisées. Il y a l'utilisation, entre autres, de la programmation littéraire, de langages formels et de méthodes formelles. Ainsi, la solution obtenue prend la forme d'un instrument d'aide à la rédaction. Cet instrument permettra aux utilisateurs de maintenir la documentation cohérente (et donc le modèle) et de l'adapter aux différents changements qui peuvent survenir lors d'un procédé de développement ou après.
+}
+
+%Provenant de https://dl.acm.org/ccs
+\motsCles{documentation,
+méthodes formelles,
+définitions de langages formels,
+compilateurs,
+modèles de systèmes logiciels,
+langages de description de systèmes,
+méthodologies de modélisation,
+ingénierie logicielle pilotée par les modèles
+}
+
+%  optionnel, valide si votre document est en anglais 
+%  optionnal, valid only if your document is written in english, you have to provide a french abstract 
+%  option	english du document
+\abstract{Write here your abstract in english}
+\keywords{
+documentation,
+formal methods,
+formal language definitions,
+compilers,
+software system models,
+context specific languages,
+system description languages,
+modeling methodologies,
+model-driven software engineering
+}
+
+
+% REMERCIEMENTS -----------------------------------
+\remerciements{Ce document est en partie le résultat d'un long processus dans lequel j'ai eu de nombreuses réflexions sur l'informatique. Si mes nombreuses années d'expérience en informatique n'ont pas entamé ma curiosité, elles ont en revanche attisé mes suspicions envers le domaine. Ainsi, j'espère que ce travail permettra au moins de ne plus tergiverser sur l'importance que peut avoir la documentation pour l'informatique appliquée.
+\\
+
+Lors de ces différentes réflexions, j'ai eu l'immense privilège d'être accompagné par le professeur Luc Lavoie. À vrai dire, il est rare de pouvoir côtoyer un érudit et de profiter de son savoir, aussi je ne saurai pas de quelle manière lui témoigner toute ma reconnaissance. Je désire aussi souligner l'effort de Maryse Couture à la révision linguistique de ce document, cela n'a probablement pas été de tout repos.
+\\
+
+Je souhaite également exprimer ma gratitude à tous les professionnels avec lesquels j'ai pu échanger sur l'informatique, ainsi qu'aux  professeurs et chargés de cours qui ont généreusement partagé avec moi leurs connaissances et leur lucidité. Vous m'avez tous permis de nourrir mes réflexions.
+\\
+
+Je ne pourrais conclure ces remerciements sans souligner l'incommensurable patience de toute ma famille (Isabelle, Zachary, Anthony et Mélodie) qui m'a permis paisiblement de m'instruire et de rédiger ce mémoire. 
+}
+
+% LISTE DES ABREVIATIONS --------------------------
+%% Insérez ici  toutes les abréviations que vous souhaitez utiliser dans le document.
+% les entrées seront triées
+
+%\newacronym{etiquette}{ABR}{Expression à remplacer}
+%\newacronym{edp}{EDP}{Équations aux dérivees partielles}
+%\newacronym{sw}{SW}{Star Wars}
+%\newacronym{st}{ST}{Star Trek}
+%\newacronym{bv}{BV}{Babylon V}
+
+\input{contenu/1-acronyme}
+
+\input{contenu/2-acronyme-en}
+
+% La commande \glsaddallunused qui est juste avant \end{document} dans le fichier .tex principal fait en sorte que toutes les entrées 
+% d'abréviations définies dans le fichier prelim sont incluses dans la liste
+% si ce comportement n'est pas souhaité, mettre en commentaires.
+
+% Si cette ligne est en commentaire, les abréviations seront listées dans la table des abréviations 
+% si elles sont utilisées dans le texte seulement. Pour ce faire, vous devez utiliser la
+
+% commande \gls(etiquette) à chaque fois dans le texte.
+% en début de chapitre, utiliser \glsentryfull{edp} à la première utilisation.
+% consulter glossariesbegin.pdf dans la documentation du paquetage glossaries 
+% ou la page LaTeX/Glossary dans le wikibook sur Latex (https://en.wikibooks.org/wiki/LaTeX/Glossary)
+
+% Précisions
+% Don’t use \gls in chapter or section headings as it can have some unpleasant
+% side-effects. Instead use \glsentrytext for regular entries and one of
+% \glsentryshort, \glsentrylong or \glsentryfull for acronyms.
+% Alternatively use glossaries-extra which provides special commands for use in
+% section headings and captions, such as \glsfmtshort{⟨label⟩}.
+
+\input{contenu/0-glossaire}
+

@@ -1,0 +1,157 @@
+% !TeX spellcheck = fr_FR
+
+%% Gabarit pour les documents de fin d'études du Département d'informatique (faculté des sciences, UdeS)
+%%
+%% Version 2019/03/25 v2.1
+%% Benoît Fraikin (benoit.fraikin@usherbrooke.ca)
+
+%% Version 2022/06/03 v3.0
+%% Marie-Flavie Auclair-Fortier (m-f.auclair@usherbrooke.ca)
+
+% =========================================== Options principales de la classe
+% Veuillez lire le fichier LISEZMOI.md qui se trouve dans le répertoire principal du gabarit latex
+%=================================================================
+
+%% mémoire de maitrise par défaut
+%% le document sera en francais par défaut
+\documentclass[
+%	caractereUTF, % useless warning : Unused global option(s)
+%	these,
+%	cotutelle,
+%	rapport,
+%	essai,
+%	english, % if you are using this option, do not forget to change your bibstyle
+pasDeCode,
+pasDAlgo,
+%	enRedaction, % retirer pour le dépôt final
+%	bibliothequeNationale, % ne pas se servir pour le moment
+%	nonatbib, % pour enlever natbib des packages (non recommandé)
+]{style/scienceUdeS}
+
+%% permet d'ajouter des répertoires où les images sont contenues
+%% voir https://fr.overleaf.com/learn/latex/Inserting_Images
+\graphicspath{ {./contenu/}, {./annexe/}}
+
+%% vous pouvez ajouter des paquetages dans ce fichier ou de nouvelles définitions de commandes
+\include{ajoutsFct}
+
+
+%====================== DEBUT DU DOCUMENT ========================
+
+\begin{document}
+	%% Le fichier prelim.tex contient les informations pour la page titre, le sommaire, les mots-clés, les remerciements et la liste des abbréviations
+	\include{contenu/prelim}
+	
+	%% insérer minimalement au dépôt final avec l'option final de la classe
+	\include{contenu/jury}
+
+	%% affiche tout ce qui est pertinent jusqu'aux tables.
+	\enteteDuDocument
+
+	%% contenu principal de la thèse
+	%========================== INTRODUCTION ===========================
+	
+	\include{contenu/chapitre-0}
+		
+	%% Les trois types de chapitres 
+	%% chapitre normal : exemple contenu/chapitre-1.tex
+	%% insertion d'un article publié ou sous presse : exemple contenu/articlePublie.tex
+	%% insertion d'un article soumis ou en préparation : exemple contenu/articleSoumis.tex
+	%% Ajoutez le nombre de chapitres qui vous convient.
+		
+	%=========================== CHAPITRE 1 ============================
+
+	\modeDefaut  % cette commande s'assure que la langue par défaut est remise si un chapitre est en partie dans une autre langue.
+	
+	%\part{Titre de partie} % Je ne connais pas la fonction.
+	
+	\include{contenu/chapitre-1}
+	
+	%=========================== CHAPITRE 2 ============================
+	
+	\modeDefaut
+	\include{contenu/chapitre-2}
+	
+	%=========================== CHAPITRE 3 ============================
+	
+	\modeDefaut
+	\include{contenu/chapitre-3} 
+
+    %=========================== CHAPITRE 4 ============================
+	
+	\modeDefaut
+	\include{contenu/chapitre-4} 
+	
+	%=========================== CHAPITRE 5 ============================
+
+	\modeDefaut
+	\include{contenu/chapitre-5}
+
+    %=========================== CONCLUSION ============================
+
+	\modeDefaut
+	\include{contenu/chapitre-6}
+
+	%=================================================================
+	%=================== BIBLIOGRAPHIE  ======================
+	%=================================================================
+	
+	%% Le style de la bibliographie peut être modifié ici
+	% This style for an English bibliography
+	%include{style/UdeSDIengbst.tex}
+	%\bibliographystyle{style/UdeSDIeng}
+	
+	
+	% ce style pour une bibliographie en francais	
+    \bibliographystyle{style/UdeSDIfr}
+	\include{style/UdeSDIfrbst}
+	
+	%% --- Bibliographie
+    %\begin{flushleft}
+    \bibliography{
+    bibliographie/biblio-dict,
+    bibliographie/biblio-dict-oqlf,
+    bibliographie/biblio-dict-larousse,
+    bibliographie/biblio-dict-lerobert,
+    bibliographie/biblio-science}
+	\addcontentsline{toc}{chapter}{\bibname}
+    %\end{flushleft}
+
+	%%=================================================================
+	%%========================== ANNEXES ==============================
+	%%=================================================================
+
+    \clearpage
+
+    \printglossary[title=Glossaire, toctitle=Glossaire, type=glossaire]
+
+	\appendix
+	
+	%% Les annexes peuvent \^etre en fran\c{c}ais ou en anglais
+	%% Si elles sont en anglais dans un document français, elles doivent contenir \modeAnglais ou \englishMode
+	%% juste après la commande \chapter{xxx}
+	
+	%%=========================== ANNEXE EXEMPLE ============================
+	
+	%\modeDefaut
+	%\include{annexes/annexe-A} % fichier annexe-A.tex
+	
+	%%=========================== ANNEXE PRÉCISIONS LATEX ============================
+	
+	%\modeDefaut
+	%\include{annexes/annexe-SpecLatex} % fichier SpecLatex.tex
+	
+	%%=========================== ANNEXE PRÉCISIONS BIBTEX ============================
+	
+	%\modeDefaut
+	%\include{annexes/annexe-Bibtex} % fichier annexe-Bibtex.tex
+
+    \modeDefaut
+	\include{annexe/annexesEtFct}
+	
+% La commande suivante fait en sorte que toutes les entrées d'abréviations définies dans le fichier prelim sont incluses dans la liste
+% si ce comportement n'est pas souhaité, mettre en commentaires.
+\glsaddallunused
+
+\end{document}
+

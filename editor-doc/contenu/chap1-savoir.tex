@@ -1,0 +1,1380 @@
+\section{Des connaissances en informatique appliquée}
+
+\paragraphe{P074}{À l'instar des documents et des modèles, les connaissances en informatique appliquée ont des objectifs, des écueils et des approches. L'un des objectifs aux connaissances en informatique appliquée est de contribuer à la réalisation et à l'établissement des entités informatiques. Ces connaissances demeurent donc attachées au procédé de développement. Ainsi, les écueils relatifs aux connaissances\footnote{Rencontrés lors de l'acquisition ou de l'application. Découlant de leurs incohérences, leurs incomplétudes et, etc.} se répercutent sur le procédé de développement et, par conséquent, sur les documents et les modèles. Pour cette raison, il ne sera pas possible de les présenter tous. Aussi, leurs présentations se limitent aux éléments du procédé de développement~: les participants informatiques\footnote{Un participant informatique est une personne participant à des processus utilisant l’informatique.}, les processus, les artefacts et les instruments. Plusieurs approches existent pour surmonter ces écueils, mais elles ne les résolvent pas forcément tous ni entièrement. À cela s'ajoutent d'autres approches qu'il est possible de qualifier de sociétales, comme la réglementation et la formation.}{}{}
+
+\paragraphe{P075}{Il est important de bien définir certains concepts, notamment la connaissance, le savoir en informatique appliquée et la gestion des connaissances~:
+\begin{itemize}
+    \item connaissance~: une croyance justifiée qui à force de légitimités devient un fait;
+    \item savoir en informatique appliquée~: ensemble des connaissances s'appliquant à l'information, aux traitements de l'information et aux entités informatiques utilisé en pratique;
+    \item gestion de la connaissance~: organiser, contrôler et rendre accessibles les représentations des connaissances au bénéfice d'une organisation.
+\end{itemize}
+\vspace{-\baselineskip}
+}{S01, S02, S03}{S01}
+
+\enonce{S01}{Définition}{Connaissance}{
+Une croyance justifiée qui à force de légitimités devient un fait.
+}{P075}
+\explication{S01}{de la définition}{Connaissance}{
+La définition formulée est~: une croyance justifiée qui à force de légitimités devient un fait.
+
+Dans un article, Yves Gingras décrit la connaissance ainsi~:
+\quotefr{Platon s'était déjà posé la question et proposait dans son dialogue \textit{Théétète} une définition relativement simple de la notion de connaissance. Elle consiste selon lui en une « croyance vraie et justifiée ». Depuis, les philosophes ont débattu sans fin pour savoir comment déterminer ce qui est « vrai » de manière absolue, et nombreux sont ceux qui, à l'instar de Karl Popper, considèrent qu'il faut plutôt se satisfaire d'une définition qui ne conserve que le caractère \textit{justifié} de l'énoncé. On doit alors préciser que les justifications légitimes sont celles qui \textit{valident l'énoncé} par \textit{des méthodes généralement acceptées et potentiellement accessibles à toute personne raisonnable} \elide Ainsi, c'est la justification qui fait passer de la croyance à la connaissance. Ce qui les distingue est le fait que la connaissance a été validée par des méthodes généralement acceptées, lesquelles évoluent au fil du temps en raison même de l'accroissement des connaissances et des instruments de mesure et d'observation disponibles - une caractéristique qui l'élève au rang de « fait » bien établi.}{\cite{gingras_qu_2026}}
+\vspace{-\baselineskip}
+}{}
+
+\enonce{S02}{Définition}{Savoir en informatique appliquée}{
+Ensemble des connaissances s'appliquant à l'information, aux traitements de l'information et aux entités informatiques utilisé en pratique.
+}{P075}
+\explication{S02}{de la définition}{Savoir en l'informatique appliquée}{
+La définition formulée est~: ensemble des connaissances s'appliquant à l'information, aux traitements de l'information et aux entités informatiques utilisé en pratique.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item définition 1 de savoir~: «~Ensemble des connaissances acquises qui ont été approfondies par une activité mentale suivie.~» \cite{Gdt_1_savoir_1} ;
+    \item définition 2 de savoir~: «~Être capable d'effectuer des tâches grâce à des connaissances théoriques ou pratiques ainsi qu'à l'expérience.~» \cite{Gdt_1_savoir_2}.
+\end{itemize}
+\vspace{-\baselineskip}
+}{}
+
+\enonce{S03}{Définition}{Gestion de la connaissance}{
+Organiser, contrôler et rendre accessibles les représentations des connaissances au bénéfice d'une organisation.
+}{P075}
+\explication{S03}{de la définition}{Gestion de la connaissance}{
+La définition formulée est~: organiser, contrôler et rendre accessibles les représentations des connaissances au bénéfice d'une organisation.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item définition 1 de gestion de la connaissance~: «~Gestion de la création, du stockage et du partage collaboratif des connaissances des salariés d'une organisation pour améliorer l'efficacité, la productivité et la profitabilité.~» \cite{Gdt_km_0} ;
+    \item définition 2 de gestion de la connaissance~: «~\elide consiste à s'assurer que les compétences, l'expérience et l'expertise de l’équipe projet et des autres parties prenantes sont utilisées avant, pendant et après le projet.~» \ccite{pmi_guidefr_2017}[p.~136].
+\end{itemize}
+\vspace{-\baselineskip}
+}{}
+
+\subsection{Des objectifs}
+
+\paragraphe{P076}{L'objectif fondamental de l'informatique est de solutionner des problèmes. Cela s'effectue lors d'un procédé de développement où différentes activités et autres procédés vont utiliser et produire des artefacts. La gestion de la connaissance indique que les artefacts comprenant les documents et les modèles sont d'importante représentation des connaissances. Toutefois, l'informatique appliquée nécessite des connaissances provenant de l'informatique, provenant d'autres domaines et qu'elles aient une forme explicite.
+}{}{}
+
+\paragraphe{P077}{\fl{Le procédé de développement veut créer une solution en mesure de traiter un problème.} À l'intérieur d'un article intitulé  \titleen{The world and the Machine}{}, Michael Jackson met en relation les quatre facettes que sont la modélisation, l'interfaçage, l'ingénierie et le problème. Il ajoute~:
+\quoteenfr{Software development is engineering because it is concerned to make useful physical devices to serve pratical purposes in the world. Software is a description of a machine. We build the machine by describing it and presenting our description to a general-purpose computer \elide.}{Le développement logiciel relève de l'ingénierie, car il vise à créer des dispositifs physiques utiles pour répondre à des besoins pratiques. Un logiciel est la description d'une machine. Nous construisons cette machine en la décrivant et en présentant cette description à un ordinateur généraliste \elide.}{\ccite{Bashar2010-chap17}[p.374]}
+Pour Daniel Jackson, le développement logiciel est la conception d'abstraction \ccite{jackson_alloy_2012}[p.1-4]. Il nomme cette abstraction \emphase{modèle}, et cela avec regret, puisqu'elle ne représente pas forcément un sujet. Le point commun à ces visions est que le développement logiciel conduit à des machines abstraites, souvent à des modèles, et toujours dans l'objectif de traiter un problème.
+}{OS01}{OS01}
+
+\enonce{OS01}{Axiome}{Une solution informatique traite un problème grâce à une machine abstraite définie par un modèle.}{}{P077}
+\explication{OS01}{de l'axiome}{Une solution informatique traite un problème grâce à une machine abstraite définie par un modèle.}{
+Dans un article, Michael Jackson décrit l'objectif du développement logiciel qui cherche à créer une machine abstraite pour résoudre des problèmes, il écrit~:
+\quoteenfr{Software development is engineering because it is concerned to make useful physical devices to serve pratical purposes in the world. Software is a description of a machine. We build the machine by describing it and presenting our description to a general-purpose computer that then takes on the attributes and behavior of the machine we have described.}{Le développement logiciel relève de l'ingénierie, car il vise à créer des dispositifs physiques utiles répondant à des besoins pratiques. Un logiciel est la description d'une machine. Nous construisons cette machine en la décrivant et en présentant cette description à un ordinateur qui adopte alors les attributs et le comportement de la machine décrite.}{\ccite{Bashar2010-chap17}[p.374]}
+
+Daniel Jackson, dans l'ouvrage \textit{Software Abstractions: logic, language, and analysis} utilise le terme \emphase{modèle} pour décrire ces abstractions qui sont produites lors du développement logiciel~:
+\quoteenfr{The core of software development, therefore, is the design of abstractions. An abstraction is not a module, or an interface, class or method~: it is a structure, pure and simple - an idea reduced to its essential form. \elide I Use the term "model" for a description of a software abstractions. It's not ideal, because a software abstraction need not be a "model" of anything. But it's shorter thant "description", and has come to have a well established (and vague!) usage.}{Le cœur du développement logiciel réside donc dans la conception d'abstractions. Une abstraction n'est ni un module, ni une interface, ni une classe, ni une méthode~: c'est une structure, pure et simple – une idée réduite à son essence. \elide J'utilise le terme « modèle » pour décrire une abstraction logicielle. Ce n'est pas idéal, car une abstraction logicielle n'est pas nécessairement un "modèle" de quoi que ce soit. Mais c'est plus court que "description", et son usage s'est largement répandu (et reste vague !).}{\ccite{jackson_alloy_2012}[p.~1-4]}
+\vspace{-1\baselineskip}
+}{}
+
+\paragraphe{P078}{\fl{La gestion de la connaissance spécifie que les participants informatiques, les procédés et les artefacts, dont certains sont des instruments, comprennent d'importantes connaissances pour le procédé de développement.} D'abord, un ouvrage sur la gestion de la connaissance en logiciel donne l'exemple d'une entreprise où la conservation des connaissances passe par les procédés, certains artefacts, les configurations des instruments et les capacités des équipes \ccite{warren_km_2011}[p.~33]. 
+\sep
+Ensuite, un ouvrage intitulé \titleen{Managing Software Engineering Knowledge}{} explique que la connaissance, tant en général qu'en développement logiciel, est reliée à de nombreux concepts \ccite{aurum_km_2003}[p.~77-82]~:
+la gestion documentaire, les réseaux d'experts, la gestion de la configuration, les instruments (\textit{CASE Tools}), etc.
+\sep
+Enfin, un article soulève quelques faits relatifs à la transmission des connaissances~\cite{vasconcelos_km_2017}~: de nombreux artefacts en constituent des représentations. Toutefois, une partie importante des connaissances demeure dans la tête des participants informatiques, et seuls certains d'entre eux valident des artefacts comme étant des connaissances.
+}{OS02}{OS02}
+
+\enonce{OS02}{Assertion}{En informatique appliquée, la conservation des connaissances passe par les participants informatiques, les processus et les artefacts, notamment les instruments.}{}{P078}
+\explication{OS02}{de l'assertion}{En informatique appliquée, la conservation des connaissances passe par les participants informatiques, les processus et les artefacts, notamment les instruments.}{
+Pour une entreprise de conception de puces électroniques, ce sont les éléments jugés importants pour la reproductibilité~: 
+\quoteenfr{It is important to collect data about the actual execution and sequences of design activities in several concurrent design project flows. Ideally, this should be supported by a knowledge management application that assists in eliciting the knowledge about how a sequence of design and verification activities is related to a particular type of a designed artifact, the configurations of used design tools, and the capabilities of design teams.}{Il est important de recueillir des données sur l'exécution et le déroulement des activités de conception dans plusieurs projets menés simultanément. Idéalement, cette collecte devrait s'appuyer sur une application de gestion des connaissances permettant de recueillir des informations sur la manière dont une séquence d'activités de conception et de vérification est liée à un type particulier d'artefact conçu, aux configurations des outils de conception utilisés et aux compétences des équipes de conception.}{\ccite{warren_km_2011}[p.~33]}
+
+L'ouvrage \titleen{Managing Software Engineering Knowledge}{} décrit précisément les éléments qui contribuent au savoir, en les répartissant dans deux catégories~: les éléments communs à toutes les organisations et ceux propres aux organisations du domaine du logiciel~: 
+\quoteenfrlist{
+\item [] [for any type of organization]
+\item Asset Reuse: \elide Software reuse aims to reduce this rework by establishing a reuse repository to which programmers submit software assets they believe would be useful to others. \elide can be applied to all software engineering artifacts, such as requirements documents, design, and test specifications. \elide
+\item Document Management: \elide documents become the assets of the organization in capturing explicit knowledge. Document management systems help organizations manage these invaluable assets, enable knowledge transferal from experts to novices, and support the location, organization, and reuse of documented knowledge.\elide
+\item Collaboration: technology and process can be used to bring people together and generate new knowledge.
+\item Competence Management~:  \elide While document management deals with explicit knowledge assets, competence management keeps track of tacit knowledge. \elide
+\item Expert Networks: \elide are typically based on peer-to-peer support and can reduce the time spent by software engineers in looking for specific domain knowledge. \elide
+\item [] [for software development organizations]
+\item Configuration Management and Version Control~: \elide keeps track of a project documents and relates them to each other. \elide
+\item Design Rational~: \elide Design rationale captures this information as weIl as information about solutions that were considered and tested but not implemented. \elide
+\item Traceability: \elide Traceability is an approach that makes the connection between requirements and the final software system explicit \elide
+\item Trouble Reports and Defect Tracking: \elide They contain knowledge about product features and properties with which users have difficulties as we has knowledge regarding the organization's management of past complaints. \elide
+\item CASE Tools and Software Development Environments: \elide support the creation of product and process knowledge in terms of the artifacts that are created. \elide.
+}{
+\item [] [pour tout type d'organisation]
+\item Réutilisation des ressources~: \elide La réutilisation logicielle vise à réduire les reprises en établissant un référentiel de réutilisation où les programmeurs soumettent les ressources logicielles qu'ils estiment utiles à d'autres. \elide peut s'appliquer à tous les artefacts du génie logiciel, tels que les documents d'exigences, les spécifications de conception et de test. \elide
+\item Gestion documentaire~: \elide Les documents deviennent les ressources de l'organisation en capturant les connaissances explicites. Les systèmes de gestion documentaire aident les organisations à gérer ces ressources inestimables, à faciliter le transfert de connaissances des experts aux novices et à soutenir la localisation, l'organisation et la réutilisation des connaissances documentées. \elide
+\item Collaboration~: La technologie et les processus peuvent être utilisés pour rassembler les personnes et générer de nouvelles connaissances.
+\item Gestion des compétences~: \elide Alors que la gestion documentaire traite des connaissances explicites, la gestion des compétences assure le suivi des connaissances tacites. \elide
+\item Réseaux d'experts~: \elide reposent généralement sur l'entraide entre pairs et peuvent réduire le temps consacré par les ingénieurs logiciels à la recherche de connaissances spécifiques au domaine. \elide
+\item [] [pour les organisations en développement logiciel]
+\item Gestion de la configuration et contrôle de version~: \elide assure le suivi des documents d'un projet et les relie entre eux. \elide
+\item Justification de la conception~: \elide La justification de la conception enregistre ces informations ainsi que celles relatives aux solutions envisagées et testées, mais non mises en œuvre. \elide
+\item Traçabilité~: \elide La traçabilité est une approche qui rend explicite le lien entre les exigences et le système logiciel final. \elide
+\item Rapports d'incidents et suivi des anomalies~: \elide Ils contiennent des connaissances sur les caractéristiques et les propriétés des produits qui posent problème aux utilisateurs, ainsi que des informations sur la gestion des réclamations antérieures par l'organisation. \elide
+\item Outils CASE et environnements de développement logiciel~: » \elide contribuent à la création de connaissances sur les produits et les processus à travers les artefacts créés \elide.
+}{\ccite{aurum_km_2003}[p.~77-82]}
+    
+
+Un article publié en 2017 décrit une proposition de solution pour la gestion de connaissances et l'évolution d'une entité informatique \cite{vasconcelos_km_2017}. Quelques relations entre les participants informatiques, les artefacts et les processus sont décrites~:
+\quoteenfrlist{
+\item [][---] A lot of knowledge is documented but a lot remains in the individuals’ mind, therefore creating a potential (organizational) knowledge gap [;]
+\item [][---] There is a significant amount of documents and artifacts produced during the phases of the SDLC, recording knowledge gathered along each sprint or project.
+\item [][---] Software maintainers validate, correct, and update knowledge from previous phases of software development life cycle \elide.
+}{
+\item [][---] Beaucoup de connaissances sont documentées, mais beaucoup restent dans l'esprit des individus, créant ainsi un potentiel écart de connaissances (organisationnel) [;]
+\item [][---] Il existe une quantité importante de documents et d'artefacts produits au cours des phases du processus de développement, enregistrant les connaissances acquises à chaque sprint ou projet.
+\item [][---] Les responsables de la maintenance logicielle valident, corrigent et mettent à jour les connaissances issues des phases précédentes du processus de développement logiciel \elide.
+}{\cite{vasconcelos_km_2017}}
+\vspace{-\baselineskip}
+}{}
+
+\paragraphe{P079}{\fl{Le procédé de développement nécessite des connaissances explicites et provenant d'autres domaines que l'informatique.} Pour les connaissances explicites, H. Dieter Rombach explique que toutes les connaissances explicites en informatique appliquée sont contenues dans ses propres artefacts\footnote{Toutes connaissances importantes devraient être explicitées, ce qui n'est pas toujours le cas.} (la documentation, le code source, les modèles, etc.)\ccite{aurum_km_2003}[p.~5]. Les problèmes de documentation occupent une place importante lorsque vient le temps de partager les connaissances. Une revue de littérature $(n=61)$ sur le partage de connaissances lors de développement décentralisé en témoigne \cite{zahedi_knowledge_2016}. 
+\sep
+Pour les connaissances provenant d'autres domaines, le terme \emphase{appliquée} en informatique appliquée signifie que le domaine de l'informatique est appliqué à un autre domaine. Ian K. Bray décrit le métier d'informaticien et sa relation avec la connaissance dans l'ouvrage \titleen{An introduction to requirements engineering}{} \ccite{bray_re_2002}[p.41]. L'auteur affirme qu'il faut inciter les individus à expliciter leurs connaissances et trouver la connaissance contenue à l'intérieur des artefacts.
+}{OS03, OS04}{OS03}
+
+\enonce{OS03}{Assertion}{La représentation explicite des connaissances est requise afin d'en permettre le traitement et le partage.}{}{P079}
+\explication{OS03}{de l'assertion}{La représentation explicite des connaissances est requise afin d'en permettre le traitement et le partage.}{
+Dans l'ouvrage \textit{Managing Software Engineering Knowledge}, H. Dieter Rombach explique~:
+\quoteenfr{Knowledge management is comprised of the elicitation, packaging and management, and reuse of knowledge in all its different forms. Explicit software engineering knowledge includes all types of software engineering artifacts, ranging from traditional software artifacts such as code, design and requirements to process knowledge in the form of models, data and standards, and lessons learned.}{La gestion des connaissances comprend l'extraction, la mise en forme, la gestion et la réutilisation des connaissances sous toutes leurs formes. Les connaissances explicites en génie logiciel incluent tous les types d'artefacts de génie logiciel, allant des artefacts logiciels traditionnels, tels que le code, la conception et les exigences aux connaissances de processus sous forme de modèles, de données et de normes, ainsi qu'aux leçons apprises.}{\ccite{aurum_km_2003}[p.~5] }
+
+Une revue de littérature portant sur le partage de connaissances dans un contexte de développement décentralisé \cite{zahedi_knowledge_2016} s'appuie sur l'analyse de 61 articles pour identifier les défis que voici ~:
+\begin{itemize}
+    \item \sfren{coût du partage des connaissances}{cost of knowledge sharing}; 
+    \item \sfren{différences contextuelles}{contextual difference}; 
+    \item \sfren{manque d'ouverture}{lack of openness}; 
+    \item \sfren{rotation du personnel}{employee turnover}; 
+    \item \sfren{problèmes de documentation}{documentation problem}. 
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{OS04}{Assertion}{La connaissance provenant des autres domaines est une nécessité pour l'informatique appliquée, puisqu'elle a pour objectif de résoudre différents problèmes hors de son domaine.}{}{P079}
+\explication{OS04}{de l'assertion}{La connaissance provenant des autres domaines est une nécessité pour l'informatique appliquée, puisqu'elle a pour objectif de résoudre différents problèmes hors de son domaine.}{
+Ian K. Bray, dans l'ouvrage \textit{An introduction to requirements engineering}, décrit le métier d'informaticien et de la nécessité de l'exploration des connaissances provenant d'autres domaines, le terme \textit{Elicitation} est employé et y est décrit~:
+\quoteenfr{Elicitation has now largely replaced the term “gathering” which had the inappropriate implication that “ripe” requirements (etc.) are hanging around simply waiting to be “plucked”. This is seldom the case; “raw” requirements usually exist only in an incomplete form. In their highly readable examination of this topic, Gause and Weinberg (1989) present the apt metaphor of exploration; one is setting out into, at least partly, uncharted territory in search of information which may well be hidden or only part formed. So it is not a simple matter of transferring knowledge from one place to another. In the case of problem domain characteristics, the information doubtless exists somewhere but it may be only in the head of a user of some pre-existing system and it may be that said user does not even realise what they do know.}{Le terme «~collecte~» a largement remplacé celui de «~récolte~», qui sous-entendait à tort que les exigences «~mûres~» (etc.) attendaient d'être «~cueillies~». Or, c'est rarement le cas ; les exigences «~brutes~» n'existent généralement que sous une forme incomplète. Dans leur analyse très accessible de ce sujet, Gause et Weinberg (1989) proposent la métaphore pertinente de l'exploration~: il s'agit de s'aventurer en territoire, au moins partiellement, inexploré, à la recherche d'informations qui peuvent être cachées ou encore partiellement ébauchées. Il ne s'agit donc pas d'un simple transfert de connaissances d'un endroit à un autre. Concernant les caractéristiques du domaine problématique, l'information existe sans doute quelque part, mais elle peut se trouver uniquement dans l'esprit d'un utilisateur d'un système préexistant, et il se peut même que cet utilisateur n'en ait pas conscience.}{\ccite{bray_re_2002}[p.~41]}
+\vspace{-1\baselineskip}
+}{}
+
+\subsection{Des écueils}
+
+\paragraphe{P080}{Les écueils liés aux connaissances en informatique appliquée concernent les participants informatiques, les processus, les artefacts et les instruments. Du côté des participants informatiques et, plus précisément des professionnels informatiques, plusieurs ne possèdent souvent pas les qualifications nécessaires. De plus, plusieurs quittent la profession, ce qui peut nuire au transfert des connaissances. Quant aux processus, ils sont rarement étudiés pour construire ou vérifier des connaissances. Les artefacts, pour leur part, sont fréquemment délaissés, ce qui nuit à la conservation des connaissances. Enfin, plusieurs instruments échappent au contrôle des participants informatiques, alors qu'ils sont importants, puisque les instruments contrôlent les processus et les artefacts.
+\vspace{-\baselineskip}
+}{}{}
+
+\subsubsection{Les participants informatiques}
+
+\paragraphe{P081}{Cette sous-section débute par une catégorisation des participants informatiques, puis utilise la catégorie la plus représentée, celle des professionnels informatiques. Dans les écueils, il apparaît que le transfert de connaissances peut s'avérer problématique et qu'une majorité des professionnels informatiques n'ont pas d’assise solide permettant entre autres de faciliter ce transfert.
+}{}{}
+
+\paragraphe{P082}{Il est important de distinguer l'informaticien, l'informaticien appliqué, le praticien informatique, le professionnel informatique et le participant informatique. Les définitions sont les suivantes~:
+\begin{itemize}
+    \item informaticien~: spécialiste du traitement automatique et rationnel de l'information;
+    \item informaticien appliqué~: informaticien spécialiste dans l'information provenant de domaines autres que l'informatique;
+    \item praticien informatique~: personne qui réalise ou établit des entités informatiques;
+    \item professionnel informatique~: personne exerçant une activité rémunérée liée à l'informatique;
+    \item participant informatique~: personne participant à des processus utilisant l'informatique.
+\end{itemize}
+\vspace{-\baselineskip}
+}{ES01, ES02, ES03, ES04, ES05, ES06}{ES01}
+
+\enonce{ES01}{Définition}{Informaticien}{
+Spécialiste du traitement automatique et rationnel de l'information.
+}{P082}
+\explication{ES01}{de la définition}{Informaticien}{
+La définition formulée est~: spécialiste du traitement automatique et rationnel de l'information.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+  \item définition 1 d'informatique~: «~Science du traitement automatique et rationnel de l'information considérée comme le support des connaissances et des communications.~» \cite{Larousse_informatique_0} ;
+  \item définition 2 d'informatique~: «~Discipline qui s'intéresse à tous les aspects, tant théoriques que pratiques, reliés au traitement automatique de l'information, à la conception, à la programmation, au fonctionnement et à l'utilisation des ordinateurs. ~» \cite{Gdt_informatique_0};
+  \item définition d'informaticien~: «~Spécialiste du traitement automatique de l'information.~» \cite{Gdt_informaticien_0};
+  \item notes sur la définition d'informaticien~: «~Le terme informaticien est un terme générique qui sert à désigner les programmeurs, les analystes de l'informatique, les concepteurs de logiciels, etc.~» \cite{Gdt_informaticien_0}.
+\end{itemize}
+L'informaticien comprend les parties théorique et appliquée de l'informatique.
+}{}
+
+\enonce{ES02}{Définition}{Informaticien appliqué}{
+Informaticien spécialiste dans l'information provenant de domaines autres que l'informatique.
+}{P082}
+\explication{ES02}{de la définition}{Informaticien appliqué}{
+La définition formulée est~: informaticien spécialiste dans l'information provenant de domaines autres que l'informatique.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+  \item définition d'ingénieur informaticien~: «~ Spécialiste de l'informatique qui travaille à la conception, au développement, à la mise en œuvre et à l'exploitation de systèmes de traitement ou de communication de données.~» \cite{Gdt_inginf_0} ;
+  \item définition d'ingénieur logiciel~: «~ Ingénieur spécialisé qui travaille à la conception, au développement, à la mise en œuvre et à l'exploitation des systèmes logiciels d'une organisation.~» \cite{Gdt_swe_0}.
+  \item définition d'appliqué~: «~ Se dit de tout domaine d'activité scientifique où les recherches théoriques sont mises en œuvre pour résoudre des problèmes pratiques.~»\cite{Larousse_applique_0}
+\end{itemize}
+L'ingénierie comprend la partie appliquée de l'informatique. 
+
+En opposition, il y a l'informaticien théorique ou fondamental et les définitions suivantes le corroborent~:
+\begin{itemize}
+  \item définition théorique~: «~ Relatif à la théorie, à l'élaboration des théories, à leur contenu, par opposition à pratique ou à appliqué : Connaissances théoriques.~» \cite{Larousse_theorique_0} ;
+  \item antonyme de fondamental~: «~ En parlant de la recherche — appliquée (recherche)~» \cite{Antidote_0}.
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES03}{Définition}{Praticien informatique}{
+Personne qui réalise ou établit des entités informatiques.
+}{P082}
+\explication{ES03}{de la définition}{Praticien informatique}{
+La définition formulée est~: personne qui réalise ou établit des entités informatiques.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+  \item définition 1 de praticien~: «~Personne qui exerce son art et qui a la connaissance et l'usage des moyens pratiques, par opposition à théoricien.~» \cite{Larousse_praticien_0} ;
+  \item définition 2 de praticien~: «~Personne engagée dans l'exercice d'un art ou d'une profession.~»\cite{Gdt_praticien_0} ;
+  \item définition d'informatique~: «~Discipline qui s'intéresse à tous les aspects, tant théoriques que pratiques, reliés au traitement automatique de l'information, à la conception, à la programmation, au fonctionnement et à l'utilisation des ordinateurs. ~» \cite{Gdt_informatique_0}.
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES04}{Définition}{Professionnel informatique}{
+Personne exerçant une activité rémunérée liée à l'informatique.
+}{P082}
+\explication{ES04}{de la définition}{Professionnel informatique}{
+La définition formulée est~: personne exerçant une activité rémunérée liée à l'informatique.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+  \item définition 1 de professionnel~: «~Qui exerce régulièrement une profession, un métier, par opposition à amateur \elide.~» \cite{Larousse_professionnel_0} ;
+  \item définition 2 de professionnel~: «~Personne de métier (opposé à amateur) \elide.~»\cite{Robert_professionnel_0} ;
+  \item définition d'informatique~: «~Discipline qui s'intéresse à tous les aspects, tant théoriques que pratiques, reliés au traitement automatique de l'information, à la conception, à la programmation, au fonctionnement et à l'utilisation des ordinateurs. ~» \cite{Gdt_informatique_0}.
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES05}{Définition}{Participant informatique}{
+Personne participant à des processus utilisant l'informatique.
+}{P082}
+\explication{ES05}{de la définition}{Participant informatique}{
+La définition formulée est~: personne participant à des processus utilisant l'informatique.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+  \item définition de participant~: «~Qui participe à quelque chose.~» \cite{Larousse_participant_0} ;
+  \item définition de participer~: «~Assumer une partie d'une action, d'une tâche : Participer aux travaux domestiques.~» s\cite{Larousse_participer_0} ;
+  \item définition d'informatique~: «~Discipline qui s'intéresse à tous les aspects, tant théoriques que pratiques, reliés au traitement automatique de l'information, à la conception, à la programmation, au fonctionnement et à l'utilisation des ordinateurs. ~» \cite{Gdt_informatique_0}.
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES06}{Assertion}{Les personnes impliquées en informatique peuvent être catégorisées selon certains critères.}{}{P082}
+\explication{ES06}{de l'assertion}{Les personnes impliquées en informatique peuvent être catégorisées selon certains critères.}{
+\figsmall
+{Diagramme de Venn sur des titres en informatique}
+{figure/chap1/savoir/savoir-titre.png}
+{}{}{}{tb}
+Les personnes impliquées en informatique peuvent être catégorisées selon les critères de formation, d'application à un domaine, de production ou de rémunération.
+\begin{itemize}
+    \item une personne est qualifiée (informaticien) ou pas;
+    \item une personne applique l'informatique à celle-ci (fondamentale) ou à un autre domaine (appliquée);
+    \item une personne développe des entités informatiques (praticien) ou pas;
+    \item une personne est rémunérée (professionnel) ou pas.
+\end{itemize}
+La figure~B.37 représente les différents titres en informatique. L'informaticien représente l'union entre l'informaticien théorique et l'informaticien appliqué.
+}{}
+
+\paragraphe{P083}{\fl{Le groupe des professionnels informatiques est suffisant pour identifier et décrire plusieurs écueils.} Suivant la définition précédente, il est possible d'y regrouper 15 métiers provenant de la classification nationale des professions (CNP). Il y a notamment~: le spécialiste informatique, le technicien de réseau informatique et Web ainsi que le développeur et programmeur Web. Ce sont tous des métiers rémunérés pour réaliser ou établir des entités informatiques. Dans un procédé de développement, tous ces métiers n'ont pas la même importance, cependant, ils ont tous une influence.  Selon les données de Statistique Canada sur les professions de 2022 \cite{statscan_profession_2022}, il y a environ 180~000~professionnels informatiques au Québec. Pour donner une comparaison, il y a 10 fois moins de professeurs et chargés de cours universitaires à temps plein pour tout domaine confondu au Québec.
+}{ES07, ES08}{ES07}
+
+\figannexe{
+\tab
+{Nombre de postes occupés par des professionnels informatiques au Québec en 2021}
+{figure/chap1/savoir/savoir-prof.png}
+{}
+{}
+{
+\begin{tablenotes}
+\footnotesize
+\item[a] {Données sur les professions provenant de Statistique Canada \cite{statscan_profession_2022}.}
+\end{tablenotes}
+}{H}
+}
+\enonce{ES07}{Assertion}{Le terme \emphase{professionnel informatique} regroupe plusieurs métiers plus spécialisés.}{}{P083}
+\explication{ES07}{de l'assertion}{Le terme  \emphase{professionnel informatique} regroupe plusieurs métiers plus spécialisés.}{
+Ces métiers sont présentés dans le tableau~B.15. Les personnes qui les exercent sont rémunérées pour réaliser et  établir des entités informatiques. Ces métiers varient selon les classifications, les régions et les époques pour servir de base. La classification nationale des professions (CNP) est utilisée.
+}{}
+
+\enonce{ES08}{Assertion}{Les professionnels informatiques sont nombreux, près de cent quatre-vingt~ mille au Québec.}{}{P083}
+\explication{ES08}{de l'assertion}{Les professionnels informatiques sont nombreux, près de cent quatre-vingt mille au Québec.}{
+En 2021, il y a environ dix fois plus de professionnels informatiques ($\approx180~ 000$) au Québec que de professeurs et chargés de cours universitaires à temps plein, tous domaines confondus ($\approx18~000$), selon des données de Statistique Canada (présentées aux tableaux~B.15 et B.16) sur les professions \cite{statscan_profession_2022}.
+}{}
+
+
+\paragraphe{P084}{\fl{Le transfert de connaissances entre les professionnels informatiques présente un risque.} Pour les professionnels informatiques, les tranches d'âges plus élevés sont moins représentées que dans d'autres métiers (tableau~1.5). Sans connaître les causes, cela représente un risque au niveau du passage des connaissances.
+D'ailleurs, la rétention des professionnels informatiques est plus faible que dans d'autres professions. À titre d'illustration,  un sondage\footnote{Les données proviennent du The National Survey of College Graduates. Sur le site officiel, il est indiqué qu'il y a actuellement $71,7$ millions d'individus ce n'est probablement pas l'état du sondage de 2001 \cite{ncsesdata_data_2026}.} 
+réalisé en 2001 aux États-Unis indique que seulement 19~\% des personnes qui graduent en informatique demeurent dans le secteur après vingt ans, comparativement à 52~\% en génie civil \cite{rupp_personnel_2006}. Dans les raisons qui incitent à quitter le métier, plusieurs professionnels informatiques pointent la lourde charge de travail et la menace d'obsolescence. Ces causes reviennent dans  différents sondages \cite{colomopalacios_career_2014, massoni_exit_2025, oliveira_ants_2021}.
+}{ES09, ES10, ES11}{ES09}
+
+\paragraphe{}{
+\tab
+{Pourcentage des tranches d'âge parmi les postes à temps plein occupés en 2021 au Québec}
+{figure/chap1/savoir/savoir-emploi-pourc.png}
+{}{}{
+\begin{tablenotes}
+\footnotesize
+\item[a] {Données sur les professions provenant de Statistique Canada \cite{statscan_profession_2022}.}
+\item[b] \parbox{0.95\linewidth}{Pourcentage des tranches d'âge (tronqué à l'inférieur) parmi les postes à temps plein occupés en 2021 au Québec, par métier.}
+\end{tablenotes}
+}{tb}
+\vspace{-2\baselineskip}
+}{}{}
+
+\enonce{ES09}{Assertion}{Les tranches d'âge plus élevées sont nettement plus représentées pour d'autres métiers.}{}{P084}
+\explication{ES09}{de l'assertion}{Les tranches d'âge plus élevées sont nettement plus représentées pour d'autres métiers.}{
+À partir des données de Statistique Canada, il est possible de comparer le métier de professionnel informatique à d'autres métiers, ce qui donne lieu au tableau~B.16. En faisant le ratio entre la tranche d'âge le plus élevé (64 ans et plus) et la tranche d'âge le plus bas (15 à 24 ans), il est obtenu~: professionnel informatique (0,26), 
+\tab
+{Nombre de postes occupés à temps plein en 2021 au Québec, par métier et tranche d'âge}
+{figure/chap1/savoir/savoir-emploi-nbr.png}
+{}
+{}
+{
+\begin{tablenotes}
+\footnotesize
+\item[a] {Données provenant de Statistique Canada sur les professions \cite{statscan_profession_2022}.}
+\end{tablenotes}
+}{H}
+ingénieur (1,48), assistant d'enseignement (0,08), etc. (Pour plus de détails voir \hyperref[paragraphe:P084]{P.84 tableau~1.5}). Dans ce comparatif, il n'y a que les assistants d'enseignements et de recherche qui présentent un ratio aussi faible que celui des professionnels informatiques. Toutefois, ils bénéficient de l'encadrement des professeurs et chargés de cours universitaires. Les professionnels informatiques, pour leur part, ne disposent pas nécessairement du soutien d'un autre corps de métier. 
+}{}
+
+\enonce{ES10}{Assertion}{La rétention des professionnels informatiques est plus faible  que celle d'autres professions.}{}{P084}
+\explication{ES10}{de l'assertion}{La rétention des professionnels informatiques est plus faible que celle d'autres professions.}{
+ En 2006, un article de Deborah E. Rupp \textit{et al.} décrit l'industrie des technologies de l'information aux États-Unis du point de vue des ressources humaines  \cite{rupp_personnel_2006}. Plusieurs études et sondages sont cités et corroborent que la rétention dans le secteur est basse~: 
+\begin{itemize}
+    \item \enfr{A study by George Mason University similarly found that career change among IT workers was double that of workers in other fields (Mandell, 1998).}{Une étude de l'Université George Mason a également constaté que le taux de changement de carrière chez les informaticiens était deux fois plus élevé que chez les travailleurs d'autres secteurs (Mandell, 1998).};
+    \item \enfr{Capelli (2001) presents a compelling statistic: The National Survey of College Graduates reported that only 19\% of computer science graduates remained in the field 20 years later, while 52\% of civil engineering graduates did so.}{Capelli (2001) présente une statistique éloquente~: l'Enquête nationale auprès des diplômés universitaires a révélé que seulement 19~\% des diplômés en informatique travaillaient encore dans ce domaine 20 ans plus tard, contre 52~\% des diplômés en génie civil.};
+    \item \enfr{Gallivan et al. (2002) examined the skills specified in job ads for IT professionals in 1988, 1995, and 2001, and concluded that the number of skills mentioned per ad increased by 40 \% from 1988 to 2001.}{Gallivan et al. (2002) ont examiné les compétences requises dans les offres d'emploi pour les professionnels de l'informatique en 1988, 1995 et 2001, et ont conclu que le nombre de compétences mentionnées par annonce avait augmenté de 40 \% entre 1988 et 2001.}
+\end{itemize}
+Il est possible que les professionnels informatiques occupent des métiers plus propices au changement de rôle, comme la transition d'un poste de développeur à celui de gestionnaire de projet.
+}{}
+
+\enonce{ES11}{Assertion}{Les professionnels informatiques affirment quitter le métier, notamment en raison de la lourde charge de travail et de la menace d'obsolescence.}{}{P084}
+\explication{ES11}{de l'assertion}{Les professionnels informatiques affirment quitter le métier, notamment en raison de la lourde charge de travail et de la menace d'obsolescence.}{
+En 2014, un article présente les résultats d'une étude qualitative et d'une étude quantitative \cite{colomopalacios_career_2014}. L'étude qualitative repose sur des entrevues menées auprès de 20 personnes, tandis que l'étude quantitative s'appuie sur un sondage mené auprès de 167 individus. Tous sont d’anciens professionnels informatiques.  
+\begin{itemize}
+    \item Dans l'étude qualitative, les raisons suivantes sont évoquées pour expliquer l'abandon du métier de professionnel informatique~: 
+    \begin{itemize}
+        \item \sfren{le déséquilibre effort-récompense}{effort-reward imbalance};
+        \item \sfren{l'épuisement émotionnel}{emotional exhaustion};
+        \item \sfren{le conflit travail-famille}{work-family conflict};
+        \item \sfren{la charge de travail perçue}{perceived workload};
+        \item \sfren{la fatigue}{fatigue});
+        \item \sfren{la menace d'obsolescence professionnelle}{threat prof.}.
+    \end{itemize}
+    \item Dans l'étude quantitative, les raisons suivantes sont mentionnées~:
+    \begin{itemize}
+        \item \sfren{le déséquilibre effort-récompense}{effort-reward imbalance};
+        \item \sfren{la charge de travail perçue}{perceived workload};
+        \item \sfren{l'épuisement émotionnel}{emotional exhaustion};
+        \item \sfren{la menace d'obsolescence professionnelle}{threat professional obsolescence}; 
+        \item \sfren{le faible contrôle sur le travail}{low job control};
+        \item \sfren{le conflit travail-famille}{work–family Conflict}.
+    \end{itemize}
+\end{itemize}
+
+Plusieurs de ces raisons réapparaissent~:
+\begin{itemize}
+    \item en 2021, lors d'entrevues menées auprès de 15 anciens professionnels informatiques \cite{oliveira_ants_2021} ;
+    \item en 2025, dans un sondage portant sur les intentions de quitter la profession auprès de 221 professionnels informatiques \cite{massoni_exit_2025}. 
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\paragraphe{}{
+\tab
+{Nombre de postes occupés en 2021 au Québec selon le métier et le diplôme universitaire de premier cycle}
+{figure/chap1/savoir/savoir-qualif.png}
+{}
+{}
+{
+\begin{tablenotes}
+\footnotesize
+\item[a] {Données sur les professions provenant de Statistique Canada  \cite{statscan_profession_2022}.}
+\end{tablenotes}}{tb}
+}{}{}
+
+\paragraphe{P085}{\fl{Les connaissances informatiques d'une majorité de professionnels informatiques n'ont pas d'assise solide.} En premier lieu, le nombre de professionnels informatiques ayant un diplôme de premier cycle est faible comparativement à celui observé dans plusieurs autres métiers (tableau~1.6) \cite{statscan_profession_2022}. De plus, la discipline de ces diplômes n'est pas précisée. Une étude menée aux États-Unis en 2015 indique qu'il s'agissait d'un peu moins de la moitié \ccite{nap-growth-2018}[p.~70]. Plus précisément, les analystes de systèmes informatiques, les informaticiens et les développeurs de logiciels n'étaient majoritairement pas titulaires d'un diplôme en informatique. La combinaison de ces deux résultats statistiques suggère qu'environ  le quart des professionnels informatiques pourraient être qualifiés.
+\sep
+Ensuite, un professionnel informatique n'a pas besoin d'être qualifié pour exercer au Québec. Il n'y a pas de référence à des qualifications dans la définition d'informaticien \cite{Gdt_informaticien_0}, contrairement à celles d'ingénieur \cite{Gdt_ing_0}, de physicien \cite{Gdt_physicien_0} ou d'avocat \cite{Gdt_avocat_0}. Il est important de souligner que, parmi les métiers qui ont le plus de diplômés, figurent ceux attribués à un ordre professionnel. Cependant, cela peut aussi arriver lorsque le diplôme est une exigence des employeurs, comme c'est le cas pour les physiciens (tableau~1.6). 
+\sep
+Enfin, plusieurs professionnels informatiques estiment, dans un sondage ($n=33$), que leur métier est trop exigeant pour leur permettre de maintenir ou développer de nouvelles compétences \cite{technocompetences-2025}.
+}{ES13, ES14, ES15, ES16}{ES13}
+
+\enonce{ES13}{Assertion}{Un professionnel informatique n'a pas besoin d'être qualifié pour exercer au Québec.}{}{P085}
+\explication{ES13}{de l'assertion}{Un professionnel informatique n'a pas besoin d'être qualifié pour exercer au Québec.}{
+Des connaissances minimales s'obtiennent avec des formations formelles et des qualifications. Il y a plusieurs métiers où la formation qualifiante se retrouve à même la définition du métier. Voici deux exemples~: 
+\begin{itemize}
+    \item définition d'informaticien~: «~Spécialiste du traitement automatique de l'information~» \cite{Gdt_informaticien_0} ;
+    \item note sur la définition d'informaticien~: «~Le terme informaticien est un terme générique qui sert à désigner les programmeurs, les analystes de l'informatique, les concepteurs de logiciels, etc.~» \cite{Gdt_informaticien_0};
+    \item définition d'ingénieur logiciel~: «~Ingénieur spécialisé qui travaille à la conception, au développement, à la mise en œuvre et à l'exploitation des systèmes logiciels d'une organisation.~» \cite{Gdt_swe_0};
+    \item définition de physicien~: «~Personne qualifiée pour exercer la profession de physicien et qui détient un diplôme en physique d'une université reconnue.~»\cite{Gdt_physicien_0};
+    \item définition d'avocat~: «~Personne qui, régulièrement inscrite à un barreau, \elide.~»\cite{Gdt_avocat_0};
+    \item définition d'ingénieur~: «~Personne ayant reçu une formation reconnue qui la rend apte à concevoir, à réaliser et à mettre en œuvre dans l'industrie des systèmes, des procédés, des produits ou des services.~» \cite{Gdt_ing_0}
+\end{itemize}
+Il n'y a aucune référence à une formation qualifiante dans la définition d'informaticien, tandis qu'il en a une dans celles de physicien, d'avocat et d'ingénieur.
+}{}
+
+\enonce{ES14}{Assertion}{La profession informatique est l'une des rares à ne pas avoir été catégorisée par la formation.}{}{P085}
+\explication{ES14}{de l'assertion}{La profession informatique est l'une des rares à ne pas avoir été catégorisée par la formation.}{
+À l'aide de données provenant de Statistique Canada, il est possible de comparer le niveau de scolarité des professionnels informatiques avec d'autres métiers.
+
+Les professionnels informatiques sont le groupe avec le plus petit taux de diplomation au premier cycle avec 0,48. Les métiers comme médecin, avocat, ingénieur ont un haut taux de diplomation au premier cycle, puisque c'est exigé par leurs ordres professionnels. Pour les métiers comme professeur, physicien, assistant d'enseignement ou de recherche, cela est exigé de la part de leurs employeurs. Le point commun à tous ces métiers est qu'ils ont été catégorisés par différent niveau de formation (professionnel, collégial, universitaire), ce qui n'est pas le cas des professionnels informatiques.
+}{}
+
+\enonce{ES15}{Assertion}{Aux États-Unis, parmi les analystes de systèmes informatiques, les informaticiens et les développeurs de logiciels titulaires d'un diplôme de premier cycle, moins de la moitié possèdent un diplôme en informatique.}{}{P085}
+\explication{ES15}{de l'assertion}{Aux États-Unis, parmi les analystes de systèmes informatiques, les informaticiens et les développeurs de logiciels titulaires d'un diplôme de premier cycle, moins de la moitié possèdent un diplôme en informatique.}{
+\figmediumen
+{\textit{The number of computer workers}}
+{figure/chap1/savoir/bac.png}
+{(source~: \textit{Figure}~4.1 \ccite{nap-growth-2018}[p.~70])}
+{}
+{
+\begin{tablenotes}
+\begin{minipage}{\linewidth}
+\footnotesize
+\item[a]{ Le rapport cite une étude aux États-Unis de 2015 dont les auteurs sont Bound and Morales, elle se retrouve en annexe~C du rapport.}
+\item[b]{ «~\textit{workers (defined as “Computer Systems Analysts,” “Computer Scientists,” and “Computer Software Developers”) holding bachelor’s degrees (in any field)}~»}
+\item[c]{ «~\textit{Cumulative CIS bachelor’s degrees calculated from Integrated Postsecondary Education Data System (IPEDS) completions survey results.}~»}
+\end{minipage}
+\end{tablenotes}
+}{tb}{Professionnels en informatique par rapport aux diplômés en informatique aux États-Unis}
+En 2018, le National Academies Press publie un rapport sur la croissance des travailleurs informatiques. Il y est observé (figure~B.38) le nombre de millions de personnes travaillant dans ce domaine, en distinguant les travailleurs qualifiés des non qualifiés  \ccite{nap-growth-2018}[p.~70]. 
+}{}
+
+\enonce{ES16}{Citation}{Plusieurs professionnels informatiques estiment que leur métier est trop exigeant pour maintenir ou développer de nouvelles compétences.}{}{P085}
+\explication{ES16}{de la citation}{Plusieurs professionnels informatiques estiment que leur métier est trop exigeant pour maintenir ou développer de nouvelles compétences.}{
+L'organisme TechnoCompétence publie un rapport pour les technologies de l’information et des communications (TIC) intitulé \titlefr{Diagnostic sectoriel 2025-2028}\footnote{TechnoCompétence est un organisme à but non lucratif dirigé par des entreprises en TIC qui fait la promotion des TIC.} \cite{technocompetences-2025}. Ce rapport présente les résultats d'un sondage en ligne portant sur les freins à la formation, auquel 33 personnes ont répondu. Il s'agit d'un faible échantillon étant donné les cent quatre-vingt mille professionnels informatiques. Les trois principales raisons évoquées sont~: 
+\begin{itemize}
+\item le surplus de travail empêchant de libérer le personnel pour suivre de la formation; 
+\item les horaires des formations incompatibles avec ceux du travail; 
+\item les coûts élevés des activités de formation continue.
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\subsubsection{Les processus}
+
+\paragraphe{P086}{Pour comprendre un processus, il faut en faire un procédé, mais d'abord, plusieurs écueils doivent être surmontés. Cette sous-section en présente deux~: il faut une base de connaissances fiable et il faut obtenir les informations nécessaires à la construction des modèles. Éventuellement, un premier procédé développé (modèle) pourra en devenir un second de type descriptif, prescriptif, vérificatif, etc.
+}{}{}
+
+\paragraphe{P087}{\fl{Pour les processus en informatique appliquée, il manque une base de connaissances fiable.} Cela devrait débuter avec une taxinomie. Une taxinomie est l'activité et le résultat de l'étude d'un sujet pour en obtenir des règles de classification.
+\sep
+D'abord, les taxinomies sont importantes pour comprendre rigoureusement les théories et les modèles. Paul Ralph écrit dans un article publié~2019 que ~:
+\quoteenfr{\elide process theories and taxonomies are needed in software engineering because they provide concepts and technical language needed for precise communication and education.}{\elide les théories et taxonomies des processus sont nécessaires en génie logiciel, car elles fournissent les concepts et le langage technique nécessaires à une communication et à une formation précises.}
+{\cite{ralph-process-2019}}
+Un ouvrage distingue le modèle formel du modèle informel, entre autres, avec le formalisme utilisé sur la taxinomie \ccite{warren_km_2011}[p.34-35].
+\sep
+Ensuite, dans le même article, Paul Ralph met en garde contre le manque de rigueur des taxinomies développées. Par ailleurs, une revue de littérature de 2017 portant sur 270~articles comportant 271~taxinomies ($n=271$) en informatique appliquée confirme plusieurs manquements à l'intérieur de ces articles \cite{usman_taxonomies_2017}~:
+\begin{itemize}
+    \item pour 22 (8~\%) taxinomies le sujet est soit les procédés, soit les modèles, soit les méthodes (une taxinomie a été évaluée et deux taxinomies ont été validées);
+    \item pour 262 (96~\%) taxinomies la procédure de classification est qualitative ;
+    \item pour 227 (83~\%) taxinomies la procédure de classification n'est pas décrite explicitement.
+\end{itemize}
+\sep
+Néanmoins, depuis la fin des années 1990, le CMMI et le SWEBOK contribuent tout de même à améliorer la situation en offrant respectivement une procédé d'amélioration des procédés et une base de connaissances en informatique appliquée.
+}{ES17, ES18, ES19}{ES17}
+
+\enonce{ES17}{Définition}{Taxinomie}{
+Activité et résultat de l'étude d'un sujet pour en obtenir des règles de classification.
+}{P087}
+\explication{ES17}{de la définition}{Taxinomie}{
+La définition formulée est~: activité et résultat de l'étude d'un sujet pour en obtenir des règles de classification.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item une définition~: «~Étude théorique de la classification, de ses bases, de ses lois, de ses principes et de ses règles.~» \cite{gdt_taxinomie_0} ;
+    \item une note sur la définition précédente~: «~La taxinomie ne s'intéressait à l'origine qu'à la classification des organismes vivants en bactériologie, en botanique et en zoologie mais son utilisation s'étend aujourd'hui à d'autres sciences, telles les sciences humaines et les sciences de l'information.~»\cite{gdt_taxinomie_0} ;
+    \item une note supplémentaire~: \enfr{Taxonomy is the study of classification, and a taxonomy is a classification.}{La taxonomie est l'étude de la classification, et une taxonomie est une classification.}\cite{ralph-process-2019}.
+\end{itemize}
+Selon l'OQLF, l'utilisation répandue du terme \emphase{taxonomie} est un anglicisme qu'il est préférable d'éviter en faveur de \emphase{taximonie}.
+}{}
+
+\enonce{ES18}{Assertion}{Les taxinomies sont importantes pour comprendre rigoureusement les théories et les modèles.}{}{P087}
+\explication{ES18}{de l'assertion}{Les taxinomies sont importantes pour comprendre rigoureusement les théories et les modèles.}{
+En 2019, Paul Ralph décrit l'importance de la taxinomie pour l'informatique dans l'article  \titleen{Toward Methodological Guidelines for Process Theories and Taxonomies in Software Engineering}{Vers des lignes directrices méthodologiques pour les théories des processus et les taxinomies en génie logiciel}~:
+\quoteenfrlist{
+    \item [][---]A process theory, contrastingly, is a system of ideas intended to explain, understand (and sometimes predict) how an entity changes and develops.
+    \item [][---]In summary, process theories and taxonomies are needed in software engineering because they provide concepts and technical language needed for precise communication and education. Taxonomies also provide cognitive efficiency by facilitating reasoning about classes rather than instances while process theories often expose counterintuitive truths and combat pseudoscience.
+}{
+    \item [][---]Une théorie des processus \elide est un système d'idées destiné à expliquer, comprendre (et parfois prédire) comment une entité change et évolue.
+    \item [][---]En résumé, les théories des processus et les taxonomies sont nécessaires en génie logiciel, car elles fournissent les concepts et le langage technique indispensables à une communication et à un enseignement précis. Les taxonomies améliorent également l'efficacité cognitive en facilitant le raisonnement sur les classes plutôt que sur les instances, tandis que les théories des processus révèlent souvent des vérités contre-intuitives et combattent la pseudoscience.
+}{\cite{ralph-process-2019}}
+
+Dans le recueil d'articles \textit{Context and Semantics for Knowledge Management: Technologies for Personal Productivity}, la formalité de la taxinomie va déterminer si le modèle qui l'emploie est formel ou pas~:
+\quoteenfrlist{
+    \item Informal models are ordered in ascending order of their formality degree as controlled vocabularies, glossaries, thesauri and informal taxonomies. In this category we can also include folksonomies, sets of terms which are the result of collaborative tagging processes.
+    \item Formal models are ordered in the same manner: starting with formal taxonomies, which precisely define the meaning of the specialization/generalization relationship, more formal models are derived by incrementally adding formal instances, properties/frames, value restrictions, disjointness, formal meronymy, general logical constraints etc.
+}{
+    \item Les modèles informels sont classés par ordre croissant de formalité~: vocabulaires contrôlés, glossaires, thésaurus et taxonomies informelles. Cette catégorie inclut également les folksonomies, ensembles de termes issus de processus d’étiquetage collaboratifs.
+    \item Les modèles formels sont classés de la même manière~: partant des taxonomies formelles, qui définissent précisément la relation spécialisation/généralisation, des modèles plus formels sont dérivés par l’ajout progressif d’instances formelles, de propriétés/cadres, de restrictions de valeurs, de disjonction, de méronymie formelle, de contraintes logiques générales, etc.
+}{\ccite{warren_km_2011}[p.~34-35]}
+\figsmallen
+{\textit{Semantic spectrum}}
+{figure/chap1/savoir/savoir-tax.png}
+{(source~: \textit{Figure}~3.1 \cite{warren_km_2011})}
+{}{
+\begin{tablenotes}
+\footnotesize
+\item[a] {Définition de folksonomies~: \textit{sets of terms which are the result of collaborative tagging processes}.}
+\end{tablenotes}
+}{tb}{Niveaux de formalisme d'artefacts de représentation des connaissances}
+
+Il y a aussi cette figure~B.39 provenant d'un autre auteur qui trace la taxinomie comme la frontière pour établir un modèle formel~:
+\quoteenfr{(McGuiness 2003) defines a “semantic spectrum” specifying a total order between common types of models. This basically divides ontologies or ontologylike structures in informal and formal as follows (Fig. 3.1):}{McGuiness (2003) définit un «~spectre sémantique~»” spécifiant un ordre global entre les types de modèles courants. Cela divise essentiellement les ontologies ou les structures de type ontologie en informelles et formelles, comme suit (Fig. 3.1)~:} {\cite{warren_km_2011}}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES19}{Assertion}{Les taxinomies portant sur les processus, les modèles et les méthodes sont peu nombreuses et subjectives.}{}{P087}
+\explication{ES19}{de l'assertion}{Les taxinomies portant sur les processus, les modèles et les méthodes sont peu nombreuses et subjectives.}{
+En 2019, Paul Ralph met en garde contre cette situation~:
+\quoteenfr{SE already benefits from taxonomies of software quality dimensions, critical success factors, coding decisions, manager and developer roles, and many other important phenomena. However, many existing taxonomies are not based on rigorous research. SE also lacks a taxonomy of development activities or practices (analagous to Sim and Duffy’s taxonomy for engineering design [140]).}{L’ingénierie des systèmes bénéficie déjà de taxinomies des dimensions de la qualité logicielle, des facteurs clés de succès, des décisions de codage, des rôles des gestionnaires et des développeurs, et de nombreux autres phénomènes importants. Cependant, nombre de taxinomies existantes ne reposent pas sur des recherches rigoureuses. L’ingénierie des systèmes manque également d’une taxinomie des activités ou pratiques de développement (analogue à la taxinomie de Sim et Duffy pour la conception technique [140]).}
+{\cite{ralph-process-2019}}
+
+En 2017, un article fait une revue de littérature sur les taxinomies en informatique appliquée \cite{usman_taxonomies_2017}. Au total, 270 articles allant de 1975 à 2015 sont analysés pour un total de 271 taxinomies. Il y a une correspondance de faite entre les taxinomies et les domaines de connaissances provenant du SWEBOK. Les résultats sont affichés dans la figure~B.40. À cette figure s'ajoutent des faits supplémentaires qui informent le lecteur sur la rigueur employé pour créer ces taxinomies~:
+\quoteenfrlist{
+\item [][---] Relatively fewer taxonomies are reported in “evaluation papers” (34 – 12.54\%) and “validation papers” (11 – 4.06\%).
+%\item [][---] For the remaining 93.7\% (254) taxonomies, no definition of “taxonomy” was provided.
+\item [][---] Not surprisingly, the 23 studies that did not provide descriptive bases are lowly cited, it might indicate the low usefulness of them \elide.
+\item [][---] The majority of the taxonomies employed a qualitative classification procedure (262 – 96.68\%), followed by quantitative (7 – 2.58\%) and both (2 – 0.74\%).
+\item [][---] The majority of the taxonomies do not have an explicit description for the classification procedure (227– 83.76\%) and only 44 taxonomies (16.24\%) have an explicit description.
+}{
+\item [][---] Relativement peu de taxinomies sont rapportées dans les « articles d’évaluation » (34 – 12,54~\%) et les « articles de validation » (11 – 4,06~\%).
+%\item [][---] Pour les 93,7~\% restants (254) taxinomies, aucune définition de «~taxinomie~» n’est fournie.
+\item [][---] Sans surprise, les 23 études qui ne fournissent pas de bases descriptives sont peu citées, ce qui pourrait indiquer leur faible utilité \elide.
+\item [][---] La majorité des taxinomies utilisent une procédure de classification qualitative (262 – 96,68 \%), suivie des procédures quantitatives (7 – 2,58 \%) et des deux (2 – 0,74 \%).
+\item [][---] La majorité des taxinomies ne comportent pas de description explicite de la procédure de classification (227 – 83,76 \%), et seulement 44 taxinomies (16,24 \%) en possèdent une.
+}
+{\cite{usman_taxonomies_2017}}
+\vspace{-1\baselineskip}
+}{}
+
+\figannexe{
+\figmsen
+{\textit{Systematic map – knowledge area vs research type}}
+{figure/chap1/savoir/savoir-taxi.png}
+{(source~: \textit{Figure}~8 \cite{usman_taxonomies_2017})}{}{}{H}
+{Développement de taxinomies par type de recherche et domaine de connaissances}
+}
+
+\paragraphe{P088}{\fl{Les informations nécessaires à la construction de modèles basés sur les procédés de développement sont manquantes, ce qui empêche de développer des connaissances.}
+D'abord, le contexte n'est pas propice à la cueillette d'informations pour les raisons suivantes~:
+\begin{itemize}
+    \item le courant dominant, c'est-à-dire les méthodes agiles, discrédite les procédés de développement \footnote{Kent Beck \textit{et al.}, site web, «~Manifesto for Agile Software Development~», \url{https://agilemanifesto.org/iso/fr/manifesto.html} (consulté le 2025-05-12).}\ccite{meyer_agile_2014}[p.42]; 
+    \item il n’existe pas de définitions explicites des procédés de développement et des critères de succès d’un projet, même dans les rapports qui sont populaires \cite{standish_chaos_2015}.
+\end{itemize}
+Ensuite, les études rigoureuses sur les procédés en informatique sont peu nombreuses~:
+\begin{itemize}
+    \item une revue de littérature répertorie 43~études ayant eu lieu entre 1987 et 2008 portant sur les modèles de développement et incluant des données~: parmi elles, seulement  9~études comportent des données quantitatives \cite{bai_empirical_2011} ;
+    \item un article publié en 2022 décrit les précédentes études sur les méthodes agiles, donc les procédés courants, d'anecdotiques \cite{ciric_agile_2022} ;
+    \item l'ouvrage \titleen{Experimentation in Software Engineering}{} cite plusieurs études soulevant des problèmes avec les expérimentations en général~:
+    \quoteenfr{systematic literature review of software engineering experiments, 1993–2002 [100]. They found 40 theories in 23 articles, out of the 113 articles in the review. Only two of the theories were used in more than one article!}{Une revue systématique de la littérature sur les expériences en génie logiciel (1993-2002) [100] a permis d'identifier 40 théories dans 23 articles, sur un total de 113 articles. Seules deux de ces théories étaient présentes dans plus d'un article.}{\cite{wohlin_experimentation_2024}}
+\end{itemize}
+\vspace{-\baselineskip}
+}{ES20, ES21, ES22}{ES20}
+
+\enonce{ES20}{Citation}{Le courant dominant discrédite les procédés de développement.}{}{P088}
+\explication{ES20}{de la citation}{Le courant dominant discrédite les procédés de développement.}{
+En 2001 apparaît le Manifeste Agile. Le premier principe mentionné est celui-ci~:
+\quotefr{
+Les individus et leurs interactions plus que les processus et les outils.
+}{\footnote{Kent Beck \textit{et al.}, site web, «~Manifesto for Agile Software Development~», \url{https://agilemanifesto.org/iso/fr/manifesto.html} (consulté le 2025-05-12).}}
+
+Bertrand Meyer décrit dans l'ouvrage \textit{Agile!: The Good, the Hype and the Ugly}  la nécessité d'avoir des procédés~:
+\quoteenfr{Discussions of lifecycle models tend to oscillate between the two title words of a book by Sigmund Freud: Totem and Taboo. Neither is appropriate. Every project needs a temporal framework to predict and assess its progress.}{Les discussions sur les modèles de cycle de vie oscillent souvent entre les deux mots-clés d'un ouvrage de Sigmund Freud~: Totem et Tabou. Aucun des deux n'est approprié. Tout projet a besoin d'un cadre temporel pour prévoir et évaluer son évolution.}{\ccite{meyer_agile_2014}[p.42]}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES21}{Assertion}{Il n'y a pas de définitions explicites des procédés de développement et des critères de succès d'un projet.}{}{P088}
+\explication{ES21}{de l'assertion}{Il n'y a pas de définitions explicites des procédés de développement et des critères de succès d'un projet.}{
+Le Standish Group publie le \textit{CHAOS Report} et y oppose les approches \textit{Agile} et \textit{Waterfall}. Or, dans l'édition 2015, ces termes ne sont pas définis  \cite{standish_chaos_2015}. 
+
+En 2019, une revue de littérature porte sur les articles abordant le succès des projets en méthodologie agile et souligne le fait qu'il n'y a pas de consensus sur les critères de succès d'un projet~: 
+\quoteenfr{From a project management perspective, critical success factors (CSF) are the characteristics, conditions, or variables with significant impact on the success of the project provided they are properly managed [27]. The CSF approach has been researched over the last thirty years. However, there is still no consensus on the criteria that determine project success [28].}{Du point de vue de la gestion de projet, les facteurs clés de succès (FCS) sont les caractéristiques, les conditions ou les variables qui ont un impact significatif sur la réussite du projet, à condition qu'elles soient correctement gérées [27]. L'approche par les FCS a fait l'objet de recherches au cours des trente dernières années. Cependant, il n'existe toujours pas de consensus sur les critères qui déterminent la réussite d'un projet [28].}
+{\ccite{kantola_agile_2019}[p.405-414]}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES22}{Énoncé}{Les études rigoureuses sur les procédés en informatique sont peu nombreuses.}{}{P088}
+\explication{ES22}{de l'énoncé}{Les études rigoureuses sur les procédés en informatique sont peu nombreuses.}{
+En 2011, une revue de littérature portant sur les recherches consacrées à la modélisation des processus de développement logiciel décortique les sujets abordés \cite{bai_empirical_2011}. Au total, 43 études réalisées entre 1987 et 2008 et fournissant des données sont sélectionnées (figure~B.41). Il y a très peu d'expérimentations ou de méta-analyses reposant sur des données quantitatives. Or, ce type de données faciliteraient l'établissement de comparaisons et permettraient d'augmenter la réfutabilité de ces études. Avec des données qualitatives, cet exercice devient plus difficile.
+\figmediumen
+{\textit{The primary research objectives and mostly used research method for them}}
+{figure/chap1/savoir/researchmodel.png}
+{(source~: \textit{Table} 2 \cite{bai_empirical_2011})}
+{}{}{H}{Types de recherches menées sur les procédés de développement entre 1987 et 2008}
+
+En 2015, l'analyse \titleen{Does Agile work? — A quantitative analysis of agile project success}{L’agilité est-elle efficace ? — une analyse quantitative du succès des projets agiles} portant sur 1~386 projets qualifie la majorité des recherches d'anecdotique où les échantillons sont trop petits pour être utiles~:
+\quoteenfr{To date, the majority of research examining the methodology's usefulness has been anecdotal, based on small-sample case studies, or research limited by sample size, industry or geography.}{À ce jour, la majorité des recherches examinant l'utilité de cette méthodologie sont anecdotiques, basées sur des études de cas portant sur de petits échantillons, ou des recherches limitées par la taille de l'échantillon, le secteur d'activité ou la zone géographique.}{\cite{serrador_agile_2015}}
+
+En 2024, l'ouvrage \textit{Experimentation in Software Engineering} analyse 113 articles. Parmi ces articles, seuls deux concernaient une même théorie. Ceci signifie que les articles qui étayent ou réfutent un autre article sont rares~: 
+\quoteenfr{Experiments may be conducted to generate, confirm, and extend theories, as mentioned above. However, the use of theory is scarce in software engineering, as concluded by Hannay et al. in their systematic literature review of software engineering experiments, 1993–2002 [100]. They found 40 theories in 23 articles, out of the 113 articles in the review. Only two of the theories were used in more than one article! Similarly, Hall et al. identified a lack of references to general theory on motivation in 92 studies of motivation in software engineering, in the 1980–2006 period [99].}{Comme mentionné précédemment, des expériences peuvent être menées pour générer, confirmer et étendre des théories. Cependant, le recours à la théorie est rare en génie logiciel, comme l'ont conclu Hannay \textit{et al.} dans leur revue systématique de la littérature sur les expériences en génie logiciel (1993-2002) [100]. Sur les 113 articles analysés, ils ont recensé 40 théories dans 23 articles. Seules deux de ces théories étaient utilisées dans plus d'un article ! De même, Hall \textit{et al.} ont constaté un manque de références à la théorie générale de la motivation dans 92 études sur la motivation en génie logiciel, menées entre 1980 et 2006 [99].}{\cite{wohlin_experimentation_2024}}
+\vspace{-1\baselineskip}
+}{}
+
+\subsubsection{Les artefacts}
+
+\paragraphe{P089}{La disparition de certains artefacts a mené à la création d'une nouvelle discipline~: la rétro-ingénierie. Cependant, elle ne résout pas tout et plusieurs écueils sont en fait des limitations à cette discipline.}{}{}
+
+\paragraphe{P090}{\fl{La perte de connaissances en informatique appliquée a conduit à la naissance d'une nouvelle discipline~: la rétro-ingénierie.} La rétro-ingénierie consiste à étudier un groupe d'artefacts pour en déterminer le fonctionnement et la méthode de fabrication. En effet, les artefacts se dégradent et finissent par disparaître. Ehsan Zabardast identifie 3~causes à la dégradation \cite{zabardast_assets_2022}~: délibérée (dette technique), involontaire (pertes ou destructions d'artefacts) ou par entropie (adaptation successive). Lors d'un sondage mené auprès de 219~professionnels informatiques, 26 personnes ont indiqué qu'elles supprimaient les exigences lorsqu'elles devenaient obsolètes \cite{wnuk_requirement_2013}. Certains choisissent de ne conserver qu'un seul type d'artefact; c'est le cas du projet Software Heritage, qui ne conserve que le code source, car il s'agit d'artefacts plus petits et plus faciles à traiter \cite{di_software_2017}. 
+}{ES23, ES24, ES25}{ES23}
+
+\enonce{ES23}{Définition}{Rétro-ingénierie}{
+Consiste à étudier un groupe d'artefacts pour en déterminer le fonctionnement et la méthode de fabrication.
+}{P090}
+\explication{ES23}{de la définition}{Rétro-ingénierie}{
+La définition formulée est~: consiste à étudier un groupe d'artefacts pour en déterminer le fonctionnement et la méthode de fabrication.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item définition 1 de rétro-ingénierie~: «~Ensemble des opérations d'analyse d'un logiciel ou d'un matériel destinées à retrouver le processus de sa conception et de sa fabrication, ainsi que les modalités de son fonctionnement.~» \cite{Gdt_RetroIng_1};
+    \item définition 2 de rétro-ingénierie~: \enfr{\elide determining what existing software will do and how it is constructed (to make intelligent changes \elide.)}{\elide déterminer ce que fera le logiciel existant et comment il est construit (pour apporter des modifications intelligentes) \elide.}
+    \cite{iso_24765_2017};
+    \item définition 3 de rétro-ingénierie~: \enfr{\elide a software engineering approach that derives a system's design or requirements from its code \elide.}{\elide une approche d'ingénierie logicielle qui déduit la conception ou les exigences d'un système à partir de son code \elide.}
+    \cite{iso_24765_2017};
+    \item définition d'ingénierie inverse~: \enfr{\elide process of obtaining a high‐level representation of the software from the source code cf. reverse engineering \elide.}{\elide processus d'obtention d'une représentation de haut niveau du logiciel à partir du code source voir rétro-ingénierie \elide.} 
+    \cite{iso_24765_2017};
+    \item note sur d'ingénierie inverse~: \enfr{Inverse engineering provides a more abstract view of the system with the intent of recapturing design and requirements information.}{L'ingénierie inverse fournit une vue plus abstraite du système dans le but de récupérer les informations de conception et d'exigences.}
+    \cite{iso_24765_2017}.
+    %\item définition de réingénierie~: \enfr{\elide complete cycle of performing reverse engineering followed by forward engineering \elide.}{\elide cycle complet de rétro-ingénierie suivie d'ingénierie directe \elide.}
+    %\cite{iso_24765_2017}.
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES24}{Assertion}{Les artefacts se dégradent volontairement, involontairement et par les changements dans l'environnement.}{}{P090}
+\explication{ES24}{de l'assertion}{Les artefacts se dégradent volontairement, involontairement et par les changements dans l'environnement.}{
+Dans un article de 2022, Ehsan Zabardast décrit les dégradations possibles des artefacts~:
+\quoteenfrlist{
+\item deliberate: Taking a conscious, sub-optimal decision to accommodate short-term goals at the expense of long-term value. The asset is degraded as a result of a modification comprising a conscious non-optimal decision. We take a shortcut, knowing its consequences, and eventually pay its price.
+\item unintentional: Sub-optimal decisions based on lack of diligence are unintentional forms of degradation. The asset is degraded as a result of a modification comprising an unconscious non-optimal decision. We are not aware of the other, better alternatives to our decision; therefore, we do not foresee the consequences of selecting an alternative. There is no awareness of the fact that the usability of the asset can be hindered.
+\item entropy: According to Lehman, ‘‘as a software program is evolved its complexity increases unless work is done to maintain or reduce it’’ and ‘‘[it] will be perceived as of declining quality unless rigorously maintained and adapted to a changing operational environment’’ (Lehman, 1979, 1996). This ever increasing complexity and perceived quality decline might encompass the degradation of the assets involved in the development of the software system. The degradation that is due to the continuous evolution of the software, and which is not coming directly from the manipulation of the asset by the developers is entropy. Entropy can introduce degradation in the form of natural decay due to technology and market changes on assets even when we have quality management mechanisms to avoid such degradation.
+}{
+\item délibérée : Prendre une décision consciente, mais sous-optimale, pour atteindre des objectifs à court terme au détriment de la valeur à long terme. L'actif se dégrade suite à une modification résultant d'une décision consciente et non optimale. On prend un raccourci, en connaissant ses conséquences, et on en subit finalement les conséquences.
+\item involontaire : Les décisions sous-optimales dues à un manque de diligence constituent des formes non intentionnelles de dégradation. L'actif se dégrade suite à une modification résultant d'une décision inconsciente et non optimale. On ignore l'existence d'autres alternatives, meilleures, à notre décision ; par conséquent, on ne prévoit pas les conséquences du choix d'une alternative. On n'a pas conscience du fait que l'utilisabilité de l'actif peut s'en trouver compromise.
+\item par entropie : Selon Lehman, «~à mesure qu'un logiciel évolue, sa complexité augmente à moins qu'un travail ne soit entrepris pour la maintenir ou la réduire~» et «~[il] sera perçu comme étant de qualité déclinante à moins d'être rigoureusement maintenu et adapté à un environnement opérationnel changeant~» (Lehman, 1979, 1996). Cette complexité croissante et la baisse de qualité perçue peuvent englober la dégradation des ressources impliquées dans le développement du système logiciel. La dégradation due à l'évolution continue du logiciel, et non à la manipulation directe de ces ressources par les développeurs, est appelée entropie. L'entropie peut induire une dégradation sous forme de dégradation naturelle due aux évolutions technologiques et du marché, même en présence de mécanismes de gestion de la qualité censés l'éviter.
+}{\cite{zabardast_assets_2022}}
+\vspace{-1\baselineskip}
+}{}
+
+\figannexe{
+\figmediumen
+{\textit{Methods used to manage identified OSRs}}
+{figure/chap1/savoir/obsoleteRE.png}
+{(source~: \textit{Figure}~12 \cite{wnuk_requirement_2013})}{}{
+\begin{tablenotes}
+\footnotesize
+\item[a] {\textit{Obsolete Software Requirements} (OSR)}
+\end{tablenotes}
+}{H}{Manières utilisées par des professionnels pour gérer les exigences obsolètes}
+}
+\enonce{ES25}{Assertion}{Plusieurs artefacts ne sont pas conservés.}{}{P090}
+\explication{ES25}{de l'assertion}{Plusieurs artefacts ne sont pas conservés.}{
+Un article publié en 2013 présente les résultats d'un sondage consacré aux exigences logicielles devenues obsolètes \cite{wnuk_requirement_2013}. À la question portant sur les méthodes utilisées pour identifier les exigences logicielles obsolètes, 26 des 219~professionnels informatiques ont indiqué qu'ils les supprimaient. Les différents comportements des professionnels informatiques sont indiqués dans la figure~B.42.
+En 2020, l'article \textit{Software Heritage: Why and How to Preserve Software Source Code} décrit l'initiative de conserver le logiciel qu'avec le code source et explique les limitations avec les autres artefacts~:
+\quoteenfr{The first reason behind this choice is pragmatic: \elide Source code is usually small in comparison to other digital objects, information dense and expensive to produce, unlike the millions of (cat) pictures and videos exchanged on social media. Additionally, source code is heavily redundant/duplicated, allowing for efficient storage approaches (see Section 7). Second, software is nowadays massively developed in the open, so we get access to the history of software projects since their very early phase. This is a precious information for understanding how software is born and evolves and we want to preserve it for any “important” project. Unfortunately, when a project is in its infancy it is extremely hard to know whether it will grow into a king or a peasant. \elide.}{La première raison de ce choix est pragmatique~: \elide Le code source est généralement petit comparé à d'autres objets numériques, dense en informations et coûteux à produire, contrairement aux millions de photos et vidéos (de chats) échangées sur les réseaux sociaux. De plus, le code source est fortement redondant/dupliqué, ce qui permet des méthodes de stockage efficaces (voir section 7). Deuxièmement, les logiciels sont aujourd'hui massivement développés en code source libre, ce qui nous donne accès à l'historique des projets logiciels depuis leurs toutes premières phases. Il s'agit d'une information précieuse pour comprendre comment un logiciel naît et évolue, et nous souhaitons la préserver pour tout projet «~important~». Malheureusement, lorsqu'un projet est à ses débuts, il est extrêmement difficile de savoir s'il deviendra un succès retentissant ou un échec. \elide.}
+{\cite{di_software_2017}}
+\vspace{-1\baselineskip}
+}{}
+
+\paragraphe{P091}{\fl{La rétro-ingénierie présente de nombreuses limitations.}
+D'abord, un article de 1991 rappelle que certains artefacts ne contiennent pas toutes les informations \cite{byrne_re_1991}. Le code source explique précisément à la machine la procédure à suivre, mais n'offre ni une vision globale ni des explications sur les raisons. À cela s'ajoutent les biais lors de l'implémentation, les informations contradictoires pouvant provenir de la documentation ou le contexte changeant.
+\sep
+Ensuite, un article publié en 2024 résume les difficultés et défis à construire des modèles en rétro-ingénierie \cite{siala_re_2024}. Parmi celles-ci, il y a~: \sfren{l'exactitude}{accuracy}, \sfren{l'hétérogénéité}{heterogeneity}, \sfren{l'adaptabilité}{scalabity}, \sfren{la gestion des comportements dynamiques}{handling dynamic behaviour}, \sfren{la compréhension de la sémantique du code source}{understanding the semantics of the source code}, \sfren{l'absence de techniques d'apprentissage automatique}{lack of machine learning techniques} et \sfren{la traduction de programmes}{program translation}.
+\sep
+Enfin, les instruments de rétro-ingénierie nécessitent les connaissances des experts pour obtenir des résultats satisfaisants. 
+\sep
+En 2011, un article qualifie les résultats produits automatiquement comme étant incomplets ou imprécis \cite{canfora_re_2011}.
+}{ES26}{ES26}
+
+\enonce{ES26}{Assertion}{Les artefacts ne contiennent pas toutes les connaissances.}{}{P091}
+\explication{ES26}{de l'assertion}{Les artefacts ne contiennent pas toutes les connaissances.}{
+Un article de 1991, décrivant le cas d'étude d'une rétro-ingénierie, présente les raisons pour lesquelles il est difficile de reconstituer des documents de conception originaux à partir des documents issus du code source~: 
+\quoteenfrlist{
+\item [1-] implementation bias~: Perhaps the most important issue in recovering a design is to separate design information from implementation information. At the implementation level it can be difficult to recognize what information should not be recorded in the recovered design. It can be difficult to ‘throw away’ information during the abstraction process, particularly, when the goal is to reimplement the system. It is necessary to realize that the design does not serve as program documentation. Program documentation reflects the implementation details of the source code. Design documentation reflects a higher-level view of ‘how’ a program functions. Implementation details that need to be watched for are data item names, basic data types, data structuring, system interfaces, code sections written to be efficient, code that is biased by the underlying computer architecture and code whose expression was biased by the original implementation language.
+\item [2-] traceability~: A recovered design should record links between recovered information and the original sources. This permits traceability between the recovered design and the original implementation. This experiment has shown that an existing software development environment can be used to record a recovered design. However, such a tool must provide the flexibility to record information not envisioned when the tool was created.
+\item [3-] domain information: The information recorded in a program is sufficient to explain ‘what’ is being done, but not ‘why’. To understand the significance of a processing step, deeper information is often required. This information is often not recorded in the source code or existing documentation. An understanding of the application domain can aid the recovery of information about the purpose of a function and its significance.
+\item [4-] re-engineering: Reverse engineering will most often be done on older software  systems whose documentation is out-of-date or non-existent . \elide.
+\item [5-] existing documentation: One last issue is the use of comments and existing documentation. These sources of information may be out-dated or incorrect. They must be used carefully. They can provide useful information about a program, but they can also be misleading or wrong. The source code is the final statement about what the program actually does.
+}{
+\item [1-] biais d'implémentation~: L'un des enjeux majeurs de la récupération d'une conception est la distinction entre les informations de conception et celles d'implémentation. Au niveau de l'implémentation, il peut être difficile d'identifier les informations à ne pas consigner dans la conception récupérée. Il peut être complexe d'«~éliminer~» des informations lors du processus d'abstraction, notamment lorsque l'objectif est de réimplémenter le système. Il est essentiel de comprendre que la conception ne constitue pas une documentation de programme. La documentation de programme reflète les détails d'implémentation du code source. La documentation de conception, quant à elle, offre une vision globale du fonctionnement du programme. Parmi les détails d'implémentation à surveiller figurent les noms des éléments de données, les types de données de base, la structuration des données, les interfaces système, les sections de code optimisées, le code influencé par l'architecture informatique sous-jacente et le code dont l'expression était biaisée par le langage d'implémentation d'origine.
+\item [2-] traçabilité~: Une conception récupérée doit consigner les liens entre les informations récupérées et les sources originales. Ceci permet d'assurer la traçabilité entre la conception récupérée et l'implémentation originale. Cette expérience a démontré qu'un environnement de développement logiciel existant peut être utilisé pour consigner une conception récupérée. Toutefois, un tel outil doit offrir la flexibilité nécessaire pour enregistrer des informations non prévues lors de sa création.
+\item [3-] information du domaine~: Les informations enregistrées dans un programme suffisent à expliquer «~ce qui~» est fait, mais pas «~pourquoi~». Pour comprendre l’importance d’une étape de traitement, des informations plus détaillées sont souvent nécessaires. Ces informations ne sont généralement pas consignées dans le code source ni dans la documentation existante. La compréhension du domaine d’application peut faciliter la récupération d’informations sur la finalité d’une fonction et son importance.
+\item [4-] re-engineering~: La rétro-ingénierie est le plus souvent effectuée sur des systèmes logiciels anciens dont la documentation est obsolète ou inexistante. \elide.
+\item [5-] documentation existante~: Un dernier point concerne l'utilisation des commentaires et de la documentation existante. Ces sources d'information peuvent être obsolètes ou erronées. Elles doivent être utilisées avec précaution. Elles peuvent fournir des informations utiles sur un programme, mais aussi être trompeuses ou incorrectes. Le code source constitue la déclaration finale du fonctionnement réel du programme.
+}{\cite{byrne_re_1991}}
+
+Une revue de littérature publiée en 2024 porte sur l'analyse des articles de rétro-ingénierie utilisant une approche par modèle \cite{siala_re_2024}. Il y est abordé le langage de contrainte d’objet (OCL, \textit{Object Constraint Language} en anglais). Les principaux défis recensés ainsi que leurs descriptions sont~:
+\quoteenfrlist{
+\item [a:] ACCURACY \elide Providing complete and accurate models of software systems can be difficult, especially with large and complex software systems that have errors and/or inconsistencies.
+\item [b:] HETEROGENEITY \elide It is necessary to consider such language and platform variations to properly analyze the software system  \elide.
+\item [c:] SCALABILITY \elide dealing with real-world software systems and extracting the required information from the source code. This is because these systems have complex architectures or are developed in multiple programming languages. Additionally, more time and resources are required as the size and complexity of a software system grows.
+\item [d:] HANDLING DYNAMIC BEHAVIOUR \elide capture runtime behaviours and dependencies between software components and include them in different models. Traditional reverse engineering approaches often prioritize static artifacts such as source code, making the extraction of behavioural diagrams such as UML sequence and communication diagrams extremely challenging.
+\item [e:] UNDERSTANDING THE SEMANTICS OF THE SOURCE CODE \elide need to be able to understand the semantics of the source code. \elide Extracting this information automatically from source code can be very difficult, especially with large and complex software systems. Interactive (semi-automated) techniques involving input from system experts are typically necessary.
+\item [f:] LACK OF MACHINE LEARNING TECHNIQUES FOR MDRE There is a lack of MDRE approaches that use machine learning to extract specifications from source code. This appears to be a gap in current research and indicates the need to study several machine learning techniques. These techniques assist MDRE approaches by recognizing relevant information within source code, understanding its semantics, and dealing with multiple programming languages and frameworks. Machine learning, especially LLMs, can be used to reduce the human effort and various resources required to reverse engineer large and complex software systems.
+\item [g:] PROGRAM TRANSLATION Translating reverse-engineered models to target code with equivalent semantics to the source, particularly in the case of multiple target programming languages, presents a complex challenge. Some approaches address this problem by first abstracting precise UML and OCL representations from the source code and then using an MDE tool such as AgileUML to translate the program into the chosen target languages.
+}{
+\item [a:] EXACTITUDE \elide Fournir des modèles complets et précis de systèmes logiciels peut s'avérer difficile, notamment pour les systèmes vastes et complexes présentant des erreurs et/ou des incohérences.
+\item [b:] HÉTÉROGÉNÉITÉ \elide Il est nécessaire de prendre en compte les variations de langages et de plateformes pour analyser correctement le système logiciel \elide.
+\item [c:] ADAPTABILITÉ \elide traiter des systèmes logiciels réels et d'extraire les informations nécessaires du code source. En effet, ces systèmes possèdent des architectures complexes ou sont développés dans plusieurs langages de programmation. De plus, la taille et la complexité d'un système logiciel exigent davantage de temps et de ressources.
+\item [d:] GESTION DES COMPORTEMENTS DYNAMIQUES \elide capturer les comportements d'exécution et les dépendances entre les composants logiciels et de les intégrer dans différents modèles. Les approches traditionnelles de rétro-ingénierie privilégient souvent les artefacts statiques, tels que le code source, ce qui rend l'extraction de diagrammes comportementaux, comme les diagrammes de séquence et de communication UML, extrêmement difficile.
+\item [e:] COMPRÉHENSION DE LA SÉMANTIQUE DU CODE SOURCE \elide Extraire automatiquement ces informations du code source peut s'avérer très difficile, notamment pour les systèmes logiciels vastes et complexes. Des techniques interactives (semi-automatisées) nécessitant l'intervention d'experts du système sont généralement indispensables.
+\item [f:] MANQUE DE TECHNIQUES D'APPRENTISSAGE AUTOMATIQUE POUR LA RÉTROINGÉNIERIE DE SYSTÈMES TECHNIQUES (MDRE) On constate un manque d'approches MDRE utilisant l'apprentissage automatique pour extraire les spécifications du code source. Cette lacune dans la recherche actuelle souligne la nécessité d'étudier plusieurs techniques d'apprentissage automatique. Ces techniques facilitent les approches MDRE en identifiant les informations pertinentes dans le code source, en comprenant sa sémantique et en prenant en charge plusieurs langages et cadres d'application. L'apprentissage automatique, en particulier les grands modèles de langage (GML), peut être utilisé pour réduire l'effort humain et les ressources nécessaires à la rétro-ingénierie de systèmes logiciels vastes et complexes.
+\item [g:] TRADUCTION DE PROGRAMMES Traduire les modèles de rétro-ingénieries en code cible avec une sémantique équivalente à celle du code source, notamment dans le cas de plusieurs langages de programmation cibles, représente un défi complexe. Certaines approches abordent ce problème en extrayant d'abord des représentations UML et OCL précises du code source, puis en utilisant un outil MDE, tel qu'AgileUML pour traduire le programme dans les langages cibles choisis.
+}{\cite{siala_re_2024}}
+
+En 2011, un article présente les raisons expliquant la nécessité des connaissances des experts lors de l'utilisation d'instruments de rétro-ingénierie~:
+\quoteenfrlist{
+\item They are either incomplete or imprecise, especially when they are completely automatic; above all, they do not account for experts’ knowledge \elide.
+\item They are semi-automatic, for example, inputs from human experts are required to complement or correct the information automatically extracted and to produce useful views for the developer \elide.
+}{
+\item Les résultats sont soit incomplets, soit imprécis, surtout lorsqu'ils sont entièrement automatisés ; et surtout, ils ne tiennent pas compte des connaissances des experts \elide.
+\item Les résultats sont semi-automatiques ; par exemple, l'intervention d'experts humains est nécessaire pour compléter ou corriger les informations extraites automatiquement et pour produire des vues utiles au développeur \elide.
+}{\cite{canfora_re_2011}}
+\vspace{-1\baselineskip}
+}{}
+
+\subsubsection{Les instruments}
+
+\paragraphe{P092}{De tous les instruments, le groupe des \textit{CASE tools} est suffisamment représentatif pour démontrer les écueils associés aux instruments. C'est qu'ils sont moins bien définis et subissent les influences de l'économie et des organisations qui les contrôlent.
+}{}{}
+
+\paragraphe{P093}{\fl{Le flou autour des définitions des \textit{CASE tools} et de leurs catégorisations va en s'accentuant.}
+Tout d'abord, les définitions des \textit{CASE tools} sont précaires, et le terme lui-même est de moins en moins utilisé. Même le terme n'est plus autant utilisé. Roger S. Pressman, dans la septième édition de son ouvrage \titleen{Software engineering: a practitioner's approach}{} publiée en 2010, n'y fait d'ailleurs plus mention \cite{pressman_software_2010}. Pourtant, dans la cinquième édition publiée en 2000, un chapitre entier (chapitre~31) y est consacré et l'auteur y présente 24 définitions de différentes catégories de \textit{CASE tools} \cite{pressman_software_2000}.
+\sep
+Ensuite, le vocabulaire employé pour définir des \textit{CASE tools} peut prêter à confusion. Ils peuvent être désignés par les termes suivants~: \enfr{Process-centered environments, integrated CASE environment (I-CASE), Process-centered software engineering environments, Application lifecycle management (ALM)}{Environnements axés sur les processus, environnement CASE intégré (I-CASE), environnements d'ingénierie logicielle axés sur les processus, gestion du cycle de vie des applications (ALM)}. Tous ces instruments prennent en charge des procédés de développement. Toutefois, dans le cas du ALM, Alfonso Fuggetta indique que cet aspect de ces instruments n'est pas explicite, cela peut ajouter à la confusion \cite{fuggetta_software_2014}.
+}{ES27, ES28}{ES27}
+
+\enonce{ES27}{Assertion}{Les définitions des \textit{CASE tools} sont précaires.}{}{P093}
+\explication{ES27}{de l'assertion}{Les définitions des \textit{CASE tools} sont précaires.}{
+La précarité des définitions s'observe entre les différentes éditions de l'ouvrage de Roger S. Pressman, \textit{Software engineering~: a practitioner's approach}:
+\begin{itemize}
+    \item Dans la cinquième édition, le chapitre 31 (\textit{Computer-Aided Software Engineering}) fournit 24 définitions de types de \textit{CASE tools} \ccite{pressman_software_2000}[p.25]~: \textit{Business process engineering tools, Process modeling and management tools, Project planning tools, Risk analysis tools, Project management tools, Requirements tracing tools, Metrics and management tools, Documentation tools, System software tools, Quality assurance tools, Database management tools, Software configuration management tools, Analysis and design tools, PRO/SIM tools, Interface design and development tools, Prototyping tools, Programming tools, Web development tools, Integration and testing tools, Static analysis tools, Dynamic analysis tools, Test management tools, Client/server testing tools, Reengineering tools}.
+    \item Dans la 7e édition, le terme \textit{CASE tool} est complètement absent. L'auteur y aborde toutefois certains instruments, tels que les \textit{Process Modeling Tools}, les \textit{use-case-tool}, etc.  \cite{pressman_software_2010}.
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES28}{Assertion}{Le vocabulaire utilisé pour définir des \textit{CASE tools} crée de la confusion.}{}{P093}
+\explication{ES28}{de l'assertion}{Le vocabulaire utilisé pour définir des \textit{CASE tools} crée de la confusion.}{
+Les instruments qui intègrent les processus ont des rôles similaires, mais des noms différents~:
+\begin{itemize}
+  \item environnements axés sur les processus : \enfr{\elide is based on a formal definition of the software process. A computerized application called a process driver or process engine uses this definition to guide development activities by automating process fragments \elide.}{\elide reposent sur une définition formelle du processus logiciel. Une application informatique, appelée pilote ou moteur de processus, utilise cette définition pour guider les activités de développement en automatisant des fragments de processus \elide.}
+  \cite{fuggetta_classification_1993} ;
+  \item environnement CASE intégré (I-CASE) : \enfr{\elide combines a variety of different tools and a spectrum of information in a way that enables closure of  communication among tools, between people, and across the software process.}{\elide combine divers outils et un large éventail d’informations de manière à assurer la communication entre les outils, entre les personnes et tout au long du processus logiciel.}
+  \cite{pressman_software_2000} ;
+  \item environnements d'ingénierie logicielle axés sur les processus ~: \enfr{\elide give up the notion of a predefined process model. They support a wider variety of processes [. . .] software developers are reminded of activities which have to be carried out, automatic activities are executed without human interaction and consistency between documents is enforced up to a certain level.}{\elide abandonne la notion de modèle de processus prédéfini. Ils prennent en charge une plus grande variété de processus \elide Les développeurs sont informés des activités à réaliser, les tâches automatiques sont exécutées sans intervention humaine et la cohérence entre les documents est assurée jusqu’à un certain niveau.}
+  \cite{gruhn_process_2002};
+  \item gestion du cycle de vie des applications (ALM): \enfr{\elide consists of the core disciplines of requirements definition and management, asset management, development, build, test, and release that are all planned by project management and orchestrated by using some form of process. [. . .] ALM involves the coordination of software development activities and assets to produce and manage software applications throughout their life cycle.}{\elide comprend les disciplines fondamentales que sont la définition et la gestion des exigences, la gestion des actifs, le développement, la compilation, les tests et la mise en production. Toutes ces activités sont planifiées par la gestion de projet et orchestrées à l’aide d’un processus. \elide L’ALM implique la coordination des activités de développement logiciel et des actifs afin de produire et de gérer les applications logicielles tout au long de leur cycle de vie.}
+  \cite{ibm_collaborative_2008}.
+\end{itemize}
+
+Un article sur la recherche en processus logiciel d'Alfonso Fuggetta et Elisabetta Di Nitto explique que les ALM font partie des logiciels de gestion des processus, même si ce n'est pas explicitement décrit dans ces instruments~:
+\quoteenfr
+{Application Lifecycle Management (ALM) suites are a class of products originated partly by the conventional software industry and partly by the open source community. Even though they do not appear as explicitly connected to Software Process research, they offer mechanisms for automating some tasks (typically, build and test), and for connecting managerial tasks with software development activities. Moreover, they offer connectors to external tools for specific functionality such us configuration management, bug tracking, requirement management and the like.}{Les suites de gestion du cycle de vie des applications (ALM) constituent une catégorie de produits issue à la fois de l'industrie du logiciel traditionnelle et de la communauté open source. Bien qu'elles ne soient pas explicitement liées à la recherche sur les processus logiciels, elles offrent des mécanismes d'automatisation de certaines tâches (généralement la compilation et les tests) et permettent de relier les tâches de gestion aux activités de développement logiciel. De plus, elles proposent des connecteurs vers des outils externes pour des fonctionnalités spécifiques, telles que la gestion de la configuration, le suivi des bogues, la gestion des exigences, etc.}
+{\cite{fuggetta_software_2014}}
+\vspace{-1\baselineskip}
+}{}
+
+\paragraphe{P094}{\fl{Les instruments subissent les aléas de l'économie.}
+Tout d'abord, les \textit{CASE tools} sont influencés par les tendances des méthodes de développement. Dans un ouvrage consacré aux \textit{CASE tools}, l'auteur affirme que ce sont les exigences du marché qui motivent la création d'environnement CASE intégré (I-CASE tools, \textit{Integrated CASE Environment} en anglais) \ccite{simon_integrated_1993}[p.5]. Ce serait aux professionnels informatiques et aux spécialistes du marketing d'identifier les fonctionnalités les plus utiles et les plus demandées \cite{post_comparative_1998}. La popularité des méthodologies agiles a un impact incontestable sur ces instruments \cite{capretz_brief_2003, goth_agile_2009}.
+\sep
+Ensuite, les participants informatiques se font leurrer quant aux fonctionnalités offertes par certains \textit{CASE tools}. Depuis au moins le début d’années 1980, les fournisseurs d'instruments gonflent les fonctionnalités offertes \ccite{simon_integrated_1993}[p.5]. À la fin des années 2000, les ALM promettent de gérer l'ensemble du  processus d'une entité informatique, mais ce ne fut pas le cas \cite{chappell_application_2008, fuggetta_software_2014}. À la fin des années 2010, cette prétention demeure \cite{tuzun_adopting_2019}. Pourtant, à la même période, un cas d'étude démontre qu'une entreprise a dû se reprendre à trois reprises pour réussir à intégrer leurs procédés à l'intérieur d'ALM \cite{larrucea_systems_2018}. Jeffrey D. Ullman décrit cette volonté mercantile derrière l'utilisation de certains termes~: 
+\quoteenfr
+{\elide “knowledge” sells well. It appears that attibutring "knowledge" to your software product, or saying that it uses "artificial intelligence" make the product more attractive, even though the performance and functionality may be no better than that of a similar product \elide.}
+{\elide le terme «~connaissance~» se vend bien. Il semble qu’attribuer la notion de «~connaissance~» à votre logiciel, ou affirmer qu’il utilise «~l’intelligence artificielle~», le rend plus attractif, même si ses performances et ses fonctionnalités ne sont pas nécessairement meilleures que celles d’un produit similaire \elide.}
+{\ccite{ullman_principles_1988}[p.23]}
+\vspace{-\baselineskip}
+}{ES29, ES30}{ES29}
+
+\enonce{ES29}{Assertion}{Les CASE tools suivent les tendances des méthodes de développement.}{}{P094}
+\explication{ES29}{le l'assertion}{Les CASE tools suivent les tendances des méthodes de développement.}{
+Dans un ouvrage de 1993 ayant pour titre \titleen{The Integrated  CASE Tools  Handbook}{Manuel des outils CASE intégrés}~:
+\quoteenfr
+{It is my firm belief that this triumvirate—a clearer understanding of the integration problem than in the past, vendor commitment to achieving integration (driven by market demands), and the underlying technologies (hardware, software, and communications)—will bring about the level of CASE integration desired by users since the early days of tool experimentation.}{Je suis fermement convaincu que ce triumvirat — une compréhension plus claire du problème d'intégration qu'auparavant, l'engagement des fournisseurs à réaliser l'intégration (motivé par les exigences du marché) et les technologies sous-jacentes (matériel, logiciel et communications) — permettra d'atteindre le niveau d'intégration CASE souhaitée par les utilisateurs depuis les débuts de l'expérimentation des outils.}
+{\ccite{simon_integrated_1993}[p.5]}
+
+Un article de 1998 ayant pour titre \titleen{A comparative evaluation of CASE tools}{Une évaluation comparative des outils CASE}~:
+\quoteenfr{It can be difficult to evaluate complex products with multiple attributes. Each product provides a different set of strengths and weaknesses. Consumers (users) have to evaluate the trades between each attribute for each product. Software designers and marketers have to identify which attributes are the most useful and in demand. \elide}{Il peut être difficile d'évaluer des produits complexes dotés de multiples attributs. Chaque produit présente un ensemble différent de points forts et de points faibles. Les consommateurs (utilisateurs) doivent évaluer les compromis entre chaque attribut pour chaque produit. Les concepteurs de logiciels et les spécialistes du marketing doivent identifier les attributs les plus utiles et les plus demandés. \elide}
+{\cite{post_comparative_1998}}
+
+Un article de 2003 résume le remplacement des méthodes structurées par les méthodes agiles. Deux courants se sont produits ;
+\quoteenfrlist{
+\item 1) Adaptation: it has been concerned with mixing an objectoriented approach with well-known structured development methodologies ;
+\item 2) Assimilation: it has emphasized the use of an object-oriented methodology for developing software systems, but has followed the traditional waterfall software life cycle model.
+}{
+\item 1) Adaptation: elle a consisté à combiner une approche orientée objet avec des méthodologies de développement structurées reconnues ;
+\item 2) Assimilation: elle a privilégié l’utilisation d’une méthodologie orientée objet pour le développement de systèmes logiciels, tout en suivant le modèle traditionnel du cycle de vie logiciel en cascade.
+}{\cite{capretz_brief_2003}}
+
+Un article de 2009 ayant pour titre \titleen{Agile Tool Market Growing with the Philosophy}{Le marché des outils agiles se développe grâce à cette philosophie} décrit la croissance de certains types d'instruments \cite{goth_agile_2009}. Il y a~:
+\quoteenfrlist{
+\item [][---] Gartner Group analyst Matt Light says the latest agile-development trends are a continuation of rapid-application-development (RAD) methods first employed in the early ’90s.
+\item [][---] Borland unveiled its Borland Management Solutions (BMS) package, a three-product management suite intended to work with agile as well as other iterative and even waterfall development models.
+\item [][---] VersionOne’s Holler compares the industry transformation to agile to the boom of customer-relationship-management (CRM) applications in the ’90s. Holler says. “The slight difference with our environment is that this is not only an automation challenge but a process challenge, a fundamentally different way of doing business, and I see it as a 10- to 15-year evolution, and we’re only in year five or six. So we have another five to 10 years ahead of us.”.
+}{
+\item [][---] Selon Matt Light, analyste chez Gartner Group, les dernières tendances en matière de développement agile s'inscrivent dans la continuité des méthodes de développement rapide d'applications (RAD) apparues au début des années 90.
+\item [][---] Borland a dévoilé Borland Management Solutions (BMS), une suite logicielle de gestion composée de trois produits, conçue pour fonctionner avec les méthodes agiles, ainsi qu'avec d'autres modèles de développement itératifs, voire en cascade.
+\item [][---] Holler, de VersionOne, compare la transformation du secteur vers l'agilité à l'essor des applications de gestion de la relation client (CRM) dans les années 90. «~La différence, dans notre contexte, réside dans le fait qu'il ne s'agit pas seulement d'un défi d'automatisation, mais aussi d'un défi de processus, d'une façon fondamentalement différente de faire des affaires~», explique-t-il. «~J'estime que cette évolution s'étalera sur 10 à 15 ans, et nous n'en sommes qu'à la cinquième ou sixième année. Il nous reste donc encore cinq à dix ans devant nous.~».
+}{\cite{goth_agile_2009}}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{ES30}{Assertion}{Les participants informatiques se font leurrer sur les fonctionnalités offertes par certains \textit{CASE tools}.}{}{P094}
+\explication{ES30}{de l'assertion}{Les participants informatiques se font leurrer sur les fonctionnalités offertes par certains \textit{CASE tools}.}{
+Dans un ouvrage de 1993 ayant pour titre \titleen{The Integrated CASE Tools Handbook}{Manuel des outils CASE intégrés}~:
+\quoteenfr
+{the limitations of 1980s-era CASE, including: \elide - vendors overselling tool capabilities. \elide}{les limites des logiciels CASE des années 1980, notamment~: \elide - la surestimation des capacités des outils par les fournisseurs. \elide}{\ccite{simon_integrated_1993}[p.~5]}
+
+En 1988, Jeffrey D. Ullman décrit l'utilisation de certains termes pour des objectifs mercantiles~:
+\quoteenfr{"Knowledge" is a tricky notion to define formally, and it has been made trickier by the fact that today, "knowledge" sells well. It appears that attibutring "knowledge" to your software product, or saying that it uses "artificial intelligence" make the product more attractive, even though the performance and functionality may be no better than that of a similar product and claimed to possess these qualities.}{La notion de « connaissance » est complexe à définir formellement, et le fait qu'elle se vende bien aujourd'hui la rend encore plus difficile à appréhender. Attribuer la « connaissance » à un logiciel ou affirmer qu'il utilise l'« intelligence artificielle » semble le rendre plus attractif, même si ses performances et ses fonctionnalités ne sont pas nécessairement supérieures à celles d'un produit similaire qui revendique ces mêmes qualités.}
+{\ccite{ullman_principles_1988}[p.23]}
+
+En 2014, Alfonso Fuggetta à l'intérieur d'un article résume la recherche effectuée sur les logiciels qui intègrent les processus, il cite D. Chappel \footnote{L'article de Chappel est en allemand, alors il est utilisé cette de Fuggetta.} \cite{chappell_application_2008}~:
+\quoteenfr{In [9] Application Lifecycle Management is presented as a discipline aiming at taking care also of application operation procedures and managerial governance. However, as the author claims, current ALM tools do not support the integration of these aspects with those related to software development.}{Dans [9], la gestion du cycle de vie des applications est présentée comme une discipline visant à prendre en charge également les procédures d'exploitation des applications et leur gouvernance. Cependant, comme le souligne l'auteur, les outils ALM actuels ne permettent pas d'intégrer ces aspects à ceux liés au développement logiciel.}{\cite{fuggetta_software_2014}}
+
+En 2018, un article décrit un cas où l'intégration comprend un ALM \ccite{larrucea_systems_2018}[p.291-303]. Le cas se produit dans une entreprise de 1300 professionnels informatique. Dans l'objectif d'améliorer les procédés trois tentatives d'intégrer différents instruments sont réalisées~:
+\begin{itemize}
+    \item la première tentative a été abandonnée à cause des difficultés d'intégrations et de la courbe d'apprentissage élevé à l'utilisation des instruments ;
+    \item la deuxième tentative a été abandonnée à cause du coût élevé à la maintenance et d'une couverture inadéquate des besoins ;
+\end{itemize}
+\tabmedium
+{Tentatives d'intégrations}
+{figure/chap1/savoir/savoir-alm.png}
+{(inspiré de \ccite{larrucea_systems_2018}[p.291-303])}
+{}
+{
+\begin{tablenotes}
+\footnotesize
+\item[a] {Les instruments Jenkins, SonarSource SonarQube et JFrog Artifactory ont été introduit après la découverte de nouveaux besoins.}
+\end{tablenotes}
+}{H}
+\begin{itemize}
+    \item la troisième tentative comprend plusieurs instruments d'une même entreprise, cela facilite l'usage, l'intégration et diminue le coût des licences.
+\end{itemize}
+
+Les instruments utilisés dans ces tentatives et besoins qu'ils remplissent sont énumérés dans le tableau~B.17. Plusieurs ont le terme \emphase{ALM} dans leurs noms ou affirment être des ALM.
+Toujours en 2018, un autre article décrit l'adaptation des ALM dans les entreprises \cite{tuzun_adopting_2019}. Il y est concédé les problèmes d'intégrations avec les ALM, mais l'article annonce qu'il n'y aura plus de problème avec les ALM 2.0. L'article cite plusieurs ALM 2.0, il y a entre autres ; Atlassian Suite, HP ALM, IBM Jazz, Polarion, TFS \footnote{TFS pour Team Foundation Server est un produit Microsoft qui a été renommé en 2018 Azure DevOps Server [Wikipedia, «~Azure DevOps Server~», \url{https://en.wikipedia.org/wiki/Azure_DevOps_Server} (consulté le 2025-11-03).]}
+}{}
+
+\paragraphe{P095}{\fl{Ce sont les organisations qui contrôlent une grande partie des \textit{CASE tools}}. Dans l'ouvrage \titleen{Introduction  to Digital  Economics: Foundations, Business Models and Case Studies}{}, dix stratégies permettant aux organisations de garder captifs les utilisateurs sont énumérées \ccite{overby_introduction_2021}[p.~179-192]. Parmi celles-ci figurent les contrats difficiles à résilier, la perte d'information potentielle ainsi que la maintenance et les pièces de rechange. Une analyse propose même d'instaurer une réglementation obligeant les organisations à assurer la portabilité et l'interopérabilité des données emprisonnées dans les logiciels \cite{rubinfeld_portability_2024}. L'instrument Rational Synergy d'IBM est un exemple où une entreprise décide du sort d'un \textit{CASE tool}~: 
+\begin{itemize}
+    \item sur la page web officielle de l'entreprise, le retrait des intégrations avec sept autres produits est indiqué \footnote{IBM, site web, «~Deprecated integrations~», \url{https://www.ibm.com/docs/en/engineering-lifecycle-management-suite/workflow-management/7.0.3?topic=integrating-deprecated-integrations} (consulté le 2025-04-12).} ;
+    \item sur une autre page, il est indiqué que les clients doivent impérativement télécharger la documentation, puisqu'elle sera retirée du site web \footnote{IBM, site web, «~How can I access the Rational Synergy and Rational Change online documentation after the products' end of life?~», \url{https://www.ibm.com/support/pages/how-can-i-access-rational-synergy-and-rational-change-online-documentation-after-products-end-life} (consulté le 2025-04-12).}.
+\end{itemize}
+Ainsi, le fournisseur pousse le client à choisir entre migrer vers un nouvel instrument ou continuer avec l'ancien. Selon le type d'instrument, cela peut conduire le client à changer son procédé de développement \footnote{Rational Synergy est un logiciel de gestion de configuration (SCM: software configuration management) qui est une catégorie d'instruments importants et très intégré au procédé de développement.}.
+}{ES31}{ES31}
+
+\enonce{ES31}{Assertion}{Ce sont les organisations qui contrôlent les instruments.}{}{P095}
+\explication{ES31}{de l'assertion}{Ce sont les organisations qui contrôlent les instruments.}{
+L'ouvrage \textit{Introduction to Digital Economics: Foundations, Business Models and Case Studies} de Harald Øverby décrit différentes stratégies qui permettent aux entreprises de garder captifs leurs clients \ccite{overby_introduction_2021}[p.179-192]. Ces stratégies sont~; 
+\begin{itemize}
+\item \sfren{la maintenance et les pièces de rechange}{spare parts, system updates, and maintenance};
+\item \sfren{les formations}{training};
+\item \sfren{les incompatibilités et compatibilités}{incompatibility and compatibility};
+\item \sfren{la perte d'information potentielle}{potential loss of information};
+\item \sfren{la non-viabilité économique de faire autrement}{investments and economic lifetime};
+\item \sfren{les contrats difficiles à résilier}{difficult-to-terminate contracts};
+\item \sfren{les programmes de loyauté}{loyalty programs};
+\item \sfren{les produits disponibles en lots}{bundling};
+\item \sfren{les algorithmes de recherche}{search algorithms};
+\item \sfren{les produits liés}{product tying}.
+\end{itemize}
+
+En 2024, une analyse, réalisée sur la portabilité et l'interopérabilité des données, conduit à suggérer l'intervention publique afin d'imposer un cadre réglementaire pour améliorer la portabilité et l'interopérabilité des entités informatiques~: 
+\quoteenfr{The private sector has been active in making efforts, individually or jointly, to improve data portability. Nevertheless, private benefits and social benefits are not fully aligned and there is a clear role for public intervention. Adding a regulatory overlay to our current regulatory and enforcement environment that recognizes the potential effects of data portability and interoperability is appealing.}{Le secteur privé s'est activement mobilisé, individuellement ou collectivement, pour améliorer la portabilité des données. Toutefois, les avantages privés et les avantages sociaux ne convergent pas pleinement, et l'intervention publique s'avère indispensable. Il est pertinent d'intégrer à notre cadre réglementaire actuel un cadre qui prenne en compte les effets potentiels de la portabilité et de l'interopérabilité des données.}
+{\cite{rubinfeld_portability_2024}}
+
+En dernier lieu, voici un exemple où la société IBM décide du sort du \textit{CASE tools} Rational Synergy qui est  un logiciel de gestion de configuration (SCM, \textit{Software Configuration Management} en anglais). Sur le site officiel, il est indiqué que les intégrations\footnote{Voici les intégrations~: \textit{Integrating Engineering Workflow Management and Rational Synergy, Integrating Engineering Workflow Management and Rational Change, Integrating Engineering Workflow Management and Subversion, Integrating Engineering Workflow Management and ClearCase, Integrating Engineering Workflow Management and Rational ClearQuest, Integrating with Bitbucket, Integrating with Sametime}} seront retirées~: 
+\quoteenfr{The following integrations are deprecated. IBM continues to support the deprecated integrations, but  no longer plans to enhance it and might remove the capability in a subsequent release of the product.  For the announcement, see What's new in Engineering Workflow Management in 7.0.3.}
+{Les intégrations suivantes sont obsolètes. IBM continue de les prendre en charge, mais ne prévoit plus de les améliorer et pourrait les supprimer dans une version ultérieure du produit. Pour plus d'informations, consultez la section « Nouveautés de la gestion des flux de travail d'ingénierie dans la version 7.0.3 ».}
+{\footnote{IBM, site web, «~Deprecated integrations~», \url{https://www.ibm.com/docs/en/engineering-lifecycle-management-suite/workflow-management/7.0.3?topic=integrating-deprecated-integrations} (consulté le 2025-04-12).}}
+La documentation aussi sera retirée~:
+\quoteenfr{Steps  The current online documentation links are:  \elide.  This online documentation is expected to be withdrawn after 30 September 2024.
+To access the Rational Synergy and Rational Change documentation one needs to install the IBM Documentation Offline application and download the documentation before it is withdrawn online.
+\elide Additional Information The offline documentation files may not be available after the end-of-life of Rational Synergy and Rational Change.}{Étapes~: Les liens vers la documentation en ligne actuelle sont les suivants~: \elide. Cette documentation en ligne sera retirée après le 30 septembre 2024. Pour accéder à la documentation de Rational Synergy et Rational Change, vous devez installer l’application IBM Documentation Offline et télécharger la documentation avant son retrait. \elide Informations complémentaires~: Les fichiers de documentation hors ligne pourraient ne plus être disponibles après la fin de vie de Rational Synergy et Rational Change.}
+{\footnote{IBM, site web, «~How can I access the Rational Synergy and Rational Change online documentation after the products' end of life?~», \url{https://www.ibm.com/support/pages/how-can-i-access-rational-synergy-and-rational-change-online-documentation-after-products-end-life} (consulté le 2025-04-12).}}
+\vspace{-1\baselineskip}
+}{}
+
+\subsection{Des approches}
+
+\paragraphe{P096}{Dans les approches, certaines relèvent du cadre sociétal. Cela comprend les normes, les standards, les conventions et les actes réservés. Toutefois, la formation a une place importante pour l'informatique appliquée. Elle offre les connaissances pour maîtriser les méthodes et les techniques, et, ainsi, mieux comprendre les documents et les modèles. Cependant, toutes ces approches ne sont pas infaillibles.
+}{}{}
+
+\subsubsection{Améliorer le cadre sociétal}
+
+\paragraphe{P097}{Le contexte dans lequel l'informatique appliquée se pratique est influencé ou même imposé par la société. Cela comprend la création et l'application de conventions, de standards, de normes et de réglementations. Cette sous-section en présente les écueils.}{}{}
+
+\paragraphe{P098}{Des termes comme \emphase{norme} et \emphase{standard} sont définis pour éviter des ambiguïtés~: 
+\begin{itemize}
+    \item norme~: «~Document, établi par consensus et approuvé par un organisme reconnu, qui fournit, pour des usages communs et répétés, des règles \elide.~» \ccite{iso_guide2_2004}[p.~12];
+    \item organisme de normalisation~: «~\elide l'une des principales fonctions, en vertu de ses statuts, est la préparation, l'approbation ou l'adoption de normes \elide.~»
+    \ccite{iso_guide2_2004}[p.~12];
+    \item règlement~: «~Document qui contient des règles à caractère obligatoire et qui a été adopté par une autorité.~» \cite{iso_guide2_2004};
+    \item standard~: document qui contient des règles de pratiques communes ne provenant pas d'un organisme de normalisation;
+    \item convention~: «~Accord de volonté entre deux ou plusieurs personnes physiques ou morales, par lequel elles s'engagent à faire ou à ne pas faire quelque chose.~» \cite{Gdt_convention_0}.
+\end{itemize}
+\vspace{-\baselineskip}
+}{AS01, AS02, AS03, AS04, AS05}{AS01}
+
+\enoncewithoutexp{AS01}{Définition}{Norme}{
+Document, établi par consensus et approuvé par un organisme reconnu, qui fournit, pour des usages communs et répétés, des règles, des lignes directrices ou des caractéristiques, pour des activités ou leurs résultats, garantissant un niveau d'ordre optimal dans un contexte donné. \ccite{iso_guide2_2004}[p.12]
+}{P098}
+
+\enoncewithoutexp{AS02}{Définition}{Organisme de normalisation}{
+Organisme à activités normatives reconnu au niveau national, régional ou international, dont l'une des principales fonctions, en vertu de ses statuts, est la préparation, l'approbation ou l'adoption de normes qui sont mises à la disposition du public.
+\ccite{iso_guide2_2004}[p.12]
+}{P098}
+
+\enoncewithoutexp{AS03}{Définition}{Règlement}{
+Document qui contient des règles à caractère obligatoire et qui a été adopté par une autorité. \ccite{iso_guide2_2004}[p.16].
+}{P098}
+
+\enonce{AS04}{Définition}{Standard}{
+Document qui contient des règles de pratiques communes ne provenant pas d'un organisme de normalisation.
+}{P098}
+\explication{AS04}{de la définition}{Standard}{
+La définition formulée est~: document qui contient des règles de pratiques communes ne provenant pas d'un organisme de normalisation.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item observation~: le guide «~Normalisation et activités connexes — Vocabulaire général~» exclut le terme standard du vocabulaire français \cite{iso_guide2_2004}; 
+    \item définition 1~: «~Règle fixe à l'intérieur d'une entreprise pour caractériser un produit, une méthode de travail, une quantité à produire, le montant d'un budget.~» \cite{Larousse_standard_0};
+    \item définition 2~: «~Ensemble de règles ou de spécifications relatives à des activités ou à leurs produits, émanant du secteur privé, mais adopté comme cadre de référence par une large part des acteurs d'un domaine d'application donné.~» \cite{Gdt_standard_0};
+    \item note~: «~Les standards peuvent émaner d'entreprises qui se sont imposées sur le marché, ou encore de consortiums formés expressément dans le but de promouvoir l'adoption de pratiques communes, mais qui ne sont pas des organismes de normalisation.~» \cite{Gdt_standard_0}.
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\enoncewithoutexp{AS05}{Définition}{Convention}{
+Accord de volonté entre deux ou plusieurs personnes physiques ou morales, par lequel elles s'engagent à faire ou à ne pas faire quelque chose. \cite{Gdt_convention_0}}{P098}
+
+\paragraphe{P099}{\fl{La création et l'application de standards ou de normes ne sont pas des méthodes infaillibles.} D'abord, il arrive que la réglementation ne force pas l'application d'un standard ou d'une règle. C'est ce qu'affirme Ralf Kneuper dans son ouvrage \titleen{Software Processes and Life Cycle Models: An Introduction to Modelling, Using and Managing Agile, Plan-Driven and Hybrid Processes}{} \ccite{kneuper_cycle_2018}[p.~190-192]. Il revient donc à la gouvernance et à la direction de les appliquer, puisque la réglementation ne le fait pas toujours. Deux exemples l'illustrent. Une analyse réalisée en 2021 pour vérifier la réglementation sur l'application de la norme ISO~27001 \footnote{La norme ISO~27001 concerne la sécurité de l'information et les systèmes de gestion de la sécurité de l'information \cite{iso_27001_2022}} \cite{putra_use_2021} recense 47~circonstances où son application est volontaire et 19 où elle est obligatoire. Par ailleurs, la réglementation peut évoluer dans le temps. En 2016, le 21st Centure Cures Act retire à la United States Food and Drug Administration (US FDA) le contrôle de l'évaluation de certains logiciels, notamment les dossiers médicaux électroniques et les logiciels d'aide à la décision \cite{ronquillo_softwarerelated_2017}. 
+\sep
+Par ailleurs, les informations ou les contrôles découlant des standards ou des normes peuvent s'atténuer avec le temps. En voici deux exemples. Lorsque le Departement Of Defense (DOD) a transféré la responsabilité de standards à l'Institute of Electrical and Electronics Engineers (IEEE) au milieu des années 1990, les gabarits de documents ont été abandonnés \cite{codur_dod_2012}. De plus, depuis 2017, il est possible pour une organisation d'être certifiée conforme à une culture de la qualité, et suffisante pour éviter les inspections ultérieures de l'US FDA \cite{darrow_fda_2021}. En pratique, cela pourrait conduire à une forme de déréglementation.
+\sep
+Pour finir, même dans les secteurs critiques où les standards et normes existent, plusieurs problèmes surviennent. Selon l'US FDA, entre 2005 et 2011, 5~792 rappels sur des appareils médicaux ont été recensés, et dans 19,4~\% des cas, la cause était le logiciel \cite{gorschek_requirements_2022}.
+}{AS06, AS07, AS08}{AS06}
+
+
+\enonce{AS06}{Assertion}{Le respect d'un standard ou d'une norme peut se faire ou non d'une manière coercitive.}{}{P099}
+\explication{AS06}{de l'assertion}{Le respect d'un standard ou d'une norme peut se faire ou non d'une manière coercitive.}{
+Dans son ouvrage \textit{Software Processes and Life Cycle Models: An Introduction to Modelling, Using and Managing Agile, Plan-Driven and Hybrid Processes}, Ralf Kneuper partage que, dans la pratique, les règlements touchant aux standards ou aux normes ne sont pas toujours contraignants~: 
+\quoteenfr
+{It is the task of governance and (executive) management to define the rules etc. for which conformance is expected within an organisation. In theory, legal regulations should of course always be binding but practice shows that this is not always the case.}{Il incombe à la gouvernance et à la direction (exécutive) de définir les règles, etc., dont le respect est attendu au sein d'une organisation. En théorie, les réglementations légales devraient bien sûr toujours être contraignantes, mais la pratique montre que ce n'est pas toujours le cas.}
+{\ccite{kneuper_cycle_2018}[p.190-192]}
+
+En 2021, une analyse se penche sur les règlements et la famille de normes ISO~27000 \cite{putra_use_2021}. La norme~27001 concerne la sécurité de l'information et les systèmes de gestion de la sécurité de l'information. Elle définit notamment les exigences nécessaires pour établir un système d'information sécuritaire \cite{iso_27001_2022}. L'analyse vérifie l'application de cette norme selon différents États (l'Australie, l'Union européenne, l'Allemagne, l'Inde, le Royaume-Uni, etc), secteurs (le public, le privé, l'énergie, le financier, la santé, les communications et les médias) ainsi que certains domaines (la protection des données personnelles, la sécurité de l'information ainsi que la numérisation et l'archivage électronique). Au total, parmi les 66 combinaisons ainsi obtenues, 47 reposent sur une conformité acquise de manière volontaire et 19, sur une conformité obligatoire. Il est toutefois à noter que ni la Chine ni les États-Unis font partie des États analysés, même s'ils occupent une place importante.
+
+Autre exemple~: un article publié en 2017 décrit l'importance du logiciel dans le domaine de la santé et rappelle les dangers à diminuer la réglementation \cite{ronquillo_softwarerelated_2017}. Cet article retrace notamment la chronologie des pouvoirs accordés à l’US~FDA)~: 
+\begin{itemize}
+    \item Depuis 1976, l’US~FDA possède les pouvoirs lui permettant de faire respecter les standards sur les appareils médicaux.
+    \item En 2016, le \textit{21st Centure Cures Act} retire à l’US~FDA le pouvoir d'évaluer certains logiciels, comme les dossiers médicaux électroniques et les logiciels d'aide à la décision.
+\end{itemize}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{AS07}{Assertion}{Les standards ou les normes varient à travers le temps.}
+{}{P099}
+\explication{AS07}{de l'assertion}{Les standards ou les normes varient à travers le temps.}{
+Un article de 2010 raconte l'historique des standards militaires aux États-Unis, et en particulier ceux des logiciels~: 
+\quoteenfrlist{
+\item [][---] DoD at the behest of Congress in the 1950s. Although improved reliability received a brief mention as a goal, cost savings and ‘‘instances when the lack of standardized replacement parts handicapped military operations’’ were the main focus of the Defense Standardization Program, which eventually generated thousands of military standards (MIL-STDs).
+\item [][---] finally achieving Navy approval as MIL-STD-1679 at the end of 1978. \elide MIL-STD-1679’s requirements included a popular software engineering technique called top-down design \elide many of the MIL-STD-1679 requirements can be found in Boehm’s 1976 review article in some form.
+\item [][---] In 1976, the military still accounted for one-fifth of software purchases in the US, but between the late 1970s and the 1990s, the commercial market grew explosively.
+\item [][---] MIL-STD-498 therefore came into the world with an expiration date—a two-year waiver. In fact, the waiver was extended, but it finally expired in 1998, when a commercial standard developed by the IEEE replaced MIL-STD-498. What’s more, the DoD’s new strategy entirely abandoned the notion of contractually imposed software standards; adoption of the IEEE 12207 software development standard by a contractor for a particular project would be wholly voluntary. The military had ceded control over software development processes entirely to their commercial contractors.
+}{
+\item [][---] Le ministère de la Défense a été créé à la demande du Congrès dans les années 1950. Bien qu'une fiabilité accrue ait été brièvement mentionnée comme objectif, les économies de coûts et les «~cas où le manque de pièces de rechange standardisées handicapait les opérations militaires~» étaient au cœur du Programme de normalisation de la défense, qui a finalement généré des milliers de normes militaires (MIL-STD).
+\item [][---] Elle a finalement obtenu l'approbation de la Marine sous la référence MIL-STD-1679 à la fin de 1978. \elide Les exigences de la norme MIL-STD-1679 incluaient une technique de génie logiciel courante appelée conception descendante. \elide On retrouve, sous une forme ou une autre, bon nombre des exigences de la norme MIL-STD-1679 dans l'article de synthèse de Boehm de 1976.
+\item [][---] En 1976, l'armée représentait encore un cinquième des achats de logiciels aux États-Unis, mais, entre la fin des années 1970 et les années 1990, le marché commercial a connu une croissance explosive.
+\item [][---] La norme MIL-STD-498 a donc été conçue avec une date d'expiration~: une dérogation de deux ans. Cette dérogation a d'ailleurs été prolongée, mais elle a finalement expiré en 1998, lorsqu'une norme commerciale développée par l'IEEE a remplacé la MIL-STD-498. De plus, la nouvelle stratégie du Département de la Défense a totalement abandonné la notion de normes logicielles imposées contractuellement ; l'adoption de la norme de développement logiciel IEEE 12207 par un contractant pour un projet donné était entièrement volontaire. L'armée avait ainsi cédé l'intégralité du contrôle des processus de développement logiciel à ses contractants commerciaux.
+}
+{\cite{mcdonald_histo_2010}}
+
+En 2012, un article propose une analyse comparative sur l'évolution de ces normes \cite{codur_dod_2012}. Selon le comparatif, le seul concept abandonné lors du passage du DOD à l’IEEE est les gabarits de documents. 
+
+Un autre article répertorie les approbations données par l’US~FDA entre 1976 et 2020, en voici quelques-unes~:
+\quoteenfrlist{
+\item [][---] The 1976 Amendments allowed manufacturers to petition the FDA for initial classification as class I or II, but the process required advisory panel review. \elide In 1997, this process was streamlined into the “de novo” classification pathway but could occur only after 510(k) submission and a finding of not substantially equivalent.38 In 2012, Congress further simplified the procedure by removing the requirement to first submit a 510(k).
+\item [][---] Recognizing the iterative nature of software, 48 the FDA in 2017 announced the Software Precertification (PreCert) Pilot Program, intended to evaluate whether software companies with a demonstrated “culture of quality” could market certain types of digital health products without FDA review or after a shortened review.
+}{
+\item [][---] Les amendements de 1976 permettaient aux fabricants de demander à la FDA une classification initiale en classe I ou II, mais le processus nécessitait un examen par un comité consultatif. \elide En 1997, ce processus a été simplifié en une voie de classification «~de novo~», mais ne pouvait intervenir qu’après le dépôt d’une demande 510(k) et la conclusion d’une absence d’équivalence substantielle.38 En 2012, le Congrès a encore simplifié la procédure en supprimant l’obligation de soumettre au préalable une demande 510(k).
+\item [][---] Reconnaissant la nature itérative des logiciels, la FDA a annoncé en 2017 le programme pilote de précertification des logiciels (PreCert), destiné à évaluer si les sociétés de logiciels ayant démontré une « culture de la qualité » pouvaient commercialiser certains types de produits de santé numériques sans examen de la FDA ou après un examen abrégé.
+}{\cite{darrow_fda_2021}}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{AS08}{Assertion}{Même dans les secteurs critiques où les standards et normes existent, plusieurs problèmes surviennent.}
+{}{P099}
+\explication{AS08}{de l'assertion}{Même dans les secteurs critiques où les standards et normes existent, plusieurs problèmes surviennent.}{
+L'ouvrage \textit{Requirements Engineering for Safety-Critical Systems} cite une étude préoccupante de l’US~FDA~:
+\quoteenfr{A study to identify software-related recalls from 2005 to 2011 was conducted by FDA. This study analyzed 5,792 medical device recalls and found that 1,112 (19.4\%) of them were related to software.}{Une étude menée par la FDA entre 2005 et 2011 visait à identifier les rappels de dispositifs médicaux liés à des problèmes logiciels. Cette étude, portant sur 5~792 rappels, a révélé que 1~112 d'entre eux (19,4 \%) étaient liés à des problèmes logiciels.}
+{\cite{gorschek_requirements_2022}}
+\vspace{-1\baselineskip}
+}{}
+
+\paragraphe{P100}{\fl{L'utilisation de standards sur des langages de modélisation a déjà été plus élevée.}
+La première version du langage UML paraît en 1997 \cite{romeo_uml_2025}. Après 2004, son utilisation commence à décliner, menant à son retrait de Microsoft Visual Studio en 2016. À partir de 2017, un regain d'intérêt se manifeste avec l'apparition des fichiers UML textuels, qui permettent de la lisibilité et du versionnage, les rendant ainsi plus adaptables \footnote{PlantUML et Mermaid en sont des exemples.}. Cette tendance se confirme par l'analyse de dépôts GitHub. Il est importe également de rappeler que le langage UML présente des limitations ayant conduit au développement des langages SysML et MOF.
+\sep
+Suit le MOF, publié \footnote{L'organisation de standardisation derrière l'UML, le MOF et le BPMN est le Object Management Group (OMG).} en 2014 \ccite{kneuper_cycle_2018}[p.~46]. Le MOF intègre l'UML et est utilisé par le BPMN ainsi que par le cadre de modélisation Eclipse (EMF, \textit{Eclipse Modeling Framework} en anglais). Bien que l'EMF soit qualifié, en 2023, de populaire \ccite{madni_handbook_2023}[p.~930], une autre analyse de dépôts GitHub ne permet pas d'observer un accroissement de l'utilisation de l'EMF, du moins dans l'univers du code ouvert \cite{babur_language_2024}.  Des  explications possibles sont avancées par ces articles~: 
+\begin{itemize}
+    \item un sondage de 2012 mettant en évidence les difficultés des utilisateurs avec le MOF et le langage basé sur la logique Object Constraint Language (OCL) utilisé  \cite{cadavid_ten_2012};
+    \item une analyse de 2016 démontrant que la majorité des problèmes dans l'EMF concerne l'instrumentation et sa documentation \cite{kahani_problems_2016}.
+\end{itemize}
+\vspace{-\baselineskip}
+}{AS09, AS10, AS11}{AS09}
+
+\enonce{AS09}{Assertion}{Le langage UML était le langage le plus populaire entre 1997 et 2004}{}{P100}
+\explication{AS09}{de l'assertion}{Le langage UML était le langage le plus populaire entre 1997 et 2004}{
+En 2025, un article présente un aperçu de l'utilisation du langage UML en analysant plus de treize mille projets GitHub, couvrant la période de 1999 à 2022, afin d'examiner les extensions utilisées \cite{romeo_uml_2025}. 
+Les extensions recensées sont~: .zargo  .argo  .pgml  .zuml .prj  .diagram .dia .uxf .uml .xmi .ecore .ucls .umlclass .mmd .plantuml et .puml.
+Le jeu de données est formé comme ceci~: 
+\quoteenfr
+{\elide we selected projects with at least 2,000 commits to eliminate toy repositories. We selected projects with at least 10 contributors to ensure the need for collaboration, which increases the utility of diagrams. We selected projects with at least 100 stars to ensure projects are considered useful by the OSS community. Our final dataset consists of 13,152 repositories, which we cloned locally on April 1, 2023}{\elide nous avons sélectionné les projets comportant au moins 2 000~commits afin d'éliminer les dépôts de test. Nous avons également sélectionné ceux comptant au moins 10~contributeurs afin de garantir la nécessité de la collaboration, ce qui accroît l'utilité des diagrammes. Enfin, nous avons retenu les projets ayant reçu au moins 100 étoiles afin de nous assurer qu'ils sont considérés comme utiles par la communauté des logiciels libres. Notre ensemble de données final comprend 13 152 dépôts, que nous avons clonés localement le 1er avril 2023.}
+{\cite{romeo_uml_2025}}
+
+Il y est également décrit la popularité de ce langage à travers  le temps~:
+\quoteenfrlist{
+\item [] [---] The adoption of UML as a standard by the Object Management Group in 1997 marked the end of the method wars and the beginning of the “After UML” era \elide
+\item [] [---] Minor revisions of the UML specification have been issued with an average yearly pace between 1997 and 2003 [16]. UML 2.0 took over two years to be released, losing the momentum.
+\item [] [---] UML’s decline in popularity since 2004 exacerbated the problem.
+\item [] [---] Microsoft Visual Studio removed UML support in 2016 due to underutilization by clients
+\item [] [---] \elide after 2017, coinciding with the advent of human-readable, versionable, and easily maintainable textbased UML files (e.g., PlantUML, Mermaid).
+\item [] [---] At its peak, about 3.0 \% of active repositories contained a UML diagram.
+}{
+\item [] [---] L’adoption d’UML comme norme par l’Object Management Group en 1997 a marqué la fin des guerres de méthodes et le début de l’ère «~post-UML~» \elide
+\item [] [---] Des révisions mineures de la spécification UML ont été publiées à un rythme annuel moyen entre 1997 et 2003 [16]. La publication d’UML 2.0 a pris plus de deux ans, ce qui a freiné son développement.
+\item [] [---] Le déclin de la popularité d'UML depuis 2004 a exacerbé le problème.
+\item [] [---] Microsoft Visual Studio a supprimé la prise en charge d'UML en 2016 en raison de sa sous-utilisation par les clients.
+\item [] [---] après 2017, avec l'arrivée de fichiers UML textuels lisibles, versionnables et faciles à maintenir (par exemple, PlantUML, Mermaid).
+\item [] [---] À son apogée, environ 3 \% des dépôts actifs contenaient un diagramme UML.
+}{\cite{romeo_uml_2025}}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{AS10}{Assertion}{Le MOF et l'EMF sont respectivement le langage et le système de metamodélisation les plus utilisés.}{}{P100}
+\explication{AS10}{de l'assertion}{Le MOF et l'EMF sont respectivement le langage et le système de metamodélisation les plus utilisés.}{
+En 2018, Ralf Kneuper l'indique dans son ouvrage~:
+\quoteenfr
+{Today, the main notation used for this task is the Meta Object Facility (MOF) \elide The Meta Object Facility (MOF). MOF is an Object Management Group (OMG) standard that describes the multiple levels needed in meta-modelling, also published as ISO/IEC 19508:2014. MOF supports the description of various widely-used languages, mainly UML and BPMN, both also defined by OMG standards. Particularly important in this context is the support for the Software Process Engineering Metamodel (SPEM) which will be described in Sect. 2.4.2. Similar to CDIF, the main purpose of MOF is to provide a basis for tool support for such modelling languages, including the exchange of models between different tools.}{Aujourd'hui, la notation principale utilisée pour cette tâche est le Meta Object Facility (MOF) \elide Le Meta Object Facility (MOF) est une norme de l'Object Management Group (OMG) qui décrit les différents niveaux nécessaires à la métamodélisation. Cette norme est également publiée sous la référence ISO/IEC 19508:2014. Le MOF prend en charge la description de divers langages largement utilisés, principalement UML et BPMN, tous deux également définis par des normes OMG. La prise en charge du métamodèle d'ingénierie des processus logiciels (SPEM), qui sera décrite dans la section 2.4.2, est particulièrement importante dans ce contexte. À l'instar du CDIF, l'objectif principal du MOF est de fournir une base pour la prise en charge de ces langages de modélisation par les outils, notamment l'échange de modèles entre différents outils.}
+{\ccite{kneuper_cycle_2018}[p.46]}
+
+De plus, un ouvrage de 2023 qualifie l'Eclipse Modeling Frameworks (EMF) de populaire~:
+\quoteenfr
+{The EMF stack is a popular choice because it provides a rich ecosystem of extensions for tackling important aspects such as specifying constraints for a modeling language (e.g., OCL, ECL), transformation across multiple languages (e.g., QVT, Viatra), and specifying the semantics of a modeling language (e.g., Xsemantics).}{La pile EMF est un choix populaire, car elle offre un riche écosystème d'extensions permettant d'aborder des aspects importants, tels que la spécification des contraintes d'un langage de modélisation (par exemple, OCL, ECL), la transformation entre plusieurs langages (par exemple, QVT, Viatra) et la spécification de la sémantique d'un langage de modélisation (par exemple, Xsemantics).}
+{\ccite{madni_handbook_2023}[p.930]}
+
+Un article fait l'inventaire des dépôts GitHub avec des modèles sous la forme EMF, un type de format pour métamodèles très populaire. Cet examen démontre cependant que la popularité de ce format ne va pas en grandissant (figure~B.43) du moins en code source ouvert. D'ailleurs, un seul dépôt fait augmenter considérablement le nombre de modèles sous la forme EMF qui est la forme la plus populaire~:
+\quoteenfr
+{There is an exceptional spike in the number of created metamodels in 2015, which can mostly be attributed to the repository damenac/puzzle, which has 7,483 metamodels  \elide.}{On observe une augmentation exceptionnelle du nombre de métamodèles créés en 2015, qui peut être principalement attribuée au dépôt damenac/puzzle, qui compte 7 483 métamodèles \elide.}
+{\cite{babur_language_2024}}
+\figmediumen
+{\textit{Statistics on repository and metamodel creation over the years}}
+{figure/chap1/savoir/EMFcreate.png}
+{(source~: \textit{Figure}~8 \cite{babur_language_2024})}
+{}{}{tb}{Nombre de dépôts et de métamodèles créés sur GitHub entre 2003 et 2020}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{AS11}{Assertion}{Les instruments posent problème pour le MOF ou l'EMF.}{}{P100}
+\explication{AS11}{de l'assertion}{Les instruments posent problème pour le MOF ou l'EMF.}{
+Un sondage sur le MOF indique les difficultés présentes~:
+\quoteenfr
+{This survey indicates that the conjunct use of OCL and MOF is a difficult task and that experts are more or less likely to master OCL’s logic for precise metamodeling.}{Ce sondage indique que l’utilisation conjointe d’OCL et de MOF est une tâche difficile et que les experts sont plus ou moins susceptibles de maîtriser la logique d’OCL pour une métamodélisation précise.}
+{\cite{cadavid_ten_2012}}
+
+Publié en 2016, l'article \titleen{The Problems with Eclipse Modeling Tools: A Topic Analysis of Eclipse Forums}{Les problèmes liés aux outils de modélisation Eclipse~: une analyse des sujets abordés sur les forums Eclipse} soulève les principaux problèmes suivants~:
+\quoteenfrlist{
+\item Plugin issues~: problems related to the tool’s plugin architecture, such as plugin dependencies, plugin configuration, plugin installation, and plugin (re-)deployment, are, by far, the most common source of headache for users.
+\item Documentation issues~: missing or low quality documentation, tutorials, and manuals are the second most commonly occurring problem.
+}{
+\item Problèmes de plugiciels~: les problèmes liés à l’architecture des plugiciels de l’outil, tels que les dépendances, la configuration, l’installation et le (re)déploiement des plugiciels, constituent de loin la source de difficultés la plus fréquente pour les utilisateurs.
+\item Problèmes de documentation~: l’absence ou la mauvaise qualité de la documentation, des tutoriels et des manuels est le deuxième problème le plus fréquent.
+}{\cite{kahani_problems_2016}}
+\vspace{-1\baselineskip}
+}{}
+
+\paragraphe{P101}{\fl{Les conventions de code sont un exemple où une convention peut aider à la compréhension de documents, mais l'utilisation des langages formels les rendent en partie inutiles.}
+Dans son ouvrage \titleen{Open Verification Methodology Cookbook}{} \ccite{glasser_open_2009}[p.~211], Mark Glasser consacre un chapitre à une convention de code source. Il le conclut en tentant de persuader le lecteur de l'importance de suivre une convention.
+\sep
+Néanmoins, les langages de programmation possèdent déjà les caractéristiques (le formalisme) pour ne pas avoir besoin d'une convention. C. A. R. Hoare, dans un article de 1983, affirme que les bons langages de programmation devraient imposer des conventions et en faciliter sa documentation \cite{hoare_hints_1983}. Ces langages sont développés par et pour l'informatique appliquée, et, s'ils ne conviennent pas, il suffit d'en développer d'autres. 
+}{AS12, AS13}{AS12}
+
+\enonce{AS12}{Citation}{La convention de code est nécessaire pour faciliter la compréhension du lectorat.}{}{P101}
+\explication{AS12}{de l'assertion}{La convention de code est nécessaire pour faciliter la compréhension du lectorat.}{
+Dans l'ouvrage \textit{Open Verification Methodology Cookbook}, Mark Glasser consacre un chapitre à une convention. Il conclut son chapitre de cette façon~:
+\quoteenfr
+{Just like any writing, when you apply a consistent style to your code, you improve the ability for someone reading it to understand it quickly and accurately. That person might be you !}{Comme pour tout texte, appliquer un style cohérent à votre code permet à celui qui le lit de le comprendre rapidement et précisément. Cette personne pourrait bien être vous !}
+{\ccite{glasser_open_2009}[p.211]}
+\vspace{-1\baselineskip}
+}{}
+
+\enonce{AS13}{Citation}{Une convention de code source est superflue, puisqu'un bon langage de programmation facilite la compréhension du lectorat.}{}{P101}
+\explication{AS13}{de la citation}{Une convention de code est superflue, puisqu'un bon langage de programmation facilite la compréhension du lectorat.}{
+Un langage de programmation devrait suffire en lui-même. C. A. R. Hoare, dans son article \titleen{Hints on programming language design}{}, affirme qu'un bon langage de programmation devrait déjà agir comme une convention de code source~:
+\quoteenfr
+{It  should assist in establishing and enforcing the programming conventions  and disciplines which will ensure harmonious cooperation of the parts of  a large program when they are developed separately and finally assembled  together.}{Il devrait contribuer à établir et à faire respecter les conventions et les disciplines de programmation qui garantiront une coopération harmonieuse des différentes parties d'un vaste programme, qu'elles soient développées séparément ou finalement assemblées.}
+{\cite{hoare_hints_1983}}
+Puis, il ajoute que le langage de programmation doit d'abord servir pour la lecture, et non à l'écriture de code source~:
+\quoteenfr
+{A good programming language will encourage and assist  the programmer to write clear self-documenting code, and even perhaps to develop and display a pleasant style of writing. The readability of  e programs is immeasurably more important than their writeability.}{Un bon langage de programmation encourage et aide le programmeur à écrire un code clair et autodocumenté, et peut-être même à développer et à afficher un style d'écriture agréable. La lisibilité des programmes est infiniment plus importante que leur facilité d'écriture.}
+{\cite{hoare_hints_1983}}
+\vspace{-1\baselineskip}
+}{}
+
+\paragraphe{P102}{\fl{L'appropriation d'actes réservés en informatique est davantage une lutte d’économique.}
+L'article de Tracey L. Adams, publié en 2007, résume bien la situation entourant le titre d'ingénieur logiciel aux États-Unis, en Grande-Bretagne et au Canada \cite{adams_interprofessional_2007}. Le modèle de professionnalisation anglo-américain se distingue par le fait que les dirigeants professionnels font appel à l'État pour obtenir des privilèges professionnels, ce qui mène à des luttes interprofessionnelles. Dans cette perspective, l'auteur affirme que les informaticiens au Canada ont tardé à s’approprier leur profession. Le terme \emphase{génie logiciel} est devenu plus conflictuel au Canada qu'aux États-Unis ou en \mbox{Grande-Bretagne}, et l'auteur l'explique ainsi~:
+\begin{itemize}
+    \item les organisations de professionnels informatiques coopèrent moins avec les organisations universitaires et d'ingénieries;
+    \item les professionnels informatiques sont moins organisés que les ingénieurs donc, ils n'ont pas autant d'influence;
+    \item le cadre réglementaire entre les professionnels informatiques et les ingénieurs est vraiment contrasté, celui des professionnels informatiques étant très léger.
+\end{itemize}
+\vspace{-\baselineskip}
+}{AS14}{AS14}
+
+\enonce{AS14}{Assertion}{L'appropriation d'actes réservés en informatique est davantage une lutte d’économique.}{}{P102}
+\explication{AS14}{l'assertion}{L'appropriation d'actes réservés en informatique est davantage une lutte économique.}{
+Dans un article publié en 2007,  Tracey L. Adams fait un sommaire de la situation entourant le titre d'ingénieur logiciel aux États-Unis, en Grande-Bretagne et au Canada \cite{adams_interprofessional_2007}. Dès le départ, l'article affirme que les actes réservés sont une lutte entre professions\footnote{Lors de la rédaction de l'article, l'organisation d'informaticiens la plus importante au Canada est la Canadian Information Processing Society (CIPS).}~:
+\quoteenfr{\elide many occupational leaders continue to seek greater professional status in the hopes of increasing their job security, autonomy, social esteem, and income. Their efforts to do so, however, are hampered, like those of their predecessors, by the actions of more established professions seeking to maintain an existing status and other aspiring professions’ projects to secure their own  Interprofessional Relations and the Emergence of a New Profession places in the labor market and society more broadly.}{\elide de nombreux leaders professionnels continuent de rechercher un statut professionnel plus élevé dans l'espoir d'accroître leur sécurité d'emploi, leur autonomie, leur estime sociale et leurs revenus. Leurs efforts en ce sens sont cependant entravés, comme ceux de leurs prédécesseurs, par les actions des professions plus établies qui cherchent à maintenir leur statut actuel et par les projets d'autres professions émergentes visant à garantir leur place sur le marché du travail et dans la société en général.}
+{\cite{adams_interprofessional_2007}}
+Par la suite, il répond à la question de savoir pourquoi ces luttes sont plus fréquentes en informatique au Canada, en invoquant le manque de coopération, le manque d'organisation et les différences importantes dans la réglementation~:
+\quoteenfrlist{
+\item [][---] First, while there is a long history of cooperation between computing and engineering organizations in the United States and the United Kingdom, there is none in Canada. CIPS has neither formal nor informal ties with Canadian engineering organizations. While the ACM and IEEE-CS in the United States appear to have overlapping memberships, this is less true in Canada, where CIPS is primarily an organization of business-computing workers: for instance, in the early 1990s, 49 percent of CIPS members were managers and a further 25 percent were programmers and analysts. The presence of computing academics and engineers is quite small within CIPS, accounting for only 3 percent of members (CIPS 1990).
+\item [][---] Second, computing workers in Canada are much less organized and less unified than are engineers. CIPS is a small organization representing about 6,000 IT workers, only a small fraction of those in the field, while engineering organizations claim to speak for all (160,000) licensed engineers. In the United States and the United Kingdom, the size and strength of computing and electrical engineering organizations are more comparable.
+\item [][---] Third, and perhaps most important, is the difference in professional regulation between computing and engineering. As we have seen, computer professionals and engineers in the United Kingdom have a similar type of regulation and degree of professional status. The situation is not too different in the United States where most engineers and all computer professionals are not government-regulated or licensed. It is notable that the key area of interprofessional conflict to emerge in the United States is precisely in the area of licensing. In Canada, the gap between computer workers and engineers is the largest. Canadian engineers are licensed, highly educated, self-regulating professionals. Entry into the profession is limited through legislation, education, and licensing; engineers have a great deal of social closure. In contrast, computing workers in Canada are largely unregulated and only about half of them hold a university degree (Wolfson 2004). CIPS has established a credential for computing workers, but this credential is possessed by only some of its members and is only recognized by legislation in five of Canada’s provinces.
+}{
+\item [][---] Premièrement, bien qu'il existe une longue tradition de coopération entre les organisations informatiques et d'ingénierie aux États-Unis et au Royaume-Uni, ce n'est pas le cas au Canada. Le CIPS n'entretient aucun lien, ni formel ni informel, avec les organisations d'ingénierie canadiennes. Si l'ACM et l'IEEE-CS aux États-Unis semblent partager certains de leurs membres, c'est moins vrai au Canada, où le CIPS est principalement une organisation de professionnels de l'informatique de gestion~: par exemple, au début des années 1990, 49 \% des membres de le CIPS étaient des gestionnaires et 25 \% des programmeurs et des analystes. La présence d'universitaires et d'ingénieurs en informatique est assez faible au sein de le CIPS, ne représentant que 3 \% des membres (CIPS 1990).
+\item [][---] Deuxièmement, les professionnels de l'informatique au Canada sont beaucoup moins organisés et moins unifiés que les ingénieurs. Le CIPS est une petite organisation représentant environ 6 000 travailleurs du secteur des TI, soit une infime fraction de l'ensemble des professionnels du domaine, tandis que les organisations d'ingénierie prétendent représenter tous les ingénieurs agréés (160 000). Aux États-Unis et au Royaume-Uni, la taille et l'influence des organisations d'informatique et de génie électrique sont plus comparables.
+\item [][---] Troisièmement, et c'est peut-être le plus important, il y a la différence de réglementation professionnelle entre l'informatique et l'ingénierie. Comme nous l'avons vu, les informaticiens et les ingénieurs au Royaume-Uni sont soumis à une réglementation et à un statut professionnel similaires. La situation est assez proche aux États-Unis, où la plupart des ingénieurs et tous les informaticiens ne sont ni réglementés ni agréés par l'État. Il est à noter que le principal point de friction interprofessionnel aux États-Unis concerne précisément l'agrément. Au Canada, l'écart entre les informaticiens et les ingénieurs est le plus marqué. Les ingénieurs canadiens sont des professionnels agréés, hautement qualifiés et autoréglementés. L'accès à la profession est encadré par la législation, la formation et l'agrément ; les ingénieurs bénéficient d'un fort sentiment d'isolement social. En revanche, les informaticiens au Canada sont peu réglementés et seulement la moitié d'entre eux environ sont titulaires d'un diplôme universitaire (Wolfson 2004). Le CIPS a créé une certification pour les travailleurs de l’informatique, mais cette certification n’est détenue que par certains de ses membres et n’est reconnue par la législation que dans cinq provinces canadiennes.
+}{\cite{adams_interprofessional_2007}}
+\vspace{-1\baselineskip}
+}{}
+
+\subsubsection{Améliorer la formation}
+
+\paragraphe{P103}{Cette sous-section précise que la formation consacrée aux modèles et à la modélisation devrait occuper une place croissante en science, mais qu'elle périclite en informatique. À cet écueil s'ajoute l'absence de consensus sur la formation à offrir en informatique. Cependant, plusieurs s'entendent pour affirmer que la modélisation et la documentation qui s'y rattache demeurent importantes, voire, selon certains, nécessaires. 
+}{}{}
+
+\paragraphe{P104}{\fl{La formation sur la modélisation est indispensable pour répondre aux changements rapides.}
+Cela fait plusieurs années que le développement des compétences en modélisation est considéré comme essentiel en éducation, et ce, par plusieurs experts. Pour \mbox{Mei-Hung Chiu} et Jing-Wen Lin, cela serait essentiel à la culture scientifique de tous les citoyens \cite{chiu_modeling_2019}. Un article dans \titleen{Towards a  Competence-Based  View on Models and  Modeling in Science  Education}{} indique qu'un consensus semble se développer autour de l'importance de l'apprentissage de la modélisation \ccite{upmeier_zu_belzen_towards_2019}[p.~319]. En réponse aux changements rapides dans les sciences, les technologies, l'ingénierie et les mathématiques, de nouvelles politiques apparaissent. Elles misent sur le développement de la pensée computationnelle ainsi que des compétences en modélisation interdisciplinaire \ccite{knuuttila_routledge_2024}[p.~418].
+\sep
+Néanmoins, il reste du travail à accomplir concernant la formation en modélisation. Les études empiriques sur le sujet sont peu nombreuses et, celles portant sur la qualité des modèles le sont encore moins \cite{chiu_modeling_2019}. Une revue de littérature portant sur l'utilisation des ontologies en éducation \cite{stancin_ontologies_2020} recense 95~articles publiés entre 2015 et 2019, ce qui témoigne d'un intérêt croissant pour la question.
+}{AS15, AS16}{AS15}
+
+
+\enonce{AS15}{Axiome}{La formation sur la modélisation est nécessaire pour répondre aux changements rapides.}{}{P104}
+\explication{AS15}{de l'axiome}{La formation sur la modélisation est nécessaire pour répondre aux changements rapides.}{
+Dans un article publié en 2019 sur les modèles en éducation, Mei-Hung Chiu et \mbox{Jing-Wen} Lin soulignent l'importance de la formation sur la modélisation à travers la première des cinq affirmations contenues dans leur article~:
+\quoteenfr{Claim 1: The development of modeling competence is essential to scientific literacy for the twenty-first century citizens }{Affirmation~1: Le développement des compétences en modélisation est essentiel à la culture scientifique des citoyens du XXIe siècle}
+{\cite{chiu_modeling_2019}}
+
+Le recueil d'articles \titleen{Towards a  Competence-Based View on Models and  Modeling in Science Education}{Vers une approche par compétences des modèles et de la modélisation dans l'enseignement des sciences} en vient à la même conclusion~:
+\quoteenfr
+{Despite this variety, there seemed to be a consensus about the idea that, ranging from students’ early years to the university level, if science education in the twenty-first century aims to provide students with up-to-date scientific experiences, a central role should be played by learning scientific models, learning to model, and learning about models and modeling.}{Malgré cette diversité, il semble y avoir un consensus sur l’idée selon laquelle, depuis les premières années des élèves jusqu’au niveau universitaire, si l’enseignement des sciences au XXIe siècle vise à fournir aux élèves des expériences scientifiques à jour, un rôle central devrait être joué par l’apprentissage des modèles scientifiques, l’apprentissage de la modélisation et l’apprentissage des modèles et de la modélisation.}
+{\ccite{upmeier_zu_belzen_towards_2019}[p.319]}
+
+Le recueil d'articles \titleen{The Routledge Handbook of Philosophy of Scientific Modeling}{Le manuel Routledge de philosophie de la modélisation scientifique} indique les difficultés des systèmes d'éducation à soutenir les compétences en modélisation qui sont pourtant cruciales~:
+\quoteenfr
+{In response to the fast‐changing practices in contemporary science, technology, engineering, and mathematics (STEM), recent educational policy initiatives have focused on developing computational thinking and interdisciplinary model‐building skills at the high school and undergraduate levels. However, education systems around the world are struggling to implement this much‐needed systemic change, as there are no clear operational models that illustrate effective ways to transition from existing practices to interdisciplinary ones.}{Face à l'évolution rapide des pratiques dans les domaines des sciences, des technologies, de l'ingénierie et des mathématiques (STEM) contemporains, les récentes initiatives de politique éducative ont mis l'accent sur le développement de la pensée computationnelle et des compétences en modélisation interdisciplinaire au lycée et dans l'enseignement supérieur. Cependant, les systèmes éducatifs du monde entier peinent à mettre en œuvre ce changement systémique pourtant indispensable, faute de modèles opérationnels clairs illustrant des méthodes efficaces pour passer des pratiques actuelles aux pratiques interdisciplinaires.}
+{\ccite{knuuttila_routledge_2024}[p.418]}
+}{}
+
+\enonce{AS16}{Assertion}{Il reste du travail à faire sur l'enseignement de la modélisation.}{}{P104}
+\explication{AS16}{de l'assertion}{Il reste du travail à faire sur l'enseignement de la modélisation.}{
+L'article de Mei-Hung Chiu et Jing-Wen Lin cite la revue de littérature de Namdar et Shen portant sur l'enseignement de la modélisation aux niveaux primaire et secondaire, incluant des données empiriques \cite{chiu_modeling_2019}~:
+\quoteenfr
+{However, there is a lack of deep discussions on the topics of modeling products. As part of its definition of modeling competence, only a limited number of studies included modeling “products” (if any, there were implicit) or even assessment of quality of the products in the modeling practices. For instance, in a systemic review of 104 empirical studies on modeling instruction in K-12 between 1980 and 2013, Namdar and Shen (2015) were only able to identified 15 articles that are related to the assessment of modeling products \elide}{Cependant, les discussions approfondies sur la modélisation des produits sont rares. Dans sa définition de la compétence en modélisation, seules quelques études ont inclus la modélisation de «~produits~» (et lorsqu'elles existent, elles sont implicites) ou même évalué la qualité de ces produits dans les pratiques de modélisation. Par exemple, dans une revue systématique de 104 études empiriques sur l'enseignement de la modélisation dans l'enseignement primaire et secondaire entre 1980 et 2013, Namdar et Shen (2015) n'ont pu identifier que 15 articles relatifs à l'évaluation des produits de modélisation \elide}
+{\cite{chiu_modeling_2019}}
+
+En 2020, un article fait une revue de littérature sur l'utilisation des ontologies en éducation \cite{stancin_ontologies_2020}. La revue comporte 95 articles publiés entre 2015 et 2019. Les ontologies sont utilisées selon différents objectifs illustrés dans la figure~B.44 et la modélisation est le quatrième objectif.
+\figen
+{\textit{Number of papers grouped by year of the study and the category of ontology usage}}
+{figure/chap1/savoir/onto.png}
+{(source~: \cite{stancin_ontologies_2020})}%\textit{Figure}~2
+{}{}{tb}{Types d'usage des ontologies entre 2015 et 2019}
+}{}
+
+\paragraphe{P105}{\fl{Plusieurs experts s'entendent pour dire que la formation en informatique est insuffisante, mais il n'y a pas de consensus sur la formation à donner.} Depuis de nombreuses années, des experts jugent la formation en informatique appliquée insuffisante. David L. Parnas a écrit au moins cinq articles sur le sujet \cite{parnas-why-2001, parnas-education-1990, parnas-goals-2005, parnas-professional-1994, parnas-software-2021}. Mary Shaw formule également quelques recommandations à ce propos~:
+\quoteenfrlist{
+\item [][---] Identifying distinct roles in software development and providing appropriate education for each;
+\item [][---] Instilling an engineering attitude in educational programs;
+\item [][---] Keeping education current in the face of rapid change;
+\item [][---] Establishing credentials that accurately represent ability.
+}{
+\item [][---] Identifier les rôles distincts dans le développement logiciel et proposer une formation adaptée à chacun;
+\item [][---] Insuffler une approche d'ingénierie dans les programmes de formation;
+\item [][---] Assurer l'actualisation des formations face à l'évolution rapide du secteur;
+\item [][---] Créer des certifications reflétant fidèlement les compétences.
+}
+{\cite{shaw_software_2000}}
+En 2004, apparaît la version finale de la base de connaissances SWEBOK. Elle servira à l'Association for Computing Machinery (ACM) pour la création des différentes recommandations en matière de programmes d'études. 
+\sep
+Cependant, les changements trop nombreux en informatique appliquée mettent à mal l'accumulation de connaissances. David L. Parnas, dans un article publié en 2021, cite trois raisons données par Theodore von Kármán~:
+\quoteenfrlist{
+\item [][---] The set of concepts and facts known to software developers is huge; \elide What seems important to some seems useless to others.
+\item [][---] The software BoK is always rapidly growing; further, much of it becomes irrelevant just a few years after it has been added.
+\item [][---] Much of that knowledge is tied to specific tools. \elide the tools may evolve or become out of date; \elide.
+}{
+\item [][---] L'ensemble des concepts et des faits connus des développeurs de logiciels est énorme ; \elide Ce qui semble important pour certains semble inutile pour d'autres.
+\item [][---] La base de connaissances logiciel connaît une croissance toujours rapide ; de plus, une grande partie devient inutile quelques années seulement après son ajout.
+\item [][---] Une grande partie de ces connaissances est liée à des outils spécifiques. \elide les outils peuvent évoluer ou devenir obsolètes ; \elide.
+}{\cite{parnas-software-2021}}
+\vspace{-\baselineskip}
+}{AS17, AS18, AS19}{AS17}
+
+\enonce{AS17}{Assertion}{Cela fait de nombreuses années que des experts considèrent la formation en informatique appliquée insuffisante.}{}{P105}
+\explication{AS17}{de l'assertion}{Cela fait de nombreuses années que des experts considèrent la formation en informatique appliquée insuffisante.}{
+David L. Parnas a écrit de nombreux articles sur le sujet, comme en témoignent les titres de ses articles~:
+\begin{itemize}
+    \item \titleen{Education for Computing Professionals}{Formation pour les professionnels de l'informatique} (1990) \cite{parnas-education-1990};
+    \item \titleen{The Professional Responsibilities of Software Engineers}{Les responsabilités professionnelles des ingénieurs logiciels} (1994) \cite{parnas-professional-1994} ;
+    \item \titleen{Why software developers should be licensed}{Pourquoi les développeurs de logiciels devraient être agréés } (2001) \cite{parnas-why-2001} ;
+    \item \titleen{Goals for software engineering student education}{Objectifs de la formation des étudiants en génie logiciel} (2005) \cite{parnas-goals-2005} ;
+    \item \titleen{Software Engineering: A Profession in Waiting}{Ingénierie logicielle~: une profession en devenir} (2021) \cite{parnas-software-2021}.
+\end{itemize}
+
+Mary Shaw, dans son article \titleen{Software Engineering Education: A Roadmap}{Formation en génie logiciel : une feuille de route} \cite{shaw_software_2000}, formule des recommandations quant à l'insuffisance de formation. Ces recommandations, réparties à travers quatre sections, ont été énumérées dans le corps du mémoire (voir P78 p.\href{P105}{\pageref{paragraphe:P105}}).
+}{}
+
+\enonce{AS18}{Assertion}{Il y a plus de vingt ans, des connaissances ont été regroupées et ont occupé un rôle important dans l'informatique appliquée.}{}{P105}
+\explication{AS18}{de l'assertion}{Il y a plus de vingt ans, des connaissances ont été regroupées et ont occupé un rôle important dans l'informatique appliquée.}{
+Un article décrit le SWEBOK, un corpus de connaissances pour la profession d'informaticien appliqué~: 
+\quoteenfrlist{
+\item [][---] The SWEBOK project aims to identify and outline the body of knowledge for SWE practice; it seeks to characterize “the bounds of the software engineering discipline” and demarcate it from computer science and other disciplines, as well as to “provide a topical access to the Body of Knowledge supporting that discipline” \elide.
+\item [][---] \elide three key documents: a “straw man” version (1998), a “stone man” version (2001), and most recently a final version (2004).
+\item [][---] The development of the SWEBOK was led by a team at the University of Quebec at Montreal, but involved consultation with thousands of software practitioners in 42 countries \elide.
+}{
+\item [][---] Le projet SWEBOK vise à identifier et à définir le corpus de connaissances pour la pratique du génie logiciel ; il cherche à caractériser les limites de cette discipline et à la délimiter de l’informatique et d’autres disciplines, ainsi qu’à fournir un accès thématique au corpus de connaissances qui la sous-tend.
+\item [][---] \elide trois documents clés~: une version préliminaire (1998), une version définitive (2001) et, plus récemment, une version finale (2004).
+\item [][---] L’élaboration du SWEBOK a été menée par une équipe de l’Université du Québec à Montréal, mais a impliqué la consultation de milliers de professionnels du logiciel dans 42 pays \elide.
+}{\cite{adams_interprofessional_2007}}
+
+Un article de Richard E. Fairley décrit différents rôles joués par le SWEBOK~:
+\quoteenfrlist{
+\item [][---] SWEBOK Version 3 is a foundation document for the Certified Software Development Associate and Certified Software Development Professional certification programs sponsored by the IEEE Computer Society.
+\item [][---] The Computer Science Accreditation Board of ABET (CSAB) specifies the accreditation criteria for ABET accredited programs in computer science, software engineering, information technology, and information science. The SWEBOK Guide is a foundation document for establishing and updating the software engineering accreditation criteria.
+\item [][---] The Professional Activities Board of the IEEE Computer Society is currently developing a Software Engineering Competency Model (SECOM) that is based primarily on SWEBOK Version 3.
+}{
+\item [][---] SWEBOK Version 3 est un document de base pour les programmes de certification Certified Software Development Associate et Certified Software Development Professional parrainés par l'IEEE Computer Society.
+\item [][---] Le comité d'accréditation en informatique d'ABET (CSAB) définit les critères d'accréditation des programmes accrédités par ABET en informatique, génie logiciel, technologies de l'information et sciences de l'information. Le guide SWEBOK constitue un document de référence pour l'établissement et la mise à jour des critères d'accréditation en génie logiciel.
+\item [][---] Le Conseil des activités professionnelles de l'IEEE Computer Society développe actuellement un modèle de compétences en génie logiciel (SECOM) basé principalement sur la version 3 du SWEBOK.
+}{\cite{fairley_swebok_2014}}
+
+Le SWEBOK a aussi servi à l'élaboration des \textit{Curricula Recommendations} de l'ACM que voici\footnote{ACM, site web, «~Curricula Recommendations~», \url{https://www.acm.org/education/curricula-recommendations} (consulté le 2025-04-12).}~:
+\begin{itemize}
+    \item \textit{Computing Curricula} (CC2020, CC2005); 
+    \item \textit{Computer Engineering} (CE2004, CE 2016);
+    \item \textit{Computer Science} (CC2001, CC2008, CC2013, CC2023);
+    \item \textit{Cybersecurity} (CSEC2017) ;
+    \item \textit{Data Science} (CCDS2021);
+    \item \textit{Information Systems} (MSIS2006, MSIS2016, IS2002, IS2010, IS2020);
+    \item \textit{Information Technology} (IT2008, IT2017);
+    \item \textit{Software Engineering} (SE2004, GSwE2009, SE2014).
+\end{itemize} 
+\vspace{-\baselineskip}
+}{}
+
+\enonce{AS19}{Assertion}{Les changements trop nombreux en informatique appliquée mettent à mal l'accumulation de connaissances.}{}{P105}
+\explication{AS19}{de l'assertion}{Les changements trop nombreux en informatique appliquée mettent à mal l'accumulation de connaissances.}{
+En 2021, David L. Parnas, à l'intérieur d'un article, affirme l'inutilité de développer un corpus de connaissances et décrit le manque de législation pour encadrer la profession~: 
+\quoteenfr
+{A BoK is useful for characterizing a science because a science is an organized body of knowledge. Engineering is different.}{Un corpus de connaissances est utile pour caractériser une science, car une science est un ensemble organisé de connaissances. L'ingénierie est différente.}
+{\cite{parnas-software-2021}}
+%Il cite Theodore von Kármán, qui donne trois raisons pour lesquelles cela est voué à l'échec~:
+Il cite Theodore von Kármán, qui donne les raisons de cet échec~:
+\quoteenfrlist{
+\item The set of concepts and facts known to software developers is huge; there is little agreement on the importance and usefulness of even the most popular concepts. The size of the BoK has caused some developers to try to prioritize the knowledge and identify a required subset, but that is very difficult. What seems important to some seems useless to others.
+\item The software BoK is always rapidly growing; further, much of it becomes irrelevant just a few years after it has been added.
+\item Much of that knowledge is tied to specific tools. The characteristics of those tools are the result of many arbitrary design decisions, and the tools may evolve or become out of date; consequently, some of the knowledge about those tools will not be of lasting value.
+}{
+\item L'ensemble des concepts et des faits connus des développeurs de logiciels est immense ; il existe peu de consensus sur l'importance et l'utilité, même des concepts les plus répandus. L'ampleur du corpus de connaissances a incité certains développeurs à tenter de hiérarchiser ces connaissances et d'identifier un sous-ensemble indispensable, mais cette tâche s'avère très complexe. Ce qui paraît important pour certains peut sembler inutile pour d'autres.
+\item Le corpus de connaissances du logiciel est en constante expansion ; de plus, une grande partie de son contenu devient obsolète quelques années seulement après son ajout.
+\item Une grande partie de ces connaissances est liée à des outils spécifiques. Les caractéristiques de ces outils résultent de nombreux choix de conception arbitraires, et ces outils peuvent évoluer ou devenir obsolètes ; par conséquent, certaines connaissances les concernant perdront rapidement de leur valeur.
+}{\cite{parnas-software-2021}}
+\vspace{-\baselineskip}
+}{}
+
+\paragraphe{P106}{\fl{La formation sur les documents et les modèles en informatique demeurent tout aussi importante, et plusieurs experts reconnaissent qu'elle présente encore des lacunes.}
+Tout d'abord, en 1976, Barry W. Boehm décrit les compétences les plus importantes à développer \ccite{wasserman_software_1976}[p.~13]. Selon lui, les champs dans lesquels les nouveaux gradués doivent être mieux formés sont~: la documentation technique, l'analyse des exigences logicielles et de conception, le développement de logiciels applicatifs, l'aspect économique du traitement des données, les techniques de gestion, la performance des équipes, les considérations et méthodes de maintenance logicielle.
+\sep
+Ensuite, une revue de littérature ($n=30$) couvrant la période de 1995 à 2012 détermine que les lacunes qui reviennent le plus souvent sont, entre autres, la communication écrite, la communication orale, la gestion de projet et les instruments logiciels \cite{radermacher_gaps_2013}. Une méta-analyse souligne également de grands écarts pour des domaines de connaissances importants. Des domaines de connaissances où la documentation et la modélisation jouent un rôle fondamental, tels les exigences, les conceptions, les évaluations puis la qualité. Il importe de souligner que tant la revue de littérature que la méta-analyse comprenaient des informations issues de différentes sources, notamment d'anciens étudiants et des employeurs.
+}{AS20}{AS20}
+
+\enonce{AS20}{Assertion}{Les compétences importantes pour la formation touchent, entre autres, aux documents et aux modèles depuis au moins cinquante ans.}{}{P106}
+\explication{AS20}{de l'assertion}{Les compétences importantes pour la formation touchent entre autres aux documents et aux modèles depuis au moins cinquante ans.}{
+En 1976, Barry W. Boehm publie l'article \titleen{Software engineering education: some industry needs}{} dans lequel il nomme les champs suivants dans lesquels les nouveaux gradués doivent être mieux formés~: \quoteenfrlist{
+\item [] - Technical documentation; - Software requirements analysis and design; Applications software development; - Data processing economics; - Management techniques; - Group performance; - Software maintenance considerations and techniques.
+}{
+\item [] - documentation technique; - analyse des exigences logicielles et conception; - développement de logiciels applicatifs; - aspect économiques du traitement des données; - techniques de gestions; - performance des équipes; - considérations et méthodes de maintenance logicielles.
+}{\cite{wasserman_software_1976}}
+Il conclut en mentionnant ce qu'il considère être le besoin le plus important en regard à la formation~:
+\quoteenfr
+{By far our most important need, however, is for Universities to continue as a source of the inquiring minds and fresh ideas which help so much in keeping industrial practice from getting into a rut.}{Notre besoin le plus important, cependant, est que les universités continuent d'être une source d'esprits curieux et d'idées nouvelles, ce qui contribue grandement à éviter que les pratiques industrielles ne s'enlisent dans la routine.}
+{\ccite{wasserman_software_1976}[p.~13]}
+
+La conception, les exigences, les procédés, les modèles sont des lacunes importantes pour les informaticiens appliqués et cela se manifeste fréquemment  dans la documentation. En 2013, une revue de littérature $(n=30)$ est menée sur les différences qui subsistent entre la formation en informatique et les besoins de l'industrie \cite{radermacher_gaps_2013}. 
+La revue s'étale de 1995 à 2012. Parmi les participants, il y a d'anciens étudiants et des employeurs. L'article énumère les dix compétences présentant les lacunes les plus marquées (tableau~B.18). Parmi celles-ci, la communication tant écrite qu'orale revient fréquemment. Or, la communication écrite correspond au domaine de la documentation.
+
+\tabsmallen
+{\textit{Most Identified Knowledge Deficiencies}}
+{figure/chap1/savoir/radermacher.png}
+{(source~: \textit{Table}~2 \cite{radermacher_gaps_2013})}
+{}{}{tb}{Lacunes fréquentes chez des professionnels}
+
+L'article de 2019 intitulé \titleen{Aligning software engineering education with industrial needs: A meta-analysis}{Aligner la formation en génie logiciel sur les besoins de l'industrie : une méta-analyse} \cite{garousi_aligning_2019} met en évidence les lacunes compilées à la figure~B.45. 
+Celle-ci regroupe des données provenant à la fois d'anciens étudiants et des employeurs \footnote{Il y a~: \textit{opinion surveys, job advertisements, recent college gratuates, feedback from an employee’s manager, peers and direct reports, etc.}.}.
+}{}
+
+\figannexe{
+\figmediumen
+{\textit{Topics with the greatest knowledge gap — where importance exceeds current knowledge of survey participants}}
+{figure/chap1/savoir/gap.png}
+{(source~: \textit{Figure}~9 \cite{garousi_aligning_2019})}
+{}{}{H}{Lacunes importantes chez des professionnels}
+}
+
+\paragraphe{P107}{\fl{Il est généralement admis que l'expertise est primordiale pour utiliser les méthodes formelles.} Dans l'article \titleen{Ten Commandments Of Formal Methods}{}, les auteurs affirment que l'accompagnement d'un expert en méthode formelle est un gage de succès pour un projet utilisant des méthodes formelles \cite{bowen_ten_1995}. Selon un sondage mené auprès de 216~participants reliés aux secteurs critiques, le manque de compétence et de formation est jugé comme le deuxième obstacle à l'application de méthodes formelles \cite{gleirscher_formal_2020}. L'étude de quatre expérimentations menées à la NASA a permis de conclure qu'il est plus facile d'intégrer un expert en méthodes formelles que de former les individus \cite{easterbrook_experiences_1998}.
+\sep
+Cependant, les méthodes formelles sont de moins en moins enseignées. Dans un article, Maurice H. Ter Beek \textit{et al.} soulèvent que les méthodes formelles ne figurent pas au programme du CS2023 qui est la recommandation de l'ACM pour le programme d'informatique \cite{ter_formal_2024}. Maurice H. Ter Beek \textit{et al.} décrivent dans un précédent article la situation~:
+\quoteenfr
+{After decades of glory, formal methods seem at a turning point. In industry, many engineers with expertise in formal methods are assigned new priorities, especially in artificial intelligence. At the same time, the formal verification landscape in higher education is scattered. At many universities, formal methods courses are shrinking, likely because they are deemed too difficult. The transmission of our knowledge to the next generation is not guaranteed. So we cannot lean back.}
+{Après des décennies de gloire, les méthodes formelles semblent à un tournant. Dans l'industrie, de nombreux ingénieurs experts en méthodes formelles se voient confier de nouvelles priorités, notamment en intelligence artificielle. Parallèlement, l'enseignement de la vérification formelle dans l'enseignement supérieur est fragmenté. Dans de nombreuses universités, les cours de méthodes formelles sont en baisse, probablement parce qu'ils sont jugés trop difficiles. La transmission de nos connaissances à la prochaine génération n'est pas assurée. Nous ne pouvons pas nous relâcher.}
+{\ccite{ter_formal_2020}[p.~3]}
+\vspace{-\baselineskip}
+}{AS21, AS22}{AS21}
+
+\enonce{AS21}{Assertion}{Un critère de réussite dans l'usage des méthodes formelles est l'expertise.}{}{P107}
+\explication{AS21}{de l'assertion}{Un critère de réussite dans l'usage des méthodes formelles est l'expertise.}{
+L'article \textit{Ten Commandments Of Formal Methods} affirme qu'il est autant possible de donner des formations approfondies que de faire appel à des consultants externes pour bien appliquer les méthodes formelles~: 
+\quoteenfr
+{Most successful formal methods projects have relied on at least one consultant with formal techniques expertise. Such outside expertise appears almost indispensable, as evidenced by the IBM CICS project and the Inmos T800 Transputer project.
+In IBM’s case, formal methods experts extensively trained employees to become self-sufficientin formal techniques. A different approach was adopted at Inmos,where consultants and project engineers worked in tandem but communicated constantly to ensure success. Inmos also hired people with the relevant mathematical experience to formally produce and check critical designs and consulted with outside experts. Both approaches have proved successful-a company must choose an approach that reflects its organizational style as well as its long-term goals.}{La plupart des projets de méthodes formelles couronnés de succès ont fait appel à au moins un consultant expert en techniques formelles. Cette expertise externe apparaît quasi indispensable, comme en témoignent les projets IBM CICS et Inmos T800 Transputer.
+Chez IBM, les experts en méthodes formelles ont dispensé une formation approfondie aux employés afin de les rendre autonomes dans ce domaine. Inmos a adopté une approche différente~: consultants et ingénieurs de projet ont travaillé de concert, tout en communiquant constamment pour garantir le succès du projet. Inmos a également recruté des personnes possédant l’expérience mathématique requise pour concevoir et vérifier formellement les conceptions critiques, et a consulté des experts externes. Les deux approches ont fait leurs preuves ; une entreprise doit choisir celle qui correspond à son style d’organisation et à ses objectifs à long terme.}
+{\cite{bowen_ten_1995}}
+
+
+En 1998, l'étude de quatre expérimentations provenant  de la NASA \cite{easterbrook_experiences_1998} a notamment permis de conclure qu'il est plus facile d'intégrer une personne avec l'expertise en méthode formelle que de former une personne appartenant déjà à une équipe de développement~:
+\quoteenfr
+{An important characteristic of these studies is that in each case the formal modeling was carried out by a small team of experts who were not part of the development team. Results from the formal modeling were fed back into the requirements analysis phase, but formal specification languages were not adopted for baseline specifications.}{Pour chacun des cas, des méthodes formelles ont été utilisées pour une partie de la modélisation des exigences. Peu importe les instruments ou les techniques utilisés, il est plus facile d'inclure des experts en méthodes formelles dans une équipe que d'entraîner une équipe aux méthodes formelles.}
+{\cite{easterbrook_experiences_1998}}
+
+\figen
+{\textit{For any use of FMs in my future activities, I consider  \textless
+obstacle\textgreater as [not an|a moderate|a tough]}}
+{figure/chap1/savoir/diff.png}
+{(source~: \textit{Figure} 16 \cite{gleirscher_formal_2020})}
+{}{}{tb}{Obstacles identifiés par des professionnels à l'usage des méthodes formelles}
+
+Un sondage réalisé en 2020 sur l'utilisation des méthodes formelles auprès de 216~participants \cite{gleirscher_formal_2020} demande d'identifier les principaux obstacles à leur utilisation (figure~B.46). Les compétences et la formation arrivent en deuxième position, juste après la mise à l'échelle.
+}{}
+
+\enonce{AS22}{Assertion}{L'enseignement des méthodes formelles est sur le déclin.}{}{P107}
+\explication{AS22}{de l'assertion}{L'enseignement des méthodes formelles est sur le déclin.}{
+En 2020, un article dont les auteurs sont Maurice H. Ter Beek \textit{et al.} décrit la situation actuelle avec les méthodes formelles. Même si elles occupaient une place importante, ce n'est vraisemblablement plus le cas (voir P80 p.\href{P107}{\pageref{paragraphe:P107}} la citation complète) \ccite{ter_formal_2020}[p.3]. 
+
+En 2024, les auteurs Maurice H. Ter Beek \textit{et al.} écrivent un autre article sur les méthodes formelles et y encouragent leur enseignement en informatique \cite{ter_formal_2024}~:
+\quoteenfr{Formal methods do not appear in CS2023, the ACM/IEEE-CS/AAAI Computer Science Curricula [197], to the extent that relects their pivotal role in Computer Science and the beneits that formal methods education can bring to industry. CS2023 encompasses 17 knowledge areas. In [34, 70, 118], it is argumented that eight of them are related to formal methods. Here we list these areas and provide suggestions for what to teach in relation with formal methods : Algorithmic Foundations, Architecture and Organization, Artificial Intelligence, Parallel and Distributed Computing, Security, Software Development Fundamentals, Databases, Software Engineering.}{Les méthodes formelles ne figurent pas dans le programme CS2023, le cursus d'informatique ACM/IEEE-CS/AAAI [197], à la mesure où elles sont essentielles en informatique et aux avantages que leur enseignement peut apporter à l'industrie. Le programme CS2023 couvre 17 domaines de connaissances. Dans [34, 70, 118], il est avancé que huit d'entre eux sont liés aux méthodes formelles. Nous listons ici ces domaines et proposons des pistes de réflexion quant aux contenus à enseigner en lien avec les méthodes formelles : fondements algorithmiques, architecture et organisation, intelligence artificielle, calcul parallèle et distribué, sécurité, principes fondamentaux du développement logiciel, bases de données, génie logiciel.}
+{\cite{ter_formal_2024}}
+\vspace{-\baselineskip}
+}{}

@@ -1,0 +1,92 @@
+\lstdefinelanguage{GEN}{
+  morecomment=[s]{(*}{*)},
+  morecomment=[s]{//},
+  morestring=[b]",
+  morestring=[b]',
+  sensitive=true,
+  classoffset=0,
+  morekeywords={::=},
+  numbers=none,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\small\ttfamily,
+  commentstyle=\small\ttfamily,
+  stringstyle=\small\ttfamily
+}
+
+L'annexe D contient des exemples d'intrants et d'extrants pour l'instrument d'aide à la rédaction (IAR). Chaque sous-section correspond à un type d'intrant, d'extrant ou d'un agent se retrouvant dans la diagramme de contexte de l'IAR (figure~3.1)~: la configuration, l'utilisateur, la description proposée d'un modèle, la représentation standardisée d'un modèle et le journal.
+
+\section{Configuration}
+
+Les exemples de la configuration sont~: 
+\begin{itemize}
+    \item une grammaire rationnelle pour épurer la description proposée d'un modèle (\emphase{code source D.1});
+    \item une grammaire algébrique avec règles sémantiques pour épurer la description proposée d'un modèle (\emphase{code source D.2});
+    \item une grammaire rationnelle pour traduire la description proposée épurée d'un modèle (\emphase{code source D.3});
+    \item une grammaire algébrique avec règles sémantiques pour traduire la description proposée épurée d'un modèle (\emphase{code source D.4});
+    \item des règles pour vérifier partiellement le modèle intermédiaire (\emphase{code source D.5});
+    \item des règles pour présenter le modèle vérifié aux modélisateurs (\emphase{code source D.6});
+    \item des règles pour présenter le modèle vérifié aux approbateurs (\emphase{code source D.7}).
+\end{itemize}
+
+\vspace{\baselineskip}\par
+
+Voici une grammaire rationnelle (fichier \emphase{AsciidocMacroLexer.g4}) se retrouvant dans le \emphase{code source D.1} pour épurer la description proposée d'un modèle~:
+
+\lstinputlisting[language=GEN, caption=AsciidocMacroLexer.g4]{annexe/file/AsciidocMacroLexer.g4} 
+\vspace{\baselineskip}\par
+
+Voici une grammaire algébrique avec règles sémantiques (fichier \emphase{AsciidocMacroParser.g4}) se retrouvant dans le \emphase{code source D.2} pour épurer la description proposée d'un modèle~:
+
+\vspace{\baselineskip}\par
+
+\lstinputlisting[language=GEN, caption=AsciidocMacroParser.g4]{annexe/file/AsciidocMacroParser.g4} 
+
+Voici une grammaire rationnelle (fichier  \emphase{AsciidocLexer.g4}) se retrouvant dans le \emphase{code source D.3} pour traduire la description proposée épurée d'un modèle~:
+
+\lstinputlisting[language=GEN, caption=AsciidocLexer.g4]{annexe/file/AsciidocLexer.g4} 
+
+\vspace{\baselineskip}\par
+
+Voici une grammaire algébrique avec règles sémantiques (fichier  \emphase{AsciidocParser.g4}) se retrouvant dans le \emphase{code source D.4} pour traduire la description proposée épurée d'un modèle~:
+
+\lstinputlisting[language=GEN, caption=AsciidocParser.g4]{annexe/file/AsciidocParser.g4} 
+
+\vspace{\baselineskip}\par
+
+Voici des règles (fichier  \emphase{CustomRule.yml}) se retrouvant dans le \emphase{code source D.5} pour vérifier partiellement le modèle intermédiaire~:
+
+\lstinputlisting[language=GEN, caption=CustomRule.yml]{annexe/file/CustomRule.yml} 
+
+Voici des règles (fichier  \emphase{PresenteModelisateur.stg}) se retrouvant dans le \emphase{code source D.6} pour présenter le modèle vérifié aux modélisateurs~:
+
+\lstinputlisting[language=GEN, caption=PresenteModelisateur.stg]{annexe/file/PresenteModelisateur.stg} 
+
+\vspace{\baselineskip}\par
+
+Voici des règles (fichier  \emphase{PresenteApprobateur.stg}) se retrouvant dans le \emphase{code source D.7} pour présenter le modèle vérifié aux approbateurs~:
+
+\lstinputlisting[language=GEN, caption=PresenteApprobateur.stg]{annexe/file/PresenteApprobateur.stg} 
+
+\section{Utilisateur}
+
+Voici un exemple d'un ensemble de règles sélectionnées (fichier \emphase{SelectionRules.json}) de la part de l'utilisateur se retrouvant dans le \emphase{code source D.8} pour indiquer à l'IAR les descriptions formelles à appliquer~:
+
+\lstinputlisting[language=GEN, caption=SelectionRules.json]{annexe/file/SelectionRules.json} 
+
+\section{Description proposée d'un modèle}
+
+Voici un exemple d'une description proposée d'un modèle (fichier \emphase{ModeleDescription.adoc}) se retrouvant dans le \emphase{code source D.9}, il s'agit de l'intrant principale~:
+
+\lstinputlisting[language=GEN, caption=ModeleDescription.adoc]{annexe/file/ModeleDescription.adoc} 
+
+\section{Représentation standardisée du modèle}
+
+Voici un exemple d'une représentation standardisée du modèle (fichier \emphase{ModelePresentation.adoc}) se retrouvant dans le \emphase{code source D.10}, dont le rôle est d'informer l'utilisateur du modèle extrait par l'IAR~:
+
+\lstinputlisting[language=GEN, caption=ModelePresentation.adoc]{annexe/file/ModelePresentation.adoc} 
+
+\section{Journal}
+
+Voici un exemple du journal (fichier \emphase{Journal.txt}) se retrouvant dans le \emphase{code source D.11}, dont le rôle est d'informer l'utilisateur du fonctionnement de l'IAR~:
+
+\lstinputlisting[language=GEN, caption=Journal.txt]{annexe/file/Journal.txt} 

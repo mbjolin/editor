@@ -1,0 +1,79 @@
+\chapter[L'utilisation de la solution]{L'utilisation de la solution} \label{chap:chapitre4}
+
+\paragraphe{}{
+L'informatique appliquée développe des solutions pour différents domaines et différents utilisateurs. Cette solution s'adresse au domaine de l'informatique appliquée et est destinée aux personnes qui développent des modèles. Ce chapitre expose des situations dans lesquelles il existe un intérêt à utiliser cette solution et poursuit en expliquant en détail la façon d'utiliser cette solution. 
+}{}{}
+
+\section{Applications selon différents contextes}
+
+\paragraphe{}{
+Parmi toutes les situations où l'utilisation de la solution pourrait améliorer les artefacts, il y en a deux qui sont présentées~:
+\begin{itemize}
+    \item lors du développement d'un modèle faisant intervenir plusieurs participants avec des acquis distincts;
+    \item lors du maintien d'un modèle sur une longue période où le sujet, le traitement, le modélisateur ou le contexte peuvent varier.
+\end{itemize}
+}{}{}
+
+\paragraphe{}{
+Le développement d'un modèle faisant intervenir plusieurs participants nécessite l'utilisation d'un langage commun pour être en mesure de correctement communiquer. Cependant, l'utilisation de langages non formels peut conduire à davantage d'ambiguïtés. Par conséquent, les participants vont chercher à mieux définir et restreindre le langage. Cela peut débuter par la création d'un glossaire pour ensuite se terminer avec une grammaire formelle. D'ailleurs, cela peut se faire de manière incrémentale et en parallèle avec le développement d'un modèle. L'instrument d'aide à la rédaction (IAR) propose d'en faire un procédé et de l'appliquer à la documentation décrivant un modèle. Pour ce faire, elle offre d'utiliser des langages formels et des systèmes logiques grâce aux instruments informatiques suivants~: la base de données relationnelle (PostgresSQL), le langage de grammaires (EBNF), le générateur d'analyseurs (ANTLR), le système à règles (Easy-Rules), le système logique (Alloy) et le langage de présentation (StringTemplate). Pendant le développement d'un modèle, l'utilisateur a le choix d'utiliser ces instruments informatiques et ceux-ci peuvent être adaptés au procédé. Un exemple serait l'ajout d'un glossaire à la base de données, puis la restriction des documents à l'utilisation de ce glossaire.
+}{}{}
+
+\paragraphe{}{
+Les logiciels et, en particulier, leurs modèles exprimés par des documents et du code source sont voués à être adaptés ou abandonnés. Les connaissances relatives aux documents ou au code source qui concrétisent des modèles peuvent disparaître, comme c'est souvent le cas avec les logiciels patrimoniaux. Pour le code source, il est possible de faire des vérifications avec la compilation et les tests (dans la mesure où les tests ont été développés et maintenus à un niveau de couverture suffisant). Cela aidera au maintien de la cohérence et à la compréhension d'un modèle par un nouvel individu. Cependant, pour les documents représentant des modèles, il existe rarement de telles vérifications. L'IAR cherche à fournir aux modélisateurs ces vérifications, en offrant dans un premier temps un procédé semblable à la compilation du code source, puis dans un deuxième temps, un environnement permettant de créer des modèles servant à la vérification d'autres modèles \footnote{Il s'agit du concept de vérification de modèles (\textit{Model checking, en anglais}).}. Ce deuxième temps nécessite le respect des exigences EX16 à EX24 qui devront éventuellement être remplies dans le prolongement de la preuve de concept.
+}{}{}
+
+\section{Explications sur le fonctionnement}
+
+\paragraphe{}{
+Les explications consistent à décrire un exemple hypothétique de l'utilisation de l'IAR inspiré de la première situation énuméré au début du chapitre. Plus précisément, il s'agit de donner des exemples d'intrants et d'extrants de la figure 3.1 \emphase{Diagramme de contexte de l'IAR}. Aussi, des exemples des intrants et des extrants sont donnés en annexe D.
+}{}{}
+
+\paragraphe{}{
+Dans ce scénario, une équipe de développement décentralisé s’emploie à réaliser un logiciel. Avant cela, plusieurs membres de l'équipe ont décrit à l'intérieur d'un document un modèle en utilisant l'IAR. Ce modèle est décrit à l'aide d'un langage non formel et d'un langage formel. Un nouveau membre de l'équipe est chargé d'inclure de nouvelles contraintes à ce modèle sous la forme de règles logiques. 
+}{}{}
+
+\paragraphe{}{
+Bien avant l'arrivée de ce nouveau membre, l'équipe s'est dotée de standards sur la documentation représentant des modèles. Le respect de ces standards passe par des règles qui permettent d'extraire, de transformer ou de contraindre. Les membres de l'équipe ont dû décrire ces règles en utilisant des descriptions formelles qu'ils ont ajoutées à l'intérieur de la \titlefig{Configuration} de l'IAR. Sommairement, les standards consistent à~:
+\begin{itemize}[label={}, leftmargin=*]
+    \item ST01~: le langage utilisé pour les documents est un sous-ensemble du langage balisé \emphase{Asciidoc}\footnote{\url{https://asciidoc.org}}\footnote{À ce jour, les développeurs du langage n'offrent pas une description formelle en EBNF \url{https://gitlab.eclipse.org/eclipse/asciidoc-lang/asciidoc-lang}.}; 
+    \item ST02~: le langage formel utilisé pour décrire les règles logiques du modèle est \emphase{Alloy}\footnote{\url{https://alloytools.org}};
+    \item ST03~: les documents contiennent notamment un identifiant, un titre, une section et des règles logiques;
+    \item ST04~: il est possible d'utiliser certaines macros comme des conditions à l'intérieur des documents;
+    \item ST05~: la présentation du modèle exprimée en \emphase{Asciidoc} comprend avant tout les méta-informations, puis les sections.
+\end{itemize}
+Ainsi, la configuration des fichiers contient deux grammaires sous la forme EBNF, des règles Easy-Rules, des règles de présentations StringTemplate \footnote{Pour le moment, seuls le langage et le système logique Alloy peuvent être utilisés pour les règles formelles.}.
+}{}{}
+
+
+\paragraphe{}{
+Le nouveau membre récupérera le modèle et cela conduira à l'interface utilisateur (figure~4.1) où cinq boîtes (zones textuelles dynamiques) sont identifiées (A, B, C, D, E) pour faciliter la description du fonctionnement. Dans cette interface, il trouvera la description précédente du modèle ainsi que l'ensemble des règles sélectionnées pour exécuter l'IAR. Dans la preuve de concept, l'ensemble des règles sélectionnées pour exécuter l'IAR prend la forme d'un JSON (boîte A). Ce JSON est fourni par l'\titlefig{Utilisateur}. Il pourrait le modifier pour sélectionner de nouvelles règles à appliquer, mais ce n'est pas vraiment souhaité dans ce cas. Néanmoins, en lisant le fichier, il en apprend davantage sur l'ordre et sur le fonctionnement de l'exécution de l'IAR. Puisqu'il n'est pas familier avec les règles sélectionnées, il décide d'aller lire leurs descriptions dans la configuration.
+}{}{}
+
+\paragraphe{}{
+Ensuite, le nouveau membre exécute l'IAR pour obtenir le \titlefig{Journal} (boîte E) et une \titlefig{Représentation standardisée du modèle} (boîte C). Avec ces informations, il peut lire, tenter de comprendre le modèle, puis le modifier. Toutefois, il hésite à modifier la précédente \titlefig{Description proposée du modèle} (boîte B)\footnote{Les boîtes B et D sont des entrées à l'exécution, la précédente \titlefig{Description proposée du modèle} aurait pu se retrouver en D ou séparer en deux documents en B et D.}. Il décide plutôt d'écrire les nouvelles règles logiques dans un autre document (boîte D). Ensemble, ces deux éléments deviendront la nouvelle \titlefig{Description proposée du modèle}. Il peut maintenant exécuter l'IAR et observer dans le journal que la nouvelle description proposée du modèle respecte les différentes règles sélectionnées et par conséquent, le standard de l'équipe. 
+}{}{}
+
+\paragraphe{}{
+Malgré tout, il observe dans le journal que l'exécution a trouvé des incohérences. C'est que l'IAR a extrait les règles logiques qu'il avait écrites en langage formel pour ensuite les vérifier à l'aide d'un système logique. Le nouveau membre, en prenant conscience de son erreur, décide d'en discuter avec un autre membre de l'équipe. Ce faisant, il prend conscience de sa compréhension erronée et corrige  la règle logique problématique. 
+}{}{}
+
+\paragraphe{}{
+\figlandscape
+{Une interface utilisateur de la preuve de concept}
+{figure/chap4/demo.png}
+{}{}{
+\begin{tablenotes}
+\footnotesize
+\item[1] {La signification des boîtes est~: l'ensemble des règles sélectionnées pour exécuter l’IAR (A), la précédente description proposée (peut être B et D), la représentation standardisée du modèle (C),
+la nouvelle description proposée du modèle (peut être B et D) et le journal (E).}
+\end{tablenotes}
+}{H}
+}{}{}
+
+\paragraphe{}{
+Cependant, certaines des nouvelles règles logiques sont exprimées en langage non formel. Le nouveau membre doit  suivre ensuite le procédé de développement qui consiste à faire valider l'ensemble des règles du modèle par un autre membre de l'équipe ayant un rôle d'approbateur. L'IAR aide en ce sens, puisqu'il est en mesure de fournir une présentation du modèle approprié pour ce rôle avec les règles de présentation à sa disposition. L'approbateur, quant à lui, ne soulève aucune autre problématique et inscrit les nouvelles règles dans une méta-information du modèle.
+}{}{}
+
+\paragraphe{}{
+Pour finir, il est obtenu un modèle qui n'est pas totalement vérifié logiquement, mais qui pourrait l'être éventuellement. Il suffit d'ajouter un effort supplémentaire dans les itérations suivantes pour réécrire formellement les règles logiques. D'ailleurs, ce type de mandat pourrait être confié à un expert. Néanmoins, l'IAR a permis à ce nouveau membre d'intégrer des langages formels et de comprendre les standards employés par l'équipe.
+}{}{}

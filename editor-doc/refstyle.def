@@ -1,0 +1,305 @@
+%%
+%% This is file based on `refstyle.cfg',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% refconfig.dtx  (with options: `cfg')
+%% 
+%% -------------------------------------------------------------------
+%%                     The refstyle package
+%%                 for the formatting of references
+%% -------------------------------------------------------------------
+%% This file may be  customized to suit specific user requirements.
+%% 
+%% Original by Danie Els <dnjels@sun.ac.za>
+%% Modified by Marie-Flavie Auclair-Fortier for DI - Université de Sherbrooke
+%% -------------------------------------------------------------------
+%% 
+\ProvidesFile{refstyle.cfg}[2010/11/02\space
+                            0.5\space
+                            Configuration file for refstyle (DNJ Els)]
+%%-- ENGLISH ------------------------------------
+
+\newcommand\RSenglish{%
+    \def\RSrngtxt{\space to~}%
+    \def\RSlsttwotxt{\space and~}%
+    \def\RSlsttxt{\space and~}%
+    \def\RSparttxt{Part~}%
+    \def\RSpartstxt{Parts~}%
+    \def\RSParttxt{Part~}%
+    \def\RSPartstxt{Parts~}%
+    \def\RSappendixname{appendix~}%
+    \def\RSappendicesname{appendices~}%
+    \def\RSAppendixname{Appendix~}%
+    \def\RSAppendicesname{Appendices~}%
+    \def\RSchaptername{chapter~}%
+    \def\RSchaptersname{chapters~}%
+    \def\RSChaptername{Chapter~}%
+    \def\RSChaptersname{Chapters~}%
+    \def\RSsectxt{section~}%
+    \def\RSsecstxt{sections~}%
+    \def\RSSectxt{Section~}%
+    \def\RSSecstxt{Sections~}%
+    \def\RSeqtxt{equation~}%
+    \def\RSeqstxt{equations~}%
+    \def\RSEqtxt{Equation~}%
+    \def\RSEqstxt{Equations~}%
+    \def\RSfigtxt{figure~}%
+    \def\RSfigstxt{figures~}%
+    \def\RSFigtxt{Figure~}%
+    \def\RSFigstxt{Figures~}%
+    \def\RStabtxt{table~}%
+    \def\RStabstxt{tables~}%
+    \def\RSTabtxt{Table~}%
+    \def\RSTabstxt{Tables~}%
+    \def\RSfootntxt{footnote~}%
+    \def\RSfootnstxt{footnotes~}%
+    \def\RSFootntxt{Footnote~}%
+    \def\RSFootnstxt{Footnotes~}%
+    % code
+    \def\RSlsgtxt{source code~}%
+    \def\RSlsgstxt{source codes~}%
+    \def\RSLsgtxt{Source code~}%
+    \def\RSLsgstxt{Source codes~}%
+    % algo
+    \def\RSalgtxt{algorithm~}%
+    \def\RSalgstxt{algorithms~}%
+    \def\RSAlgtxt{Algorithm~}%
+    \def\RSAlgstxt{Algorithms~}%
+}
+%\RSenglish% Default
+\DeclareLangOpt{english}{\RSenglish}
+%%-- FRENCH -------------------------------------
+\newcommand\RSfrench{%
+%range ref
+    \def\RSrngtxt{\space \`{a}~}%
+% 2 refs
+    \def\RSlsttwotxt{\space et~}%
+% listes de refs
+    \def\RSlsttxt{\space et~}%
+% partie (part)
+    \def\RSparttxt{partie~}%
+    \def\RSpartstxt{parties~}%
+    \def\RSParttxt{La partie~}%
+    \def\RSPartstxt{Les parties~}%
+% annexes
+    \def\RSappendixname{annexe~}%
+    \def\RSappendicesname{annexes~}%
+    \def\RSAppendixname{L'annexe~}%
+    \def\RSAppendicesname{Les annexes~}%
+% chapitres
+    \def\RSchaptername{chapitre~}%
+    \def\RSchaptersname{chapitres~}%
+    \def\RSChaptername{Le chapitre~}%
+    \def\RSChaptersname{Les chapitres~}%
+% sections
+    \def\RSsectxt{section~}%
+    \def\RSsecstxt{sections~}%
+    \def\RSSectxt{La section~}%
+    \def\RSSecstxt{Les sections~}%
+% equation
+    \def\RSeqtxt{\'{e}quation~}%
+    \def\RSeqstxt{\'{e}quations~}%
+    \def\RSEqtxt{L'\'{e}quation~}%
+    \def\RSEqstxt{Les \'{e}quations~}%
+% fig
+    \def\RSfigtxt{figure~}%
+    \def\RSfigstxt{figures~}%
+    \def\RSFigtxt{La figure~}%
+    \def\RSFigstxt{Les figures~}%
+% tableau
+    \def\RStabtxt{tableau~}%
+    \def\RStabstxt{tableaux~}%
+    \def\RSTabtxt{Le tableau~}%
+    \def\RSTabstxt{Les tableaux~}%
+% note de bas de page
+    \def\RSfootntxt{la note~}%
+    \def\RSfootnstxt{les notes~}%
+    \def\RSFootntxt{La note~}%
+    \def\RSFootnstxt{Les notes~}%
+% code
+   \def\RSlsgtxt{le code source~}%
+   \def\RSlsgstxt{les codes sources~}%
+   \def\RSLsgtxt{Le code source~}%
+   \def\RSLsgstxt{Les codes sources~}%
+% algo
+	\def\RSalgtxt{l'algorithme~}%
+	\def\RSalgstxt{les algorthmes~}%
+	\def\RSAlgtxt{L'algorithme~}%
+	\def\RSAlgstxt{Les algorithmes~}%
+}
+\RSfrench% Default
+\DeclareLangOpt{french}{\RSfrench}
+
+%%-- TEMPLATE FOR PARTS -------------------------
+   \newref{part}{%
+      name    = \RSparttxt,
+      names   = \RSpartstxt,
+      Name    = \RSPparttxt,
+      Names   = \RSPartstxt,
+      rngtxt  = \RSrngtxt,
+      lsttxt  = \RSlsttxt}
+
+%%-- TEMPLATE FOR CHAPTERS & APPENDIXES ---------
+\providecommand*{\p@chapter}{}
+\AtBeginDocument{%
+  \RS@ifundefined{chapter}{}{%
+    \RS@ifundefined{@chapapp}%
+      {\renewcommand*{\p@chapter}{\string\chpname{\chaptername}}}%AMS
+      {\renewcommand*{\p@chapter}{\string\chpname{\@chapapp}}}%   Normal
+  }%
+}
+\newcommand*{\chpname}[1]{}
+\newcommand*{\RS@chpname}[1]{%
+   \ifRSnameon
+      \edef\RS@tmpa{#1}%
+      \edef\RS@tmpb{\appendixname}%
+      \ifx\RS@tmpa\RS@tmpb\relax%
+         \ifRSplural
+            \ifRScapname \RSAppendicesname \else \RSappendicesname \fi
+         \else
+            \ifRScapname \RSAppendixname   \else \RSappendixname   \fi
+         \fi
+      \else
+         \ifRSplural
+            \ifRScapname \RSChaptersname   \else \RSchaptersname   \fi
+         \else
+            \ifRScapname \RSChaptername    \else \RSchaptername    \fi
+         \fi
+      \fi
+   \fi
+}
+   
+   \newref{chap}{%
+      refcmd    = {{\let\chpname=\RS@chpname\ref{#1}}}, % inclue le nom dans le lien
+      rngtxt    = \RSrngtxt,
+      lsttwotxt = \RSlsttwotxt,
+      lsttxt    = \RSlsttxt}
+
+   \newref{ann}{%
+    	name      = \RSappendixname,
+		names     = \RSappendicesname,
+		Name      = \RSAppendixname,
+		Names     = \RSAppendicesname,
+		refcmd    = {\ref{#1}},
+		rngtxt    = \RSrngtxt,
+		lsttwotxt = \RSlsttwotxt,
+		lsttxt    = \RSlsttxt}
+
+
+%%-- TEMPLATE FOR SECTIONS ----------------------
+   \newref{sec}{%
+      name      = \RSsectxt,
+      names     = \RSsecstxt,
+      Name      = \RSSectxt,
+      Names     = \RSSecstxt,
+      refcmd    = {\ref{#1}},
+      rngtxt    = \RSrngtxt,
+      lsttwotxt = \RSlsttwotxt,
+      lsttxt    = \RSlsttxt}
+	\newref{subsec}{%
+		name      = \RSsectxt,
+		names     = \RSsecstxt,
+		Name      = \RSSectxt,
+		Names     = \RSSecstxt,
+		refcmd    = {\ref{#1}},
+		rngtxt    = \RSrngtxt,
+		lsttwotxt = \RSlsttwotxt,
+		lsttxt    = \RSlsttxt}
+
+
+%%-- TEMPLATE FOR EQUATIONS ---------------------
+\newcommand*{\RSeqrefform}[1]{\textup{(\ref{#1})}}
+\@ifpackageloaded{amsmath}%
+   {\let\AMSeqref\eqref
+    \let\eqref\relax}%
+   {}
+\newref{eq}{%
+   name      = \RSeqtxt,
+  % names     = \RSeqstxt,
+  % Name      = \RSEqtxt,
+  % Names     = \RSEqstxt,
+  % refcmd    = \RSeqrefform{#1},
+  % rngtxt    = \RSrngtxt,
+   %lsttwotxt = \RSlsttwotxt,
+	lsttxt    = \RSlsttxt}
+   
+\let\RSeqref\eqref
+\let\eqref\relax
+\AtBeginDocument{%
+   \@ifpackageloaded{amsmath}%
+      {\RS@ifundefined{AMSeqref}{\let\AMSeqref\eqref}{}%
+       \let\RSeqrefform\AMSeqref}%
+         {}%
+     \let\eqref=\RSeqref
+   }
+   
+%%-- TEMPLATE FOR FIGURES -----------------------
+   \newref{fig}{%
+      name      = \RSfigtxt,
+      names     = \RSfigstxt,
+      Name      = \RSFigtxt,
+      Names     = \RSFigstxt,
+      rngtxt    = \RSrngtxt,
+      lsttwotxt = \RSlsttwotxt,
+      lsttxt    = \RSlsttxt}
+
+	\newref{subfig}{%
+		name      = \RSfigtxt,
+		names     = \RSfigstxt,
+		Name      = \RSFigtxt,
+		Names     = \RSFigstxt,
+		rngtxt    = \RSrngtxt,
+		lsttwotxt = \RSlsttwotxt,
+		lsttxt    = \RSlsttxt}
+      
+%%-- TEMPLATE FOR TABLES ------------------------
+   \newref{tab}{%
+      name      = \RStabtxt,
+      names     = \RStabstxt,
+      Name      = \RSTabtxt,
+      Names     = \RSTabstxt,
+      rngtxt    = \RSrngtxt,
+      lsttwotxt = \RSlsttwotxt,
+      lsttxt    = \RSlsttxt}
+
+%%-- TEMPLATE FOR listings ------------------------
+	\newref{lst}{%
+		name      = \RSlsgtxt,
+		names     = \RSlsgstxt,
+		Name      = \RSLsgtxt,
+		Names     = \RSLsgstxt,
+		rngtxt    = \RSrngtxt,
+		lsttwotxt = \RSlsttwotxt,
+		lsttxt    = \RSlsttxt}
+
+%%-- TEMPLATE FOR algorithms ------------------------
+	\newref{algo}{%
+		name      = \RSalgtxt,
+		names     = \RSalgstxt,
+		Name      = \RSAlgtxt,
+		Names     = \RSAlgstxt,
+		rngtxt    = \RSrngtxt,
+		lsttwotxt = \RSlsttwotxt,
+		lsttxt    = \RSlsttxt}
+
+      
+%%-- TEMPLATE FOR FOOTNOTES ---------------------
+   \newcommand{\RSfnmark}[1]{%
+      \begingroup
+        \unrestored@protected@xdef\@thefnmark{\ref{#1}}%
+      \endgroup
+      \@footnotemark}
+   \newref{fn}{%
+      name      = \RSfootntxt,
+      names     = \RSfootnstxt,
+      Name      = \RSFootntxt,
+      Names     = \RSFootnstxt,
+      refcmd    = {\ifRSstar\RSfnmark{#1}\else(\ref{#1})\fi},
+      rngtxt    = \RSrngtxt,
+      lsttwotxt = \RSlsttwotxt,
+      lsttxt    = \RSlsttxt}
+\endinput
+%%
+%% End of file `refstyle.cfg'.

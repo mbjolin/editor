@@ -1,0 +1,1097 @@
+% -------------------------------------------------
+% PACKAGES SUPPLEMENTAIRES au besoin
+% -------------------------------------------------
+
+% Les paquets déjà chargés sont les suivants :
+%-->    \usepackage[utf8]{inputenc} ou \usepackage[latin1]{inputenc}
+%-->    \usepackage[T1]{fontenc}
+%-->    \usepackage{lmodern}
+%-->    \usepackage{enumerate}
+%-->    \usepackage{amsfonts, amsmath, amssymb, stmaryrd, latexsym}
+%-->    \usepackage{xspace, setspace}
+%-->    \usepackage{array}
+%-->    \usepackage[dvipsnames,usenames]{color}
+%-->    \usepackage[table]{xcolor}
+%-->    \usepackage{wrapfig, epsfig}
+%-->    \usepackage[english,frenchb]{babel}
+%-->    \usepackage{frbib} % bibliography en francais
+%-->    \usepackage{fancyhdr}
+%-->    \usepackage{geometry}
+%-->    \usepackage{ulem} % for sout and underline
+%-->    \usepackage{times,helvet,courier}
+%-->    \usepackage{listings} (pour le code source)
+%-->    \usepackage[pdftex, colorlinks, linkcolor=blue]{hyperref}
+%-->    \usepackage[square, numbers]{natbib}
+%-->    \usepackage[nomain, automake, abbreviations, nonumberlist, toc]{glossaries-extra} % abréviations
+%-->    \usepackage{booktabs} 
+%-->    \usepackage{doi}
+%-->    \usepackage{refstyle}   % permet de faciliter les références croisées et le changement de langue
+%-->    \usepackage[final]{pdfpages} % permet l'inclusion de pdf dans le document (voir contenu/articlePublie.tex)
+%-->    \usepackage[a-1b]{pdfx}	
+
+%\usepackage{biblatex}
+
+%\usepackage{splitbib}
+%\begin{category}[A]{First category}
+%	\SBentries{deschenes98,BuDo.99-guide-B}
+%\end{category}
+%\begin{category}[B]{Second category}
+%		\SBentries{Abr.96-BBook,Hoa.85-CSP,Jac.83-JSD,Mil.89-CCS}
+%\end{category}
+
+
+%% =====================================
+%% Ajoutez, enlevez ou adaptez ICI
+%% =====================================
+
+%https://tug.org/FontCatalogue/paratypesansnarrow/
+%\usepackage{PTSansNarrow} ptsn
+%\newfontfamily\ptsansnarrow{PTSansNarrow-Regular.ttf}[
+%    BoldFont = PTSansNarrow-Bold.ttf ,
+%    Extension = .ttf
+%]
+
+\allowdisplaybreaks
+\usepackage{xurl} %split url dans la biblio
+\usepackage[nooneline]{subfigure}
+
+%% pour l'ajout des abréviations
+\usepackage[nomain, automake, abbreviations, nonumberlist, toc]{glossaries-extra}
+
+\newglossary*{glossaire}{Glossaire}
+\newglossary*{abreviationen}{AbreviationEn}
+\makeglossaries
+
+\usepackage{datetime}
+%\usepackage{bigfoot} change the font
+\usepackage[hang,bottom]{footmisc}
+\usepackage{needspace}
+
+\usepackage{paralist}
+\usepackage{algorithm}
+
+\usepackage{longtable}
+\usepackage{threeparttablex}
+
+%% permet de faire du pseudo code en francais - peut être modifié
+\usepackage{algpseudocode}
+
+\if@english 
+	% defaut du paquet
+\else % vous pouvez adapter au besoin
+	\algrenewcommand\algorithmicwhile{\textbf{tant\_que}}
+	\algnewcommand\algorithmiccase{\textbf{}}
+	\algnewcommand\algorithmicswitch{\textbf{selon}}
+	\algnewcommand\algorithmicelsif{\textbf{sinon si}}
+	\algrenewcommand\algorithmicdo{}%\textbf{faire}
+	\algrenewcommand\algorithmicif{\textbf{si}}
+	\algrenewcommand\algorithmicelse{\textbf{sinon}}
+	\algrenewcommand\algorithmicthen{\textbf{alors}}
+	\algrenewcommand\algorithmicend{\textbf{fin}}
+	\algrenewcommand\algorithmicfunction{\textbf{fonction}}
+	\algrenewcommand\algorithmicfor{\textbf{pour}}
+	\algrenewcommand\algorithmicrepeat{\textbf{répéter}}
+	\algrenewcommand\algorithmicuntil{\textbf{jusqu'à}}
+	\algrenewcommand\algorithmicreturn{\textbf{retourner}}
+	\algrenewtext{EndFunction}{\algorithmicend}
+	\algrenewtext{EndFor}{\algorithmicend\_\algorithmicfor}
+	\algrenewtext{EndCase}{\algorithmicend\_\algorithmiccase}
+	\algrenewtext{EndIf}{\algorithmicend\_\algorithmicif}
+	\algrenewtext{EndSwitch}{\algorithmicend\_\algorithmicswitch}
+	\algrenewtext{EndWhile}{\algorithmicend\_\algorithmicwhile}
+	\algdef{SE}[WHILE]{While}{EndWhile}[1]{\algorithmicwhile\ #1\ \algorithmicdo}{\algorithmicend\_\algorithmicwhile}%
+	\algdef{SE}[SWITCH]{Switch}{EndSwitch}[1]{\algorithmicswitch\ #1}{\algorithmicend\_\algorithmicswitch}%
+	\algdef{SE}[CASE]{Case}{EndCase}[1]{\algorithmiccase\ #1 :}{\algorithmicend\_\algorithmiccase}%
+	\algtext*{EndCase}
+	\algrenewcommand\algorithmicrequire{\textbf{Pré-condition}}
+	\algrenewcommand\algorithmicensure{\textbf{Post-condition}}
+\fi
+
+% -------------------------------------------------
+% COMMANDES SUPPLEMENTAIRES
+% -------------------------------------------------
+
+%---- pour l'anglais ----
+\newcommand{\ie}{{i.e.}\xspace}
+\newcommand{\eg}{{e.g.}\xspace}
+\newcommand{\cf}{{\it cf.}\xspace}
+
+%---- pour le francais ----
+\newcommand{\cad}{{c'est-\`a-dire}\xspace}
+\newcommand{\Cad}{{C'est-\`a-dire}\xspace}
+\newcommand{\etc}{{\it etc.}\xspace}
+
+%---- Math ----
+\newcommand{\N}{\ensuremath{\mathbb{N}}\xspace}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}\xspace}
+
+% Nouvelles d\'efintion d'environnement de th\'eor\`eme et de d\'efinition.
+\newtheorem{frtheoreme}{Th\'eor\`eme}[section]
+\newtheorem{frlemme}[frtheoreme]{Lemme}
+\newtheorem{frprop}[frtheoreme]{Proposition}
+\newtheorem{frcoro}[frtheoreme]{Corollaire}
+\newtheorem{frdefinition}{D\'efinition}[section]
+
+%---- Ajout autres memoires ----
+\newcommand{\anglais}[1]{\textit{#1}}
+\setabbreviationstyle[abbreviation]{long-short}
+
+\newabbreviationstyle{longsansparenthese-court}
+{%
+  \renewcommand*{\CustomAbbreviationFields}{%
+    name={\protect\glsxtrscfont\the\glsshorttok},
+    sort={\the\glsshorttok},
+    first={\the\glslongtok},
+    firstplural={\the\glslongpltok},
+    text={\protect\glsxtrscfont{\the\glsshorttok}},
+    plural={\protect\glsxtrscfont{\the\glsshortpltok}},
+    description={\the\glslongtok}}%
+  \renewcommand*{\GlsXtrPostNewAbbreviation}{%
+    \glssetattribute{\the\glslabeltok}{regular}{true}}%
+}{}
+\setabbreviationstyle[anglais]{longsansparenthese-court}
+\newcommand{\glsentryshortwithlink}[1]{\glslink{#1}{\glsentryshort{#1}}}
+
+%---- Ajout de Maxime ----
+
+%\usepackage{natbib}
+\usepackage{cancel} %\cancel{text}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cleveref}
+\usepackage{etoolbox}
+\usepackage{enumitem}
+%\usepackage{caption}
+\usepackage{adjustbox}
+%\usepackage{lscape}
+\usepackage{pdflscape}
+
+%\usepackage{underscore} % permet d'utiliser _ in math mode.
+\usepackage{threeparttable}
+\renewcommand\operatorname[1]{\textit{#1}}
+
+\renewcommand\labelitemi{{\boldmath$\cdot$}}
+
+%\setcounter{tocdepth}{2} %Ne pas mettre plus de 2 de profond
+
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\counterwithout{equation}{chapter} % For report/book classes
+
+\edef\hc{\string:} % \hc prints a normal colon
+\setlength{\parindent}{0pt} %ligne 102
+
+\newcommand{\HUGE}{\fontsize{40}{48}\selectfont}
+
+\newcommand{\refenonce}[3]{%
+\ifthenelse{\equal{#2}{}}%
+{}%\textit{(paragraphe : #3)\hspace{-0.5cm}}}
+{\leavevmode\\%
+{\footnotesize\fontfamily{ptm}\selectfont(voir énoncé[s] lié[s] : #1 p.\href{#1}{\pageref{enonce:#2}})\hspace{-0.52cm}}}%\hspace{-0.52cm}}}%
+}
+
+\usepackage[defaultlines=2,all]{nowidow}
+
+\usepackage{expl3}
+
+\newcounter{paragraphenumero}
+
+\makeatletter
+\renewcommand{\theparagraphenumero}{\two@digits{\value{paragraphenumero}}}
+\makeatother
+
+
+\newcommand{\paragraphe}[4]{%
+%\interfootnotelinepenalty=10000% ne règle pas tout à fait le saut de page entre le numéro et le reste du texte.
+\clubpenalty=10000%   % Prohibits a single orphan line at the bottom of the page
+\widowpenalty=10000%  % Prohibits a single widow line at the top of the next page
+\ifthenelse{\equal{#1}{}}%
+{}%
+{\ifthenelse{\equal{#3}{}}%
+{}%
+{\stepcounter{paragraphenumero}\hspace*{-0.95cm}%1.33
+{\fontfamily{ptm}\selectfont{P\theparagraphenumero.\phantom{a}}}}}%
+#2%
+\refenonce{#3}{#4}{#1}%
+\label{paragraphe:#1}%
+\vspace{\baselineskip}\par
+}%
+%\newline
+%\vspace{0.5\baselineskip}\par
+%\end{samepage}
+
+\newcommand{\enonce}[5]{}
+\newcommand{\enoncewithoutexp}[5]{}
+\newcommand{\explication}[5]{}
+
+%\newcommand{\sep}[0]{\phantom{a}\newline}
+%\newcommand{\sep}[0]{\smallskip}
+\newcommand{\sep}[0]{\hfill\par}
+
+\usepackage{chngcntr} % Éviter que les note de bas de pages recommencent,
+\counterwithout{footnote}{chapter}
+
+%• Times New Roman, 12 points • Times, 12 points • Helvetica, 11 points • Geneva, 10 points
+%https://www.overleaf.com/learn/latex/Font_typefaces
+\newcommand{\fl}[1]{%
+{\fontfamily{ptm}\selectfont#1}%ptm
+}
+
+\newcommand{\enfr}[2]{
+[Traduction libre] «~#2~» \footnote{\textit{«~#1~»}}%
+}
+
+\newcommand{\enfrtest}[2]{
+[Traduction libre] #2
+\footnote{«~#1~»}
+}
+
+\newcommand{\microskip}{\vspace{1.5pt plus 0.5pt minus 0.5pt}}
+
+\newcommand{\quotefoot}[1]{%
+\begin{quote}%
+#1%
+\end{quote}%
+}
+
+\newcommand{\listfoot}[1]{%
+\textit{%
+\begin{itemize}[nosep,topsep=\smallskipamount]%
+#1%
+\end{itemize}%
+}%
+}
+
+\newcommand{\quoteenfr}[3]{%
+\begin{quote}%
+[Traduction libre] #2 \footnote{%
+%\clubpenalty=10000%   % Prohibits a single orphan line at the bottom of the page
+%\widowpenalty=10000%  % Prohibits a single widow line at the top of the next page
+%\interfootnotelinepenalty=0
+%\clubpenalty=0%   % Prohibits a single orphan line at the bottom of the page
+%\widowpenalty=0%  % Prohibits a single widow line at the top of the next page
+\quotefoot{\textit{#1}}} #3%
+\end{quote}%
+}
+
+%Mettre l'italic comme ceci parce que l'affichage de la première bullet n'apparaitra pas.
+\newcommand{\quoteenfrlist}[3]{
+\begin{quote}
+[Traduction libre]
+\begin{itemize}[leftmargin=*, labelindent=-0.62cm]
+#2
+\footnote{%
+\listfoot{%
+#1%
+}
+}
+{\normalfont #3}
+\end{itemize}%
+\end{quote}%
+}
+
+\newcommand{\quoteenfrlistcustom}[4]{
+\begin{quote}
+#4
+\begin{itemize}[leftmargin=*, labelindent=-0.62cm]
+#2
+\footnote{%
+\textit{%
+\begin{itemize}
+#1
+\end{itemize}
+}
+}
+{\normalfont #3}
+\end{itemize}
+\end{quote}
+
+}
+
+% Provenance de https://tex.stackexchange.com/questions/3389/how-to-indicate-elision-in-a-quotation
+%\newcommand*\elide{\textup{[\,\ldots\,]}\xspace}
+\newcommand*\elide{\textup{[...]}\xspace}
+
+
+\newcommand{\quotefr}[2]{
+\begin{quote}
+#1
+#2
+\end{quote}
+}
+
+%#1 : clé, #2 : le terme, #3 : la définition, #4 : le séparateur 
+\newcommand{\glo}[4]{
+#2#4#3
+\newabbreviation[type=glossaire]{#1}{#2}{#3}
+}
+
+%#1 : clé, #2 : l'acronyme, #3 : le terme
+\newcommand{\acr}[3]{
+#2 #3
+\newabbreviation[type=acronymtype]{#1}{#2}{#3}
+}
+
+% Normalement le template devrait déjà gérer les quotes selon les normes du département.
+% Il doit y avoir une erreur dans les normes du département.
+% Citations dans le texte
+% Les citations de plus de deux lignes sont écrites entièrement en retrait de 2,5 cm de la
+% marge de gauche, à interligne simple, placées entre guillemets, et précédées et suivies % d’un saut de ligne.
+\newenvironment{quo}[1]
+{
+\list{}{\leftmargin=2.5cm \rightmargin=0pt} % On définit le retrait de 2,5cm
+  \item\relax
+  \begin{spacing}{1}%
+}
+{
+\end{spacing}\endlist
+}
+
+% titre, lien, 
+%\fig
+%{\textit{Quality attributes mentioned on each publication.}}
+%{figure/chap1/documentation/santos.png}
+%{Source~: tableau 1 \cite{santos_review_2020}}
+%{}
+
+\newcommand{\finfigtab}[2]{
+\if\relax\detokenize{#1}\relax
+  % vide
+\else
+  \break\onehalfspacing\raggedright
+\fi
+\if\relax\detokenize{#2}\relax
+  % vide
+\else
+  Traduction libre\\
+\fi
+\if\relax\detokenize{#1}\relax
+  % vide
+\else
+  #1
+\fi
+}
+
+\newcommand{\tab}[6]{
+\begin{table}[#6]
+\centering
+\begin{threeparttable}
+\caption[#1]{#1 #3 #4}
+\begin{tabular}{c}
+\includegraphics[width=0.99\linewidth]{#2}
+\end{tabular}
+#5
+\end{threeparttable}
+%\finfigtab{#3}{#4}
+\end{table}
+}
+
+\newcommand{\tabmedium}[6]{
+\begin{table}[#6]
+\caption[#1]{#1 #3 #4}
+\centering
+\begin{threeparttable}
+\begin{minipage}{0.8\linewidth}
+\includegraphics[width=1\linewidth]{#2}
+\end{minipage}
+#5
+\end{threeparttable}
+\end{table}
+}
+
+\newcommand{\taben}[7]{
+\begin{table}[#6]
+\caption[#7]{#7 #3 #4}
+\centering
+\begin{threeparttable}
+\fbox{%
+\begin{minipage}{0.975\linewidth}
+\centering
+{\normalsize{\selectfont #1}}
+\vspace{0.5em}
+\includegraphics[width=1\linewidth]{#2}
+\end{minipage}
+}
+#5
+\end{threeparttable}
+\end{table}
+}
+
+\newcommand{\tabmediumen}[7]{
+\begin{table}[#6]
+\caption[#7]{#7 #3 #4}
+\centering
+\begin{threeparttable}
+\fbox{%
+\begin{minipage}{0.8\linewidth}
+\centering
+{\normalsize{\selectfont #1}}
+\vspace{0.5em}
+\includegraphics[width=1\linewidth]{#2}
+\end{minipage}
+}
+#5
+\end{threeparttable}
+\end{table}
+}
+
+\newcommand{\tabsmallen}[7]{
+\begin{table}[#6]
+\caption[#7]{#7 #3 #4}
+\centering
+\begin{threeparttable}
+\fbox{%
+\begin{minipage}{0.6\linewidth}
+\centering
+{\normalsize{\selectfont #1}}
+\vspace{0.5em}
+\includegraphics[width=1\linewidth]{#2}
+\end{minipage}
+}
+#5
+\end{threeparttable}
+\end{table}
+}
+
+\newcommand{\tabsmallens}[7]{
+\begin{table}[#6]
+\caption[#7]{#7 #3 #4}
+\centering
+\begin{threeparttable}
+\fbox{%
+\begin{minipage}{0.6\linewidth}
+\includegraphics[width=1\linewidth]{#2}
+\end{minipage}
+}
+#5
+\end{threeparttable}
+\end{table}
+}
+
+\newcommand{\tabmen}[7]{
+\begin{table}[#6]
+\caption[#7]{#7 #3 #4}
+\centering
+\begin{threeparttable}
+\fbox{%
+\begin{minipage}{0.90\linewidth}
+\centering
+{\normalsize{\selectfont #1}}
+\vspace{0.5em}
+\includegraphics[width=0.95\linewidth]{#2}
+\end{minipage}
+}
+#5
+\end{threeparttable}
+\end{table}
+}
+
+\newcommand{\tabtab}[6]{
+\begin{table}[#6]
+\centering
+\begin{threeparttable}
+\caption{#1}
+#2
+#5
+\end{threeparttable}
+%\finfigtab{#3}{#4}
+\end{table}
+}
+
+\newcommand{\tabtaben}[7]{
+\begin{table}[#6]
+\caption[#7]{#7 #3 #4}
+\centering
+\begin{threeparttable}
+\fbox{\adjustbox{width=0.97\linewidth}{%
+#2%
+}%
+}%
+#5
+\end{threeparttable}
+\end{table}
+}
+
+\newcommand{\tabtabensmall}[7]{
+\begin{table}[#6]
+\caption[#7]{#7 #3 #4}
+\centering
+\begin{threeparttable}
+\fbox{\adjustbox{width=0.80\linewidth}{%
+#2%
+}%
+}%
+#5
+\end{threeparttable}
+\end{table}
+}
+
+\newcommand{\fig}[6]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+\begin{tabular}{c}
+\includegraphics[width=0.985\linewidth]{#2}
+\end{tabular}
+\captionsetup{width=\linewidth}
+\caption[#1]{#1 #3 #4}
+#5
+\end{threeparttable}
+\end{figure}
+}
+
+\newcommand{\figen}[7]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+\fbox{%
+\begin{tabular}{c}%
+\adjustbox{width=0.95\linewidth}{%
+\includegraphics{#2}%
+}\\[1ex]%
+{\parbox{0.955\linewidth}{\centering #1}}%
+\end{tabular}%
+}%
+#5%
+\caption[#7]{#7 #3 #4}%
+\end{threeparttable}
+\end{figure}
+}
+
+
+%ajustbox doit être avant caption dans threeparttable puisqu'il y a un calcul automatique de la taille qui est fait dans cette lib. Donc, il est impossible d'utiliser la même stratégie pour un tabsmall.
+\newcommand{\figsmall}[6]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \begin{adjustbox}{width=0.5\linewidth}
+        \begin{tabular}{c}
+        \includegraphics[]{#2}
+        \end{tabular}
+    \end{adjustbox}
+    \caption[#1]{#1 #3 #4}
+    #5
+\end{threeparttable}
+%\finfigtab{#3}{#4}
+\end{figure}
+}
+
+\newcommand{\figms}[6]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \begin{adjustbox}{width=0.60\linewidth}
+        \begin{tabular}{c}
+        \includegraphics[]{#2}
+        \end{tabular}
+    \end{adjustbox}
+    \caption[#1]{#1 #3 #4}
+    #5
+\end{threeparttable}
+%\finfigtab{#3}{#4}
+\end{figure}
+}
+
+\newcommand{\figsmallen}[7]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \fbox{%
+    \begin{tabular}{c}
+      \adjustbox{width=0.5\linewidth}{%
+        \includegraphics{#2}%
+      }\\[1ex]
+      {\parbox{0.955\linewidth}{\centering #1}}
+    \end{tabular}
+    }
+    #5
+    \caption[#7]{#7 #3 #4}
+\end{threeparttable}
+\end{figure}
+}
+
+\newcommand{\figmsen}[7]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \fbox{%
+    \begin{tabular}{c}
+      \adjustbox{width=0.65\linewidth}{%
+        \includegraphics{#2}%
+      }\\[1ex]
+      {\parbox{0.955\linewidth}{\centering #1}}
+    \end{tabular}
+    }
+    #5
+    \caption[#7]{#7 #3 #4}
+\end{threeparttable}
+\end{figure}
+}
+
+\newcommand{\figggmen}[7]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \fbox{%
+    \begin{tabular}{c}
+      \adjustbox{width=0.95\linewidth}{%
+        \includegraphics{#2}%
+      }\\[1ex]
+      {\parbox{0.955\linewidth}{\centering #1}}
+    \end{tabular}
+    }
+    #5
+    \caption[#7]{#7 #3 #4}
+\end{threeparttable}
+\end{figure}
+}
+
+\newcommand{\figgmen}[7]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \fbox{%
+    \begin{tabular}{c}
+      \adjustbox{width=0.85\linewidth}{%
+        \includegraphics{#2}%
+      }\\[1ex]
+      {\parbox{0.955\linewidth}{\centering #1}}
+    \end{tabular}
+    }
+    #5
+    \caption[#7]{#7 #3 #4}
+\end{threeparttable}
+\end{figure}
+}
+
+\newcommand{\figgmmen}[7]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \fbox{%
+    \begin{tabular}{c}
+      \adjustbox{width=0.75\linewidth}{%
+        \includegraphics{#2}%
+      }\\[1ex]
+      {\parbox{0.955\linewidth}{\centering #1}}
+    \end{tabular}
+    }
+    #5
+    \caption[#7]{#7 #3 #4}
+\end{threeparttable}
+\end{figure}
+}
+
+\newcommand{\figmediumen}[7]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \fbox{%
+    \begin{tabular}{c}
+      \adjustbox{width=0.75\linewidth}{%
+        \includegraphics{#2}%
+      }\\[1ex]
+      {\parbox{0.955\linewidth}{\centering #1}}
+    \end{tabular}
+    }
+    #5
+    \caption[#7]{#7 #3 #4}
+\end{threeparttable}
+\end{figure}
+}
+
+\newcommand{\figens}[7]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \fbox{%
+    \begin{tabular}{c}
+      \adjustbox{width=0.96\linewidth}{%
+        \includegraphics{#2}%
+      }
+    \end{tabular}
+    }
+    #5
+    \caption[#7]{#7 #3 #4}
+\end{threeparttable}
+\end{figure}
+}
+
+\newcommand{\figmediumens}[7]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \fbox{%
+    \begin{tabular}{c}
+      \adjustbox{width=0.80\linewidth}{%
+        \includegraphics{#2}%
+      }
+    \end{tabular}
+    }
+    #5
+    \caption[#7]{#7 #3 #4}
+\end{threeparttable}
+\end{figure}
+}
+
+\newcommand{\figmedium}[6]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \begin{adjustbox}{width=0.75\linewidth}
+        \begin{tabular}{c}
+        \includegraphics[]{#2}
+        \end{tabular}
+    \end{adjustbox}
+    \caption[#1]{#1 #3 #4}
+    #5
+\end{threeparttable}
+%\finfigtab{#3}{#4}
+\end{figure}
+}
+
+\newcommand{\figgm}[6]{
+\begin{figure}[#6]
+\centering
+\begin{threeparttable}
+    \begin{adjustbox}{width=0.90\linewidth}
+        \begin{tabular}{c}
+        \includegraphics[]{#2}
+        \end{tabular}
+    \end{adjustbox}
+    \caption[#1]{#1 #3 #4}
+    #5
+\end{threeparttable}
+%\finfigtab{#3}{#4}
+\end{figure}
+}
+
+%\usepackage[paper=A4]{typearea} réduit l'entête
+
+% Provient de https://tex.stackexchange.com/questions/9071/how-to-translate-and-rotate-the-heading-of-landscaped-pages
+\usepackage{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+
+%\newlength{\tempwidth} % Defines the temporary variable
+%\setlength{\tempwidth}{\textwidth}
+%\setlength{\textwidth}{\headwidth}
+%\setlength{\headwidth}{\tempwidth}
+  
+\fancypagestyle{landscapestyle}{
+  \fancyhead{}
+  \fancyfoot{}
+}
+
+%\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{Left header in margin}} 
+%\makebox[0pt][r]{\hspace*{3cm}\rotatebox{90}{\thepage}}%
+
+\usepackage[absolute,overlay]{textpos}
+
+%Dans les normes du départment, cela prend au moins 3cm dans la marge de gauche pour la reliure, puisque c'est en mode paysage la reliure devrait être en haut.
+%left=3cm,right=2.5cm,top=3.75cm,bottom=2.5cm,
+%29.7 × 21 cm paysage A4
+\newcommand{\tablandscape}[6]{
+{%
+\newgeometry{left=3cm,right=2.5cm,top=5cm,bottom=2.5cm}
+\begin{landscape}
+\pagestyle{empty}
+\begin{table}[#6]
+\begin{textblock*}{1cm}(1cm,14cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\rightmark\hfill}}
+\end{textblock*}
+\begin{threeparttable}
+\caption{#1}
+\begin{tabular}{c}
+\includegraphics[width=1.4\textwidth]{#2}
+\end{tabular}
+\setstretch{0.8}
+#5
+\end{threeparttable}
+\centering
+\begin{textblock*}{1cm}(17.5cm,13.7cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\thepage}}
+\end{textblock*}
+\end{table}
+\end{landscape}
+}%
+}
+
+\newcommand{\tablandscapec}[6]{
+{%
+\newgeometry{left=3cm,right=2.5cm,top=5cm,bottom=2.5cm}
+\begin{landscape}
+\pagestyle{empty}
+\begin{table}[]
+\begin{textblock*}{1cm}(1cm,14cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\rightmark\hfill}}
+\end{textblock*}
+\begin{threeparttable}
+\addtocounter{table}{-1}
+\caption[]{#1}
+\begin{tabular}{c}
+\includegraphics[width=1.4\textwidth]{#2}
+\end{tabular}
+\setstretch{0.8}
+#5
+\end{threeparttable}
+\centering
+\begin{textblock*}{1cm}(17.5cm,13.7cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\thepage}}
+\end{textblock*}
+\end{table}
+\end{landscape}
+}%
+}
+
+\newcommand{\tabletwo}[7]{
+{%
+\newgeometry{left=3cm,right=2.5cm,top=3.75cm,bottom=2.5cm}
+\begin{landscape}
+\pagestyle{empty}
+\begin{longtable}{c}
+\begin{textblock*}{1cm}(1cm,14cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\rightmark\hfill}}
+
+\begin{threeparttable}
+\caption{#1}
+
+\caption{Two images across two pages} \\
+
+% First page
+\includegraphics[width=\textwidth]{image1} \\
+(a) First image \\
+
+\endfirsthead
+
+\multicolumn{1}{c}{\textit{Table \thetable\ continued}} \\
+
+% Second page
+\includegraphics[width=\textwidth]{image2} \\
+(b) Second image \\
+
+\end{longtable}
+
+\begin{table}[#6]
+
+\end{textblock*}
+\begin{threeparttable}
+\caption{#1}
+\begin{tabular}{c}
+\includegraphics[width=1.4\textwidth]{#2}
+\end{tabular}
+\setstretch{0.8}
+#5
+\end{threeparttable}
+\finfigtab{#3}{#4}
+\centering
+\begin{textblock*}{1cm}(17.5cm,13.7cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\thepage}}
+\end{textblock*}
+\end{table}
+\end{landscape}
+}%
+}
+
+\newcommand{\tablandscapeextra}[6]{
+{%
+\newgeometry{left=1.7cm,right=1cm,top=0.5cm,bottom=0.5cm}
+\begin{landscape}
+\begin{table}[#6]
+\begin{textblock*}{1cm}(0cm,13cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\rightmark\hfill}}
+\end{textblock*}
+\begin{threeparttable}
+\caption{#1}
+\begin{tabular}{c}
+\includegraphics[width=1.4\textwidth]{#2}
+\end{tabular}
+\setstretch{0.6}
+#5
+\end{threeparttable}
+\centering
+\begin{textblock*}{1cm}(17.5cm,13.7cm)
+\makebox[0pt][l]{\hspace*{2cm}\vspace*{2cm}\rotatebox{90}{\thepage}}
+\end{textblock*}
+\end{table}
+\end{landscape}
+\clearpage 
+\restoregeometry 
+\clearpage % Force an immediate page break to lock in the restored geometry
+\pagestyle{fancyplain}
+\thispagestyle{fancyplain}
+}%
+}
+
+\newcommand{\figlandscape}[6]{
+{%
+\newgeometry{left=3cm,right=2.5cm,top=5cm,bottom=2.5cm}
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[#6]
+\begin{textblock*}{1cm}(1cm,16cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\rightmark\hfill}}
+\end{textblock*}
+\begin{threeparttable}
+\begin{tabular}{c}
+\includegraphics[width=1.4\textwidth]{#2}
+\end{tabular}
+#5
+\caption{#1}
+\end{threeparttable}
+\finfigtab{#3}{#4}
+\centering
+\begin{textblock*}{1cm}(17.5cm,13.7cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\thepage}}
+\end{textblock*}
+\end{figure}
+\end{landscape}
+\restoregeometry
+\pagestyle{fancyplain}
+}%
+}
+
+\newcommand{\figlandscapel}[6]{
+{%
+\newgeometry{left=3cm,right=2.5cm,top=5cm,bottom=2.5cm}
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[#6]
+\begin{textblock*}{1cm}(1cm,10cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\rightmark\hfill}}
+\end{textblock*}
+\begin{threeparttable}
+\begin{tabular}{c}
+\includegraphics[width=1.2\textwidth]{#2}
+\end{tabular}
+#5
+\caption{#1}
+\end{threeparttable}
+\centering
+\begin{textblock*}{1cm}(17.5cm,13.7cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\thepage}}
+\end{textblock*}
+\end{figure}
+\end{landscape}
+\restoregeometry
+\pagestyle{fancyplain}
+}%
+}
+
+\newcommand{\figlandscapeextra}[6]{
+{%
+\newgeometry{left=1.2cm,right=1.5cm,top=0.5cm,bottom=0.5cm}
+\begin{landscape}
+%\pagestyle{empty}
+\begin{figure}[#6]
+\begin{textblock*}{1cm}(1cm,14cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\rightmark\hfill}}
+\end{textblock*}
+\begin{threeparttable}
+\caption{#1}
+\begin{tabular}{c}
+\includegraphics[width=1.4\textwidth]{#2}
+\end{tabular}
+#5
+\end{threeparttable}
+\finfigtab{#3}{#4}
+\centering
+\begin{textblock*}{1cm}(17.5cm,13.7cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\thepage}}
+\end{textblock*}
+\end{figure}
+\end{landscape}
+\restoregeometry
+%\pagestyle{fancyplain}
+}%
+
+}
+
+\newcommand{\titleen}[2]{%
+\textit{#1}%\footnote{[Traduction libre] #2}
+}
+
+\newcommand{\titlefr}[1]{%
+%{\fontfamily{qpl}\fontseries{sb}\selectfont#1}%
+\textit{#1}%
+}
+
+\newcommand{\emphase}[1]{%
+{\fontfamily{bch}\fontsize{11}{12}\selectfont#1}%
+}
+
+\newcommand{\titlefig}[1]{%
+{\fontfamily{PTSansNarrow-TLF}\selectfont#1}%
+}
+
+%anglais, acronyme, francais
+\newcommand{\delabbrev}[3]{%
+\textit{#1}%
+}
+
+\newcommand{\acroIn}[2]{
+\ifthenelse{\equal{#2}{np}}%
+{#1}
+{}
+\ifthenelse{\equal{#2}{nca}}%
+{\textit{#1}}
+{}
+\ifthenelse{\equal{#2}{nc}}%
+{#1}
+{}
+}
+
+%acronyme 
+% #3 : nompropre (np), nomcommunanglais (nca), nomcommun (nc)
+% #4 : complet (c), acro (a), nom(n)
+\newcommand{\acro}[4]{%
+\ifthenelse{\equal{#4}{c}}%
+{\acroIn{#1}{#3}(#2)}
+{}
+\ifthenelse{\equal{#4}{n}}%
+{\acroIn{#1}{#3}}
+{}
+\ifthenelse{\equal{#4}{a}}%
+{#2}
+{}
+}
+
+\newcommand{\figannexe}[1]{}
+
+%limite de 9 arguments en lateX
+\NewDocumentCommand{\ccite}{m O{} O{} O{} O{} O{} O{} O{} O{}}{%
+\ifthenelse{\equal{#9}{}}%
+{%
+\ifthenelse{\equal{#7}{}}%
+{%
+\ifthenelse{\equal{#5}{}}%
+{%
+\ifthenelse{\equal{#3}{}}%
+{%
+\ifthenelse{\equal{#1}{}}%
+{}%
+{\cite{#1}%
+}%
+}%
+{\cite{#1, #3}}%
+}%
+{\cite{#1, #3, #5}}%
+}%
+{\cite{#1, #3, #5, #7}}%
+}%
+{\cite{#1, #3, #5, #7, #9}}%
+}%
+
+
+%Pour conserver un vocabulaire traduit.
+\newcommand{\sfren}[2]{
+#1%
+}
+
+%\paragraphe{}{%
+%\begin{textblock*}{1cm}(10.6cm,25.3cm)%
+%\thepage%
+%\end{textblock*}%
+%\vspace{-1\baselineskip}
+%}{}{}

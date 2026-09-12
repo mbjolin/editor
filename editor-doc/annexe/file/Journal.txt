@@ -1,0 +1,22 @@
+2026-08-02T13:30:40.30 - INFO - Début de la lecture de la configuration.
+2026-08-02T13:30:40.31 - TRACE - Voici les transformations : X
+2026-08-02T13:30:40.31 - INFO - Fin de la lecture de la configuration.
+2026-08-02T13:30:40.31 - INFO - Début du traitement de l'épuration.
+2026-08-02T13:30:40.31 - INFO - Fin du traitement de l'épuration.
+2026-08-02T13:30:40.31 - INFO - Début du traitement de formalisation.
+2026-08-02T13:30:40.31 - INFO - Début de la traduction.
+2026-08-02T13:30:40.31 - TRACE - Transformation (identifiant):Asciidoc
+2026-08-02T13:30:40.31 - TRACE - Intrant 1 (nbr de caractère):694
+2026-08-02T13:30:40.35 - TRACE - Extrant 1 (identifiant):= DocumentModele_v1
+2026-08-02T13:30:40.35 - INFO - Fin de la traduction.
+2026-08-02T13:30:40.35 - INFO - Début de la vérification partielle et ajustement.
+2026-08-02T13:30:40.42 - INFO - Fin de la vérification partielle et ajustement.
+2026-08-02T13:30:40.42 - INFO - Début de la vérification totale.
+2026-08-02T13:30:41.06 - INFO - Fin de la vérification totale.
+2026-08-02T13:30:41.06 - TRACE - Nombre de règle logique : 4
+2026-08-02T13:30:41.06 - TRACE - Nombre de citation : 1
+2026-08-02T13:30:41.06 - INFO - Début du traitement de présentation.
+2026-08-02T13:30:41.06 - TRACE - Nom de la transformation : PresenteApprobateur
+2026-08-02T13:30:41.08 - TRACE - Intrant (identifiant): DocumentModelev1
+2026-08-02T13:30:41.08 - TRACE - Extrant (nbr de caractère): 413
+2026-08-02T13:30:41.08 - INFO - Fin du traitement de présentation.

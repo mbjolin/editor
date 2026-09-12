@@ -1,0 +1,78 @@
+
+\Conclusion \label{chap:conclusion}
+
+\paragraphe{}{
+La revue de littérature portant sur les documents en informatique appliquée a montré que les documents, les modèles et les connaissances sont intimement liés. Elle conduit à considérer les documents qui contribuent aux modèles, puisqu'ils sont abondamment utilisés et nécessaires en informatique appliquée. Avec ces nouvelles connaissances, le problème de la formalisation et de la compréhension des documents apparaît comme important et résoluble. S'ensuit, l'élaboration d'une solution qui prend la forme d'une preuve de concept appelée Instrument d'aide à la rédaction (IAR). Cette solution utilise plusieurs autres instruments, dont les principaux sont les modèles, les langages formels et la logique. Après la description des instruments, une évaluation de l'IAR est menée. Il est vérifié que la preuve de concept respecte les exigences, tandis que la validation des attentes fera partie d'une prochaine étape. De tout ce travail, plusieurs contributions peuvent être déduites. Pour finir, trois prolongements sont présentés, comprenant une contextualisation avec les GML.
+}{}{}
+
+\subsubsection{Contributions}
+\paragraphe{}{
+La revue de littérature a permis de documenter et d'illustrer les aboutissements suivants~:
+\begin{itemize}
+    \item La documentation informatique demeure le vecteur privilégié de transmission des connaissances entre parties prenantes et praticiens.
+    \item La modélisation est au cœur de l’informatique; certains modèles sont destinés aux parties prenantes du projet et d'autres, aux praticiens responsables de la réalisation et de l’établissement.
+    \item La vérification et la validation des modèles ne peuvent être menées de façon satisfaisante sans la formalisation de ceux-ci.
+    \item La documentation doit permettre d’associer intimement la description informelle des connaissances et la description formelle des modèles.
+    \item Un instrument permettant de réaliser, de vérifier et de valider cette association s'avère nécessaire.
+\end{itemize}
+Il est raisonnable de penser qu’à défaut de méthodes bien définies, d’instruments appropriés et de formations adéquates, beaucoup d’informaticiens aient négligé ces faits et repoussé les bonnes pratiques qui en découlent. Il faut ajouter que les pressions commerciales induites ont eu elles aussi un rôle négatif.
+}{}{}
+
+\paragraphe{}{
+Une définition du problème, la réalisation d'une solution et l'évaluation de la solution contribuent à~:
+\begin{itemize}
+    \item partager des modèles touchant au problème sur les processus d'obtention d'un instrument, d'un logiciel et d'un modèle;
+    \item fournir une solution décrite formellement et dont les exigences sont vérifiées;
+    \item fournir une manière de faire pour valider la solution par rapport aux attentes;
+    \item donner des exemples de modèles en utilisant des descriptions formelles;
+    \item constituer, avec ce mémoire, un exemple de procédé qui réalise et établit un logiciel (la preuve de concept) en informatique appliquée. 
+\end{itemize}
+Ensemble, ces propositions formulent un exemple de procédé de développement qui permet de réaliser un logiciel (la preuve de concept) qui sera à même de respecter plusieurs des caractéristiques de qualité souhaitées pour tout logiciel, modèle ou document.
+}{}{}
+
+\paragraphe{}{
+La preuve de concept, l'IAR, contribue à~:
+\begin{itemize}
+    \item donner un instrument pour contrôler les documents;
+    \item se familiariser avec le concept de modèle, incluant les langages formels et les règles;
+    \item se réapproprier la création de certains modèles, comme des grammaires et des métamodèles;
+    \item évaluer la façon et l'impact de mettre en place de bonnes pratiques.
+\end{itemize}
+En somme, un instrument développé dans l'objectif de réaliser de la bonne documentation informatique sera, du moins dans ce cas-ci, aussi en mesure de promouvoir de bonnes pratiques informatiques. 
+}{}{}
+
+\subsubsection{Prolongements}
+
+\paragraphe{}{
+Le prolongement le plus souhaitable serait de réaliser l'évaluation des attentes. D'ailleurs, la deuxième partie du chapitre~5 donne plusieurs éléments d'informations à ce sujet. Cette évaluation des attentes consiste à atteindre les quatre objectifs suivants~:
+\begin{itemize}
+    \item passer de la preuve de concept à un prototype;
+    \item avoir à la disposition un environnement pour réaliser un banc d’essai;
+    \item construire le document du protocole expérimental complet;
+    \item obtenir les autorisations nécessaires en suivant le procédé d’évaluation éthique.
+\end{itemize}
+}{}{}
+
+
+\paragraphe{}{À l'heure actuelle, la popularité des GML est telle que l'inclusion de ce sujet dans les prolongements peut susciter un intérêt marqué. Un deuxième prolongement envisageable serait d'utiliser un GML pour trouver des incohérences. Cependant, rien ne peut garantir la véracité des réponses. D'ailleurs, pour fonder et faciliter l'évaluation des réponses données, il est préférable de faire intervenir un système logique dans le procédé \cite{jha_dehallucinating_2023}. Le GML pourrait suggérer des reformulations, voire des modifications à la description proposée d'un modèle, que  l'utilisateur pourra appliquer. Les modifications finiraient toutes vérifiées par l'IAR. 
+}{}{}
+
+\paragraphe{}{
+Un troisième prolongement serait de mener des expérimentations impliquant l'entraînement des GML. L'IAR permet d'obtenir des documents plus structurés et cohérents et, lorsqu'il s'exécute, permet d'obtenir trois groupes de documents~:
+\begin{itemize}
+    \item les descriptions proposées d'un modèle avant la compilation;
+    \item les descriptions proposées d'un modèle après la compilation;
+    \item les représentations standardisées du modèle après la compilation.
+\end{itemize}
+Advenant des groupes suffisamment grands pour entraîner un GML, il serait intéressant de réaliser des entraînements différents avec différents groupes et d'observer les résultats. D'ailleurs, une expérimentation consistant à utiliser des analyseurs syntaxiques et statiques pour améliorer des données d'entraînement a été menée \cite{fujii_rewriting_2025}. Le GML, une fois entraîné, était plus efficient. Par conséquent, il n'est pas impossible que, comme les humains, des GML puissent tirer des avantages de données cohérentes respectant une structure.
+}{}{}
+
+
+
+\paragraphe{}{
+Un dernier prolongement serait la constitution d'une bibliothèque de modèles documentés prêts à l'usage. Cela nécessite tout d'abord une modification de la preuve de concept pour respecter les exigences de gestion des métamodèles. S'ensuit l'intégration d'instruments permettant, entre autres, les échanges et les modifications des métamodèles, comme le Meta-Object Facility (MOF) et l’Eclipse Modeling Framework (EMF). Ainsi, les utilisateurs seraient à même de pouvoir former une base entre les modèles pour mieux les comparer et les mesurer sans être contraints par les métamodèles se retrouvant à l'intérieur de l'implémentation. Aussi, l'utilisation du MOF assure le respect des standards et permet de plus facilement importer ou exporter les modèles.
+}{}{}
+
+\paragraphe{}{
+Pour finir, ces prolongements exigent  des efforts supplémentaires, mais nécessitent aussi le passage de la preuve de concept à un prototype solide et davantage adaptable. Étant donné l'importance que peut avoir la documentation informatique pour l'informatique appliquée, les efforts demandés pour créer ces instruments en valent largement la peine.  
+}{}{}

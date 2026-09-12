@@ -1,0 +1,1222 @@
+
+\section{Des modèles en informatique appliquée}
+\paragraphe{P049}{
+Plusieurs documents en informatique appliquée véhiculent des modèles au point que, pour des professionnels informatiques, les documents et les modèles se confondent. Pourtant, ils ne partagent pas exactement les mêmes objectifs, écueils et approches. C'est ce qui est présenté dans cette section.
+}{}{}
+
+\paragraphe{P050}{Avant de définir le type de modèle utilisé dans ce mémoire (modèle formel), il convient de définir ce qu'est un modèle en règle générale. Un modèle est défini comme étant la représentation d'un sujet pour en permettre le traitement. Il existe un lien entre le modèle et le langage. Guy Caplat l'illustre à l'aide d'un diagramme du langage de modélisation unifié (UML, \textit{Unified Modeling Language} en anglais) présentant le modèle pouvant s'exprimer dans un langage artificiel ou naturel \ccite{caplat_model_2008}[p.~28]. Van~Gigch va plus loin en associant la création d'un modèle à l'utilisation de langages, de métalangages et de logiques \ccite{gigch_system_1991}[p.~135]. 
+}{M01}{M01}
+
+\enonce{M01}{Définition}{Modèle}{
+Représentation d'un sujet pour en permettre le traitement.
+}{P050}
+\explication{M01}{la définition}{Modèle}{
+La définition formulée est~: représentation d'un sujet pour en permettre le traitement.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+\item définition 1 de modèle~: «~Représentation simplifiée, souvent formalisée, d'un processus, d'un système.~» \cite{Robert_modele_0};
+\item définition 2 de modèle~:\enfr{To an observer B, an object A\text{*} is a model of an object A to the extent that B can use A\text{*} to answer questions that interest him about A.}{Pour un observateur O, un modèle M et un objet A, O peut utiliser M pour répondre à des questions sur A.}
+\ccite{velten_mathematical_2024}[p.~3];
+\item description 1 de modèle~: un modèle est exprimé dans un langage artificiel ou naturel. Il modélise un sujet d'étude et incarne un point de vue. Ce point de vue est porté sur le même sujet d'étude. (description d'une figure) \ccite{caplat_model_2008}[p.~28];
+\item description 2 de modèle :\enfr{The Language Used to Design the Model. We remind readers of the difference that exists between language and metalanguage. Language and logic are inextricably related: we use language to refer to items, events, and things and metalanguage to refer to their names.}{Le langage utilisé pour concevoir le modèle. Nous rappelons aux lecteurs la différence entre langage et métalangage. Langage et logique sont indissociables~: nous utilisons le langage pour désigner des éléments, des événements et des choses, et le métalangage pour désigner leurs noms.}
+\ccite{gigch_system_1991}[p.~135].
+\end{itemize}
+La définition 1 du Robert fait référence au fait que le modèle peut être souvent formel, tandis que la définition 2 de Marvin Minsky provenant de l'ouvrage de Velten ne fait pas référence au terme \emphase{formel}. La description 1 de Guy Caplat ajoute à la description du terme \emphase{modèle} la relation entre le modèle et le langage.
+}{}
+
+\subsection{Des objectifs}
+
+\paragraphe{P051}{Les modèles sont abondamment utilisés en informatique, notamment pour traiter les informations. Les modèles en informatique répondent aussi à des objectifs plus globaux. L'informatique étant une science, les objectifs des modèles en science s'appliquent aussi à l'informatique.}{}{}
+
+\paragraphe{P052}{Pour en faire découvrir les différents objectifs, plusieurs concepts sont nécessaires. Les concepts suivants reposent sur l'utilisation de langages formels~:
+\begin{itemize}
+    \item système logique~: est composé d'un langage formel et d'un ensemble de règles (axiome, proposition, logique) permettant d'inférer;
+    \item machine abstraite~: système formel comprenant les instructions nécessaires au traitement automatique de données\footnote{Les données sont la forme explicite de l’information. Elles constituent des artefacts.};
+    \item modèle formel~: est composé d'un langage formel et d'un ensemble de règles et vise la représentation d'un sujet pour en permettre le traitement.
+\end{itemize} 
+\vspace{-\baselineskip}
+}{OM01, OM02, OM03}{OM01}
+
+\enonce{OM01}{Définition}{Système logique}{
+Est composé d'un langage formel et d'un ensemble de règles (axiome, proposition, logique) permettant d'inférer.
+}{P052}
+\explication{OM01}{de la définition}{Système logique}{
+La définition formulée est~: est composé d'un langage formel et d'un ensemble de règles (axiome, proposition, logique) permettant d'inférer.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+\item description d'un système logique : \enfr{The three main components of any logical system are: 1. A formal language 2. A consequence relation 3. Applicability through a notion of schematic substitution.} 
+{Les trois principaux composants de tout système logique sont : 1. Un langage formel 2. Une relation de conséquence 3. Applicabilité par le biais d'une notion de schéma.} \ccite{gabbay_logical_1994}[p.~217];
+\item définition d'un système logique~: «~Un système logique est un système formel dédié au raisonnement et aux déductions logiques.~»
+\footnote{Wikipedia, «~Système logique~», \url{https://fr.wikipedia.org/wiki/Syst\%C3\%A8me_logique} (consulté le 2025-11-15).};
+\item définition de système formel selon C. J. Date~: «~\textit{A logical system, q.v}~»
+\cite{date_glossary_2016};
+\item définition 1 de système formel~: \enfr{A formal system consists of, - A formal language, - A set of axioms, - Rules of inference.}{Un système formel se compose de, un langage formel, un ensemble d'axiomes, des règles d'inférence.}
+\ccite{oregan_mathematics_2020}[p.~211]
+\item définition 2 d'un système formel~: \enfr{A formal system S is a formal language L together with a deductive apparatus given by : (1) laying down by fiat that certain formulas of L are to be axioms of S and/or (2) laying down by fiat a set of transformation rules (also called rules of inference) that determines which relations between formulas of L are relations of immediate consequence in S. (Intuitively, the transformation rules license the derivation of some formulas from others.) \elide
+The deductive apparatus must be definable without reference to any intended interpretation of the language: otherwise the system is not a formal system.}{Un système formel S est un langage formel L muni d'un appareil déductif défini par~:
+(1) l'établissement formel que certaines formules de L sont des axiomes de S et/ou (2) l'établissement formel d'un ensemble de règles de transformation (également appelées règles d'inférence) qui déterminent quelles relations entre les formules de L sont des relations de conséquence immédiate dans S. (Intuitivement, les règles de transformation autorisent la dérivation de certaines formules à partir d'autres.) \elide
+L'appareil déductif doit être définissable sans référence à une quelconque interprétation du langage ; sinon, le système n'est pas un système formel.}
+\ccite{hunter_metalogic_1973}[p.~7].
+\end{itemize}
+}{}
+
+\enonce{OM02}{Définition}{Modèle formel}{
+Est composé d'un langage formel et d'un ensemble de règles et vise la représentation d'un sujet pour en permettre le traitement.
+}{P052}
+\explication{OM02}{de la définition}{Modèle formel}{
+La définition formulée est~: est composé d'un langage formel et d'un ensemble de règles et vise la représentation d'un sujet pour en permettre le traitement.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+\item description 1 de modèle formel : \enfr{When modeling a system we structure the formal model such that constant parts and variable parts are kept in distinct entities, contexts and machines respectively.}{Lors de la modélisation d'un système, nous structurons le modèle formel de telle sorte que les parties constantes et les parties variables soient conservées dans des entités, des contextes et des machines distincts, respectivement.}\cite{abrial_refinement_2007};
+
+\item description 2 de modèle formel : \enfr{A model can contain contexts only, or machines only, or both. In the first case, the model represents a pure mathematical structure with sets, constants, axioms, and theorems.}{Un modèle peut contenir uniquement des contextes, uniquement des machines, ou les deux. Dans le premier cas, le modèle représente une structure mathématique pure avec des ensembles, des constantes, des axiomes et des théorèmes.}\ccite{abrial_modeling_2010}[p.~176];
+\item description 3 de modèle formel : \enfr{Formal means here that the model is represented using a formal language with so clearly defined syntax and semantics that the model can be executed using a computer.}{Formel signifie ici que le modèle est représenté à l'aide d'un langage formel dont la syntaxe et la sémantique sont si clairement définies que le modèle peut être exécuté sur un ordinateur.}\ccite{davidsson_simulation_2017}[p.~785].
+\end{itemize}
+
+}{}
+
+\enonce{OM03}{Définition}{Machine abstraite}{
+Système formel comprenant les instructions nécessaires au traitement automatique de données.
+}{P052}
+\explication{OM03}{de la définition}{Machine abstraite}{
+La définition formulée est~: système formel comprenant les instructions nécessaires au traitement automatique d'information.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item définition de machine abstraite : \enfr{An abstract machine is a model of a computer system (considered either as hardware or software) constructed to allow a detailed and precise analysis of how the computer system works. Such a model usually consists of input, output, and operations that can be preformed (the operation set), and so can be thought of as a processor. Turing machines are the best known abstract machines \elide.}{Une machine abstraite est un modèle de système informatique (considéré comme matériel ou logiciel) conçu pour permettre une analyse détaillée et précise de son fonctionnement. Ce modèle comprend généralement des entrées, des sorties et les opérations réalisables (l'ensemble des opérations), et peut donc être assimilé à un processeur. Les machines de Turing sont les machines abstraites les plus connues \elide.}
+    \cite{Wolfram_abstractmachine_0};
+    \item définition d'ordinateur : «~Machine automatique de traitement de l'information, obéissant à des programmes formés par des suites d'opérations arithmétiques et logiques.~» \cite{Larousse_ordinateur_0};
+    \item définition de donnée : «~ Représentation conventionnelle d'une information en vue de son traitement informatique.~» \cite{Larousse_donnee_0}.
+\end{itemize}
+
+}{}
+
+\paragraphe{P053}{\fl{Les systèmes logiques permettent de raisonner sur les systèmes formels, et plus particulièrement, sur les modèles formels à travers des machines abstraites.} Cependant, pour qu'un logiciel forme un système formel ou un modèle formel \ccite{davidsson_simulation_2017}[p.~785] et qu'une machine abstraite soit en mesure de l'exécuter avec l'aide d'un système logique, il faut que le système formel et le système logique partagent le même langage formel. D'ailleurs, les machines abstraites sont nombreuses. L'ouvrage \titleen{Foundations of computer science}{} d'Alfred V. Aho et d'Ullman D. Jeffrey énumère sept niveaux d'abstractions faisant intervenir différents types de machines abstraites \ccite{aho_foundations_1992}[p.~144-145]. Ces niveaux varient de la logique numérique jusqu'au programme applicatif. C'est la capacité des machines à se modifier elles-mêmes qui rend possibles ces niveaux d'abstraction \cite{haigh_engineering_2014}. Cette capacité a été atteinte avec l'introduction de mémoires réinscriptibles sur les composantes matérielles. Aussi, il n'existe pas de système logique unique. Ils peuvent varier tout comme les logiques qui y sont employées \ccite{furbach_automated_2006}[p.~4-20]. 
+}{OM04, OM05, OM06}{OM04}
+
+\enonce{OM04}{Assertion}{L'utilisation des systèmes logiques peut varier tout comme les logiques employées.}{
+}{P053}
+\explication{OM04}{de l'assertion}{L'utilisation des systèmes logiques peut varier tout comme les logiques employées.}{
+Dale Miller décrit l'utilisation de systèmes logiques pour le calcul à travers l'article \textit{Representing and Reasoning with Operational Semantics} \ccite{furbach_automated_2006}[p.~4-20]. D'abord, il catégorise deux approches~:
+\quoteenfrlist{
+\item computation-as-model : \elide computations are encoded as mathematical structures, containing such items as nodes, transitions, and state. Logic is used in an external sense to make statements about those structures. That is, computations are used as models for logical expressions. Intensional operators, such as the modals of temporal and dynamic logics or the triples of Hoare logic, are often employed to express propositions about the change in state. This use of logic to represent and reason about computation is probably the oldest and most broadly successful use of logic for specifying computation.
+\item computation-as-deduction : \elide uses pieces of logic’s syntax (formulas, terms, types, and proofs) directly as elements of the specified computation.
+}{
+\item calcul en tant que modèle : \elide les calculs sont encodés sous forme de structures mathématiques, contenant des éléments, tels que des nœuds, des transitions et des états. La logique est utilisée de manière externe pour formuler des énoncés sur ces structures. Autrement dit, les calculs servent de modèles pour les expressions logiques. Les opérateurs intensionnels, tels que les modaux des logiques temporelles et dynamiques ou les triplets de la logique de Hoare, sont souvent utilisés pour exprimer des propositions sur le changement d'état. Cette utilisation de la logique pour représenter et raisonner sur le calcul est probablement l'utilisation la plus ancienne et la plus répandue de la logique pour spécifier le calcul.
+\item calcul-comme-déduction : \elide utilise directement des éléments de la syntaxe logique (formules, termes, types et preuves) comme éléments du calcul spécifié.
+}{\ccite{furbach_automated_2006}[p.~4-20]}
+
+Par la suite, l'auteur décrit sommairement le fonctionnement pour \textit{computation-as-model} :
+\quoteenfrlist{
+\item [1-] \elide one implements mathematics via some set-theory or higher-order logic (for example, HOL [14], Isabelle/ZF [46], PVS [44]).
+\item [2-] \elide one reduces program correctness problems to mathematics. Thus, data structures, states, stacks, heaps, invariants, etc, all are represented as various kinds of mathematical objects.
+\item [3-] One then reasons directly on these objects using standard mathematical techniques (induction, primitive recursion, fixed points, well-founded orders, etc).
+}{
+\item [1-] \elide les mathématiques sont implémentées par une théorie des ensembles ou une logique d'ordre supérieur (par exemple, HOL [14], Isabelle/ZF [46], PVS [44]).
+\item [2-] \elide on ramène les problèmes de correction des programmes aux mathématiques. Ainsi, les structures de données, les états, les piles, les piles, les invariants, etc., sont toutes représentés comme différents types d'objets mathématiques.
+\item [3-] On raisonne ensuite directement sur ces objets en utilisant des techniques mathématiques standards (induction, récursion primitive, points fixes, ordres bien fondés, etc.).
+}{\ccite{furbach_automated_2006}[p.~4-20]}
+}{}
+
+\enonce{OM05}{Assertion}{L'informatique a développé plusieurs couches d'abstractions où sont utilisées différentes machines abstraites.}{}{P053}
+\explication{OM05}{de l'assertion}{L'informatique a développé plusieurs couches d'abstractions où sont utilisé différentes machines abstraites.}{
+Dans l'ouvrage \textit{Foundations of computer science}, les auteurs Alfred V. Aho et Ullman D. Jeffrey énumèrent sept niveaux d'abstractions~:
+\quoteenfrlist{
+\item[6.] Application program : \elide each with its own data model — designed to solve specific problems in a broad range of disciplines.
+\item[5.] Programming language : \elide higher-level languages with which applications programmers can solve problems more readily than with assembly language
+\item[4.] Assembly language : \elide is a symbolic representation for instructions found at the lower levels.
+\item[3.] Operating system kernel : The operating system kernel itself may be implemented in a higher-level language that has been translated into machine language.
+\item[2.] Machine language : \elide may add two numbers, move data from one location to another, or determine whether a number is equal to zero, for instance. Primitive instructions such as these are sufficient to execute any program or application at the higher levels.
+\item[1.] Microprogram : Not all computers have this level, but for those that do it is a collection of steps used to implement the  machine language instructions.
+\item[0.] Digital logic : \elide is an abstraction of the electronic circuitry of a computer.
+}{
+\item[6.] Programme d'application : \elide chacune avec son propre modèle de données, conçu pour résoudre des problèmes spécifiques dans un large éventail de disciplines.
+\item[5.] Langage de programmation : des langages de haut niveau permettant aux programmeurs d'applications de résoudre les problèmes plus facilement qu'avec le langage assembleur.
+\item[4.] Langage assembleur : \elide est une représentation symbolique des instructions que l'on trouve aux niveaux inférieurs.
+\item[3.] Noyau du système d'exploitation : Le noyau du système d'exploitation lui-même peut être implémenté dans un langage de haut niveau qui a été traduit en langage machine.
+\item[2.] Langage machine : \elide peuvent, par exemple, additionner deux nombres, déplacer des données d'un emplacement à un autre ou déterminer si un nombre est égal à zéro. Elles suffisent à exécuter n'importe quel programme ou application de haut niveau.
+\item[1.] Microprogramme : Tous les ordinateurs ne possèdent pas ce niveau, mais pour ceux qui le possèdent, il s'agit d'un ensemble d'étapes permettant d'implémenter les instructions en langage machine.
+\item[0.] Logique numérique : \elide est une abstraction des circuits électroniques d'un ordinateur.
+}{\ccite{aho_foundations_1992}[p.~144-145]}
+
+}{}
+
+\enonce{OM06}{Assertion}{L'utilisation d'une mémoire réinscriptible permet d'obtenir des machines abstraites.}{}{P053}
+\explication{OM06}{de l'assertion}{L'utilisation d'une mémoire réinscriptible permet d'obtenir des machines abstraites.}{
+Ce qui permet autant de niveaux d'abstractions est la caractéristique d'une machine à se modifier. Thomas Haigh cite Swade à ce sujet~:
+\quoteenfr
+{Swade himself retreated from the endearingly bold confession of confusion we quoted earlier to conclude that “the internal stored program \elide is the practical realization of Turing universality” and thus conferred “plasticity of function, which in large part accounts for the remarkable proliferation of computers and computer-like artifacts.”}
+{Swade lui-même a renoncé à l'aveu de confusion, aussi touchant qu'audacieux, que nous avons cité précédemment, pour conclure que «~le programme interne stocké \elide est la réalisation pratique de l'universalité de Turing~» et conférait ainsi «~la plasticité de la fonction, qui explique en grande partie la remarquable prolifération des ordinateurs et des artefacts de type informatique~».}
+{\cite{haigh_reconsidering_2013}}
+
+Dans le même article, l'auteur soulève des raisons pour lesquelles cette caractéristique ne peut pas être attribuable à John von Neumann :
+\quoteenfrlist{
+\item [][---] The “First Draft of a Report on the EDVAC” \elide the word “program” never appears in the draft. Von Neumann consistently preferred “code” to “program” and wrote of “memory” rather than “storage.”
+\item [][---] Von Neumann deliberately eliminated the possibility of a program overwriting itself.
+}{
+\item [][---] Dans le «~Premier brouillon d’un rapport sur l’EDVAC~» \elide le mot «~programme~» n’apparaît jamais. Von Neumann préférait systématiquement «~code~» à «~programme~» et parlait de «~mémoire~» plutôt que de «~stockage~».
+\item [][---] Von Neumann a délibérément éliminé la possibilité qu'un programme s'écrase lui-même.
+}{\cite{haigh_reconsidering_2013}}
+
+Dans un deuxième article, Thomas Haigh précise quel fut le premier ordinateur à présenter cette caractéristique, remontant la trace jusqu'à la fin des années 1950~:
+\quoteenfr
+{\elide "credit the ENIAC as the first computer to be run with a read-only stored program” but the “BINAC and the EDSAC as being the first computers to be run with a dynamically modifiable stored program".}
+{\elide «~on attribue à l’ENIAC le titre de premier ordinateur à fonctionner avec un programme stocké en lecture seule~», mais au «~BINAC et à l’EDSAC le titre de premiers ordinateurs à fonctionner avec un programme stocké modifiable dynamiquement.~»}
+{\cite{haigh_engineering_2014}}
+
+}{}
+
+\paragraphe{P054}{\fl{Des modèles sont utilisés et créés lors d'un procédé de développement.} L'informatique appliquée crée des modèles de problèmes et des modèles de solutions \ccite{jackson_requirements_1995}[p.~1]. Le modèle du problème sert à définir, à s'approprier, à circonscrire et à caractériser les solutions acceptables ou tout autre problème physique et tangible. Le modèle de la solution conduira à réaliser et établir une entité informatique. Un modèle de solution peut répondre à un problème réel (calcul du carburant requis par un avion pour un trajet donné) ou même à un problème technique de l'informatique (machine abstraite, compilateur). Comme les autres sciences, ces modèles peuvent servir à apprendre, à développer et à appliquer les connaissances \ccite{upmeier_zu_belzen_towards_2019}[p.~311]. 
+\sep
+Cependant, l'informatique va souvent plus loin dans l'instrumentalisation des modèles en créant des modèles traitants d'autres modèles.
+}{OM07, OM08}{OM07}
+
+\enonce{OM07}{Assertion}{L'informatique appliquée crée des modèles de problèmes et des modèles de solutions, puis cherche à les associer.}{}{P054}
+\explication{OM07}{de l'assertion}{L'informatique appliquée crée des modèles de problèmes et des modèles de solutions, puis cherche à les associer.}{
+Un problème à résoudre peut être modélisé. Dans l'ouvrage \textit{Foundations of compter science}, les auteurs Alfred V. Aho et Jeffrey D. Ullman soulignent l'importance de cette modélisation en informatique~:
+\quoteenfr
+{But fundamentally, computer science is a science of abstraction — creating the right model for a problem and devising the appropriate mechanizable techniques to solve it.}
+{Mais fondamentalement, l'informatique est une science de l'abstraction — créer le bon modèle pour un problème et concevoir les techniques mécanisables appropriées pour le résoudre.}
+{\ccite{aho_foundations_1992}[p.~1]}
+
+Une solution qui permet de résoudre un problème peut se modéliser. Un article offre un survol historique des modèles et de l'ingénierie des systèmes basée sur des modèles (MBSE, \textit{Model Based Systems Engineering} en anglais). Il présente successivement les concepts suivants~:
+\quoteenfrlist{
+\item [][---] Tarski Model Theory~: First-order model theory is concerned with the relationships between system descriptions made in a first-order formal language (such as the predicate calculus of mathematical logic) and the structures that satisfy these descriptions.  
+\item [][---] Yourdon Structured Analysis and Design~: Yourdon [11] introduced a model-based approach for software development from a behavioral viewpoint. He also introduced a graphical modeling language called data flow diagrams to support his approach.
+\item [][---] Wymore MBSE~: A. Wayne Wymore [12] was one of the early engineering pioneers in the domain of model-based systems engineering. He had a behavioral viewpoint on system in which the model of behavior is comprised of the name of the system, its states, the inputs and outputs of those states, and next state transitions.
+\item [][---] Klir and Lin General Systems Methodologies~: Wymore’s concept of homomorphism was generalized by Lin [7] in his concept of a general system by using an algebraic definition of homomorphism.
+\item [][---] N. P. Suh Axiomatic Design~: During the 1990s, Suh published an extensive body of literature on what he called axiomatic design. Reference [14] offers a concise introduction to his approach to include examples. There are two design axioms: 1) maximize functional independence by decoupling functional elements, and 2) minimize the information content of the design.
+} {
+\item [][---] Théorie des modèles de Tarski~: La théorie des modèles du premier ordre s’intéresse aux relations entre les descriptions de systèmes formulées dans un langage formel du premier ordre (tel que le calcul des prédicats de la logique mathématique) et les structures qui satisfont ces descriptions. 
+\item [][---] Analyse et conception structurées de Yourdon~: Yourdon [11] a introduit une approche de développement logiciel basée sur les modèles, selon une perspective comportementale. Il a également introduit un langage de modélisation graphique appelé diagrammes de flux de données pour étayer son approche.
+\item [][---] Ingénierie des systèmes basée sur les modèles de Wymore~: A. Wayne Wymore [12] fut l’un des pionniers de l’ingénierie des systèmes basée sur les modèles. Il adoptait une perspective comportementale du système, dans laquelle le modèle de comportement est composé du nom du système, de ses états, des entrées et sorti de ces états, et des transitions d’état suivantes.
+\item [][---] Méthodologies des systèmes généraux de Klir et Lin~: Le concept d’homomorphisme de Wymore a été généralisé par Lin [7] dans son concept de système général, en utilisant une définition algébrique de l’homomorphisme.
+\item [][---] Conception axiomatique de N. P. Suh : Dans les années 1990, Suh a publié de nombreux travaux sur ce qu’il appelait la conception axiomatique. La référence [14] propose une introduction concise à son approche, illustrée par des exemples. Deux axiomes de conception sont à considérer : 1) maximiser l’indépendance fonctionnelle en découplant les éléments fonctionnels, et 2) minimiser la quantité d’information contenue dans la conception.
+}{\cite{dickerson_brief_2013}}
+\figmedium
+{Diagramme représentant l'association entre deux modèles}
+{figure/chap1/modelisation/jackson-fr.png}
+{[Traduction libre] (source~: \ccite{jackson_requirements_1995}[p.~125])}
+{}{}{tb}
+L'association entre un modèle de problème et un modèle de solution est décrite dans l'ouvrage \textit{Software requirements \& specifications} de Michael Jackson. Il décrit les termes \emphase{domaine} et \emphase{machine} ainsi~:
+\quoteenfr
+{This distinction between the machine and the application domain is the key to the much-cited (but little understood) distinction between What and How: what the system does is to be sought in the application domain, while how it does it is to be sought in the machine itself. The problem is in the application domain. The machine is the solution.}
+{Cette distinction entre la machine et le domaine d'application est essentielle à la compréhension de la différence, souvent citée, mais souvent mal comprise, entre le quoi et le comment : ce que fait le système se trouve dans le domaine d'application, tandis que le comment il le fait se trouve dans la machine elle-même. Le problème réside dans le domaine d'application. La machine est la solution.}
+{\ccite{jackson_requirements_1995}[p.~1]}
+Il illustre l'activité et la modélisation avec une figure (figure~B.24) et ajoute «~\textit{The picture is easy to remember: M is for Modelling.} ».
+}{}
+
+\enonce{OM08}{Axiome}{Les modèles en science ont, entre autres, comme objectifs d'apprendre, de développer et d'appliquer les connaissances.}{}{P054}
+\explication{OM08}{de l'axiome}{Les modèles en science ont, entre autres, comme objectifs d'apprendre, de développer et d'appliquer les connaissances.}{
+Dans le recueil de Upmeier zu Belzen, les modèles sont décrits comme le produit principal de la science et se retrouvent dans toutes les disciplines \ccite{upmeier_zu_belzen_towards_2019}[p.~311]. Trois objectifs principaux sont décrits~:
+\quoteenfrlist{
+\item Learning science—acquiring and developing conceptual and theoretical knowledge.
+\item Learning about science—developing an understanding of the characteristics of scientific inquiry, the role and status of the knowledge it generates \elide.
+\item Doing science—engaging in and developing expertise in scientific inquiry and problem-solving.
+}{
+\item Apprendre les sciences — acquérir et développer des connaissances conceptuelles et théoriques.
+\item Apprendre les sciences — développer une compréhension des caractéristiques de la démarche scientifique, du rôle et du statut des connaissances qu’elle génère \elide.
+\item Faire de la science — s’engager dans la recherche scientifique et la résolution de problèmes et développer une expertise en la matière.
+}{\ccite{upmeier_zu_belzen_towards_2019}[p.~311]}
+
+À l'intérieur du \textit{curriculum} de l'Association for Computing Machinery (ACM) pour l'ingénierie logiciel de 2014, l'ingénierie est placée comme l'utilisateur des modèles produits par la science, voici ce qui est décrit~:
+\quoteenfr
+{Whereas scientists observe and study existing behaviors and then develop models to describe them, engineers use such models as a starting point for designing and developing technologies that enable new forms of behavior.}
+{Alors que les scientifiques observent et étudient les comportements existants puis élaborent des modèles pour les décrire, les ingénieurs utilisent ces modèles comme point de départ pour concevoir et développer des technologies permettant de nouvelles formes de comportement.}
+{\ccite{acm_competency_2014}[p.~15]}
+
+}{}
+
+\subsection{Des écueils}
+
+\paragraphe{P055}{Les écueils aux modèles sont ceux par rapport à des caractéristiques de qualité d'un modèle. Il existe plusieurs modèles de qualité. Certaines caractéristiques de qualité reviennent de manière récurrente~: la cohérence, la couverture, la complétude et la compréhensibilité. On les retrouve dans le corpus de connaissances en génie logiciel (SWEBOK, \textit{Software Engineering Body of Knowledge} en anglais) \ccite{washizaki_guide_2024}[p.~233], dans un ouvrage consacré à la qualité des modèles conceptuels \ccite{olive_conceptual_2007}[p.~28-30] ainsi que dans le manuel de John Krogstie \titleen{Quality in Business Process Modeling}{}, comprenant entre autres la qualité des documents de spécification des exigences \ccite{krogstie_quality_2016}[p.~58-60]. Ainsi, les écueils sont énoncés selon ces caractéristiques de qualité. 
+}{EM01}{EM01}
+
+\enonce{EM01}{Assertion}{Pour réussir une modélisation, il faut considérer, entre autres, la compréhensibilité, la couverture, la cohérence et la complétude.}{}{P055}
+\explication{EM01}{de l'assertion}{Pour réussir une modélisation, il faut considérer, entre autres, la compréhensibilité, la couverture, la cohérence et la complétude.}{
+Dans la version 4 du \textit{Software Engineering Body of Knowledge} SWEBOK, l'analyse des modèles comprend~:
+\quoteenfr
+{\elide analysis techniques used in modeling to verify completeness, consistency, correctness, traceability and interaction.}
+{\elide les techniques d'analyse courantes utilisées en modélisation pour vérifier la complétude, la cohérence, l'adéquation, la traçabilité et l'interaction.}
+{\ccite{washizaki_guide_2024}[p.~233]}
+
+Des caractéristiques de qualité d'un modèle sont recensées dans l'ouvrage \textit{Conceptual Modeling of Information Systems} de Antoni Olivé. On y retrouve~:
+\quoteenfrlist{
+\item complete : \elide the conceptual schema must include all the required knowledge \elide.;
+\item correct : \elide if the knowledge that it defines is true for the domain and relevant to the functions that the system must perform.;
+\item syntactically correct : \elide if it respects all the rules of the language in which it is written.;
+\item understandable : All members of the relevant audience should be able to correctly understand the part of the conceptual schema that is relevant to them.;
+\item stability : \elide if minor changes in the properties of the domain or in the users’ requirements do not entail major changes in the schema.
+}{
+\item complet : \elide le schéma conceptuel doit inclure toutes les connaissances requises \elide.;
+\item correct : \elide si les connaissances qu'il définit sont exactes pour le domaine et pertinentes pour les fonctions que le système doit exécuter.;
+\item correcte syntaxiquement : \elide s'il respecte toutes les règles du langage dans lequel il est écrit.;
+\item compréhensible : Tous les membres du public concerné devraient être en mesure de comprendre correctement la partie du schéma conceptuel qui les concerne.;
+\item adaptable : \elide si des modifications mineures aux propriétés du domaine ou aux exigences des utilisateurs n'entraînent pas de modifications majeures du schéma.
+}{\ccite{olive_conceptual_2007}[p.~28-30]}
+
+John Krogstie aborde la qualité sur la modélisation dans \titleen{Quality in Business Process Modeling}{} \ccite{krogstie_quality_2016}[p.~53-102]. Dans le chapitre 2, il présente les caractéristiques de qualité concernant la modélisation proposées par différents auteurs et appliquées à divers artefacts. Pour ce qui concerne un document de spécification des exigences logicielles, il se sert d'un article écrit par Alan M. Davis \cite{davis_identifying_1993}, les caractéristiques de qualité doivent être~:
+\quoteenfrlist{
+\item [][---] understandable : \elide if all types of SRS readers can easily comprehend the meaning of all of the requirements with a minimum of explanation.
+\item [][---] unambiguous : \elide if and only if every requirement stated therein has only one possible interpretation.
+\item [][---] organized : \elide if and only if its contents are arranged so that readers can easily locate information and logical relationships among adjacent sections are apparent.
+\item [][---] complete : \elide if: 
+1. Everything that the software is supposed to do is included in the SRS. 
+2. Responses of the software to all realizable classes of input data in \elide.
+\item [][---] concise : \elide if it is as short as possible without affecting any other quality of the SRS.
+\item [][---] correct : \elide if and only if every requirement represents something required of the system to be built.
+\item [][---] verifiable : \elide if there are finite, cost-effective techniques that can be used to verify that every requirement stated therein is satisfied by the system to be built. Testable is another term often found for this.
+\item [][---] internally consistent : \elide if and only if no subset of individual requirements stated therein conflicts. Davis suggests using languages with formal syntax and semantics to be able to detect and remove inconsistency.
+\item [][---] externally consistent : \elide if and only if no requirement stated therein conflicts with any already baselined project or organizational documentation.
+\item [][---] executable/interpretable/prototypable : \elide if and only if there exists a software tool that is capable of providing a dynamic behavioral model based on (relevant parts of) the SRS.
+\item [][---] achievable : \elide if and only if there could exist at least one system design and implementation that correctly implements all of the requirements stated in the SRS.
+}{
+\item [][---] compréhensible : \elide si tous les types de lecteurs de spécifications fonctionnelles peuvent facilement comprendre la signification de toutes les exigences avec un minimum d’explications.
+\item [][---] sans ambiguïté : \elide si et seulement si chaque exigence énoncée n’a qu’une seule interprétation possible.
+\item [][---] organisé : \elide si et seulement si son contenu est agencé de manière à ce que les lecteurs puissent facilement localiser l’information et que les relations logiques entre les sections adjacentes soient apparentes.
+\item [][---] complet : \elide si :
+1. Tout ce que le logiciel est censé faire est inclus dans les spécifications fonctionnelles.
+2. Les réponses du logiciel à toutes les classes de données d’entrée réalisables sont décrites dans \elide.
+\item [][---] concis : \elide s’il est aussi court que possible sans affecter aucune autre qualité des spécifications fonctionnelles.
+\item [][---] correct : \elide si et seulement si chaque exigence représente une exigence du système à construire.
+\item [][---] vérifiable : \elide s’il existe des techniques finies et rentables permettant de vérifier que chaque exigence énoncée est satisfaite par le système à construire. On utilise souvent le terme testable pour désigner ce type d’exigence.
+\item [][---] cohérent à l'interne : \elide si et seulement si aucune exigence individuelle énoncée dans le document n’entre en conflit avec une autre exigence. Davis suggère d'utiliser des langages dotés d'une syntaxe et d'une sémantique formelles afin de détecter et de supprimer les incohérences.
+\item [][---] cohérent à l'externet : \elide si et seulement si aucune exigence énoncée dans le document n’est en conflit avec la documentation de référence du projet ou de l’organisation.
+\item [][---] exécutable/interprétable/prototypable : \elide si et seulement s’il existe un outil logiciel capable de fournir un modèle comportemental dynamique basé sur (les parties pertinentes) du cahier des charges fonctionnel.
+\item [][---] réalisable : \elide si et seulement s’il existe au moins une conception et une implémentation système qui mettent correctement en œuvre toutes les exigences énoncées dans le cahier des charges fonctionnel.
+}{\ccite{krogstie_quality_2016}[p.~53-102]}
+
+Pour compléter cette liste, il y a également les caractéristiques de qualité suivantes~: \textit{design-independent, traceable, modifiable, electronically stored, annotated by relative importance, annotated by relative stability, annotated by version, not redundant, at right level of detail, precise, reusable, traced, cross-referenced.}
+}{}
+
+\paragraphe{P056}{La définition de ces caractéristiques de qualité peuvent varier d'une référence à une autre. Par conséquent, il est donc préférable de les définir précisément~:
+\begin{itemize}
+    \item cohérent~: système logique où aucune contradiction n'a encore été découverte;
+    \item couverture~: consiste à couvrir tous les éléments d'un ensemble avec une sous-famille d'un autre ensemble, et ce, la plus petite possible;
+    \item complétude~: un système formel est complet lorsque toutes les vérités qu'il contient peuvent être déduites des axiomes et des règles d'inférence;
+    \item compréhensible~: qui peut être intelligible par le lectorat.
+\end{itemize}
+\vspace{-\baselineskip}
+}{EM02, EM03, EM04, EM05}{EM02}
+
+\enonce{EM02}{Définition}{Cohérent}{
+Système logique où aucune contradiction n'a encore été découverte.
+}{P056}
+\explication{EM02}{la définition}{Cohérent}{
+La définition formulée est~: système logique où aucune contradiction ne s'est encore manifestée.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item définition 1 de consistance : «~Propriété d'un système logique caractérisé par l'impossibilité d'y trouver des contradictions.~»
+    \cite{Gdt_consistance_0};
+    \item définition 2 de consistance : \enfr{A formal system is consistent if there is no formula A such that A and ¬A are provable in the system (i.e. there are no contradictions in the system).}{Un système formel est cohérent s'il n'existe aucune formule A telle que A et ¬A soient démontrables dans le système (c'est-à-dire qu'il n'y a pas de contradictions dans le système).}
+    \ccite{oregan_mathematics_2020}[p.~214];
+    \item définition de cohérence : «~Propriété d'un système logique caractérisé par une absence, apparente ou réelle, de contradictions.~»
+    \cite{Gdt_coherence_0};
+    \item note sur la définition de cohérence : «~Ainsi, un système consistant est obligatoirement cohérent alors que l'inverse n'est pas nécessairement vrai.~»
+    \cite{Gdt_coherence_0}.
+\end{itemize}
+Consistance et cohérence peuvent se confondre. Cependant, en informatique, il peut exister des contradictions qui vont se manifester lors de l'exécution du logiciel. Alors, il est plus juste d'utiliser la cohérence comme caractéristique de qualité.
+}{}
+
+\enonce{EM03}{Définition}{Couverture}{
+Consiste à couvrir tous les éléments d'un ensemble avec une sous-famille d'un autre ensemble, et ce, la plus petite possible.
+}{P056}
+\explication{EM03}{la définition}{Couverture}{
+La définition formulée est~: consiste à couvrir tous les éléments d'un ensemble avec une sous-famille d'un autre ensemble, et ce, la plus petite possible.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item définition du problème de couverture en mathématique  : «~Étant donné un ensemble $A$, on dit qu'un élément $e$ est couvert par $A$ si $e$ appartient à $A$. Étant donné un ensemble U et une famille S de sous-ensembles de U, le problème consiste à couvrir tous les éléments U avec une sous-famille de S la plus petite possible.~» \footnote{Wikipedia, «~Problème de couverture par ensembles~», \url{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_couverture_par_ensembles} (consulté le 2026-08-15).};
+    \item définition de couverture : «~Étendue de la zone où un service donné fonctionne correctement.~»
+    \cite{Antidote_0};
+    \item définition d'exhaustif : «~Qui traite complètement, épuise un sujet.~»
+    \cite{Robert_exhaustif_0};
+    \item définition de complet : «~Qui comporte tous les éléments nécessaires, à quoi rien ne manque.~»
+    \cite{Larousse_complet_0} ;
+    \item définition d'adéquat : «~Qui correspond parfaitement à son objet ; approprié, adapté.~» \cite{Larousse_adequat_0};
+    \item définition d'adéquation : «~Conformité à l'objet, au but qu'on se propose.~»\cite{Larousse_adequation_0}.
+\end{itemize}
+La couverture peut être :
+\begin{itemize}
+    \item celle d'un modèle par rapport au sujet ;
+    \item celle d'un modèle par rapport à la théorie ;
+    \item celle d'un artefact par rapport à un modèle ;
+\end{itemize}
+Les termes \emphase{adéquat} et \emphase{exhaustif} ont une signification plus catégorique qui aurait comme effet d'influencer toute mesure objective prise pour catégoriser des modèles. Tandis que le terme \emphase{couverture}est plus neutre.
+}{}
+
+\enonce{EM04}{Définition}{Complétude}{
+Un système formel est complet lorsque toutes les vérités qu'il contient peuvent être déduites des axiomes et des règles d'inférence.
+}{P056}
+\explication{EM04}{la définition}{Complétude}{
+La définition formulée est~: un système formel est complet lorsque toutes les vérités qu'il contient peuvent être déduites des axiomes et des règles d'inférence.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item définition 1 de complétude~: «~Propriété d'une théorie déductive consistante où toute formule est décidable.~» ;
+    \cite{Larousse_completude_0}
+    \item définition 2 de complétude~: \enfr{A formal system is complete if all the truths in the system can be derived from the axioms and rules of inference.}{Un système formel est complet si toutes les vérités qu'il contient peuvent être déduites des axiomes et des règles d'inférence.}
+    \ccite{oregan_mathematics_2020}[p.~214].
+\end{itemize}
+
+}{}
+
+\enonce{EM05}{Définition}{Compréhensible}{
+Qui peut être intelligible par le lectorat.
+}{P056}
+\explication{EM05}{la définition}{Compréhensible}{
+La définition formulée est~: qui peut être intelligible par le lectorat.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item définition 1 de compréhensible~: \enfr{All members of the relevant audience should be able to correctly understand the part of the conceptual schema that is relevant to them.}{Tous les membres du public concerné devraient être en mesure de comprendre correctement la partie du schéma conceptuel qui les concerne.}
+    \ccite{olive_conceptual_2007}[p.~28-30]
+    \item définition 2 de compréhensible~: \enfr{Understandable: \elide if all types of SRS readers can easily comprehend the meaning of all of the requirements with a minimum of explanation.}{Compréhensible : \elide si tous les types de lecteurs de spécifications fonctionnelles peuvent facilement comprendre la signification de toutes les exigences avec un minimum d’explications.}
+    \ccite{krogstie_quality_2016}[p.~58-60];
+    \item définition 3 de compréhensible~:
+    «~Qui peut être compris, intelligible, clair.~»
+    \cite{Larousse_comprehensible_0}.
+\end{itemize}
+
+}{}
+
+\paragraphe{P057}{\fl{Il y a une augmentation de l’utilisation de langages non formels, cela nuit à la cohérence.} L’UML en est un des exemples les plus représentatifs \ccite{olive_conceptual_2007}[11][oren_body_2023][41]. Ce langage non formel de modélisation vise à faciliter les actions suivantes~:
+\quoteenfrlist{
+\item Specifying, visualizing, understanding, and documenting problems.
+\item Capturing, communicating, and leveraging knowledge in problem solving.
+\item Specifying, visualizing, constructing, and documenting solutions.
+}
+{
+\item Spécifier, visualiser, comprendre et documenter les problèmes.
+\item Capter, communiquer et exploiter les connaissances pour résoudre les problèmes.
+\item Spécifier, visualiser, construire et documenter les solutions.
+}
+{\ccite{alhir_uml_1998}[p.~16]}
+L'UML aide à la compréhension, mais son insuffisance est telle qu'il nécessite la création d'extensions \ccite{vstuikys_meta_2012}[p.~129]. Le langage de modélisation des système (SysML, \textit{SYStems Modeling Language} en anglais) en est un exemple \ccite{holt_sysml_2019}[p.~92]. Les auteurs de l'ouvrage \titleen{Model-Driven Software Development: Technology, Engineering, Management}{} cantonnent l'utilité de l'UML à la visualisation et à la documentation \ccite{volter_mda_2013}[p.~23]. Ils soulignent que l'UML n'est pas un langage formel qui décrit la sémantique \ccite{volter_mda_2013}[p.~30]. Cependant, l'ouvrage \titleen{SysML for systems engineering}{} classe le SysML comme pouvant contribuer à des \textit{semi-formal scenarios} \ccite{holt_sysml_2019}[p.~710, 712]. Ce qui les distingue des méthodes formelles.
+\sep
+Dans le contexte où les professionnels informatiques ont tendance à utiliser des langages non formels, la description des systèmes peut être réalisée de manière formelle, mais, en pratique, les approches plus intuitives utilisant des langages de modélisation graphique sont utilisées \cite{dickerson_brief_2013}. Les documents de spécification des exigences comprennent plus souvent des langages non formels que formels \cite{bruel_requirement_2022}. Avec l’augmentation de l’utilisation de langages non formels, l’utilisation de systèmes logiques pour déceler les incohérences sans traitement préalable n’est plus envisageable.
+}{EM06, EM07, EM08, EM09}{EM06}
+
+%
+
+\enonce{EM06}{Définition}{Modèle conceptuel}{
+Utilise des concepts pour représenter le sujet. 
+}{P057}
+\explication{EM06}{la définition}{Modèle conceptuel}{
+La définition formulée est~: utilise des concepts pour représenter le sujet.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+\item définition 1 de modèle conceptuel~: \enfr{a model of the concepts relevant to some endeavor}{modèle des concepts pertinents pour un sujet intérêt donné}
+\cite{iso_24765_2017};
+\item définition 2 de modèle conceptuel~: \enfr{Conceptual models are either used as an intermediate or directly used representation in the process of development and evolution of information systems.}{Les modèles conceptuels sont utilisés soit comme représentation intermédiaire, soit comme représentation directe dans le processus de développement et d'évolution des systèmes d'information.}
+\ccite{cabot_conceptual_2017}[p.~186];
+\item description de la définition 2 de modèle conceptuel~: \enfr{In principle, the same conceptual model can be applied to many different domains, and several conceptual models can be applied to the same domain.}{En principe, un même modèle conceptuel peut être appliqué à de nombreux domaines différents, et plusieurs modèles conceptuels peuvent être appliqués à un même domaine.}
+\ccite{olive_conceptual_2007}[p.~11].
+\end{itemize}
+
+}{}
+
+\enonce{EM07}{Assertion}{L'utilisation de l'UML pour exprimer un modèle conceptuel est encouragée par plusieurs auteurs.}{}{P057}
+\explication{EM07}{de l'assertion}{L'utilisation de l'UML pour exprimer un modèle conceptuel est encouragée par plusieurs auteurs.}{
+En 2007, dans l'ouvrage \textit{Conceptual Modeling of Information Systems}, l'auteur Antoni Olivé indique que le schéma conceptuel et le modèle conceptuel peuvent se confondre. Il l'illustre ainsi~:
+\begin{itemize}
+    \item \textit{Conceptual model = Conceptual schema };
+    \item \textit{Conceptual model = Conceptual schema + Information base}.
+\end{itemize}
+Il précise~:
+\quoteenfr
+{In conceptual modeling, the general knowledge about a domain is represented in the conceptual schema, while simple facts are represented in the information base.}
+{En modélisation conceptuelle, les connaissances générales sur un domaine sont représentées dans le schéma conceptuel, tandis que les faits simples sont représentés dans la base d'informations.}
+{\cite{olive_conceptual_2007}}
+Plus loin, il affirme que la logique de premier ordre est suffisante dans les modèles conceptuels pour la plupart des cas et, pour les autres cas, il suggère l'UML~:
+\quoteenfr
+{The formal basis of conceptual modeling languages is logic. Any conceptual schema can be specified in some kind of logical language. In particular, the first-order logic (FOL) language is sufficient for the specification of most conceptual schemas. In the examples given in this introductory chapter, we use the FOL language only. However, in many projects the use of logical languages is impractical, and specialized languages are more suitable. One such language is the Unified Modeling Language (UML). In this book, we shall explain in detail the use of UML as a conceptual modeling language.}
+{Le fondement formel des langages de modélisation conceptuelle repose sur la logique. Tout schéma conceptuel peut être spécifié à l'aide d'un langage logique. En particulier, la logique du premier ordre est suffisante pour la spécification de la plupart des schémas conceptuels. Dans les exemples présentés dans ce chapitre introductif, nous utilisons exclusivement la logique du premier ordre. Cependant, dans de nombreux projets, l'utilisation des langages logiques s'avère impraticable et des langages spécialisés sont plus appropriés. Le langage de modélisation unifié (UML) est l'un de ces langages. Dans cet ouvrage, nous expliquerons en détail l'utilisation d'UML en tant que langage de modélisation conceptuelle.}
+{\ccite{olive_conceptual_2007}[p.~11]}
+
+À l'intérieur du \titleen{Body of Knowledge for Modeling and Simulation: A Handbook by the Society for Modeling and Simulation International}{}, il est indiqué que l'UML a un \emphase{formalisme} adéquat~:
+\quoteenfr
+{A conceptual data model describe, at the highest level of abstraction, the general knowledge about the system under study. \elide UML and natural language are examples of adequate formalism for this abstraction level.}
+{Un modèle conceptuel décrit, au plus haut niveau d'abstraction, les connaissances générales relatives au système étudié. \elide UML et le langage naturel sont des exemples de formalisme adéquat pour ce niveau d'abstraction.}
+{\ccite{oren_body_2023}[p.~41]}
+
+}{}
+
+\enonce{EM08}{Assertion}{L'UML est un langage de modélisation non formel.}{}{P057}
+\explication{EM08}{de l'assertion}{L'UML est un langage de modélisation non formel.}{
+L'ouvrage \textit{UML in a nutshell} réaffirme que l'UML sert à la modélisation~:
+\quoteenfr 
+{The UML is not : A visual programming language, but a visual modeling language.} 
+{UML n'est pas un langage de programmation visuel, mais un langage de modélisation visuelle.}
+{\ccite{alhir_uml_1998}[p.~6]}
+
+L'ouvrage \textit{Meta-Programming and Model-Driven Meta-Program Development: Principles, Processes and Techniques} explique à quel point l'UML est insuffisant pour modéliser~:
+\quoteenfr {On the other hand, the MDD notations such as UML lack capabilities for modelling variability and software families (product lines). Efforts to overcome this gap include extension of the UML meta-model to include features for variability modelling [ZJ06] or using both UML and feature models for modelling a domain \elide.} {En revanche, les notations MDD, telles que UML, ne permettent pas de modéliser la variabilité et les familles de logiciels (gammes de produits). Les efforts déployés pour combler cette lacune comprennent l'extension du méta-modèle UML afin d'y inclure des fonctionnalités pour la modélisation de la variabilité [ZJ06] ou l'utilisation conjointe de modèles UML et de modèles de fonctionnalités pour la modélisation d'un domaine \elide.}
+{\ccite{vstuikys_meta_2012}[p.~129]}
+
+Le SysML est un exemple d'extension pour pallier certains problèmes d'UML~:
+\quoteenfr {SysML adds some new diagrams and constructs not found in UML: the parametric diagram, the requirement diagram, required and provided features and flow properties.}
+{SysML ajoute de nouveaux diagrammes et constructions qui ne se trouvent pas dans UML~: le diagramme paramétrique, le diagramme d’exigences, les fonctionnalités requises et fournies et les propriétés de flux.}
+{\ccite{holt_sysml_2019}[p.~92]}
+Le SysML n'est pas pour autant formel comme indiqué dans l'usage de scénario~:
+\quoteenfrlist{
+\item Formal Scenario : A Scenario that is mathematically provable using, for example, formal methods.
+\item Semi-formal Scenario : A Scenario that is demonstrable using, for example, visual notations such as SysML, tables, text, etc.
+}{
+\item Scénario formel : Un scénario mathématiquement prouvable, par exemple à l’aide de méthodes formelles.
+\item Scénario semi-formel : Un scénario démontrable, par exemple à l’aide de notations visuelles, telles que SysML, des tableaux, du texte, etc.
+}{\ccite{holt_sysml_2019}[p.~710, 712]}
+
+Dans \textit{Model-Driven Software Development: Technology, Engineering, Management}, les auteurs indiquent que l'UML n'est pas défini formellement, contrairement à l'architecture pilotée par modèle (MDA, \textit{Model Driven Architecture} en anglais), ils indiquent que l'UML sert davantage pour la visualisation~:
+\quoteenfr {Superficially, UML tools impress with their ability to keep models and code synchronized. However, on closer inspection one finds that such tools do not immediately increase productivity, but are at best an efficient method for generating good-looking documentation. They can also help in understanding large amounts of existing code.
+\elide
+UML models are not per se MDA models. The most important difference between common UML models (for example analysis models) and MDA models is that the meaning (semantics) of MDA models is defined formally. This is guaranteed through the use of a corresponding modeling language which that is typically realized by a UML profile and its associated transformation rules.} {
+De prime abord, les outils UML impressionnent par leur capacité à synchroniser les modèles et le code. Cependant, un examen plus approfondi révèle que ces outils n'augmentent pas immédiatement la productivité, mais constituent au mieux une méthode efficace pour générer une documentation ayant une belle apparence. Ils peuvent aussi faciliter la compréhension de grandes quantités de code existant.
+\elide
+Les modèles UML ne sont pas, à proprement parler, des modèles MDA. La principale différence entre les modèles UML courants (par exemple, les modèles d'analyse) et les modèles MDA réside dans le fait que la signification (sémantique) des modèles MDA est définie formellement. Ceci est garanti par l'utilisation d'un langage de modélisation correspondant, généralement mis en œuvre par un profil UML et ses règles de transformation associées.} {\ccite{volter_mda_2013}[p.~23,30]}
+
+}{}
+
+\enonce{EM09}{Assertion}{Il y a une tendance à moins formaliser.}{}{P057}
+\explication{EM09}{de l'assertion}{Il y a une tendance à moins formaliser.}{
+Frigg, dans l'ouvrage \textit{Models and Theories}, soutient que globalement les scientifiques préfèrent utiliser une logique informelle~:
+\quoteenfr {By “standard formalization” Suppes means a formalisation in first-order logic. The worry Suppes expresses is somewhat difficult to pin down because what counts as “simple or elegant” may depend on context and, indeed, taste. Despite this, the worry is one that ought to be taken seriously because it is a fact of scientific practice that first-order formulations of theories tend to be rare. \elide But, on the whole, scientists seem to prefer to work in some (informal) version of higher order logic, which would suggest that they find that framework more convenient.} {Par «~formalisation standard~», Suppes entend une formalisation en logique du premier ordre. L’inquiétude qu’il exprime est difficile à cerner, car la notion de «~simple ou d’élégant~» peut varier selon le contexte et, de fait, les goûts personnels. Malgré cela, il convient de prendre cette inquiétude au sérieux, car il est avéré, dans la pratique scientifique, que les formulations de théories au premier ordre sont rares. \elide Mais, globalement, les scientifiques semblent préférer travailler avec une version (informelle) de la logique d’ordre supérieur, ce qui laisse supposer qu’ils trouvent ce cadre plus pratique.} {\ccite{frigg_models_2022}[p.~64]}
+\newpage
+Un article décrit la préférence historique pour les approches intuitives en informatique appliquée~:
+\quoteenfr {The mathematical formalization of system modeling has consistently been sought and, in principle, can be accomplished using the first-order model theory of Tarski and the homomorphism of relational structures prescribed in [7] and [13]. However, in practice, a less formal and more intuitive approach has been followed in software and systems engineering using graphical modeling languages.} {La formalisation mathématique de la modélisation des systèmes a toujours été recherchée et peut, en principe, être réalisée à l'aide de la théorie des modèles du premier ordre de Tarski et de l'homomorphisme des structures relationnelles décrit dans [7] et [13]. Cependant, en pratique, une approche moins formelle et plus intuitive a été privilégiée en génie logiciel et système, grâce à l'utilisation de langages de modélisation graphique.} {\cite{dickerson_brief_2013}}
+
+En 2022, un article aborde le formalisme dans les artefacts des spécifications des exigences~:
+\quoteenfr{Precision is so important that an outsider might assume that all software development starts with a formal description of the requirements. This approach is by far not the standard today; most projects, if they do write requirements, express them informally, either in a natural-language “requirements document” or (in agile methods) through individual “user stories,” also expressed in natural language.} {La précision est si importante qu'un observateur extérieur pourrait supposer que tout développement logiciel commence par une description formelle des exigences. Cette approche est loin d'être la norme aujourd'hui ; la plupart des projets, lorsqu'ils formalisent des exigences, les expriment de manière informelle, soit dans un «~document d'exigences~» en langage naturel, soit (dans les méthodes agiles) à travers des «~récits utilisateurs~» individuels, également rédigés en langage naturel.} {\cite{bruel_requirement_2022}}
+
+}{}
+
+\paragraphe{P058}{\fl{Obtenir les différentes couvertures nécessite une synchronisation entre le sujet, le modèle et l'artefact.} D'abord, le partage d'informations pour obtenir de meilleurs modèles devrait être amélioré. Victor R. Basili écrit~:
+\quoteenfr {Software engineering researchers need industry-based laboratories that allow them to observe, build and analyze models. \elide The models of process and product generated by researchers should be tailored based upon the data collected within the organization and should be able to continually evolve based upon the organization's evolving experiences.} {Les chercheurs en génie logiciel ont besoin de laboratoires industriels leur permettant d'observer, de construire et d'analyser des modèles. \elide Les modèles de processus et de produits élaborés par les chercheurs doivent être adaptés aux données recueillies au sein de l'organisation et pouvoir évoluer en continu en fonction de l'expérience acquise par celle-ci.} {\cite{Boehm2005_chap0}}
+Ensuite, les informations sur le sujet, le modèle et l'artefact peuvent être inaccessibles, éparpillées et changeantes. Alan W. Brown décrit ces problématiques~:
+\quoteenfrlist{
+    \item We rarely, if ever, get a full understanding of the problem space.
+    \item \elide here are many constraints on the solutions to consider \elide.
+    \item Many kinds of changes must be addressed at all stages of development \elide.
+    \item A large software development task is an engineering project involving teams of people with different skills interacting over an extended period of time \elide.
+}
+{
+    \item On parvient rarement, voire jamais, à une compréhension complète de l'espace du problème.
+    \item \elide de nombreuses contraintes pèsent sur les solutions à envisager \elide.
+    \item De nombreux types de modifications doivent être pris en compte à toutes les étapes du développement \elide.
+    \item Un projet de développement logiciel de grande envergure est un projet d'ingénierie impliquant des équipes de personnes aux compétences diverses, interagissant sur une période prolongée \elide.
+}
+{\ccite{brown_introduction_2005}[p.~1]}
+La synchronisation est nécessaire, mais pas suffisante. Il faut aussi que les trois procèdent de la même \emphase{intention} (intention qui se traduit par une vision, des attentes et un but commun).
+}{EM10, EM11}{EM10}
+
+\enonce{EM10}{Citation}{L'accès aux sujets, aux modèles ou aux artefacts doit être amélioré.}{}{P058}
+\explication{EM10}{la citation}{L'accès aux sujets, aux modèles ou aux artefacts doit être amélioré.}{
+Victor R. Basili écrit un article en 1996 intitulé \textit{The Role of Experimentation in Software Engineering: Past, Current, and Future} dans lequel il défend le partage des modèles et des données~:
+\quoteenfr {Software engineering researchers need industry-based laboratories that allow them to observe, build and analyze models. On the other hand, practitioners need to build quality systems productively and profitably, e.g., estimate cost track progress, evaluate quality. The models of process and product generated by researchers should be tailored based upon the data collected within the organization and should be able to continually evolve based upon the organization's evolving experiences. Thus the research and business perspectives of software engineering have a symbiotic relationship.} {Les chercheurs en génie logiciel ont besoin de laboratoires industriels pour observer, construire et analyser des modèles. Parallèlement, les praticiens doivent mettre en place des systèmes de qualité performants et rentables, notamment pour estimer les coûts, suivre l'avancement des projets et évaluer la qualité. Les modèles de processus et de produits élaborés par les chercheurs doivent être adaptés aux données collectées au sein de l'organisation et évoluer en fonction de son expérience. Ainsi, la recherche et les applications commerciales du génie logiciel entretiennent une relation symbiotique.} {\cite{Boehm2005_chap0}}
+
+}{}
+
+\enonce{EM11}{Assertion}{Les informations sur le sujet, le modèle et l'artefact peuvent être inaccessibles, éparpillées et changeantes.}{}{P058}
+\explication{EM11}{de l'assertion}{Les informations sur le sujet, le modèle et l'artefact peuvent être inaccessibles, éparpillées et changeantes.}{
+Cela fait partie des difficultés énumérées dans un article sur la modélisation~:
+\quoteenfrlist{
+\item We rarely, if ever, get a full understanding of the problem space. Domain experts help, but they, too, have a limited understanding of the areas they work in, view things from different perspectives, or disagree on approaches, processes, and priorities. So in practice, we spend a lot of time analyzing these different inputs and obtaining a common, evolving view of the customer’s domain.
+\item There are many constraints on the solutions to consider: for example, balancing the time and effort required to implement a system, integrating with existing applications and technologies already in place, and coordinating multiple teams producing different components of the deployed system.;
+\item Many kinds of changes must be addressed at all stages of development: errors will be discovered, designs will be updated, requirements will be refined, priorities will be changed, implementations will be refactored, and so on. The dynamic nature of the development process results in a lot of time spent on understanding the impact of a change, defining a plan to address the change, and ensuring that any actions are carried out appropriately.
+\item A large software development task is an engineering project involving teams of people with different skills interacting over an extended period of time to implement a solution that can never truly be said to be “finished.” As a result, all the techniques of managing engineering projects must be taken into account: scheduling, resource management, risk mitigation, ROI analysis, documentation, support, and so on.
+}
+{
+\item Il est rare, voire exceptionnel, que nous parvenions à une compréhension exhaustive du problème. Les experts du domaine sont certes utiles, mais leur compréhension des domaines dans lesquels ils travaillent est également limitée, leurs perspectives peuvent différer et ils peuvent avoir des divergences sur les approches, les processus et les priorités. C'est pourquoi, en pratique, nous consacrons beaucoup de temps à analyser ces différentes contributions afin d'obtenir une vision commune et évolutive du domaine du client.
+\item Les solutions à envisager sont soumises à de nombreuses contraintes~: par exemple, trouver un équilibre entre le temps et les efforts nécessaires à la mise en œuvre d'un système, l'intégrer aux applications et technologies existantes et coordonner les différentes équipes qui produisent les composants du système déployé.
+\item De nombreux types de changements doivent être pris en compte à toutes les étapes du développement~: des erreurs sont découvertes, les conceptions sont mises à jour, les exigences sont affinées, les priorités évoluent, les implémentations sont remaniées, etc. La nature dynamique du processus de développement implique de consacrer beaucoup de temps à comprendre l'impact d'un changement, à définir un plan pour y remédier et à s'assurer que toutes les actions sont menées correctement.
+\item Un projet de développement logiciel de grande envergure est un projet d'ingénierie impliquant des équipes de personnes aux compétences diverses, interagissant sur une période prolongée pour mettre en œuvre une solution qui ne peut jamais être véritablement considérée comme «~terminée~». Par conséquent, toutes les techniques de gestion de projets d'ingénierie doivent être prises en compte~: planification, gestion des ressources, atténuation des risques, analyse du retour sur investissement, documentation, support, etc.
+}
+{\ccite{brown_introduction_2005}[p.~1]}
+
+}{}
+
+\paragraphe{P059}{\fl{Plusieurs logiciels concrétisant des systèmes formels n'arrivent pas à démontrer leur cohérence ou leur complétude et encore moins les deux à la fois.} D'abord, les théorèmes d'incomplétude de G\"odel démontrent \ccite{bjorner_logics_2008}[p.~320][oregan_mathematics_2020][p.~214]~:
+\begin{itemize}
+    \item qu'un système formel cohérent pouvant interpréter une arithmétique de Peano est incomplet;
+    \item qu'un système formel cohérent pouvant interpréter une arithmétique de Peano ne peut pas vérifier sa cohérence.
+\end{itemize}
+Or, l'arithmétique de Peano est un système formel de l'arithmétique élémentaire qui permet des raisonnements par récurrence.
+\sep
+Ainsi, un logiciel concrétisant un tel système aura les mêmes limitations. Néanmoins, les nombreuses bornes existantes en informatique\footnote{Derrière les types ou le temps se trouvent des modèles finis. Les machines ont aussi des ressources finies.} permettent à certains logiciels de démontrer leur cohérence. Il est important de garder cela à l'esprit.
+}{EM12, EM13, EM14, EM15}{EM12}
+
+\enonce{EM12}{Définition}{Arithmétique de Peano}{
+Système formel de l'arithmétique élémentaire qui permet des raisonnements par récurrence.
+}{P059}
+\explication{EM12}{de la définition}{Arithmétique de Peano}{
+La définition formulée est~: système formel de l'arithmétique élémentaire qui permet des raisonnements par récurrence.
+
+Voici des descriptions et une définition de Jean-Paul Delahaye provenant de l'ouvrage \textit{Aux frontières des mathématiques : Kurt G\"odel et l'incomplétude} \ccite{delahaye_godel_2025}[p.14,66,199]~:
+\begin{itemize}
+\item «~\elide système axiomatique de l'arithmétique usuelle - appelé arithmétique de Peano que nous noterons PEANO.~»
+\item «~Pour définir le système formel de l'arithmétique de PEANO \elide nous procédons en deux étapes en commençant par l'arithmétique de Robinson (notée ROB). Elle est définie par les sept axiomes suivants, qui s'ajoutent aux axiomes logiques du calcul des prédicats du premier ordre avec l'égalité pour le langage comportant les symboles, $0, +, x, s$ (pour désigner la fonction successeur).
+
+\elide
+
+L'arithmétique de Peano, PEANO, est alors ce que l'on obtient en ajoutant encore tous les axiomes de la forme :
+
+$(P(0) \text{ et } \forall x (P(x) \implies P(s(x)))) \implies \forall y P(y)$ 
+
+(Si $P$ est vrai pour $0$ et que de l'hypothèse que $P$ est vraie pour $x$ on peut déduire que $P$ est vrai pour le successeur de $x$, alors $P$ est vrai pour tout $y$)
+Où $P(x)$ est une formule quelconque du langage de PEANO. Ces formules permettent de mener les raisonnements par récurrence, indispensables en arithmétique.~»
+\item «~PEANO : système formel de l'arithmétique élémentaire.~»
+\end{itemize}
+
+}{}
+
+\enonce{EM13}{Théorème}{Un système formel cohérent pouvant interpréter une arithmétique de Peano est incomplet.}{}{P059}
+\explication{EM13}{du théorème}{Un système formel pouvant interpréter une arithmétique de Peano est incomplet.}{
+À l'origine des théorèmes de complétude se trouvent les travaux de Tarski, qui a prouvé, sous certaines conditions, la complétude et la décidabilité. Ces travaux ont permis par la suite d'arriver aux théorèmes de complétude~:
+\quoteenfr {In [128] Tarski proved completeness and decidability results for a theory of reals, where atomic formulas involve equality (=) and ordering relations $(<, \le, >, \ge)$ and terms are constructed from rational constants and (global) variables using operations for addition, subtraction, negation and multiplication
+For natural-number theory, Presburger gave, in 1930, a decision algorithm for linear arithmetic (excluding multiplication), while G\"odel, in 1931, established his famous incompleteness theorem for a theory having addition, subtraction, negation and multiplication as operations.} {Dans [128], Tarski a démontré des résultats de complétude et de décidabilité pour une théorie des nombres réels, où les formules atomiques font intervenir l'égalité (=) et les relations d'ordre $(<, \le, >, \ge)$ et où les termes sont construits à partir de constantes rationnelles et de variables (globales) à l'aide des opérations d'addition, de soustraction, de négation et de multiplication.
+Pour la théorie des nombres naturels, Presburger a donné, en 1930, un algorithme de décision pour l'arithmétique linéaire (à l'exclusion de la multiplication), tandis que Gödel, en 1931, a établi son célèbre théorème d'incomplétude pour une théorie ayant l'addition, la soustraction, la négation et la multiplication comme opérations.} {\ccite{bjorner_logics_2008}[p.~320]}
+
+Cette description du premier théorème sur l'incomplétude de G\"odel sert à la construction de l'énoncé présent~:
+\quoteenfr {G\"odel's first incompleteness theorem showed that first-order arithmetic is incomplete, i.e. there are truths in first-order arithmetic that cannot be proved in the language of the axiomatization of first-order arithmetic.} {Le premier théorème d'incomplétude de G\"odel a démontré que l'arithmétique du premier ordre est incomplète, c'est-à-dire qu'il existe des vérités en arithmétique du premier ordre qui ne peuvent être démontrées dans le langage de son axiomatisation.} {\ccite{oregan_mathematics_2020}[p.~214]}
+
+}{}
+
+\enonce{EM14}{Théorème}{Un système formel cohérent pouvant interpréter une arithmétique de Peano ne peut pas vérifier sa cohérence.}{}{P059}
+\explication{EM14}{du théorème}{Un système formel cohérent pouvant interpréter une arithmétique de Peano ne peut pas vérifier sa cohérence.}{
+La description du théorème d'indéfinissabilité de Tarski aide à la compréhension du deuxième théorème d'incomplétude de G\"odel en plus de donner une base~:
+\quoteenfr {Tarski’s theorem on the undefinability of truth tells us that no logical system (capable of formalizing a certain amount of arithmetic) can formalize its own semantics, and G\"odel’s second incompleteness theorem tells us that it cannot prove its own consistency in any way at all — unless of course it isn’t consistent, in which case it can prove anything [21]. So, regardless of implementation details, if we want to prove the consistency of a proof checker, we need to use a logic that in at least some respects goes beyond the logic the checker itself supports.} {Le théorème de Tarski sur l'indéfinissabilité de la vérité nous apprend qu'aucun système logique (capable de formaliser une certaine quantité d'arithmétique) ne peut formaliser sa propre sémantique, et le second théorème d'incomplétude de G\"odel nous indique qu'il ne peut en aucun cas prouver sa propre cohérence — sauf, bien sûr, s'il n'est pas cohérent, auquel cas il peut tout prouver [21]. Ainsi, indépendamment des détails d'implémentation, si nous voulons prouver la cohérence d'un vérificateur de preuves, nous devons utiliser une logique qui, à certains égards au moins, dépasse celle que le vérificateur prend en charge.} {
+\cite{furbach_automated_2006}}
+
+Cette description du deuxième théorème sur l'incomplétude de G\"odel sert à la construction de l'énoncé présent~:
+\quoteenfr {G\"odel’s second incompleteness theorem showed that any formal system extending basic arithmetic cannot prove its own consistency within the formal system.} {Le second théorème d'incomplétude de G\" odel a démontré que tout système formel étendant l'arithmétique de base ne peut démontrer sa propre cohérence au sein de ce système formel.} {\ccite{oregan_mathematics_2020}[p.~214]}
+
+}{}
+
+\enonce{EM15}{Corollaires}{Une conséquence à l'incomplétude est qu'il n'existe pas d'algorithme permettant de tout vérifier dans un système formel en mesure d'interpréter l'arithmétique de Peano.}{}{P059}
+\explication{EM15}{des corollaires}{Une conséquence à l'incomplétude est qu'il n'existe pas d'algorithme permettant de tout vérifier dans un système formel en mesure d'interpréter l'arithmétique de Peano.}{
+Des théorèmes d'incomplétudes, il en résulte ce corollaire qui est décrit ainsi~:
+\quoteenfr {There are first-order theories that are decidable. However, first-order logic that includes Peano’s axioms of arithmetic (or any formal system that includes addition and multiplication) cannot be decided by an algorithm. That is, there is no algorithm to determine whether an arbitrary mathematical proposition is true or false. Propositional logic is decidable as there is a procedure (e.g. using a truth table) to determine whether an arbitrary formula is valid \elide.} {Il existe des théories du premier ordre décidables. Cependant, la logique du premier ordre incluant les axiomes de Peano (ou tout système formel comprenant l'addition et la multiplication) ne peut être décidée par un algorithme. Autrement dit, il n'existe aucun algorithme permettant de déterminer si une proposition mathématique quelconque est vraie ou fausse. La logique propositionnelle, quant à elle, est décidable, car il existe une procédure (par exemple, l'utilisation d'une table de vérité) permettant de déterminer la validité d'une formule \elide.} {\ccite{oregan_mathematics_2020}[p.~214]}
+
+}{}
+
+% Note : Il s’agit donc d’une triple confusion entre modèle, spécification et artefact. Cela n’est toutefois pas étonnant, puisque : 1. Une spécification est un artefact. 2. Une spécification peut prescrire que la solution utilise un modèle (plutôt que tout autre) et, en pratique, c’est souvent le cas. 3. La définition d’un modèle ne fait pas toujours l’objet d’un artefact (document) spécifique dans la mesure où il dérive d’un autre modèle (celui du problème) et que son utilisation est limitée à la spécification (et ses dérivés). 4. La situation se corse encore, lorsque le problème ne fait pas l’objet d’une description propre (par le biais d’une étude des besoins) et que l’analyse du problème est incluse dans le document de spécification (de la solution).
+
+%1. La spécification des exigences est un artefact (document).
+%2. La définition d’un modèle n'est pas toujours un artefact (document, ensemble de règles, diagramme).
+%3. La spécification des exigences prescrit un modèle de solution.
+%4. Le modèle du problème et le modèle de la solution peuvent se confondre à l'intérieur d'un même artefact.
+
+\paragraphe{P060}{\fl{La base de connaissances sur les modèles n'est pas établie, ce qui peut nuire à la compréhension.} Tout d'abord, il n'existe pas de consensus concernant les modèles. Il a une absence de classification adéquate des modèles \ccite{downes_models_2020}[p.~85]. Plusieurs ouvrages sont consacrés entièrement à ce sujet. L'ouvrage \titleen{Body of Knowledge for Modeling and Simulation: A Handbook by the Society for Modeling and Simulation International}{} explique que les différents contextes et les différentes disciplines constituent probablement l'une des raisons pour lesquelles aucun consensus n'existe \ccite{oren_body_2023}[p.~2]. 
+\sep
+Ensuite, il n'y a pas de terminologie établie pour la modélisation en ingénierie. En 2018, pour y remédier, un article propose de développer un corpus de connaissances en génie logiciel basé sur les modèle (MBEBOK, \textit{Model-Based Software Engineering Body of Knowledge} en anglais) \cite{ciccozzi_towards_2018}. En 2026, le site officiel du \mbox{MBEBOK} présente encore une publication d'Alfonso Pierantonio de 2020 qui laisse croire que le glossaire n'a toujours pas été établi \footnote{Alfonso Pierantonio, site web, «~A Body of Knowledge for Model-Based Software Engineering~», \url{https://modeling-languages.com/body-of-knowledge-model-based-software-engineering} (consulté le 2026-04-16).}. 
+\sep
+Finalement, le vocabulaire utilisé peut confondre un modèle avec ses artefacts. C'est ce qui se produit souvent entre l'échéancier et le modèle d'échéancier. Le PMBOK fait la distinction, mais dans la langue courante ce n'est pas le cas \ccite{Gdt_echeancier_0}[] [pmi_guidefr_2017][p.~217,716][Robert_echeancier_0][]. David L. Parnas indique le problème dans les articles portant sur les méthodes formelles où modèle et spécification sont couramment interchangés \cite{parnas_really_2010}, puisque les deux peuvent s'avérer être des descriptions (artefacts) où la spécification contient ou réfère à des modèles.
+}{EM16, EM17, EM18}{EM16}
+
+\enonce{EM16}{Assertion}{Il n'existe pas de consensus concernant les modèles.}{}{P060}
+\explication{EM16}{de l'assertion}{Il n'existe pas de consensus concernant les modèles.}{
+En 2020, Stephen M. Downes écrit un ouvrage sur les modèles en sciences. Il fait les constatations suivantes~:
+\quoteenfr {We also found that there is no adequate classification scheme for models. Classifying models by appealing to their structure or constituents leaves us with cases that fall into two of our proposed classification schemas or reveals very similar models that still do not appear to belong in the same class. Finally, we found that the relation between models and theories is not straightforward and cannot be easily accounted for.} {Nous avons également constaté l'absence de système de classification adéquat pour les modèles. Classer les modèles en fonction de leur structure ou de leurs constituants aboutit à des cas relevant de deux des systèmes de classification que nous proposons, ou révèle des modèles très similaires qui ne semblent pourtant pas appartenir à la même classe. Enfin, nous avons constaté que la relation entre modèles et théories est complexe et difficile à expliquer.} {\ccite{downes_models_2020}[p.~85]}
+
+En 2022, Roman Frigg consacre un ouvrage à décrire et expliquer les modèles. Dans le chapitre intitulé \enfr{The model muddle}{Le modèle embrouillé}, l'auteur soulève qu'il existe au moins 120 différents types de modèles, dont plusieurs partagent des relations de dérivations ou de similarités. Il ajoute que :
+\quoteenfr {\elide no one without a degree in “model studies” will be able to navigate the literature on models without harm and injury.} {\elide nul ne pourra, sans un diplôme en «~modélisation~», naviguer dans la littérature sur les modèles sans risquer de se blesser.} {\ccite{frigg_models_2022}[p.~464]}
+
+En 2023, l'ouvrage \textit{Body of Knowledge for Modeling and Simulation: A Handbook by the Society for Modeling and Simulation International} explique en partie pourquoi il n'y a pas de consensus sur la modélisation~:
+\quoteenfrlist{
+\item \elide different contexts (whether industrial, governmental, or military)\elide.
+\item \elide disciplinary (whether in “hard” or “soft” science or engineering) \elide.
+}{
+\item \elide différents contextes (industriels, gouvernementaux ou militaires)\elide.
+\item \elide différentes disciplines (que ce soit dans les sciences «~dures~» ou «~molles~» ou l'ingénierie) \elide.
+}{\ccite{oren_body_2023}[p.~2]}
+
+}{}
+
+\enonce{EM17}{Assertion}{Il n'existe pas de terminologie établie pour la modélisation en ingénierie.}{}{P060}
+\explication{EM17}{de l'assertion}{Il n'existe pas de terminologie établie pour la modélisation en ingénierie.}{
+En 2017, l'ouvrage \textit{Model-Driven software engineering in practice} nomme une section ainsi « LOST IN ACRONYMS: THE MD* JUNGLE ». Il y est décrit : le \textit{Model-Driven Development} (MDD), le \textit{Model-Driven Architecture} (MDA), le \textit{Model-Driven Engineering} (MDE) et le \textit{Model-Based Engineering} (MBE). Il est ajouté que :
+\quoteenfr {Notice that a huge set of variants of all these acronyms can be found in literature too. For instance, MDSE (Model-Driven Software Engineering), MDPE (Model-Driven Product Engineering), and many others exist.} {Il est à noter qu'on trouve aussi dans la littérature une multitude de variantes de ces acronymes. Par exemple, MDSE (Model-Driven Software Engineering), MDPE (Model-Driven Product Engineering), et bien d'autres.} {\ccite{brambilla_model_2017}[8-9]}
+
+En 2018, un article propose de développer un corpus de connaissances en génie logiciel basé sur les modèle (MBEBOK, \textit{Model-Based Software Engineering Body of Knowledge} en anglais) \cite{ciccozzi_towards_2018}. L'article y aborde le corpus de connaissances en génie des langages logiciels (SLEBOK, \textit{Software Language Engineering BoK} en anglais) et l'inspiration provenant du SWEBOK. Il y a soulevé l'intégration possible entre les trois corpus de connaissances.
+
+En 2023, l'ouvrage \textit{Body of Knowledge for Modeling and Simulation: A Handbook by the Society for Modeling and Simulation International} décrit l'état problématique de la terminologie, mais invite quand même les gens à la considérer pour commencer un corpus de connaissances~: 
+\quoteenfr {Some definitions can provide a good “first approximation” to understanding a term and how it is used, and they lack the precision and rigor that a BoK should aspire to.} {Certaines définitions peuvent fournir une bonne «~première approximation~» pour comprendre un terme et son utilisation, mais elles manquent de la précision et de la rigueur auxquelles un référentiel de connaissances devrait aspirer.} {\ccite{oren_body_2023}[p.~3]}
+
+En 2026, le site web officiel du MBEBOK affiche toujours une publication de 2020 d'Alfonso Pierantonio qui peut laisser croire que le glossaire n'est pas encore établi~: 
+\quoteenfr {Additionally, we are working on the development of a glossary of terms for the MBEBOK, with the terminology that defines the set of central concepts of the discipline, and constitutes the accepted ontology for the MBE domain (e.g. this would avoid eternal discussions as the distinction between MDE vs MBE vs MDA,…).} {De plus, nous travaillons à l'élaboration d'un glossaire de termes pour le MBEBOK, avec la terminologie qui définit l'ensemble des concepts centraux de la discipline et constitue l'ontologie acceptée pour le domaine MBE (par exemple, cela éviterait des discussions éternelles, comme la distinction entre MDE, MBE et MDA,…).} {\footnote{Alfonso Pierantonio, site web, «~A Body of Knowledge for Model-Based Software Engineering~», \url{https://modeling-languages.com/body-of-knowledge-model-based-software-engineering} (consulté le 2026-04-16).}}
+
+}{}
+
+\enonce{EM18}{Assertion}{Le vocabulaire peut confondre un modèle avec ses artefacts.}{}{P060}
+\explication{EM18}{de l'assertion}{Le vocabulaire peut confondre un modèle avec ses artefacts.}{
+Cette confusion se produit notamment avec l’échéancier et le modèle d’échéancier. Ces définitions illustrent la problématique~:
+\begin{itemize}
+    \item un modèle d'échéancier est~: «~Représentation du plan d'exécution des activités du projet, comprenant les durées, les dépendances et d'autres informations de planification, utilisées pour produire un échéancier du projet \elide.~» \ccite{pmi_guidefr_2017}[p.~716];
+    \item l’échéancier du projet est~: «~une donnée de sortie d'un modèle d’échéancier qui présente les activités liées avec des dates planifiées, des durées, des jalons et des ressources.~»\ccite{pmi_guidefr_2017}[p.~217];
+    \item définition 1 d'échéancier est~: «~Ensemble de délais à respecter.~» \cite{Robert_echeancier_0};
+    \item définition 2 d'échéancier est : «~Document où figurent, par ordre chronologique, des échéances, les règlements à effectuer ou à recevoir. ~»\cite{Gdt_echeancier_0}.
+\end{itemize}
+L'échéancier est un document qui peut être à la fois une entrée ou une sortie du modèle d'échéancier.
+
+David L. Parnas indique dans l'article \textit{Really Rethinking 'Formal Methods'} qu'il ne faut plus interchanger modèle et spécification~:
+\quoteenfr {Many papers on formal methods use the words “model” and “specification” interchangeably, perhaps based on a standard dictionary definition of specification as specific information. This definition does not correspond to engineering use \elide.} {De nombreux articles sur les méthodes formelles utilisent les termes «~modèle~» et «~spécification~» de manière interchangeable, probablement en se basant sur une définition standard du dictionnaire qui désigne une information spécifique. Cette définition ne correspond pas à l'usage en ingénierie \elide.} {\cite{parnas_really_2010}}
+
+}{}
+
+\paragraphe{P061}{\fl{Les modèles peuvent être incompris et les répercussions peuvent devenir importantes.} Le modèle de procédé de développement en cascade en offre un exemple. D'abord, il ne s'agit pas d'un modèle selon l'auteur Winston Royce, mais d'un exemple à éviter. Dans son article \titleen{Managing the development of large software systems}{}, l'auteur illustre ce qu'il ne faut pas faire \cite{palmquist_process_2013}. Le modèle en cascade (\textit{waterfall} en anglais) n'est pas un modèle de développement, mais un contre-exemple dont l'objectif est de motiver l’itération des tâches, des activités et des processus et d'introduire d'autres modèles l'utilisant. Frederick P. Brooks Jr. dans l'ouvrage \titleen{The design of design: essays from a computer scientist}{} revient sur son repenti d'avoir mal interprété l'exemple du cascade~: 
+\quoteenfr {Royce introduced his waterfall as a straw man that he then argued against, but many people have cited and followed the straw man rather than his more sophisticated model. I made this mistake myself \elide.} {Royce a présenté sa théorie de la cascade comme un épouvantail qu'il a ensuite réfuté, mais beaucoup ont cité et suivi cet homme de paille plutôt que son modèle plus élaboré. J'ai moi-même fait cette erreur \elide.} {\ccite{brooks_design_2010}[p.~16]}
+Aujourd'hui, le terme \emphase{cascade} s'est imposé dans l'usage. Le PMBOK indique qu'il est devenu synonyme des approches prédictives \ccite{pmi_guide_2021}[p.~35].
+}{EM19}{EM19}
+
+\enonce{EM19}{Assertion}{Les modèles peuvent être mal interprétés.}{}{P061}
+\explication{EM19}{de l'assertion}{Les modèles peuvent être mal interprétés.}{
+En 2013, une note technique du Software Engineering Institute (SEI) décrit le modèle en cascade par rapport aux méthodes agiles. Les auteurs y indiquent que~:
+\quoteenfr {Dr. Winston Royce, the man who is often but mistakenly called the “father of waterfall” and the author of the seminal 1970 paper Managing the Development of Large Software Systems, apparently never intended for the waterfall caricature of his model to be anything but part of his paper’s academic discussion leading to another, more iterative version [Royce 1970].} {Le Dr Winston Royce, souvent, à tort, surnommé le «~père du modèle en cascade~» et auteur de l'article fondateur de 1970 intitulé \textit{Managing the Development of Large Software Systems}, n'a apparemment jamais envisagé que la caricature en cascade de son modèle soit autre chose qu'un élément de la discussion académique de son article, menant à une version plus itérative [Royce 1970].} {\cite{palmquist_process_2013}}
+Les auteurs citent d'ailleurs le fils de Walker Royce qui rappelle que son père défendait l'itératif et avait émis son opposition quant au modèle en cascade~:
+\quoteenfr {He was always a proponent of iterative, incremental, evolutionary development. His paper described the waterfall as the simplest description, but that it would not work for all but the most straightforward projects. The rest of his paper describes [iterative practices] within the context of the 60s/70s government contracting models (a serious set of constraints) [Larman 2003].} {Il a toujours été un fervent défenseur du développement itératif, incrémental et évolutif. Son article décrivait le modèle en cascade comme étant la description la plus simple, mais précisait qu'il ne convenait qu'aux projets les plus simples. Le reste de son article décrit [les pratiques itératives] dans le contexte des modèles de marchés publics des années 60/70 (un ensemble de contraintes importantes) [Larman 2003].} {\cite{royce_waterfall_1970, palmquist_process_2013}} 
+
+Dans l'ouvrage \textit{The design of design: essays from a computer scientist}, Frederick P. Brooks Jr. revient sur son repenti d'avoir confondu l'exemple du cascade~: 
+\quoteenfr {Royce introduced his waterfall as a straw man that he then argued against, but many people have cited and followed the straw man rather than his more sophisticated model. I made this mistake myself in my younger days, and publicly repented of it later.} {Royce a présenté sa théorie de la cascade comme un épouvantail qu'il a ensuite réfuté, mais beaucoup ont cité et suivi cet homme de paille plutôt que son modèle plus élaboré. J'ai moi-même fait cette erreur dans ma jeunesse et je m'en suis repenti publiquement par la suite.} {\ccite{brooks_design_2010}[p.~16]}
+
+En 2021, le PMBOK indique que le cascade est devenu synonyme d'approche prédictive~:
+\quoteenfr {A predictive approach is useful when the project and product requirements can be defined, collected, and analyzed at the start of the project. This may also be referred to as a waterfall approach.} {Une approche prédictive est utile lorsque les exigences du projet et du produit peuvent être définies, recueillies et analysées dès le début du projet. On parle alors d'approche en cascade.} {\ccite{pmi_guide_2021}[p.~35]}
+
+}{}
+
+\subsection{Des approches}
+
+\paragraphe{P062}{Comme pour les documents, différents instruments, méthodes et techniques existent afin de faciliter la création et la manipulation des modèles. Harald Kühn fournit un modèle des instruments de modélisations où, en plus, il est précisé que les langages et les domaines de connaissances occupent une place nécessaire \ccite{kuhn_metamodeling_2024}[p.96]. Ainsi les approches décrites comprennent ces éléments.
+}{AM01}{AM01}
+
+\enonce{AM01}{Assertion}{Les instruments de modélisation comprennent notamment des langages, des techniques, des méthodes et les connaissances du domaine.}{}{P062}
+\explication{AM01}{de l'assertion}{Les instruments de modélisation comprennent notamment des langages, des techniques, des méthodes et les connaissances du domaine.}{
+En 2024, dans l'article \textit{Metamodeling Platforms: Observations and Evolutions} Harald Kühn étend ce qu'il a précédemment proposé pour mettre l'emphase sur le domaine de connaissances (figure~B.25). Les instruments de modélisation sont spécifiques aux domaines et une plateforme de création d'instruments est indépendante des domaines. 
+L'avantage décrit par l'auteur d'avoir une approche personnalisable pour les modèles est que, dans la réalité, certains modèles ne sont pas adaptables à tous les contextes, voici ce qu'il écrit~:
+\quoteenfr{This approach is highly relevant in fields where standardized methods, standardized modeling languages and/or pre-defined mechanisms working on models do not cover the full scope of a situation’s particularity and purpose. In such situations, domain-specific solutions create value in efficiency, quality and/or reduced costs.}{Cette approche est particulièrement pertinente dans les domaines où les méthodes standardisées, les langages de modélisation standardisés et/ou les mécanismes prédéfinis de modélisation ne permettent pas de saisir pleinement la spécificité et l'objectif d'une situation. Dans de tels cas, les solutions adaptées au domaine apportent une valeur ajoutée en termes d'efficacité, de qualité et/ou de réduction des coûts.}
+
+\figen
+{\textit{Modeling methods and metamodeling platforms}}
+{figure/chap1/modelisation/domain.png}
+{(source~: \textit{Figure}~1 \ccite{kuhn_metamodeling_2024}[p.96])}
+{}{}{tb}{Modèle au sujet des instruments de modélisation}
+
+}{}
+
+\paragraphe{P063}{La description des approches nécessite de définir plusieurs termes~: 
+\begin{itemize}
+    \item outil de génie logiciel assisté par ordinateur (CASE tool, \textit{Computer‐Aided Software Engineering tool} en anglais)~: instrument servant à réaliser ou à établir des entités informatiques;
+    \item méta~: «~L’élément méta‑ vient du grec, qui peut signifier “au milieu”, “avec” ou “après”. \elide il exprime la succession, le changement, la participation, ou un concept qui englobe un autre concept.~» \cite{Gdtmeta_1};
+    \item langage spécifique à un domaine (DSL, \textit{Domain-Specific Language} en anglais)~: langage destiné aux utilisateurs dans un domaine spécifique dont la syntaxe ou la sémantique peut être définie formellement;
+    \item automate~: cas particulier de machine abstraite formellement définie et conçue pour en permettre l'étude.
+\end{itemize}
+\vspace{-\baselineskip}
+}{AM02, AM03, AM04}{AM02}
+
+\enonce{AM02}{Définition}{Outil de génie logiciel assisté par ordinateur (\textit{CASE tool : computer‐aided software engineering tool})}{
+Instrument servant à réaliser ou à établir des entités informatiques.
+}{P063}
+\explication{AM02}{de la définition}{Outil de génie logiciel assisté par ordinateur (\textit{CASE tools : computer‐aided software engineering tools})}{
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item définition 1 de CASE tools~: \enfr{\elide software product that can assist software engineers by providing automated support for software life‐cycle activities \elide.}{\elide produit logiciel capable d'assister les ingénieurs logiciels en fournissant une assistance automatisée pour les activités du cycle de vie du logiciel \elide.} 
+    \cite{iso_24765_2017};
+    \item description de Michael Jackson : \enfr{There is an obvious symbiosis of CASE tools with methods: a tool mechanises the operations prescribed by the method, and the method takes advantage of the tools to prescribe desirable operations, notations, and description types that would not be practicable without them.}{Il existe une symbiose évidente entre les outils CASE et les méthodes : un outil mécanise les opérations prescrites par la méthode, et la méthode tire parti des outils pour prescrire des opérations, des notations et des types de description souhaitables qui ne seraient pas réalisables sans eux.}
+    \cite{spurr_case_1990}.
+\end{itemize}
+
+}{}
+
+\enonce{AM03}{Définition}{Langage spécifique à un domaine (DSL, \textit{Domain-Specific Language}, en anglais)}{
+Langage destiné aux utilisateurs dans un domaine spécifique dont la syntaxe ou la sémantique peut être définie formellement.
+}{P063}
+\explication{AM03}{de la définition}{Langage spécifique à un domaine}{
+La définition formulée est~: langage destiné aux utilisateurs dans un domaine spécifique dont la syntaxe ou la sémantique peut être définie formellement.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+\item définition 1 : «~Langage de programmation conçu pour apporter des solutions aux problèmes d'un domaine spécifique.~» \cite{Gdt_dsl_0} ;
+\item définition 2 : \enfr
+{\elide is a computer programming or modeling language of limited expressiveness focused on a particular domain or its aspect.}
+{\elide est un langage de programmation ou de modélisation informatique à expressivité limitée, axé sur un domaine particulier ou l'un de ses aspects.}
+\ccite{wasowski_dsl_2023}[p.~26];
+\item définition de \textit{general-purpose programming languages} (GPL) : \enfr{\elide aim at describing algorithms and structuring software systems.}{\elide vise à décrire les algorithmes et à structurer les systèmes logiciels.}
+\ccite{wasowski_dsl_2023}[p.~25];
+\item description de sémantique statique (\textit{static semantics}) : \enfr{Typically, static semantics are specified by means of implementing a name analysis, type checking, and a number of validity constraints.}{La sémantique statique est généralement spécifiée par l'analyse des noms, la vérification des types et diverses contraintes de validité.}
+\ccite{wasowski_dsl_2023}[p.~35];
+\item description de sémantique dynamique (\textit{dynamic semantics}) : \enfr{Dynamic semantics is typically realized either by interpreting (e.g., executing, visualizing, or calculating) the models, or by translating to other languages, for which the meaning is known. Typically, it can be defined in multiple ways for the same language.}{La sémantique dynamique est généralement réalisée soit par l'interprétation (exécution, visualisation ou calcul) des modèles, soit par la traduction vers d'autres langages dont la signification est connue. Elle peut généralement être définie de plusieurs manières pour un même langage.}
+\ccite{wasowski_dsl_2023}[p.~35];
+\item note sur la sémantique des DSL : \enfr{Admittedly, by following the compiler terminology, we misuse the term dynamic semantics for DSLs. Unlike for GPLs, the semantics of many DSLs is not dynamic at all—they are not executable.}{Il est vrai qu'en suivant la terminologie des compilateurs, nous utilisons à tort le terme de sémantique dynamique pour les DSL. Contrairement aux GPL, la sémantique de nombreux DSL n'est pas du tout dynamique ; ils ne sont pas exécutables.}
+\ccite{wasowski_dsl_2023}[p.~37]
+\end{itemize}
+}{}
+
+\enonce{AM04}{Définition}{Automate}{
+Cas particulier de machine abstraite formellement définie et conçue pour en permettre l'étude.
+}{P063}
+\explication{AM04}{la définition}{Automate}{
+La définition formulée est~: cas particulier de machine abstraite formellement définie et conçue pour en permettre l'étude.
+
+La littérature fournit ces informations qui ont servi à construire cette définition~:
+\begin{itemize}
+    \item description 1 de la théorie des automates : \enfr{Automata theory is the study of abstract computing devices or "machines."}{La théorie des automates est l'étude des dispositifs de calcul abstraits ou « machines ».}
+    \ccite{hopcroft_introduction_2007}[p.~1];
+    \item description 2 de la théorie des automates : \enfr{Theoretical computer science or automata theory is the study of abstract machines and the computational problems related to these abstract machines. These abstract machines are called automata.}{L'informatique théorique, ou théorie des automates, étudie les machines abstraites et les problèmes de calcul qui leur sont liés. Ces machines abstraites sont appelées automates.}
+    \ccite{kandar_introduction_2013}[p.~48];
+    \item définition d'automate : «~Le terme automate est appliqué à des êtres mathématiques formalisant et décrivant le fonctionnement de "machines", c'est-à-dire de mécanismes ou de procédures logiques permettant d'aboutir en un nombre de pas fini ou non fini à un état final, à partir d'un état initial donné à l'avance.~»
+    \cite{Gdt_automate_0}.
+\end{itemize}
+
+}{}
+
+\subsubsection{Des instruments de modélisation}
+
+\paragraphe{P064}{Une dénomination des instruments de modélisation en informatique est les \textit{Meta-CASE tools}. Dans cette sous-section, il y est décrit que les \textit{Meta-CASE tools} sont rarement utilisés par les professions informatiques et que plusieurs n'ont pas les fonctionnalités jugées nécessaires en contexte professionnel.}{}{}
+
+\paragraphe{P065}{\fl{Pour de multiples raisons, la majorité des instruments de modélisation ne rejoint pas les professionnels informatiques.}
+D'abord, la durée de vie des instruments de modélisation est souvent courte~: la médiane serait de six ans \cite{kahani_survey_2019}. Il s'agit de l'une des conclusions de la revue menée par Nafiseh Kahani \textit{et al.}, qui analyse soixante instruments existants entre 1990 et 2017. Il existe tout de même des instruments qui résistent au passage du temps, comme MetaEdit, dont une description à l'intérieur d'un article remonte à 1992 \cite{rossi_metacase_1992}. 
+\sep
+Ensuite, lorsqu'un sondage interroge les utilisateurs de ces instruments, une majorité provient de secteurs critiques \cite{ozkaya_what_2021}. Par ailleurs, la revue menée par Nafiseh Kahani \textit{et al.} montre que les instruments de modélisation sont plus utilisés dans le milieu académique \footnote{Instrument généralement conçu pour illustrer des concepts théoriques ou répondre à de nouveaux enjeux de recherche susceptibles d'intéresser d'autres chercheurs.} $(n=60, 92~\%)$ que professionnel \footnote{Instrument conçu pour répondre aux besoins industriels existants.} $(n=60, 37~\%)$ \cite{kahani_survey_2019}.
+}{AM05, AM06}{AM05}
+
+\enonce{AM05}{Assertion}{Plusieurs instruments de modélisation ont une faible durée de vie (médiane de 6 ans)}{}{P065}
+\explication{AM05}{de l'assertion}{Plusieurs instruments de modélisation ont une faible durée de vie (médiane de 6 ans)}{
+La durée de vie des instruments est aussi variable. En exemple, MetaEdit a une plus grande longévité.\\ 
+En 1991, un article décrit le \textit{Meta-CASE tools} \cite{goos_metacase_1991}. Il est affirmé qu'il s'agit de la solution pour personnaliser le procédé de développement pour une organisation. Il permet de générer des \textit{CASE tools}.
+
+En 1992, un article décrit un \textit{Meta-CASE tools} du nom de MetaEdit \cite{rossi_metacase_1992}. 
+
+En 2019, un article fait un inventaire des instruments de modélisation de 1990 à 2017. En tout, soixante instruments sont répertoriés. Voici la citation~:
+\quoteenfr {The data show that 24 tools had a lifetime of less than 5 years. 20 tools lasted between 5 and 10 years, and only 16 of tools have survived more than 10 years. The average and median longevity of tools is 7.5 and 6 years, respectively. TXL and Metaedit+ currently have the highest longevity, and the shortest-lived active tool is currently Melange (because it is also the newest).} {Les données montrent que 24 outils ont eu une durée de vie inférieure à 5 ans. 20 outils ont duré entre 5 et 10 ans, et seulement 16 ont survécu plus de 10 ans. La durée de vie moyenne et médiane des outils est respectivement de 7,5 et 6 ans. TXL et Metaedit+ affichent actuellement la plus grande longévité, tandis que l'outil actif ayant la plus courte durée de vie est Melange (car c'est aussi le plus récent).} {\cite{kahani_survey_2019}}
+
+}{}
+
+\enonce{AM06}{Assertion}{Les instruments de modélisation ne rejoignent pas l'ensemble des professionnels informatiques.}{}{P065}
+\explication{AM06}{de l'assertion}{Les instruments de modélisation ne rejoignent pas l'ensemble des professionnels informatiques.}{
+En 2021, un sondage mené auprès d'utilisateurs d'instruments de modélisation, a réuni 103 répondants dont 77~\% Européens issus pour la plupart de secteurs critiques \cite{ozkaya_what_2021} (figure~B.26). 
+\figmsen
+{\textit{Participants’ work industries.}}
+{figure/chap1/modelisation/parti.png}
+{(source~: \textit{Figure}~3 \cite{ozkaya_what_2021})}
+{}{}{tb}{Secteurs où des instruments de modélisation sont utilisés par des professionnels}
+Le secteur critique couvre un sous-ensemble de tous les secteurs.
+En 2024, lors une revue des instruments de modélisation $(n=60)$, il ressort que les instruments de modélisation sont plus utilisés dans un usage académique qu'industriel \cite{kahani_survey_2019} (figure~B.27). Plus précisément, le critère \emphase{public cible} est décrit ainsi~:
+\quoteenfr{This facet refers to where the tools have been or are intended to be used: in academia, in industry, or both. Academic tools are typically developed to demonstrate theoretical concepts or to address new research challenges of interest to other researchers. On the other hand, industrial tools are designed to address existing industrial requirements, which can make them more practical for use in both industry and academia.}{Ce critère concerne le domaine d'utilisation actuel ou futur des outils : milieu universitaire, industrie, ou les deux. Les outils universitaires sont généralement conçus pour illustrer des concepts théoriques ou répondre à de nouveaux enjeux de recherche susceptibles d'intéresser d'autres chercheurs. En revanche, les outils industriels sont conçus pour répondre aux besoins industriels existants, ce qui les rend plus adaptés à une utilisation aussi bien dans l'industrie que dans le milieu universitaire.}{\cite{kahani_survey_2019}}
+
+}{}
+
+\figannexe{
+\figens
+{\textit{Facets in the general category}}
+{figure/chap1/modelisation/table3.png}
+{(source~: \textit{Table}~3 \cite{kahani_survey_2019})}
+{}{}{tb}{Caractéristiques générales des instruments de modélisation}
+}
+
+\paragraphe{P066}{\fl{La couverture de certaines fonctionnalités par les instruments de modélisation n’est pas adéquate pour assurer certaines caractéristiques de qualité.} La revue de Nafiseh Kahani sur les instruments de modélisation ($n=60$) indique la couverture des instruments sur des fonctionnalités en pourcentage. Voici certaines de ces fonctionnalités présentés sous la forme\emphase{\sfren{facette - attributs (pourcentage)}{facet - attributes (percentage)}}~:
+\quoteenfrlist{
+\item Output - model-to-text (M2T) Database artifacts (23~\%);
+\item Model Comparison - The tool compares homogeneous models (12~\%);
+\item Model Comparison - The tool compares heterogeneous models (3~\%);
+\item Verification - Syntactic correctness (35~\%);
+\item Verification - Semantic correctness (33~\%);
+\item Validation - The tool provides a testing environment (33~\%);
+\item Validation - The tool provides a simulation environment (25~\%).
+}{
+\item Sortie - Artefacts de base de données de conversion modèle-texte (23~\%);
+\item Comparaison de modèles - L'outil compare des modèles homogènes (12~\%);
+\item Comparaison de modèles - L'outil compare des modèles hétérogènes (3~\%);
+\item Vérification - Correction syntaxique (35~\%);
+\item Vérification - Correction sémantique (33~\%);
+\item Validation - L'outil fournit un environnement de test (33~\%);
+\item Validation - L'outil fournit un environnement de simulation (25~\%).
+}{\cite{kahani_survey_2019}}
+Plusieurs des instruments ne permettent pas de comparer, de vérifier et de valider. Cela a comme conséquence de rendre l'adaptabilité des modèles difficile à réaliser dans le temps.
+}{AM07}{AM07}
+
+\enonce{AM07}{Assertion}{Ce ne sont pas tous les instruments de modélisation qui couvrent l'ensemble des fonctionnalités possibles.}{}{P066}
+\explication{AM07}{de l'assertion}{Ce ne sont pas tous les instruments de modélisation qui couvrent l'ensemble des fonctionnalités possibles.}{
+En 2019, un article dresse un inventaire des instruments de modélisation publiés entre 1990 et 2017 \cite{kahani_survey_2019}. Au total, 60 instruments sont recensés. Plusieurs résultats sont révélés dans la figure~B.28 et la figure~B.29 portant sur les fonctionnalités offertes par ces instruments. Parmi les fonctionnalités, il y a : les transformations de modèles, la vérification et la validation de modèles, la comparaison de modèles et, etc.
+}{}
+
+\figannexe{
+\figens
+{\textit{Facets in the transformation category}}
+{figure/chap1/modelisation/table5.png}
+{(modifiée de \textit{Figure}~5 \cite{kuhn_metamodeling_2024})}
+{}{
+\begin{tablenotes}
+\footnotesize
+\item[a] {Plusieurs facettes ont été retirées parce que jugées moins informatives.}
+\end{tablenotes}
+}{H}{Fonctionnalités offertes par les instruments concernant les transformations}
+}
+
+%Pourcentage diff. à lire.
+\figannexe{
+\figens
+{\textit{Facets in the model-level category}}
+{figure/chap1/modelisation/table4.png}
+{(modifiée de \textit{Figure}~4 \cite{kuhn_metamodeling_2024})}
+{}{}{H}{Fonctionnalités offertes par les instruments concernant les modèles}
+}
+
+\subsubsection{Des méthodes de modélisation}
+
+\paragraphe{P067}{Dans les méthodes de modélisation présentées, il y a : la création de nouveaux langages, le traitement des modèles comme des artefacts et l'utilisation de pratiques réflexives. 
+}{}{}
+
+\paragraphe{P068}{\fl{Créer de nouveaux langages pour parvenir à mieux communiquer des modèles aux individus, pour définir des machines ou pour les utiliser comme intrants aux machines.
+\footnote{Pour rappel, il y a :
+\begin{itemize}
+    \item les langages non formels qui ne permettent pas de décrire un exécutable ;
+    \item les langages syntaxiquement formels qui permettent de décrire un exécutable et dont le sens n'est pas partagé ; 
+    \item les langages sémantiquement formels qui permettent de décrire un exécutable et son sens.
+\end{itemize}}} Dès 1972, créer des langages pour rendre les utilisateurs des machines autonomes était un objectif qui suscitait de l'intérêt dans un article intitulé \titleen{Programming Languages: History and Future}{Langages de programmation : histoire et avenir}\cite{sammet_programming_1972}. Martin Fowler affirme que les langages spécifiques à un domaine (DSL, \textit{Domain-Specific Language} en anglais) peuvent faciliter la communication \ccite{fowler_dsl_2011}[p.~37]. Le \titleen{Handbook of Model-Based Systems Engineering}{} indique que les SysML n'étant pas très accessibles, il est préférable de passer à un DSL \ccite{madni_handbook_2023}[p.~1190]. 
+\sep
+Par la suite, les langages de programmation deviennent nombreux. Dans le même article de 1972, l'autrice Jean E. Sammet observe déjà ce phénomène~: elle indique que cent soixante-dix langages de programmation sont utilisés, et ce, uniquement aux États-Unis. Selon l'opinion de l'auteure, les explications à ce phénomène seraient rationnelles (dont l’utilité économique) ou irrationnelles (dont l’effet de mode)  \cite{sammet_programming_1972}. Pour les DSL, il est vraisemblable qu'ils aient considérablement augmenté. Une étude de cartographie systématique de 2012 inventorie 1~440 articles, dont 1~000 se situent entre 2005 et 2012 \cite{do_systematic_2012}. L'examen de ces articles portant sur les DSL révèle que 1~142 articles présentent des propositions de solutions qui conduisent souvent à la création de nouveaux DSL. 
+\sep
+
+Toutefois, si le nombre de langages de programmation ou de conception (spécifique ou non, formelle ou non) n'a pas de limites, les classes de langages formels généralement utilisées en ont une. Noam Chomsky et plusieurs autres individus ont démontré que des classes d'automates sont nécessaires et suffisantes à la reconnaissance des classes de langages formels\footnote{La hiérarchie de Chomsky n'aborde pas la sémantique des langages, mais la syntaxe. Les machines d'un type pouvant reconnaître un langage formel peuvent reconnaître les langages formels de type égal ou inférieur.}\ccite{hyman_chomsky_2010}[p.~269-270]. Ainsi, il est possible de choisir l'automate nécessaire et d'analyser des langages de la même classe avant même de créer un nouveau langage. Ce genre d'approche plus méthodique permettrait aux créateurs de nouveaux langages d'avoir de meilleurs fondements pour mieux répondre aux objectifs. 
+}{AM08, AM09, AM10}{AM08}
+
+\enonce{AM08}{Assertion}{Plusieurs personnes visent à rendre des langages formels accessibles aux utilisateurs.}{}{P068}
+\explication{AM08}{de l'assertion}{Plusieurs personnes visent à rendre des langages formels accessibles aux utilisateurs.}{
+Un article publié en 1972 souligne l'intérêt de confier aux utilisateurs la gestion de leurs langages~:
+\quoteenfr {User defined languages have been an area of interest for many years. Only a few primitive attempts have been made; they are described briefly in [18]. Allowing people to define their own languages is a significant concept because it takes the control of "what is good for the user" out of the hands of language developers and puts it in the hands of the users.} {Les langages définis par l'utilisateur suscitent un intérêt depuis de nombreuses années. Seules quelques tentatives primitives ont été réalisées ; elles sont brièvement décrites dans [18]. Permettre aux utilisateurs de définir leurs propres langages est un concept important, car il retire aux développeurs de langages le contrôle de ce qui est bon pour l'utilisateur et le place entre les mains des utilisateurs.} {\cite{sammet_programming_1972}}
+
+Dans l'ouvrage \textit{Domain-Specifique Language}, Martin Fowler expose les avantages des DSL, en soulignant particulièrement celui lié à l'accessibilité~:
+\quoteenfr {I believe that the hardest part of software projects, the most common source of project failure, is communication with the customers and users of that software. By providing a clear yet precise language to deal with domains, a DSL can help improve this communication.} {Je crois que la partie la plus difficile des projets logiciels, la source la plus fréquente d'échec, réside dans la communication avec les clients et les utilisateurs de ce logiciel. En fournissant un langage clair et précis pour gérer les domaines, un DSL peut contribuer à améliorer cette communication.} {\ccite{fowler_dsl_2011}[p.~37]}
+
+Dans le manuel \textit{Handbook of Model-Based Systems Engineering}, il est préféré les langages spécifiques à un domaine (DSL) aux langages de modélisation des systèmes (SysML)~:
+\quoteenfr {The SysML provides a common metamodel that can be used to establish common grounds. However, as pointed out, its “out-of-the-box” form complexity is overwhelming. Therefore, projects and organizations are advised to create their own adapted DSL-based interpretation.} {SysML fournit un métamodèle commun permettant d'établir un cadre de référence partagé. Cependant, comme indiqué précédemment, la complexité de sa formulation «~prête à l'emploi~» est considérable. Par conséquent, il est conseillé aux projets et aux organisations de créer leur propre interprétation adaptée, basée sur un DSL.} {\ccite{madni_handbook_2023}[p.~1190]}
+
+}{}
+
+\enonce{AM09}{Assertion}{Le nombre de langages formels ne fait qu'augmenter.}{}{P068}
+\explication{AM09}{de l'assertion}{Le nombre de langages formels ne fait qu'augmenter.}{
+En 1972, dans un article intitulé \textit{Programming Languages: History and Future}, l'autrice Jean E. Sammet effectue une revue des langages de programmation. Elle souligne que, seulement, aux États-Unis, 170 langages sont utilisés. {\cite{sammet_programming_1972}} 
+Deux raisons sont données pour expliquer autant de langages~:
+\quoteenfr {Some languages clearly create a spark, which causes the languages to become popular--sometimes to a level of fanaticism--regardless of the difficulties. This is equivalent to the "political charisma" which often affects election results.\elide
+In summary, there are really two major reasons for a language to be considered significant: one is that it is economically practical and hence very useful, and the other is that it is technically new.} {Certains langages suscitent indéniablement un engouement qui les rend populaires – parfois jusqu'au fanatisme – malgré les difficultés. C'est l'équivalent du «~charisme politique~» qui influence souvent les résultats électoraux.\elide
+En résumé, il existe deux raisons principales pour lesquelles un langage est considéré comme important~: d’une part, il est économiquement pratique et donc très utile, et d’autre part, il est techniquement nouveau.} {\cite{sammet_programming_1972}}
+
+En 2012, une revue analyse des articles abordant les DSL et les ADL. Comme l'illustre la figure~B.30, le nombre d'articles portant sur ce sujet augmente considérablement au fil des années. En plus, la vaste majorité des articles proposent des solutions consistant à développer de nouveaux langages (figure~B.31).
+\figmediumen
+{\textit{Distribution of studies by their publication years after 3rd filter}}
+{figure/chap1/modelisation/dsl1.png}
+{(source~: \textit{Figure}~2 \cite{do_systematic_2012})}
+{}{}{H}{Nombre d'articles sur les DSL et les ADL entre 1996 et 2011}
+
+\figmediumen
+{}
+{figure/chap1/modelisation/dsl2.png}
+{(source~: \textit{Figure}~3 \cite{do_systematic_2012})}
+{}{}{H}{Distribution des articles sur les DSL et les ADL selon les catégories}
+\vspace{-2\baselineskip}
+}{}
+
+\enonce{AM10}{Théorème}{Les classes de langages formels sont reliées aux classes d'automates.}{}{P068}
+\explication{AM10}{du théorème}{Les classes de langages formels sont reliées aux classes d'automates.}{
+Un bref aperçu de l'histoire des automates, incluant l'étude des grammaires formelles, est présenté dans l'ouvrage de John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman~:
+\quoteenfrlist{
+    \item Before there were computers in the 1930's, A Turing studied an abstract machine that had all the capabilities of today s computers at least as far as in what they could compute.
+    \item In the 1940's and 1950's simpler kinds of machines which we today call nite automata were studied by a number of researchers.
+    \item \elide late 1950's, the linguist N Chomsky began the study of formal "grammars". While not strictly machines these grammars have close relationships to abstract automata and serve today as the basis of some important software components including parts of compilers.
+    \item In 1969, S. Cook extended Turing's study of what could and what could not be computed.
+}
+{
+    \item Avant l'avènement des ordinateurs dans les années 1930, A. Turing a étudié une machine abstraite possédant toutes les capacités des ordinateurs actuels, du moins en ce qui a trait aux calculs qu'ils pouvaient effectuer.
+    \item Dans les années 1940 et 1950, des machines plus simples, qu'on appelle aujourd'hui automates finis, ont été étudiées par plusieurs chercheurs.
+    \item \elide à la fin des années 1950, le linguiste N. Chomsky entreprit l'étude des «~grammaires~» formelles. \elide ces grammaires sont étroitement liées aux automates abstraits et constituent aujourd'hui la base de certains composants logiciels importants, notamment des parties de compilateurs.
+    \item En 1969, S. Cook a approfondi les travaux de Turing sur les limites du calcul.
+}
+{\ccite{hopcroft_introduction_2007}[p.~1-2]}
+
+Un historique de la relation entre les langages formels et les automates provenant de l'article \textit{Chomsky between revolutions} permet d'observer ce rôle en informatique~:
+\quoteenfrlist{
+    \item [][---] Backus (1960) and Naur et al. (1960) defined a metasyntax for specifying the syntax of programming languages (originally ALGOL) that became known as Backus-Naur Form (BNF).
+    \item [][---] Ginsburg and Rice (1962) demonstrated that ALGOL was equivalent to a context-free (or Type 2, in the typology of Chomsky 1959b) language; \elide
+    \item [][---] Kuroda (1964) succeeded in showing that each of the languages in the typology of Chomsky 1959b (now known as the “Chomsky hierarchy”) corresponds to a specific kind of automaton.
+}
+{
+    \item [][---] Backus (1960) et Naur et al. (1960) ont défini une métasyntaxe pour spécifier la syntaxe des langages de programmation (initialement ALGOL), connue sous le nom de forme Backus-Naur (BNF).
+    \item [][---] Ginsburg et Rice (1962) ont démontré qu'ALGOL était équivalente à un langage hors contexte (ou de type 2, dans la typologie de Chomsky 1959b); \elide
+    \item [][---] Kuroda (1964) a démontré que chaque langage de la typologie de Chomsky 1959b (désormais appelée «~hiérarchie de Chomsky~») correspond à un type spécifique d'automate.
+}
+{\ccite{hyman_chomsky_2010}[p.~269-270]}
+\figms
+{Classes de langages formels (Hiérarchie de Chomsky)}
+{figure/chap1/modelisation/chomsky.png}
+{(source~: \ccite{knuuttila_routledge_2024}[p.~528])}
+{}{}{tb}
+Les langages sont reliés aux machines abstraites, la hiérarchie de Chomsky en est l'illustration représentée par la figure~B.32.
+}{}
+
+\paragraphe{P069}{\fl{Considérer le modèle comme un artefact qu'il est possible de transformer selon ses besoins.} Pour le Model Driven Architecture (MDA), la représentation du modèle et le code source sont deux éléments distincts. D'ailleurs, l'existence de chacun de ces éléments est nécessaire pour permettre une vérification mutuelle. Ainsi, les modèles ne sont plus considérés comme des artefacts intermédiaires générés et utilisés lors d'un processus \ccite{cabot_conceptual_2017}[p.~186]. Il existe des transformations entre ces deux éléments. Un ouvrage sur le MDA donne trois transformations \footnote{
+D'autres personnes classent les instruments de modélisations selon ces transformations~: \textit{model-to-model} (M2M), \textit{model-to-text} (M2T) et \textit{text-to-model} (T2M) \ccite{kahani_survey_2019}[][bernardo_formal_2012][p.~91]. }~:
+\quoteenfrlist{
+\item (1) Refactoring transformations reorganize a model based on some well-defined criteria. In this case the output is a revision of the original model, called the refactored model. \elide
+\item (2) Model-to-model transformations convert information from one model or models to another model or set of models, typically where the flow of information is across abstraction boundaries. \elide
+\item (3) Model-to-code transformations are familiar to anyone who has used the code generation capability of a UML modeling tool. These transformations convert a model element into a code fragment. \elide
+}
+{
+\item (1) Les transformations de refactorisation réorganisent un modèle selon des critères bien définis. Le résultat est alors une version révisée du modèle original, appelée modèle refactorisé. \elide
+\item (2) Les transformations de modèle à modèle convertissent les informations d'un ou plusieurs modèles vers un ou plusieurs autres modèles, généralement lorsque le flux d'informations s'effectue au-delà des frontières d'abstraction. \elide
+\item (3) Les transformations de modèle en code sont familières à quiconque a déjà utilisé la fonction de génération de code d'un outil de modélisation UML. Ces transformations convertissent un élément de modèle en un fragment de code. \elide
+}
+{\ccite{beydeda_mdd_2005}[p.~11]}
+Cette manière de considérer le modèle aurait conduit à de nombreuses méthodologies de modélisation, notamment~: le (MDA) et le Business Process Management (BPM). Le MDA se distingue du UML par le fait que ses modèles ont une sémantique définie formellement \ccite{volter_mda_2013}[p.~30].
+Cependant, même si certains artefacts peuvent concrétiser le modèle, ils n'en sont pas pour autant le modèle. Kristen Nygaard, créateur du langage Simula a cru bon de le préciser : 
+\quoteenfr {Notice that modelling means that the actions and interactions of the objects created by the program model the actions and interactions of the real-world objects that they are designed to simulate. It is not the Simula code that models the real-world system, but the objects created by that code.} {Il est important de noter que la modélisation signifie que les actions et interactions des objets créés par le programme reproduisent les actions et interactions des objets du monde réel qu'ils sont conçus pour simuler. Ce n'est pas le code Simula qui modélise le système réel, mais les objets créés par ce code.} {\cite{black_object_2013}}
+Par conséquent, l'interprétation d'un artefact par une machine abstraite est importante. Il faut maintenir la sémantique entre l'artefact et son interprétation. Les transformations doivent aussi maintenir cette sémantique. Ainsi, le passage d'une spécification des exigences informelles à une décrite formellement ne peut pas se faire par une transformation totalement automatisée \cite{lamsweerde_formal_2000}.
+}{AM11, AM12, AM13}{AM11}
+
+\enonce{AM11}{Assertion}{Plusieurs méthodes considèrent le modèle comme un artefact, avec potentiellement, une syntaxe ou une sémantique formelle.}{}{P069}
+\explication{AM11}{de l'assertion}{Plusieurs méthodes considèrent le modèle comme un artefact avec, potentiellement, une syntaxe ou une sémantique formelle.}{
+En 2017, dans l'ouvrage \textit{Conceptual Modeling Perspectives}, John Krogstie décrit le changement de tendance qui s'est opéré en modélisation~: 
+\quoteenfr {Whereas modeling techniques traditionally have been used to create intermediate artifacts in systems analysis and design, modern modeling methodologies support a more active role for the models. For instance in Business Process Management (BPM) [6], Model Driven Architecture (MDA) and Model-driven Software Engineering (MDSE) [3], Domain specific modeling (DSM) [8], Enterprise Architecture (EA) [21], Enterprise modeling (EM) [31], Interactive Models [19] and Active Knowledge Modelling (AKM) [22, 23], the models are used directly as part of the information system of the organization.} {Alors que les techniques de modélisation étaient traditionnellement utilisées pour créer des artefacts intermédiaires dans l'analyse et la conception de systèmes, les méthodologies de modélisation modernes confèrent aux modèles un rôle plus actif. Par exemple, dans la gestion des processus métier (BPM) [6], l'architecture pilotée par les modèles (MDA) et l'ingénierie logicielle pilotée par les modèles (MDSE) [3], la modélisation spécifique au domaine (DSM) [8], l'architecture d'entreprise (EA) [21], la modélisation d'entreprise (EM) [31], les modèles interactifs [19] et la modélisation active des connaissances (AKM) [22, 23], les modèles sont utilisés directement au sein du système d'information de l'organisation.} {\ccite{cabot_conceptual_2017}[p.~186]}
+
+Dans \textit{Model-Driven Software Development: Technology, Engineering, Management}, les auteurs décrivent l'UML comme n'étant pas défini formellement contrairement au MDA~:
+\quoteenfr{UML models are not per se MDA models. The most important difference between common UML models (for example analysis models) and MDA models is that the meaning (semantics) of MDA models is defined formally. This is guaranteed through the use of a corresponding modeling language which that is typically realized by a UML profile and its associated transformation rules.}{Les modèles UML ne sont pas, en soi, des modèles MDA. La principale différence entre les modèles UML courants (par exemple, les modèles d'analyse) et les modèles MDA réside dans le fait que la signification (sémantique) des modèles MDA est définie formellement. Ceci est garanti par l'utilisation d'un langage de modélisation correspondant, généralement réalisé par un profil UML et ses règles de transformation associées.}{\ccite{volter_mda_2013}[p.~30]}
+
+}{}
+
+\enonce{AM12}{Assertion}{Certaines méthodes de modélisation consistent à ramener le modèle à un artefact qu'il est possible de transformer.}{}{P069}
+\explication{AM12}{de l'assertion}{Certaines méthodes de modélisation consistent à ramener le modèle à un artefact qu'il est possible de transformer.}{
+\figen
+{\textit{The modeling spectrum}}
+{figure/chap1/modelisation/modelgenie.png}
+{(source~: \textit{Figure} 1 \ccite{beydeda_mdd_2005}[p.~4])}
+{}{}{tb}{Représentation de la dualité entre le modèle et le code source}
+En 2005, un article décrit la modélisation en informatique appliquée grâce à une figure (figure~B.33) illustrant cinq cas où différentes transformations possibles. Voici la description de ces cas~:
+\quoteenfrlist{
+\item [][---] code only : \elide they express their model of the system they are building directly in a third-generation programming language \elide.
+\item [][---] code visualization : \elide As developers create or analyze an application they often want to visualize the code through some graphical notation that aids their understanding of the code’s structure or behavior.
+\item [][---] roundtrip engineering : \elide As changes are made to the code they must at some point be reconciled with the original model \elide
+\item [][---] model-centric : \elide models of the system are established in sufficient detail that the full implementation of the system can be generated from the models themselves.
+\item [][---] model only : \elide developers use models purely as thought aids in understanding the business or solution domain, or for analyzing the architecture of a proposed solution.
+}{
+\item [][---] \textit{code only} :\elide ils expriment leur modèle du système qu'ils construisent directement dans une troisième génération de langage de programmation \elide.
+\item [][---] \textit{code visualization} : \elide Alors que les développeurs créent ou analysent une application, ils souhaitent souvent visualiser le code à l'aide d'une notation graphique qui facilite leur compréhension de la structure ou du comportement du code.
+\item [][---] \textit{roundtrip engineering} : \elide Lorsque des modifications sont apportées au code, elles doivent à un moment donné être réconciliées avec le modèle original \elide
+\item [][---] \textit{model-centric} : \elide les modèles du système sont établis avec suffisamment de détails pour que l'implémentation complète du système puisse être générée à partir des modèles eux-mêmes.
+\item [][---] \textit{model only} : \elide les développeurs utilisent les modèles uniquement comme outils de réflexion pour comprendre le domaine d'affaires ou la solution, ou pour analyser l'architecture d'une solution proposée.
+}{\ccite{beydeda_mdd_2005}[p.~4-6]}
+L'auteur ajoute qu'aujourd'hui, \enfr{\elide a majority of software developers still take a code-only approach \elide.}{la majorité des développeurs de logiciels adoptent encore une approche exclusivement axée sur le code \elide}{\ccite{beydeda_mdd_2005}[p.~4]}
+
+Une autre classification des instruments transformations est : \textit{model-to-model} (M2M), \textit{model-to-text} (M2T) et \textit{text-to-model} (T2M) \ccite{kahani_survey_2019}[][bernardo_formal_2012][p.~91]. Voici ce qu'un article décrit sur ces transformations~:
+\quoteenfr {The output of a M2M transformation is an instance of a target metamodel, whereas M2T approaches typically use target grammars to describe the structure of their textual output. T2M transformation tools, such as MoDisco [40], accept text representations as input and produce output models described by metamodels. T2M tools are most often used for reverse engineering, and are usually based on compiler technology (such as parser generation), rather than modeling technology (such as metamodeling).} {Le résultat d'une transformation M2M est une instance d'un métamodèle cible, tandis que les approches M2T utilisent généralement des grammaires cibles pour décrire la structure de leur sortie textuelle. Les outils de transformation T2M, tels que MoDisco [40], acceptent des représentations textuelles en entrée et produisent des modèles de sortie décrits par des métamodèles. Les outils T2M sont le plus souvent utilisés pour la rétro-ingénierie et reposent généralement sur des technologies de compilation (comme la génération d'analyseurs syntaxiques) plutôt que sur des technologies de modélisation (comme la métamodélisation).} {\cite{kahani_survey_2019}}
+
+}{}
+
+\enonce{AM13}{Assertion}{Les artefacts concrétisent le modèle, mais ce n'est pas le modèle.}{}{P069}
+\explication{AM13}{de l'assertion}{Les artefacts concrétisent le modèle, mais ce n'est pas le modèle.}{
+Axel van Lamsweerde soulève des problèmes sur les spécifications d'exigences formelles, dont l'un concerne le passage du non formel au formel, il indique cela ne se résume pas à une simple traduction~: 
+\quoteenfr {Formal specification is not a mere translation process from informal to formal. The specification of a large, complex system requires relevant objects and phenomena to be identified, interrelated, and characterized through properties of interest. Model construction and property description are thus tightly coupled components of any specification-in-the-large process.} {La spécification formelle ne se limite pas à une simple traduction de l'informel vers le formel. La spécification d'un système vaste et complexe exige l'identification, la mise en relation et la caractérisation des objets et phénomènes pertinents par leurs propriétés d'intérêt. La construction du modèle et la description des propriétés sont donc des composantes étroitement liées de tout processus de spécification à grande échelle.} {\cite{lamsweerde_formal_2000}}
+
+Un article décrit l'histoire derrière le paradigme orienté-objet. Cela remontre jusqu'à la création de Simula présenté en 1963. Ole-Johan Dahl et Kristen Nygaard utilisent les concepts d'objets, de classes et d'héritage pour créer un modèle pouvant représenter la fission nucléaire~:
+\quoteenfr {Nygaard’s concern with modelling the phenomena associated with nuclear fission meant that Simula was designed as a process description language as well as a programming language.
+\elide
+Notice that modelling means that the actions and interactions of the objects created by the program model the actions and interactions of the real-world objects that they are designed to simulate. It is not the Simula code that models the real-world system, but the objects created by that code.}{L'intérêt de Nygaard pour la modélisation des phénomènes liés à la fission nucléaire a conduit à concevoir Simula comme un langage de description de processus autant que comme un langage de programmation. \elide Il est important de noter que la modélisation signifie que les actions et interactions des objets créés par le programme reproduisent les actions et interactions des objets du monde réel qu'ils sont conçus pour simuler. Ce n'est pas le code Simula qui modélise le système réel, mais les objets créés par ce code.} {\cite{black_object_2013}}
+
+}{}
+
+\paragraphe{P070}{\fl{Utiliser une pratique réflexive pour assurer la cohérence et la couverture lors du développement d'un modèle.} D'abord, il est possible d'interpréter des artefacts pour en obtenir un modèle. Un article décrit une pratique réflexive qui utilise des artefacts de code source \cite{murphy_software_2001}. À partir de ces artefacts, le modèle est construit et validé de manière successive comprenant différentes interventions. Une de ces interventions est l'utilisation d'un instrument pour vérifier la cohérence du modèle. Dans l'article, l'exécution pouvait prendre plus de trente minutes \footnote{L'exécution était de 40 minutes en 2001 sur un Pentium II et le modèle était celui du produit Excel.}. Parmi les avantages à cette méthode, il y a celui de permettre l’obtention de la couverture souhaitée par la sélection des artefacts (et plus particulièrement des modèles), voire de parties de ceux-ci. Aussi, ces bornes facilitent les vérifications et validations pour les intervenants et permettent de diminuer le délai d'exécution de l'instrument. 
+\sep
+Ensuite, un ouvrage abordant les méthodes formelles décrit le procédé~Balzer \ccite{bacelar_balzer_2011}[p.~9]. Ce procédé, proposé au début des années 1980, a comme objectif de faciliter l'utilisation des méthodes formelles, peu importe le procédé de développement utilisé, puisqu'il se situe en amont. Dans le procédé Balzer, le document de spécification des exigences formelles (la description du modèle) est construit suivant un cycle dont fait partie le simulacre et le document d'analyse informelle des exigences. Ce cycle, en comprenant les différentes vérifications et validations, améliore la cohérence et la couverture au modèle développé.
+}{AM14}{AM14}
+
+\enonce{AM14}{Assertion}{Les pratiques réflexives permettent d'obtenir les modèles recherchés.}{}{P070}
+\explication{AM14}{de l'assertion}{Les pratiques réflexives permettent d'obtenir les modèles recherchés.}{
+\figmediumen
+{\textit{The reflexion model approach}}
+{figure/chap1/modelisation/murphy.png}
+{(source~: \cite{murphy_software_2001})}{}{}{tb}{Procédé réflexif pour faire la rétro-ingénierie d'un modèle formel}
+Un article publié en 2001 décrit l'utilisation d'un modèle réflexif dans le cadre de la ré-ingénierie du produit Microsoft Excel \cite {murphy_software_2001}. La figure~B.34 illustre le cycle pour la production du modèle ainsi que l'intervention des individus. Les avantages d'une pratique réflexive sont~:
+\quoteenfrlist{
+\item \elide lightweight and iterative, in that an engineer can quickly and easily compute a reflexion model and then may selectively refine the inputs and recompute models until the desired information is obtained, \elide.
+\item \elide approximate and partial, in that the map used in the computation of a reflexion model may coarsely associate source model entities with high-level model entities and may not include all entities in a given source or high-level model in any particular computation.
+}{
+\item \elide léger et itératif, car un ingénieur peut calculer rapidement et facilement un modèle de réflexion, puis affiner sélectivement les entrées et recalculer les modèles jusqu'à obtenir les informations souhaitées, \elide.
+\item \elide approximatif et partiel, car la correspondance utilisée dans le calcul d'un modèle de réflexion peut associer grossièrement les entités du modèle source aux entités du modèle de haut niveau et peut ne pas inclure toutes les entités d'un modèle source ou de haut niveau donné dans un calcul particulier.
+}{\cite{murphy_software_2001}}
+
+L'auteur conclut que :
+\quoteenfr {The software reflexion model technique provides a means of bridging the gap between the high-level models commonly used by engineers to reason about a software system and the system artifacts that are the software system.} {La technique de modélisation par réflexion logicielle offre un moyen de combler le fossé entre les modèles de haut niveau couramment utilisés par les ingénieurs pour raisonner sur un système logiciel et les artefacts du système qui constituent ce système logiciel.} {\cite{murphy_software_2001}}
+
+Le procédé Balzer provenant de l'ouvrage \textit{Rigorous software development: An introduction to program verification} met de l'avant qu'il est possible d'utiliser les méthodes formelles en amont d'un procédé de développement. D'ailleurs, plusieurs cycles s'y trouvent (figure~B.35), illustrant une pratique réflexive lors de la construction. Il s'insère au début du procédé de développement~:
+\quoteenfr {In the early 80's, Balzer and colleagues proposed a notion of software life cycle \elide with respect to other software development cycles is that it explicitly advocates the use of formal methods at different stages, and in particular where the relationship between the requirements, the model, and the implementation is concerned.} {Au début des années 80, Balzer et ses collègues ont proposé une notion de cycle de vie du logiciel \elide par rapport aux autres cycles de développement logiciel, car elle préconise explicitement l'utilisation de méthodes formelles à différentes étapes, et en particulier en ce qui concerne la relation entre les exigences, le modèle et l'implémentation.} {\ccite{bacelar_balzer_2011}[p.~9]}
+\figmediumen
+{\textit{The Balzer software life cycle}}
+{figure/chap1/modelisation/balzer.png}
+{[Traduction libre] (modifiée de \ccite{bacelar_balzer_2011}[p.~9])}
+{}{}{tb}{Procédé réflexif pour créer un modèle formel}
+
+}{}
+
+\subsubsection{Des techniques de modélisation}
+\paragraphe{P071}{Dans cette sous-section, il y est présenté d'abord la technique offrant un langage formel avec une représentation textuelle et graphique, puis, l'ensemble des techniques appelées méthodes formelles.}{}{}
+
+\paragraphe{P072}{\fl{L'une des techniques servant à la modélisation consiste à développer un langage formel offrant à la fois une représentation textuelle et une représentation graphique.} Le modèle et notation des procédés métier (BPMN, \textit{Business Process Model and Notation} en anglais), particulièrement sa version 2, en est un exemple. Selon les auteurs, le BPMN est décrit formellement en XSD et dans la mise en place complète de méta-objets (CMOF, \textit{Complete Meta-Object Facility} en anglais) \ccite{omg-bpmn-2013}[p.~1]. Le XSD est un langage pour décrire une structure et des contraintes sur les documents XML, tandis que le CMOF comprend le Meta-Object Facility (MOF), un langage pour décrire des métamodèles \cite{cadavid_ten_2012}. 
+\sep
+De prime abord, l'objectif du BPMN est de rendre un langage de modélisation accessible aux utilisateurs métiers, analystes et développeurs \cite {chinosi_bpmn_2012}. Le BPMN est inspiré du diagramme d'activité qui provient de l'UML.
+\sep
+Néanmoins, si formalisme il y a, les instruments ne permettent pas de profiter de ce formalisme. Un article publié en 2018 fait l'analyse de 47 instruments se déclarant conformes au standard BPMN \cite{geiger_bpmn_2018}. Parmi eux, seuls 3 instruments parviennent à exécuter le format spécifié par le standard. Un autre article, publié en 2020, présente les résultats d'une analyse qui consistait à exécuter un analyseur syntaxique sur 8~904~artefacts BPMN disponibles sur GitHub. Cette expérience a parmi notamment de trouver des erreurs dans 82~\%\footnote{Plusieurs des erreurs sont en fait des définitions non conformes des flux de séquence dans le format de sérialisation.} d'entre eux \cite{nurcan_mining_2020}.
+}{AM15, AM16}{AM15}
+
+\enonce{AM15}{Assertion}{Le BPMN est un exemple d'un langage formel avec une représentation textuelle et graphique.}{}{P072}
+\explication{AM15}{de l'assertion}{Le BPMN est un exemple d'un langage formel avec une représentation textuelle et graphique.}{
+En 2011, un article décrit le \textit{Business Process Model and Notation} (BPMN)~:
+\quoteenfr {The primary goal of BPMN is to provide a notation that is readily understandable by business users, ranging from the business analysts who sketch the initial drafts of the processes to the technical developers responsible for actually implementing them, and finally to the business staff deploying and monitoring such processes [37].} {L’objectif principal de BPMN est de fournir une notation facilement compréhensible par les utilisateurs métiers, allant des analystes métiers qui esquissent les premières versions des processus aux développeurs techniques chargés de les mettre en œuvre, et enfin au personnel métier qui déploie et surveille ces processus [37].} {\cite{chinosi_bpmn_2012}}
+
+En 2018, un article examine le support de l'exécution du BPMN 2.0 avec différents instruments et décrit les avantages du BPMN 2.0~:
+\quoteenfr {With the publication of BPMN 2.0 in January 2011, support for the native execution of BPMN process models and a standardized serialization format has been added to the standard. The intention underlying this addition is to mitigate the gap between the modeling of processes on the one hand and their execution through software on the other hand [4].} {Avec la publication de BPMN 2.0 en janvier 2011, la prise en charge de l’exécution native des modèles de processus BPMN et un format de sérialisation standardisé a été ajoutée à la norme. L’objectif de cet ajout est de réduire l’écart entre la modélisation des processus d’une part et leur exécution par logiciel d’autre part [4].} {\cite{geiger_bpmn_2018}}
+
+Le standard du BPMN comprend plusieurs descriptions formelles en format XSD et CMOF (\textit{Complete Meta-Object Facility}) \ccite{omg-bpmn-2013}[p.~1]. En voici quelques-unes:
+\begin{itemize}
+\item http://www.omg.org/spec/BPMN/20100501/BPMN20.cmof;
+\item .../BPMN20.xsd; 
+\item .../Semantic.xsd;
+\item .../Semantic.cmof.
+\end{itemize}
+
+Cet article décrit la différence entre MOF et CMOF, une différence importante est que CMOF intègre l'UML, ce qui peut mettre en doute le formalisme employé dans le CMOF~:
+\quoteenfr {It is important to notice that MOF is presented in its specification in two versions, namely Essential MOF (EMOF), which is the core of concepts necessary for the construction of metamodels, and Complete MOF (CMOF), which doesn’t add new concepts but merges EMOF with the core definitions of UML.
+\elide
+MOF (Meta-Object Facility) [6]. The specification that created the standard for the exchange of metadata, therefore creating the language for metamodels themselves. It was created from the modeling foundations of UML and comprises two metamodels, Essential MOF (EMOF) and Complete MOF (CMOF).} {Il est important de noter que MOF est présenté dans sa spécification en deux versions~: Essential MOF (EMOF), qui constitue le noyau de concepts nécessaires à la construction de métamodèles, et Complete MOF (CMOF), qui n’ajoute pas de nouveaux concepts, mais fusionne EMOF avec les définitions fondamentales d’UML.
+\elide MOF (Meta-Object Facility) [6]. La spécification qui a créé la norme pour l’échange de métadonnées, et, par conséquent, le langage des métamodèles eux-mêmes. Elle a été créée à partir des fondements de modélisation d’UML et comprend deux métamodèles~: Essential MOF (EMOF) et Complete MOF (CMOF).} {\cite{cadavid_ten_2012}}
+
+}{}
+
+\enonce{AM16}{Assertion}{Les instruments ne permettent pas de profiter du formalisme du BPMN.}{}{P072}
+\explication{AM16}{de l'assertion}{Les instruments ne permettent pas de profiter du formalisme du BPMN.}{
+En 2018, un article examine le support de l'exécution du BPMN 2.0 avec différents instruments~:
+\quoteenfr {We investigate how BPMN 2.0 implementers deal with the standard, showing that native BPMN 2.0 execution is an exception. Only three out of 47 BPMS considered support the execution format defined in the standard, although all of them claim to comply to the BPMN 2.0 standard.} {Nous étudions comment les implémenteurs de BPMN 2.0 gèrent la norme, et montrons que l'exécution native de BPMN 2.0 est l'exception. Seuls trois des 47 systèmes de gestion de processus métier (BPMS) considérés prennent en charge le format d'exécution défini dans la norme, bien qu'ils prétendent tous s'y conformer.} {\cite{geiger_bpmn_2018}}
+
+En 2020, un article publie les résultats d'une analyse syntaxique sur des milliers d'artefacts BPMN disponibles sur GitHub. Trois résultats sont rapportés~:
+\quoteenfrlist{
+\item [][---] There have been 1,251 repositories with at least one potential BPMN process model artifact, containing 21,306 potential artifacts and 16,907 serialized BPMN 2.0 models.
+\item [][---] While the majority of identified artifacts are static and recent contents of a software repository, we also found artifacts which are older than 8 years, updated more than once and come from different geographical regions. At least half of the potential BPMN process model artifacts and half of the serialized process models are distinct, yielding a corpus of 8,904 unique BPMN 2.0 process models. The corpus contains models of various sizes.
+\item [][---] Violations of BPMN’s syntax and semantic rules as reported by BPMNspector are frequent in the corpus of BPMN process models, affecting 82,8\% of the models.
+\item [][---] We also took a closer look into the reported issues and found a large fraction to be violations of rules Ext.023, Ext.101 and Ext.107 \elide Rules Ext.023, Ext.101, Ext.107 refer to the non-compliant definition of sequence flows in the BPMN 2.0 serialization format \elide
+}{
+\item [][---] 1~251 dépôts contiennent au moins un artefact potentiel de modèle de processus BPMN, soit 21 306 artefacts potentiels et 16 907 modèles BPMN 2.0 sérialisés.
+\item [][---] Bien que la majorité des artefacts identifiés soient des contenus statiques et récents d'un dépôt de logiciels, nous avons également trouvé des artefacts datant de plus de 8 ans, mis à jour à plusieurs reprises et provenant de différentes régions géographiques. Au moins la moitié des artefacts potentiels de modèles de processus BPMN et la moitié des modèles de processus sérialisés sont distincts, ce qui constitue un corpus de 8 904 modèles de processus BPMN 2.0 uniques. Ce corpus contient des modèles de tailles variées.
+\item [][---] Les violations des règles de syntaxe et de sémantique de BPMN, telles que signalées par BPMNspector, sont fréquentes dans le corpus de modèles de processus BPMN, affectant 82,8~\% des modèles.
+\item [][---] Nous avons également examiné de plus près les problèmes signalés et constaté qu'une grande partie d'entre eux constituaient des violations des règles Ext.023, Ext.101 et Ext.107. Les règles Ext.023, Ext.101 et Ext.107 font référence à la définition non conforme des flux de séquence dans le format de sérialisation BPMN 2.0 \elide
+}{\cite{nurcan_mining_2020}}
+
+}{}
+
+\paragraphe{P073}{\fl{Les méthodes formelles comprennent des techniques éprouvées utilisant logique et formalisme, mais ne s'imposent pas largement.} D'abord, les méthodes formelles comprennent des langages formels et des systèmes logiques. Jean-Raymond Abrial décrit ses préférences en langage et en logique~:
+\quoteenfr {\elide the language of classical logic and set theory. These conventions will allow us to easily communicate our models to others \elide will allow us to do some reasoning in the form of mathematical proofs.} {\elide le langage de la logique classique et de la théorie des ensembles. Ces conventions nous permettront de communiquer facilement nos modèles à autrui \elide nous permettront de raisonner sous forme de démonstrations mathématiques.} {\ccite{abrial_modeling_2010}[p.~16]}
+Dines Bjørner soulève toute l'importance des systèmes logiques pour les méthodes formelles~:
+\quoteenfr{A language, even one with a semantics, is impoverished if there is no logic: it would provide no means for obtaining those consequences in a methodical, reproducible and agreed fashion.}{
+Un langage, même doté d’une sémantique, est appauvri s’il est dépourvu de logique~: il ne fournirait aucun moyen d’obtenir ces conséquences de manière méthodique, reproductible et consensuelle.}{\ccite{bjorner_logics_2008}[p.~490]}
+\sep
+De plus, Markus Roggenbach dans son ouvrage, explique en détail six projets à succès où les méthodes formelles ont joué un rôle vital \ccite{roggenbach_formal_2021}[p.~31-36]. Un sondage réalisé par Maurice H. Ter Beek \textit{et al.}, auquel ont participé cent trente experts en méthodes formelles, aborde différentes questions liées à ce sujet. Lorsqu'il est demandé en quoi les méthodes formelles peuvent contribuer, il en ressort que~: 
+\quoteenfr {Quasi unanimously, the experts confirmed that formal methods deliver quality, safety, security, easier certification, and easier maintenance.} {Les experts ont confirmé, de manière quasi unanime, que les méthodes formelles garantissent la qualité, la sûreté, la sécurité, une certification plus facile et une maintenance simplifiée.} {\ccite{ter_formal_2020}[p.~12]}
+\sep
+Cependant, les méthodes formelles ne s'imposent pas largement. Le même sondage de Maurice H. Ter Beek \textit{et al.} demande les causes de cette non-utilisation, voici les plus couramment citées~:
+% Note : Pourrait être relié au attente et exigences.
+\quoteenfrlist{
+\item [][---] Engineers lack proper training in formal methods;
+\item [][---] Academic tools have limitations and are not professionally maintained;
+\item [][---] Formal methods are not properly integrated in the industrial design life cycle;
+\item [][---] Formal methods have a steep learning curve;
+\item [][---] Developers are reluctant to change their way of working.
+}{
+\item [][---]Les ingénieurs manquent de formation adéquate aux méthodes formelles;
+\item [][---]Les outils académiques présentent des limitations et ne sont pas maintenus de manière professionnelle;
+\item [][---]Les méthodes formelles ne sont pas correctement intégrées au cycle de vie de la conception industrielle;
+\item [][---]L'apprentissage des méthodes formelles est complexe;
+\item [][---]Les développeurs sont réticents à modifier leurs méthodes de travail.
+}{\ccite{ter_formal_2020}[p.~24]}
+D'ailleurs, plusieurs articles sont écrits dans l'objectif d'informer et, ultimement, d'encourager leur utilisation \ccite{roggenbach_formal_2021}[p.~30]. Un autre sondage mené en 2020 révèle que 40 des 216 participants n'ont pas utilisé de méthodes formelles ni en milieu académique ni industriel, et ce, même si tous avaient été formés ou avaient travaillé dans des secteurs critiques \cite{gleirscher_formal_2020}. 
+}{AM17, AM18, AM19, AM20}{AM17}
+
+\enonce{AM17}{Axiome}{Certaines méthodes formelles regroupent des techniques, tandis que d'autres constituent elles-mêmes des techniques.}{}{P073}
+\explication{AM17}{de l'axiome}{Certaines méthodes formelles regroupent des techniques, tandis que d'autres constituent elles-mêmes des techniques.}{
+Dans l'ouvrage \titleen{Logics of Specification Languages}{} \cite{bjorner_logics_2008}, Dines Bjørner décrit le \textit{The Vienna Development Method} (VDM) comme une collection de techniques~:
+\begin{itemize}
+    \item \enfr{VDM can probably be credited as being the first formal specification language (1974).}{On peut probablement attribuer à VDM le mérite d'avoir été le premier langage de spécification formel (1974).}
+    \ccite{bjorner_logics_2008}[p.~9];
+    \item \enfr{The Vienna Development Method (VDM), is a collection of techniques for the modelling, specification and design of computer-based systems.}{La méthode de développement viennoise (VDM) est un ensemble de techniques pour la modélisation, la spécification et la conception de systèmes informatiques.}
+    \ccite{bjorner_logics_2008}[p.~454]
+\end{itemize}
+
+Jean-François Monin dans l'ouvrage \textit{Understanding formal methods} affirme qu'il s'agit de techniques, mais que dans l'usage, le terme \emphase{méthode} s'est répandu~:
+\quoteenfr {Such methods provide, essentially, a rational framework composed of tools to aid in modeling and reasoning, but they don't bring much from a methodological perspective. We will use the term formal method, because it is well established, but formal technique would certainly be more appropriate. 
+The domain of compilation techniques may be an exception. In order to construct a compiler, first the grammar of the source language is defined using suitable formal rules. After a possible transformation of the latter, an efficient parser is automatically derived thanks to general mechanisms determined in the 1960s. We have here all of the ingredients of a formal method. First, we obviously have a formal language for describing the grammar rules in a precise manner - a BNF, normal form of Backus-Naur.} {Ces méthodes fournissent, en substance, un cadre rationnel composé d'outils facilitant la modélisation et le raisonnement, mais elles n'apportent que peu d'éléments sur le plan méthodologique. Nous utiliserons le terme méthode formelle, car il est bien établi, mais «~technique formelle~» serait certainement plus approprié. Le domaine des techniques de compilation constitue peut-être une exception. Pour construire un compilateur, on définit d'abord la grammaire du langage source à l'aide de règles formelles appropriées. Après une éventuelle transformation de cette dernière, un analyseur syntaxique efficace est automatiquement dérivé grâce à des mécanismes généraux établis dans les années 1960. Nous avons ici tous les ingrédients d'une méthode formelle. Premièrement, nous disposons évidemment d'un langage formel permettant de décrire précisément les règles grammaticales : la BNF, forme normale de Backus-Naur.} {\ccite{monin_understanding_2003}[p.~3]}
+
+Une description de méthode formelle provenant du manuel \textit{Formal Methods in Computer Science} indiquant que ce sont le regroupement de techniques~:
+\quoteenfr{Formal methods are techniques for the specification, development, and verification of software and hardware systems. A formal method is a mathematical method. By building a mathematically rigorous model of a system, it is possible to verify the system’s properties in a more thorough fashion than empirical testing. It is believed that applying formal methods in system design and development will increase the reliability and robustness of the system.}{Les méthodes formelles sont des techniques de spécification, de développement et de vérification des systèmes logiciels et matériels. Une méthode formelle est une méthode mathématique. En élaborant un modèle mathématique rigoureux d'un système, il est possible de vérifier ses propriétés de manière plus approfondie que par des tests empiriques. On considère que l'application de méthodes formelles à la conception et au développement de systèmes accroît leur fiabilité et leur robustesse.} {\cite{wang_formal_2020}}
+
+}{}
+
+\enonce{AM18}{Assertion}{Les méthodes formelles comprennent l'utilisation de langages formels et de systèmes logiques.}{}{P073}
+\explication{AM18}{de l'assertion}{Les méthodes formelles comprennent l'utilisation de langages formels et de systèmes logiques.}{
+Dines Bjørner, dans l'ouvrage \textit{Logics of specification languages}, souligne toute l'importance d'utiliser un système logique, car, sans lui, un langage formel perd de son utilité~:
+\quoteenfr {We take it as self-evident that any formal specification should permit precise consequences to be obtained: the emphasis in the term formal method should fall on the second word and not the first. A language, even one with a semantics, is impoverished if there is no logic: it would provide no means for obtaining those consequences in a methodical, reproducible and agreed fashion.} {Nous considérons comme allant de soi que toute spécification formelle doive permettre d'obtenir des conséquences précises : l'accent, dans l'expression «~méthode formelle~», doit porter sur le second mot, et non sur le premier. Un langage, même doté d'une sémantique, est appauvri s'il est dépourvu de logique : il ne fournirait aucun moyen d'obtenir ces conséquences de manière méthodique, reproductible et consensuelle.} {\ccite{bjorner_logics_2008}[p.~490]}
+
+Jean-Raymond Abrial explique dans son ouvrage \textit{Modeling in Even-B} ses préférences en langages formels et en systèmes logiques~:
+\quoteenfr {Formal methods are techniques used to build blueprints adapted to our discipline. Such blueprints are called formal models. As for real blueprints, we shall use some pre-defined conventions to write our models. There is no point in inventing a new language; we are going to use the language of classical logic and set theory. These conventions will allow us to easily communicate our models to others, as these languages are known by everyone having some mathematical backgrounds. The use of such a mathematical language will allow us to do some reasoning in the form of mathematical proofs, which we shall conduct as usual. Note again that, as with blueprints, the basis is lacking; our model will thus not in general be executable. \elide} {Les méthodes formelles sont des techniques utilisées pour élaborer des schémas adaptés à notre discipline. Ces schémas sont appelés modèles formels. Comme pour les schémas réels, nous utiliserons des conventions prédéfinies pour écrire nos modèles. Il est inutile d'inventer un nouveau langage ; nous utiliserons celui de la logique classique et de la théorie des ensembles. Ces conventions nous permettront de communiquer facilement nos modèles, car ces langages sont connus de toute personne ayant des connaissances en mathématiques. L'utilisation d'un tel langage mathématique nous permettra de raisonner sous forme de démonstrations mathématiques, que nous effectuerons comme d'habitude. Notons encore une fois que, comme pour les schémas réels, la base fait défaut ; notre modèle ne sera donc généralement pas exécutable. \elide} {\ccite{abrial_modeling_2010}[p.~16]}
+
+}{}
+
+\enonce{AM19}{Assertion}{Les méthodes formelles sont définitivement utiles.}{}{P073}
+\explication{AM19}{de l'assertion}{Les méthodes formelles sont définitivement utiles.}{
+Dans l'ouvrage de Markus Roggenbach, l'auteur présente des exemples de réussites \ccite{roggenbach_formal_2021}[p.~31-36]~:
+\begin{itemize}
+    \item \textit{Model Checking at Intel};
+    \item \textit{Microsoft’s Protocol Documentation Program};
+    \item \textit{Electronic Voting};
+    \item \textit{The Operating Systems seL4 and PikeOS};
+    \item \textit{Model-Based Design with Certified Code Generation};
+    \item \textit{Transportation Systems in France}.
+\end{itemize}
+
+Un article, intitulé \textit{The 2020 Expert Survey on Formal Methods}, présente les résultats d'un sondage auquel ont participé cent trente experts en méthodes formelles. Ces derniers ont répondu à des questions portant sur l'utilisation combinée de méthodes formelles et d'outils d'analyse formelle, les résultats sont présentés dans le tableau~B.13.
+\taben
+{\textit{Expected Benefits}}
+{figure/chap1/modelisation/formalquality.png}
+{(source~: \ccite{ter_formal_2020}[p.~12])}
+{}{}{tb}{Bénéfices attendus de l'utilisation des méthodes formelles}
+Un article qui affirme la nécessité des méthodes formelles qui serait indissociable de la profession d'informaticien ou d'ingénieur logiciel~:
+\quoteenfr {Does every computer scientist need to know formal methods? Our stance, supported by the arguments made throughout this article, is “yes, they do”. Even more, software developers not being aware of the various benefits of formal methods cannot be called computer scientists or software engineers.} {Tout informaticien a-t-il besoin de connaître les méthodes formelles ? Notre position, étayée par les arguments développés dans cet article, est affirmative. De plus, un développeur logiciel ignorant les nombreux avantages des méthodes formelles ne peut être considéré comme un informaticien ou un ingénieur logiciel.} {\cite{broy_does_2024}}
+\vspace{-\baselineskip}
+}{}
+
+\enonce{AM20}{Assertion}{Les méthodes formelles ne s'imposent pas largement.}{}{P073}
+\explication{AM20}{de l'assertion}{Les méthodes formelles ne s'imposent pas largement.}{
+En 2022, Markus Roggenbach, dans l'ouvrage \textit{Formal Methods for Software Engineering: Languages, Methods, Application Domains}, expose des articles qui déboulonnent les idées préconçues sur les méthodes formelles dans l'objectif de convaincre de potentiels utilisateurs et, du même coup, de les aiguiller dans l'usage des méthodes formelles \ccite{roggenbach_formal_2021}[p.~30]~: 
+\begin{itemize}
+    \item \textit{Seven Myths of Formal Methods} (1990); 
+    \item \textit{Seven more myths of Formal Methods, Ten Commandments of Formal Methods} (1995); 
+    \item \textit{Ten Commandments of Formal Methods ...Ten Years Later} (2006). 
+\end{itemize}
+
+Un sondage de 2020 mène sur l'utilisation de méthode formelle. Plusieurs résultats sur l'utilisation de méthodes formelles par secteur se retrouvent dans la figure~B.36. L'un des résultats les plus notables est le nombre de personnes ($n=216, 40$ personnes) n'utilisant pas de méthodes formelles. Ce sondage vise des individus en lien avec le secteur critique, un secteur qui est réputé comme étant plus enclin à utiliser des méthodes~:
+\quoteenfr {Our target group for this survey includes persons with (1) an educational background in engineering and the sciences related to critical computer-based or software-intensive systems, preferably having gained their first degree, or (2) a practical engineering background in a reasonably critical system or product domain involving software practice.} {Notre groupe cible pour cette enquête comprend des personnes ayant (1) une formation en ingénierie et en sciences liées aux systèmes informatiques critiques ou aux systèmes à forte composante logicielle, de préférence ayant obtenu leur premier diplôme, ou (2) une expérience pratique en ingénierie dans un domaine de système ou de produit raisonnablement critique impliquant la pratique du logiciel.} { \cite{gleirscher_formal_2020}}
+
+\figen
+{\textit{(Q1) In which application domains in industry or academia have you mainly used FMs? (MC)}}
+{figure/chap1/modelisation/sector.png}
+{(source~: \textit{Figure}~2 \cite{gleirscher_formal_2020})}
+{}{}{tb}{Secteurs où des méthodes formelles sont utilisés par des professionnels}
+L'article \textit{The 2020 Expert Survey on Formal Methods}, qui rapporte les résultats d'un sondage mené auprès de cent trente experts en méthodes formelles, propose un tableau (tableau~B.14) recensant les raisons évoquées par les répondants pour expliquer la faible utilisation des méthodes formelles. La formation et l'expertise en méthodes formelles trônent au sommet.
+\tab
+{Raisons à la faible utilisation des méthodes formelles.}
+{figure/chap1/modelisation/reason.png}
+{(source~: \ccite{ter_formal_2020}[p.~24])}
+{}{}{H}
+}{}
+
+
+
+

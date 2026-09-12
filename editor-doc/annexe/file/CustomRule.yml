@@ -1,0 +1,35 @@
+---
+name: "fill uuid"
+description: "Remplir le modèle avec des identifiants pour toutes les informations."
+priority: 1
+condition: "true"
+actions:
+    - "resultdoc.setDoc(RuleUtil.fillDocWithId(document));"
+---
+name: "clean id"
+description: "La grammaire nécessite de mettre les ids de sections et de meta-infos entre []."
+priority: 2
+condition: "true"
+actions:
+    - "resultdoc.setDoc(RuleUtil.cleanId(resultdoc.getDoc()));"
+---
+name: "strip content"
+description: "Il y a des contenus contenant du saut de ligne."
+priority: 3
+condition: "true"
+actions:
+    - "resultdoc.setDoc(RuleUtil.stripContent(resultdoc.getDoc()));"
+---
+name: "meta avec documentid"
+description: "Remplir le modèle avec une méta-info sur document obligatoire."
+priority: 4
+condition: "!RuleUtil.validDocumentWithMeta(document, 'documentid')"
+actions:
+    - "resultdoc.setDoc(RuleUtil.fillDocumentWithMeta(resultdoc.getDoc(), 'documentid'));"
+---
+name: "meta avec projetid"
+description: "Remplir le modèle avec une méta-info projet obligatoire."
+priority: 5
+condition: "!RuleUtil.validProjetWithMeta(document, 'projetid')"
+actions:
+    - "resultdoc.setDoc(RuleUtil.fillProjetWithMeta(resultdoc.getDoc(), 'projetid'));"

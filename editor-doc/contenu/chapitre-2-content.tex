@@ -1,0 +1,302 @@
+
+\paragraphe{}{Derrière les différents problèmes en lien avec les documents et les modèles se cache un problème important~: celui du transfert des connaissances. Ce problème étant trop grand, il est circonscrit, dans ce mémoire, à celui de la formalisation et de la compréhension des documents servant aux modèles. Dans ce chapitre, nous présentons d'abord ce problème pour ensuite le modéliser. Par la suite, nous établissons une liste des attentes et une liste des besoins à considérer pour la solution. Ces listes font partie de la définition du problème et elles sont nécessaires au développement et à la validation d'une solution. Ils s'avèrent être les objectifs de la recherche.}{}{}
+
+\section{Une présentation du problème}
+
+\paragraphe{}{Sur la base de la revue de littérature, il est possible d'affirmer qu'il existe des documents nécessaires à la concrétisation de modèles et de logiciels. Ces modèles et ces logiciels expriment des connaissances, dont celles nécessaires à la réalisation et à l'établissement d'un logiciel. Ainsi, en informatique appliquée, les trois sujets que sont les documents, les modèles ou les connaissances sont interreliés. Il en va de même pour plusieurs de leurs écueils, puisque le manque de formalisation et de compréhension des documents se répercute négativement sur les modèles, puis sur les connaissances. Or, puisque la formalisation passe par la modélisation, ce problème touche fondamentalement l'informatique appliquée, ce qui en accentue l'importance.
+}{}{}
+\paragraphe{}{Sommairement, les objectifs et les écueils montrent un manque de formalisation et de compréhension qu'il est possible d'énumérer comme ceci~:
+\begin{itemize}
+    \item une mauvaise compréhension dans les objectifs visés par les langages formels;% [P46 ]
+    \item une mauvaise compréhension dans les objectifs visés par les artefacts;% [P09, P21, P48]
+    \item une mauvaise compréhension dans l'usage de langages formels;% [P46  ]
+    \item une mauvaise compréhension dans l'usage des artefacts.% [P07, P09, P15, P16, P49, P50]
+\end{itemize}
+Cela se reflète dans l'utilisation de langages non formels ainsi que dans l'utilisation % [P15, P46 ]
+de mesures et de critères subjectifs. % [P13, ] 
+Pour ce qui est des conséquences aux écueils, il est perçu un manque de cohérence, de couverture et d'efficacité des artefacts produits. D'ailleurs, ce qui est contenu dans les documents et les modèles a généralement un impact visible ou non immédiatement visible dans les logiciels produits. Il faut également prendre en considération d'autres conséquences qui méritent une attention particulière.
+}{}{}
+
+\paragraphe{}{Ces conséquences s'avèrent être des caractéristiques de qualité à respecter pour les documents, les modèles et les logiciels qui peuvent être définies comme étant absolues, relatives et universelles. Il y a~:
+\begin{itemize}
+    \item les caractéristiques de qualité absolues~: cohérent, couverture et efficace;%[P12, P14, P17, P20, P26, P44];
+    \item les caractéristiques de qualité relatives~: complétude, efficience et adaptabilité;% [P14, P17, P19, P20, P26, P44];
+    \item les caractéristiques de qualité universelles~: réfutabilité et éthique.
+\end{itemize}
+Ces mêmes caractéristiques sont utilisées au chapitre consacré à l'évaluation de la solution.
+}{}{}
+\paragraphe{}{Ces caractéristiques sont également prises en considération, à des niveaux variables, par les diverses approches présentées lors de la revue de littérature. Ces approches, prenant souvent la forme d'instruments, utilisant différents langages et différentes règles. Ainsi, il y a~:
+\begin{itemize}
+    \item des langages~: 
+    \begin{itemize}
+        \item avec une sémantique ou une pragmatique formellement définie (langages formels sémantiquement); % [P24, P26, P27, P30, P31, P38];
+        \item avec une syntaxe formellement\footnote{Un langage avec une sémantique formelle comprend une syntaxe formelle.} définie (langages formels syntaxiquement); %[P29, P30];
+        \item non formellement définis (langages non formels); % [P23, P30, P33];
+    \end{itemize}
+    \item des règles~:
+    \begin{itemize}
+        \item avec inférence logique; % [P24, P26, P27, P29, P30, P31, P38]; 
+        \item avec inférence statistique; % [P34, ];
+        \item sans inférence. % [P23, P30].
+    \end{itemize}
+\end{itemize}
+Il est important de souligner que l'utilisation de règles avec inférence logique nécessite l'emploi d'un langage formel. Se restreindre à cette approche mène à l'obtention d'un système logique ou d'un modèle logique et susceptible d'être vérifié, en grande partie, par une machine abstraite. Cependant, l'utilisation d'autres combinaisons de langages et de règles ne l'assure pas.
+}{}{}
+
+\paragraphe{}{En plus des caractéristiques de qualité, le couplage doit être pris en compte par les instruments servant à la documentation. Parce que les coûts d’évolution et de maintenance sont directement proportionnels au nombre de couplages, donc influence l'adaptabilité. Néanmoins, cela est rarement appliqué objectivement à la documentation. Ainsi, même s'il faut assurer la cohérence tout en minimisant le couplage, l’organisation des artefacts dépendra souvent du choix des artefacts retenus et de leurs contenus. Ces choix répondent à des critères objectifs et subjectifs. Certains peuvent opter pour regrouper toutes les règles servant au développement d'un modèle dans un document de spécification des exigences. D'autres peuvent distribuer les règles à travers différents documents et les mettre sous la forme de diagrammes UML ou de \textit{user stories}. Ces choix ont un effet sur le couplage et la cohérence.}{}{}
+
+\section{Une modélisation du problème}
+\paragraphe{}{Le problème est celui de la formalisation et de la compréhension des documents servant aux modèles. Du point de vue d'un praticien informatique, ce problème apparaît lors de l'utilisation d'instruments servant à faire des logiciels. Une mauvaise compréhension des documents a des répercussions négatives sur la qualité des logiciels. En plus, ces instruments peuvent être eux-mêmes des logiciels développés à l'aide de documents pour lesquels une mauvaise compréhension existait. Tous ces logiciels font partie de processus et en exécutent d'autres. Des processus qui ont été précédemment modélisés de manière formelle ou non par des praticiens informatiques. Ainsi, la modélisation du problème est en fait la rétro-ingénierie de la revue de littérature. Elle s'articule autour de trois modèles représentant des processus. Ces modèles contraignent ces procédés sans pour autant les définir, soit~:
+\begin{itemize}
+    \item un procédé pour l'obtention d'un instrument;
+    \item un procédé pour l'obtention d'un logiciel;
+    \item un procédé pour l'obtention d'un modèle.
+\end{itemize}
+Ces modèles sont décrits, dans les paragraphes qui suivent, en utilisant des prédicats et le langage de diagramme EA. Un prédicat est une 
+\quotefr
+{Fonction mettant en œuvre un ou plusieurs arguments, utilisée pour déclarer quelque chose concernant des objets, et dont le résultat est vrai ou faux.}
+{\cite{Gdt_predicat_0}}
+Ces prédicats pourront être précisés en fonction des procédés décrits ou désirés. Ils peuvent être davantage restreints. Le prochain paragraphe comprend la description du langage de diagramme entité-association (EA). En complément de la modélisation de ces processus, plusieurs observations fournissent des indices quant aux besoins que la solution devra satisfaire.
+}{}{}
+
+\paragraphe{}{
+Le modèle d'un procédé d'obtention d'un instrument est composé de l'ensemble de ces prédicats~:
+\begin{align*}
+\operatorname{explicite}(i,a) &:= 
+\begin{aligned}[t]
+&\text{un artefact } a \text{ rend manipulable une ou}\\
+&\text{plusieurs informations } i
+\end{aligned}\\
+\operatorname{compose}(a1,a2) &:= \text{un artefact } a1 \text{ compose zéro, un ou plusieurs artefacts } a2 \\
+\operatorname{spécifie\_exp}(a,i) &:= 
+\begin{aligned}[t]
+&\text{un artefact } a \text{ participe à la } \\
+&\text{spécification explicite de zéro, un ou plusieurs instruments } i 
+\end{aligned}\\
+\operatorname{utilise}(f,p,i,a) &:=
+\begin{aligned}[t]
+&\text{dans le cadre d'un processus } f, \text{ zéro, un ou plusieurs} \\ 
+&\text{praticien informatique } p \text{ utilise zéro, un ou plusieurs} \\
+&\text{instruments } i \text{ pour créer zéro, un ou plusieurs artefacts } a
+\end{aligned}\\
+\operatorname{communique}(g1,g2) &:= 
+\begin{aligned}[t]
+&\text{un groupe } g1 \text{ transmet des informations} \\
+&\text{ à zéro, un ou plusieurs groupes } g2
+\end{aligned}\\
+\operatorname{participe}(p,g) &:= 
+\begin{aligned}[t]
+&\text{un praticien informatique } p \text{ appartient à un zéro, un}\\
+&\text{ou plusieurs groupes } g \\
+\end{aligned}\\
+\operatorname{spécifie\_imp}(p,i) &:= 
+\begin{aligned}[t]
+&\text{un praticien informatique } p \text{ partage l'usage qu'il} \\
+&\text{fait de zéro, un ou plusieurs instruments } i \footnotemark.
+\end{aligned}
+\end{align*}
+\footnotetext{Il existe de nombreux instruments qui sont détournés de leurs usages principaux sans que personne ne le consigne dans un artefact. Ils sont spécifiés implicitement.}
+\figgm
+{Diagramme EA du procédé d'obtention d'un instrument}
+{figure/chap2/modelconnai.png}
+{}{}{}{tb}
+\sep
+Le langage de diagramme EA fournit un diagramme représentant le modèle du procédé d'obtention d'un instrument (figure~2.1).
+Plusieurs observations sont faites sur le modèle de ce procédé d'obtention d'un instrument à partir des prédicats ou de la figure~2.1 ~:
+\begin{enumerate}[label=\alph*)]
+    \item La présence même de l'artefact explicite de l'information et son absence le peut également.
+    \item Un processus n'existe pas s'il n'a pas d’intrant et d'extrant, c'est-à-dire qu'il nécessite un participant informatique, un instrument ou un artefact. Il n'y a pas de distinction entre l'intrant et l'extrant si ce n'est son usage lors d'un processus.
+    \item Un chemin emprunté par les connaissances en informatique appliquée est celui du traitement de l'information. Les connaissances sont des informations et leurs communications nécessitent une forme explicite, ainsi ils deviennent les artefacts du procédé d'\emphase{obtention d'un instrument}.
+    \item Un autre chemin emprunté par les connaissances en informatique appliquée est le transfert des connaissances par l'intermédiaire de groupes. Cela est modélisé par les entités et les associations \titlefig{participe, groupe, communique}.
+    \item L'instrument accumule des représentations des connaissances, puis les met à la disposition.
+    \item Certains documents et certains logiciels sont des instruments pour les participants informatiques.
+    \item Des praticiens informatiques peuvent utiliser des instruments selon un usage différent de celui prévu et sans en spécifier explicitement l'usage.
+    \item Le niveau d'utilisation d'un instrument peut varier selon sa maîtrise. Cependant, la revue de littérature n'a pas exposé assez de connaissances à ce sujet pour en permettre la modélisation.
+    \item La spécification explicite d'un instrument passe par le processus.
+\end{enumerate}
+}{}{}
+
+\paragraphe{}{
+Le modèle d'un procédé d'obtention d'un logiciel est composé de l'ensemble des prédicats suivants~:
+\begin{align*}
+\operatorname{rédige}(p,d) &:= 
+\begin{aligned}[t]
+&\text{un praticien informatique } p \text{ apporte zéro, un ou plusieurs } \\
+&\text{modifications de rédaction à un document } d
+\end{aligned}\\
+\operatorname{consulte}(p,d) &:= 
+\begin{aligned}[t]
+&\text{un praticien informatique } p \text{ consulte} \\
+&\text{ zéro, un ou plusieurs documents } d 
+\end{aligned}\\
+\operatorname{concrétise\_m}(d,m) &:= \text{un document } d \text{ rend manipulable un ou plusieurs modèles } m \\
+\operatorname{est}(l,i) &:= \text{un logiciel } l \text{ est zéro, un ou plusieurs instruments } i \\
+\operatorname{traduit}(i,d,l) &:=
+\begin{aligned}[t]
+&\text{un instrument } i \text{ traduit un ou plusieurs documents } d  \\
+&\text{ vers un ou plusieurs logiciels } l
+\end{aligned}\\
+\operatorname{concrétise\_sf}(l,s) &:= \text{un logiciel } l \text{ matérialise un ou plusieurs systèmes formels } s \\
+\operatorname{compose\_sf}(s,r,c,l) &:= 
+\begin{aligned}[t]
+&\text{un système formel } s \text{ est composé } \\
+&\text{de zéro, une ou plusieurs règles } r, \text{ concepts } c \\
+&\text{et langages formels } l  \\
+\end{aligned}\\
+\operatorname{constitue}(i,r) &:= \text{une règle d'inférence } i \text{ est une ou plusieurs règles } r \\
+\operatorname{compose\_sl}(s,i,c,l) &:= 
+\begin{aligned}[t]
+&\text{un système logique } s \text{ est composé } \\
+&\text{de zéro, une ou plusieurs règles d'inférences } i, \text{ concepts } c\\
+&\text{et langage formel } l  \\
+\end{aligned}\\
+\operatorname{partage}(sl,sf,r,c,l) &:= 
+\begin{aligned}[t]
+&\text{un système formel } sf \text{ et } \text{un système logique } sl\\
+&\text{partagent une ou plusieurs règles } r \text{,}\\
+&\text{concepts } c \text{ et langages formels } l\\
+\end{aligned}
+\end{align*}
+Le langage de diagramme EA fournit un diagramme représentant le modèle d'un procédé d'obtention d'un logiciel (figure~2.2).
+\fig
+{Diagramme EA du procédé d'obtention d'un logiciel}
+{figure/chap2/modeldoc.png}
+{}{}{}{tb}
+Plusieurs observations sont faites sur le modèle du procédé d'obtention d'un logiciel à partir des prédicats ou de la figure~2.2~:
+\begin{enumerate}[label=\alph*)]
+    \item En informatique appliquée, le modèle à concrétiser peut provenir du domaine du problème ou du domaine de la solution.
+    \item Les documents, les instruments, les logiciels sont tous des artefacts.
+    \item Les logiciels concrétisent des systèmes et certains sont des modèles.
+    \item Les instruments de traduction et d'exécution reposent sur un système formel et celui-ci repose sur un système logique.
+    \item Les méthodes formelles visent à spécifier et à vérifier des logiciels à l’aide des systèmes logiques.
+    \item Les logiciels ne se limitent pas aux systèmes formels, puisqu'ils intègrent des interfaces utilisateurs. Ces logiciels ne font pas partie de la modélisation. 
+    \item Les systèmes logiques et formels étant des entités évolutives, elles peuvent à un moment être composées d'aucune règle, concept ou langage formel.
+\end{enumerate}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\paragraphe{}{
+Le modèle d'un procédé d'obtention d'un modèle est composé de l'ensemble des prédicats suivants~:
+\begin{align*}
+\operatorname{infère}(r,c) &:=
+\begin{aligned}[t]
+&\text{zéro, une ou plusieurs règles } r \text{ établit des relations} \\
+&\text{entre zéro, un ou plusieurs concepts } c
+\end{aligned}\\
+\operatorname{représente}(m,s) &:= 
+\begin{aligned}[t]
+&\text{un modèle } m \text{ est une représentation qui décrit un}\\
+&\text{ou plusieurs sujets } s
+\end{aligned}\\
+\operatorname{compose}(c,l,r,m) &:= 
+\begin{aligned}[t]
+&\text{zéro, un ou plusieurs concepts } c, \text{ langages } l \\
+&\text{et réglementations } r \text{ composent un ou plusieurs modèles } m
+\end{aligned}\\
+\operatorname{traite}(a,s,m,i) &:= 
+\begin{aligned}[t]
+&\text{un praticien informatique } a \text{ traite zéro, un ou plusieurs} \\
+&\text{sujets } s \text{ avec zéro, un ou plusieurs modèles } m \\
+&\text{ou instruments } i
+\end{aligned}\\
+\operatorname{concrétise}(m,a,p,i) &:= 
+\begin{aligned}[t]
+&\text{un modèle } m \text{ est concrétisé avec un artefact } a \\
+&\text{par zéro, un ou plusieurs praticiens informatiques } p \\
+&\text{ou instruments } i 
+\end{aligned}\\
+\operatorname{est\_conforme}(r,t) &:= 
+\begin{aligned}[t]
+&\text{zéro, une ou plusieurs règles } r \text{ sont conformes à une} \\
+&\text{ou plusieurs théories } t
+\end{aligned}\\
+\operatorname{est\_exprimé}(a,s) &:= \text{un artefact } a \text{ est exprimé avec un ou plusieurs langages } l
+\end{align*}
+Le langage de diagramme EA fournit un diagramme représentant le modèle du procédé d'obtention d'un modèle ( figure~2.3).
+\figmedium
+{Diagramme EA du procédé d'obtention d'un modèle}
+{figure/chap2/modelmodel.png}
+{}{}{}{tb}
+Plusieurs observations sont faites sur le modèle du procédé d'obtention d'un modèle à partir des prédicats ou de la figure~2.3~:
+\begin{enumerate}[label=\alph*)]
+    \item En informatique appliquée, le sujet peut être une machine abstraite, un modèle ou un artefact.
+    \item Lorsque le sujet est un modèle, il s'agit du procédé d'obtention d'un métamodèle.
+    \item Le traitement\footnote{En informatique, il peut arriver que le traitement ne comprenne pas la vérification ou la validation, ce n'est pas le cas ici.} d'un modèle peut comprendre la vérification ou la validation~: cela dépend du sujet et de l'instrument.
+    \item L'instrument peut provenir de la concrétisation d'un modèle.
+    \item L'adéquation entre un modèle et sa concrétisation dépend des participants informatiques, des langages, des concepts et des règles.
+    \item Un artefact peut réaliser un modèle, mais ce n'est pas forcément le cas. Par exemple, le code source (artefact) doit s'exécuter sur une machine abstraite pour réaliser un modèle. Néanmoins, le code source concrétise le modèle.
+\end{enumerate}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\section{Des attentes à considérer pour la solution}
+
+\paragraphe{}{
+Les attentes sont celles de l'ensemble des participants informatiques gravitant autour du problème et de sa solution, et s'inspirent de la revue de littérature. Ces désirs, une fois comblés, pourraient assurer l'adoption de la solution. Cependant, leurs formes subjectives peuvent conduire à des ambiguïtés ne permettant pas de confirmer leur respect avec la logique.
+}{}{}
+
+\paragraphe{}{
+Cinq attentes ont été choisies et il peut en exister d'autres~:
+\begin{itemize}[label={}, leftmargin=*]
+\item AT01~: La solution devrait améliorer la compréhension des utilisateurs quant aux documents servant aux modèles [\hyperref[paragraphe:P060]{P46}, \hyperref[paragraphe:P061]{P47}, \hyperref[paragraphe:P104]{P77}, \hyperref[paragraphe:P105]{P78}].
+\item AT02~: La solution devrait fournir, dans le cadre d'un environnement de développement, les fonctionnalités nécessaires à la production et à la maintenance des documents servant aux modèles [\hyperref[paragraphe:P065]{P50}, \hyperref[paragraphe:P066]{P51}].
+   
+\item AT03~: La solution devrait rendre plus efficiente la manipulation des documents servant aux modèles, plus particulièrement en regard du temps requis et de la charge cognitive induite par le processus, et ce, pour l’ensemble des professionnels informatiques et des participants informatiques [\hyperref[paragraphe:P013]{P08}, \hyperref[paragraphe:P014]{P09}].
+
+\item AT04~: La solution devrait être utilisable par des utilisateurs ayant des acquis distincts, et elle devrait finir par être maîtrisée [\hyperref[paragraphe:P073]{P56}, \hyperref[paragraphe:P083]{P62}, \hyperref[paragraphe:P085]{P64}, \hyperref[paragraphe:P106]{P79}, \hyperref[paragraphe:P107]{P80}].
+
+\item AT05~: La solution devrait s'utiliser dans différents environnements de développement faisant appel à différents procédés, gabarits de documents, langages, modèles, métamodèles et configurations [\hyperref[paragraphe:P006]{P03}, \hyperref[paragraphe:P073]{P58}].
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\section{Des besoins à considérer pour la solution}
+
+\paragraphe{}{Les besoins sont justifiés et plus précis que les attentes. Ils regroupent ce qui est fondamentalement nécessaire pour satisfaire les parties prenantes. Dans le contexte de l'informatique appliquée, il y a deux caractéristiques majeures qui subsistent. La première caractéristique développe et utilise des modèles pour réaliser et établir des logiciels. La seconde applique à l'informatique appliquée des instruments provenant de logiciels. Ces deux caractéristiques font que le terme \emphase{modèle} est privilégié à celui de \emphase{document} pour exprimer les besoins. 
+}{}{}
+
+%répété la provenance comme dans intro
+\paragraphe{}{Parmi les modèles, certains sont disponibles à l'utilisateur, tandis que d'autres sont réservés au système. Ceux qui sont disponibles à l'utilisateur sont les modèles développés qui correspondent aux logiciels à réaliser et à établir. Les modèles qui sont disponibles au système sont en fait des instruments se retrouvant dans la solution, ils sont nommés modèles systèmes. Les deux catégories de modèles peuvent contenir des métamodèles.}{}{}
+
+\paragraphe{}{
+L'analyse de la revue de littérature a permis d'identifier au moins cinq~besoins. Voici la liste avec leurs justifications~:
+\label{listebesoin}
+\begin{itemize}[label={}, leftmargin=*]
+    \item BE01~: Permettre l'extraction des attributs des modèles développés depuis les documents qui les décrivent.
+    \begin{itemize}
+    \item Séparer les éléments des documents pour être en mesure de les traiter syntaxiquement ou sémantiquement de façon à obtenir de nouveaux artefacts variant tant par la forme que le contenu [\hyperref[paragraphe:P035]{P26}, \hyperref[paragraphe:P069]{P53}].
+    \item Rechercher, voire regénérer, les modèles à partir des artefacts peut constituer le seul moyen de les retrouver (rétro-ingénierie) [\hyperref[paragraphe:P090]{P67}, \hyperref[paragraphe:P091]{P68}].
+    \end{itemize}
+
+    \item BE02~: Permettre la création de nouveaux modèles développés depuis l'usage des modèles systèmes et des modèles développés. 
+    \begin{itemize}
+    \item Au sein d'une collectivité, l'usage détermine souvent l'existence et la nécessité des différentes catégories de documents qui peuvent être des modèles ou des gabarits [\hyperref[paragraphe:P093]{P69}, \hyperref[paragraphe:P101]{P75}].
+    \item Il existe déjà des modèles concrétisés par des logiciels dont plusieurs sont patrimoniaux [\hyperref[paragraphe:P022]{P16}].
+    \item Les documents utilisent différents types de langages formels ou non formels [\hyperref[paragraphe:P038]{P29}, \hyperref[paragraphe:P043]{P32}, \hyperref[paragraphe:P057]{P43}].
+    \item Les modèles touchent différents domaines de connaissances, donc les concepts sont différents [\hyperref[paragraphe:P054]{P40}].
+    \item L'informatique développe des modèles depuis différents domaines de connaissances, cela a une répercussion sur les concepts [\hyperref[paragraphe:P079]{P60}].
+    \end{itemize}
+
+    \item BE03~: Permettre d’identifier les changements apportés aux documents pour déterminer au mieux les répercussions potentielles sur les modèles développés.
+    \begin{itemize}
+    \item Les documents sont utilisés à travers tout le processus de développement, la traçabilité ajoute la dimension temporelle et permet différents suivis, comme celui des coûts [\hyperref[paragraphe:P009]{P06}].
+    \item Maintenir à jour les documents pour éviter que cela ne devienne de la dette technique tant dans son contenu que dans sa forme, ainsi que dans le respect des modèles (gabarit, procédé) en place [\hyperref[paragraphe:P010]{P07}, \hyperref[paragraphe:P024]{P18}].
+    \item La fréquence des changements apportés aux logiciels est de plus en plus élevée et certains touchent aux exigences, cela peut mener à des répercussions importantes  [\hyperref[paragraphe:P023]{P17}]\footnote{Ce justificatif peut aussi se retrouver dans le besoin BE04, car il laisse entendre qu'il existe de nombreux environnements distincts.}.
+    \end{itemize}
+    
+    \item BE04~: Permettre l'adaptation des modèles développés pour différents contextes ou systèmes.
+    \begin{itemize}
+    \item Différents systèmes logiques sont utilisés, certains sont seulement plus utilisés que d'autres, de sorte qu'il ne semble pas réaliste d'en imposer qu'un [\hyperref[paragraphe:P053]{P39}].
+    \item Les modèles peuvent varier selon le contexte, ce qui inclut le procédé de développement, le cadre réglementaire et les expertises employées [\hyperref[paragraphe:P007]{P04}, \hyperref[paragraphe:P008]{P05}].
+    \end{itemize}
+    
+    \item BE05~: Permettre l'évaluation de la qualité d'un modèle développé, les caractéristiques de qualité étant définies par un modèle système.
+    \begin{itemize}
+    \item Le contrôle de la documentation est minime, car il y a souvent un manque d'encadrement, de supervision et fondamentalement d'intérêt envers ces artefacts   [\hyperref[paragraphe:P016]{P11}, \hyperref[paragraphe:P017]{P12}, \hyperref[paragraphe:P018]{P13}, \hyperref[paragraphe:P019]{P14}].
+    \item La qualité d'un document et d'un logiciel est reliée et exprimée par un modèle [\hyperref[paragraphe:P030]{P22}, \hyperref[paragraphe:P038]{P28}, \hyperref[paragraphe:P070]{P54}, \hyperref[paragraphe:P072]{P55}].
+    \item Les caractéristiques de qualité des documents et des logiciels sont aussi celles qu'un modèle doit respecter\footnote{Conséquemment, les mêmes méthodes ou techniques pourraient être utilisées.} [\hyperref[paragraphe:P020]{P15}, \hyperref[paragraphe:P029]{P21}, \hyperref[paragraphe:P034]{P25}, \hyperref[paragraphe:P040]{P30}, \hyperref[paragraphe:P058]{P44}, \hyperref[paragraphe:P059]{P45}, \hyperref[paragraphe:P068]{P52}].
+    \end{itemize}
+
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}

@@ -1,0 +1,429 @@
+
+\paragraphe{}{Un logiciel est la concrétisation d'une solution informatique qui résulte d'un procédé de développement. Ce chapitre présente un modèle de solution en exposant des exigences, des éléments de conception et d'implémentation. Les exigences peuvent émaner du problème à résoudre ou de la solution proposée. Certaines de ces exigences exposent un prolongement à la solution. Les exigences sont réparties dans trois sections. En ce qui a trait au modèle de la solution, il prend la forme d'un instrument d'aide à la rédaction (IAR) pour les documents servant aux modèles en informatique appliquée.
+}{}{}
+
+\paragraphe{}{Cet instrument, qui est en fait une preuve de concept, s'attarde sur la création d’un compilateur qui répondra aux besoins. Toutefois, des travaux ont été entamés pour étendre les fonctionnalités de l'instrument. L'IAR prenant la forme d'un atelier, il devient plus aisé de manipuler les configurations et les modèles.
+}{}{}
+
+\section{Des exigences de la modélisation du problème}
+
+\paragraphe{}{Les besoins, les diagrammes et les prédicats explicités dans le chapitre 2 constituent des règles pour un modèle du problème. Les exigences ont pour but de caractériser les solutions acceptables (voire adéquates) en regard du problème. Il est donc nécessaire qu'elles soient comprises (donc compréhensibles) puis évaluées (donc évaluables) par les parties prenantes. Ces règles peuvent s'inspirer du modèle du problème ou provenir de la conception et font toutes partie d'un modèle de solution.
+}{}{}
+\paragraphe{}{Les exigences en lien avec le modèle du problème sont~:
+\label{listeexigence1}
+\begin{itemize}[label={}, leftmargin=*]
+    \item EX01~: Le système doit permettre la création et la modification des modèles \footnote{Ce sont des modèles développés qui répondent aux objectifs d'un procédé de développement et qui sont formulés en termes de metamodèles.}. 
+    \item EX02~: Le système doit permettre l'importation et l'exportation des modèles \footnote{Ce sont des modèles développés qui peuvent eux-mêmes devenir des instruments pour d'autres modèles.}. 
+    \item EX03~: Le système doit permettre la réutilisation des modèles développés. 
+    \item EX04~: Le système doit permettre la comparaison des modèles développés. 
+    \item EX05~: La structure d'un modèle au sein du système doit comprendre des concepts, des règles et des langages.
+    \item EX06~: Le système doit permettre de former un modèle en fonction des métamodèles utilisés par le système.
+    \item EX07~: Le système doit opérer toutes les transformations permises par les modèles sur la base du formalisme qui les décrit.
+    \item EX08~: Le système doit extraire les éléments requis à la synthèse d'un modèle développé à partir des documents et de la configuration soumise.
+    \item EX09~: Le système doit vérifier la description proposée d'un modèle en fonction des intrants (des modèles, des configurations, des documents), et ce, à différents niveaux (lexical, syntaxique et sémantique).
+    \item EX10~: Le système doit permettre de présenter les modèles développés.
+    \item EX11~: Le système doit donner le moyen de contextualiser les documents (y compris les modèles et métamodèles).
+    \item EX12~: Le système doit fournir des informations visant à permettre à l'utilisateur d'évaluer la couverture, l’efficience et l'adaptabilité du modèle développé.
+\end{itemize}
+}{}{}
+
+\paragraphe{}{Il convient de souligner que ces exigences n'explicitent pas le respect de certaines caractéristiques de qualités. En voici les raisons~: 
+\begin{itemize}
+    \item cohérent~: un modèle formel a de l’intérêt que s'il s’appuie sur un système logique qui permettra de trouver des incohérences;
+    \item efficace~: se vérifie avec l'aide d'un deuxième modèle, les relations entre modèles sont comprises à l'intérieur des exigences supplémentaires (futur développement);
+    \item complétude~: la complétude n'étant pas atteignable, c'est à l'utilisateur de déterminer les critères satisfaisants;
+    \item réfutabilité~: nécessite l'intégration de procédés scientifiques à même l'instrument qui permettra entre autres la définition de conséquences éventuellement vérifiable en pratique;
+    \item éthique~: nécessite la formalisation des règles éthiques provenant de connaissances dépendantes à la fois du contexte et de l'usage.
+\end{itemize}
+}{}{}
+
+\section{Une conception d'une solution}
+
+% Bien que cette présentation soit dominante dans la littérature internet, elle n’est pas acceptée par tous. Entre autres, Abrial, Elmasri et Navathe ne la partage pas. Par exemple, un MCD exprimé à l’aide de la notation Merise est calculable, celui à l’aide de la notation Elmasri-Navathe, non (elle peut le devenir en ajoutant des axiomes et ainsi la rendre traductible en notation Merise). À ma connaissance toutefois, aucun modèle MCD n’est « Turing complete ». Le MLD se distingue du MCD non seulement parce qu’il est «Turing complete » mais aussi, et surtout selon moi, parce qu’il est équivalent au système logique sur lequel il est construit : 1. la logique classique à deux valeurs (dite de Boole) pour le modèle relationnel de Date, 2. la logique à treillis distributif à quatre valeurs (dite de Belnap) pour le modèle relationnel de Codd, 3. la logique «SQL» à trois valeurs pour le modèle pseudo-relationnel de SQL.
+\paragraphe{}{Cette conception se déroule à partir du niveau le plus abstrait. Cela permet de donner une vue d'ensemble et d'ajouter les détails par étapes. Cette conception comprend un modèle logique de traitement et un modèle logique de données. Le modèle conceptuel de traitement \footnote{Le modèle conceptuel de traitement appartient au domaine de la solution et le modèle conceptuel de flux appartient au domaine du problème; ces modèles peuvent s'exprimer de manière similaire.} est concrétisé par un diagramme de contexte et des diagrammes de flux de données, tandis que le modèle conceptuel de données \footnote{Le modèle conceptuel de données peut devenir calculable et le modèle logique de données est calculable; ces modèles peuvent s'exprimer de manière similaire.} est concrétisé par un diagramme entité association. Les descriptions formelles de ces diagrammes se retrouvent en annexe~C.}{}{}
+
+\paragraphe{}{
+\fig
+{Diagramme de contexte de l'IAR}
+{figure/chap3/dfd.png}
+{}{}{}{tb}
+
+Les éléments du diagramme de contexte (figure~3.1)~:
+    \begin{itemize}
+    \item \titlefig{Utilisateur}~: toute personne modifiant le modèle;
+    \item \titlefig{Configuration}~: ensemble de descriptions formelles exprimant des métamodèles ainsi que des règles;
+    \item \titlefig{Journal}~: ensemble de documents informant l'utilisateur du déroulement du processus;
+    \item \titlefig{Description proposée d'un modèle}~: ensemble de documents définissant un modèle ou des changements à un modèle;
+    \item \titlefig{IAR}~: applique des transformations pour obtenir un modèle formel respectant un système logique;
+    \item \titlefig{Représentation standardisée du modèle}~: ensemble de documents produits à partir de la description proposée d'un modèle et respectant les métarègles du système et celles de la configuration;
+    \item règle~: décrit formellement une extraction, une transformation ou une contrainte à appliquer au modèle formel dans un objectif donné, elle est elle-même décrite en utilisant une description formelle.
+    \end{itemize}
+}{}{}
+
+\paragraphe{}{
+\fig
+{DFD du système \titlefig{IAR}}
+{figure/chap3/dfd2.png}
+{}{}{}{!tb}
+
+Les éléments du DFD du système \titlefig{IAR} (figure~3.2)~:
+\begin{itemize}
+    \item \titlefig{Diriger}~: coordonne les différents processus et sélectionne les transformations pour les processus \titlefig{Épurer}, \titlefig{Formaliser} et \titlefig{Présenter}; 
+    \item \titlefig{Session}~: contient les références aux descriptions formelles utilisées pour les transformations lors du déroulement;
+    \item \titlefig{Résoudre}~: rend accessibles les descriptions formelles aux transformations \footnote{Une future amélioration serait un flux entre 1.1 et 1.2 afin de manipuler plus facilement la configuration à utiliser.};
+    \item \titlefig{Journaliser}~: regroupe et transmet le déroulement et les résultats des différentes transformations;
+    \item \titlefig{Épurer}~: retire des informations non nécessaires à un modèle selon des règles d'épurations\footnote{Des exemples de règles sont donnés en annexe~D.};
+    \item \titlefig{Formaliser}~: construit un modèle ou apporte des changements à un modèle selon des règles servant à traduire, à certifier et à assurer;
+    \item \titlefig{Présenter}~: présente des informations provenant du modèle selon des règles de présentation;
+    \item \titlefig{Description proposée épurée d'un modèle}~: contient l'ensemble des données nécessaires pour un modèle;
+    \item \titlefig{Modèle vérifié}~: contient le modèle et le persiste dans la mémoire.
+\end{itemize}
+
+}{}{}
+
+\paragraphe{}{
+\fig
+{DFD du processus \titlefig{1.5~Formalise}}
+{figure/chap3/dfd3.png}
+{}{}{}{!tb}
+
+Les éléments du DFD du processus \titlefig{1.5~Formalise} (figure~3.3)~:
+\begin{itemize}
+    \item \titlefig{Traduire}~: prends les informations pour en faire un modèle fragmentaire qui suit le métamodèle selon des règles de traduction;
+    \item \titlefig{Modèle intermédiaire}~: contient des changements à un modèle, une partie du modèle ou un modèle;
+    \item \titlefig{Vérifier partiellement}~: vérifie le comportement interne du modèle intermédiaire et applique certaines adaptations, et ce, toujours selon des règles\footnote{Il agit comme un analyseur de code statique.};
+    \item \titlefig{Vérifier totalement}~: vérifie le comportement interne et externe du modèle selon des règles et un système logique.
+\end{itemize}
+
+}{}{}
+
+\paragraphe{}{
+Le modèle conceptuel de données de la preuve de concept est composé de l’ensemble des prédicats suivants~: 
+\begin{align*}
+\operatorname{possède}(j,e) &:= \text{un journal } j  \text{ contient un ou plusieurs événements } e \\
+\operatorname{renvoie}(s,m) &:= 
+\begin{aligned}[t]
+&\text{un système de référence } s \text{ concerne exactement deux} \\
+&\text{modèles } m
+\end{aligned}\\
+\operatorname{comprend}(s,r) &:= 
+\begin{aligned}[t]
+&\text{un système de référence } s \text{ regroupe aucune, une ou plusieurs} \\
+&\text{références } r
+\end{aligned}\\
+\operatorname{concrétise}(d,m) &:= 
+\begin{aligned}[t]
+&\text{le document } d  \text{ concrétise aucun, un ou plusieurs modèles } \\
+\end{aligned}\\
+\operatorname{instancie}(m1,m2) &:= 
+\begin{aligned}[t]
+&\text{un modèle } m1  \text{ est un sujet représenté}\\
+&\text{par aucun, un ou plusieurs métamodèles } m2 \\
+\end{aligned}\\
+\operatorname{estconforme\_1}(d,m) &:= 
+\begin{aligned}[t]
+&\text{une description proposée d'un modèle } d  \text{ est conforme} \\
+&\text{à un ou plusieurs métamodèles de modèle } m \\
+\end{aligned}\\
+\operatorname{estconforme\_2}(r,m) &:= 
+\begin{aligned}[t]
+&\text{une représentation standardisée d'un modèle } r  \text{ est} \\
+&\text{conforme à un ou plusieurs métamodèles de modèle } m \\
+\end{aligned}\\
+\operatorname{estconforme\_m}(d,m) &:= 
+\begin{aligned}[t]
+&\text{un document } d \text{ est conforme} \\
+&\text{à aucun, un ou plusieurs métamodèles de document } m \\
+\end{aligned}\\
+\operatorname{remplit}(s,j) &:= \text{une session } s  \text{ fait un journal } j \\
+\operatorname{crée}(u,s) &:= \text{un utilisateur } u  \text{ fait une ou plusieurs sessions } s \\
+\operatorname{emploie}(u,s) &:= \text{un utilisateur } u  \text{ utilise une ou plusieurs sessions } s \\
+\operatorname{relève}(d,s) &:= \text{un document } d  \text{ dépend d'aucune, une ou plusieurs sessions } s \\
+\operatorname{contient\_i}(d,i) &:= 
+\begin{aligned}[t]
+&\text{un document } d  \text{ comprend aucune, une } \\
+&\text{ou plusieurs informations } i \\
+\end{aligned}\\
+\operatorname{renferme}(i1,i2, i3) &:= 
+\begin{aligned}[t]
+&\text{une information } i1  \text{ a peut-être un ancêtre } i2 \\
+&\text{ou peut-être plusieurs descendants } i3 \\
+\end{aligned}\\
+\operatorname{provient}(i,s) &:= 
+\begin{aligned}[t]
+&\text{une information } i  \text{ vient d'aucune, }\\
+&\text{une ou plusieurs sources } s \\
+\end{aligned}\\
+\operatorname{réfère\_1}(i,c) &:= \text{une information } i  \text{ concerne un ou plusieurs concepts } c \\
+\operatorname{réfère\_2}(f,c) &:= \text{un formalisme } f  \text{ concerne un ou plusieurs concepts } c \\
+\operatorname{compose\_e}(s,e) &:= \text{une session } s  \text{ a une ou des étapes } e \\
+\operatorname{compose\_t}(e,t) &:= 
+\begin{aligned}[t]
+&\text{une étape } e  \text{ a aucune, une ou plusieurs}\\
+&\text{ transformations } t\\
+\end{aligned}\\ 
+\operatorname{exploite}(t,f) &:= 
+\begin{aligned}[t]
+&\text{une transformation } t  \text{ utilise aucun,}\\
+&\text{un ou plusieurs formalismes } f\\
+\end{aligned}\\ 
+\operatorname{utilise}(f,r) &:= \text{un formalisme } f  \text{ utilise aucune, une ou plusieurs règles } r\\
+\operatorname{participe}(p,s) &:= 
+\begin{aligned}[t]
+&\text{un énoncé logique } p \text{ appartient à aucun, un ou }\\
+&\text{plusieurs systèmes } s\\
+\end{aligned}\\
+\operatorname{appartient}(r,s) &:= \text{une règle } r  \text{ participe à aucun, un ou plusieurs systèmes } s\\
+\operatorname{respecte}(s1,s2) &:= 
+\begin{aligned}[t]
+&\text{un système } s1 \text{ respecte } \\
+&\text{ aucun, un ou plusieurs autres systèmes } s2 \\
+\end{aligned}\\
+\operatorname{unit}(r,s1,s2) &:= 
+\begin{aligned}[t]
+&\text{une référence } r \text{ unit} 
+\text{ deux sources distinctes } s1 \text{ et } s2 \\
+\end{aligned}
+\end{align*}
+Le langage de diagramme EA fournit un diagramme représentant le modèle conceptuel de données de la preuve de concept (figure~3.4). Les observations suivantes sont faites sur le modèle conceptuel de données à partir des prédicats ou de la figure~3.4~:
+\begin{enumerate}[label=\alph*)]
+    \item L'entité information est peu décrite; son  modèle logique est néanmoins fourni plus loin.
+    \item Le système de références se construit automatiquement avec les entités sources.
+\end{enumerate}
+\figlandscape
+{Diagramme EA du modèle conceptuel de données de la preuve de concept}
+{figure/chap3/mcd.png}
+{}{}{}{H}
+}{}{}
+
+\section{Des exigences de la modélisation d'une solution}
+
+\paragraphe{}{En développant une solution, de nouvelles exigences apparaissent et s'ajoutent à celles provenant de la modélisation du problème. Elles servent à mettre en place une solution et peuvent comprendre des aspects techniques~:
+\label{listeexigence2}
+\begin{itemize}
+    \item EX13~: Le système doit épurer la description proposée d'un modèle.
+    \begin{itemize}
+        \item Les documents peuvent contenir des informations non nécessaires au modèle ou contenir des fonctions (macro, micro) qui encapsulent des informations importantes.
+    \end{itemize}
+    \item EX14~: Le système doit informer les utilisateurs sur le processus lui-même et son déroulement.
+    \item EX15~: Le système doit permettre la contextualisation d'une session de modélisation \footnote{Dans le preuve de concept, le métamodèle de la configuration permet un paramétrage de la part de l'utilisateur.}.
+\end{itemize}
+
+}{}{}
+
+\section{Des explications sur l'implémentation d'une solution}
+
+\paragraphe{}{Les explications sur l'implémentation portent sur les instruments employés pour permettre l'utilisation du système, le passage du texte en modèle et la calculabilité du modèle. L'utilisation du système se résume à l'interface utilisateur. L'extraction du texte en modèle se fait grâce à des descriptions formelles. La calculabilité du modèle découle de sa définition en termes de langages formels par l'emploi de systèmes logique, et ce, pour le calcul des transformations autres que linguistiques.}{}{}
+
+\paragraphe{}{Les instruments servant à l'utilisation du système (interface utilisateur) doivent permettre le développement rapide d'une preuve de concept rapidement et doivent être relativement facile à maîtriser. Dans le cadre de ce mémoire, les recherches ont conduit à opter pour l'utilisation de la composante web Ace Editor. De plus, la réutilisation de l'exemple Ace Playground a diminué considérablement le temps de développement. Cette composante s'utilise à travers Qute qui génère des documents tels que des pages web. 
+\begin{itemize}
+    \item Ace Editor~: éditeur de code pour le web écrit en JavaScript\footnote{\url{https://ace.c9.io} sous licence BSD.};
+    \item Ace Playground~: un exemple sophistiqué de l'utilisation d'Ace Editor\footnote{\url{https://github.com/mkslanc/ace-playground} sous licence MIT.};
+    \item Qute~: un moteur de \textit{templates} pour faire des rendus web\footnote{\url{https://quarkus.io/guides/qute} sous license Apache 2.0}.
+\end{itemize}
+Puisque ce n'est pas le sujet principal de ce mémoire, cette partie ne sera pas davantage détaillée.
+}{}{}
+
+\paragraphe{}{Pour extraire et interpréter des informations, il y a l'utilisation de grammaires décrivant des langages formels et des descriptions formelles. Il s'agit de la fonction des compilateurs. L'IAR possède des procédés qui, une fois décomposés, correspondent aux procédés qui peuvent exister à l'intérieur d'un compilateur. La figure~3.5. présente un DFD qui expose un enchaînement possible pour un compilateur. Ce procédé nécessite quelques définitions avec lesquelles il est possible de déduire la grammaire rationnelle et la grammaire algébrique, les voici~:
+\begin{itemize}
+    \item \sfren{grammaire}{grammar}~: \enfr{A formal grammar (or a grammar, for short) is a 4-tuple $\langle V_T , V_N , P, S \rangle$, where:
+    \begin{enumerate}%[label=\roman*.]
+        \item $V_T$ \textit{is a finite set of symbols, called terminal symbols,}
+        \item $V_N$ \textit{is a finite set of symbols, called nonterminal symbols or variables, such that $V_T \cap V_N = \emptyset$,  }
+        \item $P$ \textit{is a finite set of pairs of strings, called productions, each pair $\langle \alpha, \beta \rangle$ being denoted by $\alpha \rightarrow \beta$, where $\alpha \in V^+$  and $\beta \in V^*$ , with $V = V_T \cup V_N$, and }
+        \item $S$ \textit{is an element of $V_N$ , called axiom or start symbol.}
+    \end{enumerate}}{Une grammaire formelle (ou une grammaire, en abrégé) est un quadruplet $\langle V_T , V_N , P, S \rangle$, où:
+    \begin{enumerate}%[label=\roman*.]
+        \item $V_T$ est un ensemble fini de symboles, appelés symboles terminaux,
+        \item $V_N$ est un ensemble fini de symboles, appelés symboles non terminaux ou variables, tel que $V_T \cap V_N = \emptyset$,
+        \item $P$ est un ensemble fini de paires de chaînes de caractères, appelées productions, chaque paire $\langle \alpha, \beta \rangle$ étant notée $\alpha \rightarrow \beta$, où $\alpha \in V^+$  and $\beta \in V^*$ , with $V = V_T \cup V_N$, et 
+        \item $S$ est un élément de $V_N$ , axiome ou symbole de départ.
+    \end{enumerate}} \ccite{pettorossi_automata_2022}[p.~3];
+    \item règles de production pour une grammaire rationnelle~: «~\textit{a production in $P$ is of type 3 (or regular) iff it is of the form $\alpha \rightarrow  \beta$, where $\alpha \in V_N$ and $\beta \in \{\varepsilon\} \cup V_T \cup V_T V_N$~}» \footnote{$V^+ = V^* \setminus \{\varepsilon\}$}
+    \ccite{pettorossi_automata_2022}[p.~16];
+    \item règles de production pour une grammaire algébrique~: «~\textit{a production in $P$ is of type 2  (or context-free) iff it is of the form $\alpha \rightarrow  \beta$, where $\alpha \in V_N$ and $\beta \in V^*$}~»\footnote{$\varepsilon$ est la chaîne vide.} \ccite{pettorossi_automata_2022}[p.~16];
+    \item \sfren{lexème}{lexeme}~: \enfr{lexical analyzer reads the characters of the source program, groups them into lexically meaningful units called lexemes, and produces as output tokens representing these lexemes.}{l'analyseur lexical lit les caractères du programme source, les regroupe en unités lexicalement significatives appelées lexèmes et produit en sortie des jetons représentant ces lexèmes.}
+    \ccite{ullman_compilers_2007}[p.~43];
+    \item arbre syntaxique abstrait (AST, \textit{abstract syntax tree} en anglais)~: \enfr{An abstract syntax tree is a version of the syntax tree in which only the semantically important nodes are retained. What is “semantically important” is up to the compiler writer.}{Un arbre syntaxique abstrait est une version de l’arbre syntaxique dans laquelle seuls les nœuds sémantiquement importants sont conservés. La notion de ‘‘sémantiquement important’’ est laissée à l’appréciation du concepteur du compilateur.}
+    \ccite{grune_km_2012}[p.~109]; 
+\end{itemize}
+\fig
+{DFD pour certains types de compilateurs}
+{figure/chap3/compilateur.png}
+{}{}{}{!tb}
+Des éléments du procédé représenté par la figure~3.5 sont~: 
+\begin{itemize}
+    \item texte~: ensemble de caractères que le compilateur prend en entrée;
+    \item \sfren{analyse lexicale}{lexical analysis}~: \enfr{This component scans the source program and recognizes all tokens those substrings of consecutive characters that belong together logically. Keywords and identiers are common examples of tokens but there are many others.}{Ce composant analyse le programme source et reconnaît tous les tokens, c'est-à-dire les sous-chaînes de caractères consécutifs qui forment un tout logique. Les mots-clés et les identificateurs sont des exemples courants de tokens, mais il en existe beaucoup d'autres.}
+    \ccite{hopcroft_introduction_2007}[p.~110];
+
+    \item \sfren{jeton}{token}~: \enfr{A token consists of two components, a token name and an attribute value. The token names are abstract symbols that are used by the parser \elide The attribute value, if present, is a pointer to the symbol table that contains additional information about the token.}{Un jeton est composé de deux éléments~: un nom et une valeur d'attribut. Les noms de jetons sont des symboles abstraits utilisés par l'analyseur syntaxique \elide. La valeur d'attribut, si elle est présente, est un pointeur vers la table des symboles qui contient des informations supplémentaires sur le jeton.}
+    \ccite{ullman_compilers_2007}[p.~43];
+
+    \item \sfren{analyse syntaxique}{syntax analysis}~: \enfr{The parser uses the first components of the tokens produced by the lexical analyzer to create a tree-like intermediate representation that depicts the grammatical structure of the token stream.}{L'analyseur syntaxique utilise les premières composantes des jetons produits par l'analyseur lexical pour créer une représentation intermédiaire arborescente qui décrit la structure grammaticale du flux de jetons.}
+    \ccite{ullman_compilers_2007}[p.~8];
+    
+    \item \sfren{arbre syntaxique}{syntax tree}~: \enfr{Syntax trees are a form of intermediate representation; they are commonly used during syntax and semantic analysis.}{Les arbres syntaxiques sont une forme de représentation intermédiaire; ils sont couramment utilisés lors de l’analyse syntaxique et sémantique.}
+    \ccite{ullman_compilers_2007}[p.~9]; 
+    
+    \item grammaire algébrique avec règles sémantiques (\textit{syntax-directed definition})~: \enfr{is a context-free grammar together with attributes and rules. Attributes are associated with grammar symbols and rules are associated with productions.}{une grammaire hors contexte est une grammaire dotée d'attributs et de règles. Les attributs sont associés aux symboles grammaticaux et les règles aux productions.}
+    \ccite{ullman_compilers_2007}[p.~304];
+
+    \item \sfren{analyse sémantique}{semantic analysis} ~: \enfr{The semantic analyzer uses the syntax tree and the information in the symbol table to check the source program for semantic consistency with the language definition. It also gathers type information and saves it in either the syntax tree or the symbol table, for subsequent use during intermediate-code generation.}{L'analyseur sémantique utilise l'arbre syntaxique et les informations de la table des symboles pour vérifier la cohérence sémantique du programme source avec la définition du langage. Il collecte également les informations sur les types et les enregistre dans l'arbre syntaxique ou la table des symboles, pour une utilisation ultérieure lors de la génération du code intermédiaire.}
+    \ccite{ullman_compilers_2007}[p.~8];
+    
+    \item représentation intermédiaire~: représentation compréhensible par une machine, c'est-à-dire interprétable ou exécutable. 
+\end{itemize}
+
+}{}{}
+
+\paragraphe{}{Les principaux processus de l'IAR forment aussi un enchaînement qui peut ressembler à celui d'un compilateur. Dick Grune dans \textit{Modern compiler design} donne un aperçu de la manière qu'un compilateur construit successivement les relations~:
+\quoteenfr
+{Lexical analysis establishes local relationships between characters, syntax analysis establishes nesting relationships between tokens, and context handling establishes long-range relationships between AST nodes.}
+{L'analyse lexicale établit des relations locales entre les caractères, l'analyse syntaxique établit des relations d'imbrication entre les jetons et la gestion du contexte établit des relations à longue portée entre les nœuds de l'AST.}
+{\ccite{grune_km_2012}[p.~253]}
+
+Pour l'IAR, les ressemblances sont les suivantes~: 
+\begin{itemize}
+    \item le processus \titlefig{Épurer} conserve les éléments importants, comme l'analyse lexicale;
+    \item le processus \titlefig{Formaliser} établit les liens entre les éléments et vérifie ces liens comme le ferait une analyse syntaxique et sémantique;
+    \item le processus \titlefig{Présenter} crée une représentation intermédiaire dans ce cas pour un individu.
+\end{itemize}
+
+}{}{}
+
+\paragraphe{}{
+Pour faciliter la compréhension des techniques employées, voici quelques descriptions~:
+\begin{itemize}
+    \item EBNF~: langage couramment utilisée pour spécifier une grammaire algébrique et pouvant servir à spécifier une grammaire rationnelle;
+    \item ANTLR~: \enfr{From a formal language description called a grammar, ANTLR generates a parser for that language that can automatically build parse trees \elide also automatically generates tree walkers that you can use to visit the nodes of those trees to execute application-specific code.}{À partir d'une description formelle du langage appelée grammaire, ANTLR génère un analyseur syntaxique pour ce langage qui peut construire automatiquement des arbres d'analyse syntaxique \elide génère également automatiquement des parcours d'arbres que vous pouvez utiliser pour visiter les nœuds de ces arbres afin d'exécuter du code spécifique à l'application.} \ccite{parr_definitive_2012}[p.~xi];
+    \item la fonctionnalité \emphase{action}~: \enfr{\elide are blocks of text written in the target language and enclosed in curly braces. The recognizer triggers them according to their locations within the grammar.}{\elide sont des blocs de texte écrits dans la langue cible et encadrés par des accolades. Le système de reconnaissance les déclenche en fonction de leur position dans la grammaire.}
+    \ccite{parr_definitive_2012}[p.~273];
+    \item table de symboles~: \enfr{\elide are data structures that hold information about identifiers. Information is put into the symbol table when the declaration of an identifier is analyzed.}{\elide sont des structures de données qui contiennent des informations sur les identificateurs. Ces informations sont insérées dans la table des symboles lors de l'analyse de la déclaration d'un identificateur.}
+    \ccite{ullman_compilers_2007}[p.~107].
+\end{itemize}
+
+}{}{}
+
+%Deux raisons expliquent pourquoi on n'arrive pas a bien définir les intrants et les extrants dans les langages : * La prédominance (inutile et temporaire) des analyseurs syntaxiques LR qui ne permettent d’implanter trivialement les paramètres extrants. * La prédominance (qui dure encore) des langages indécents (C, C++, Java, C#, JavaScript, Python) au détriment des langages décents (Algol, Pascal, Modula, Ada, Eiffel), premiers ayant aussi des limitations sur les paramètres extrants en raison de leur pseudo-inefficacité (sans parler de la confusion entre type et classe, sous-typage et héritage).
+%De plus ancien instruments permettrait un paramétrage qui permet l'utilisation de EBNF pour les attributs sémantiques Bochman et Olivier Lecarme.
+\paragraphe{}{L'utilisation de plusieurs instruments permet de faciliter la mise en place d'un compilateur. Le premier instrument est le langage dénommé la forme étendue de \mbox{Backus-Naur} (EBNF~: \textit{Extended Backus–Naur form} en anglais). Ce langage permet de décrire un langage formel. Cet instrument se combine avec un autre instrument dont le nom est \emphase{un autre outil pour la reconnaissance du langage} (ANTLR~: \textit{ANother Tool for Language Recognition} en anglais). Les avantages de l'ANTLR sont~:
+\begin{itemize}
+    \item création automatique d'un analyseur lexical et d'un analyseur syntaxique;
+    \item mise à disposition d'un API en Java (il s'agit d'ailleurs du langage dans lequel la preuve de concept est écrite;
+    \item génération d'analyseurs pour d'autres langages (comme C\#, C++ et JavaScript) qui procure une plus grande interopérabilité.
+\end{itemize}
+
+Un problème subsiste avec l'ANTLR~: il ne permet pas de générer un analyseur sémantique. Cependant, il donne des moyens pour parcourir l'arbre syntaxique concret. Pour arriver à créer un analyseur sémantique, il faudrait être en mesure d'exprimer les règles sémantiques (règles de vérification et règles de traduction), et ce, en considérant le contexte (lexical et syntaxique). L'ANTLR propose comme moyens l'implémentation d'une classe \textit{Visitor} ou d'un \textit{Listener} en Java qui requiert des connaissances en Java et des modifications lorsqu'un changement est apporté à la grammaire. Pour surmonter ce problème, la fonctionnalité d'\emphase{action} d'ANTLR a été utilisée de manière à faire la traduction et à conserver le contexte à l'intérieur d'une table de symboles. Tandis que les règles de vérifications sont contenues dans le modèle intermédiaire et exécuté lors du processus \titlefig{1.5.1~Traduire}.Ainsi, le résultat obtenu est que les aspects sémantiques sont directement intégrés dans l’analyseur syntaxique et cela demeure transparent pour l’utilisateur, car l’instrument s’occupe de cette gestion.
+
+}{}{}
+
+\paragraphe{}{Cette stratégie de réutiliser le même enchaînement de processus pour arriver à extraire les informations d'un texte s'applique à l'IAR à deux moments~:
+\begin{itemize}
+    \item lors de l'épuration, il est possible de décrire un langage qui va servir à éliminer les éléments inutiles ou à étendre des éléments essentiels cachés par l'usage de fonctions macro ou micro;
+    \item lors de la formalisation et, plus précisément, de la traduction où il est nécessaire de décrire un langage qui va servir à extraire l'information pour en faire un modèle.
+\end{itemize}
+Cette stratégie peut également s'appliquer à deux processus ~: le processus \titlefig{1.6~Présenter} (figure~3.2) et le processus \titlefig{1.5.2~Vérifier~partiellement} (figure~3.3). Toutefois, pour la preuve de concept, il a été décidé d’utiliser des langages existants venant avec leurs instruments. Cela a permis d'épargner du temps \footnote{Dans la preuve de concept, le code source est encore là.}~:
+\begin{itemize}
+    \item lors de la vérification partielle, il est possible de décrire un langage qui va servir à décrire des règles à appliquer au modèle. L'instrument Easy-Rules a été préféré, car il permet de décrire les règles en YAML. De plus, il vient avec un modèle logique minimal intégré avec Java permettant de vérifier le modèle intermédiaire (voir la figure~3.3);
+    \item lors de la présentation, il est possible de décrire un langage qui va servir à décrire des règles de présentation à appliquer au modèle. Pour la présentation, l'instrument \textit{StringTemplate} proposé par l'auteur d'ANTLR a été préféré, car il s'agit d'un langage avec une syntaxe répandue. Même s'il est similaire dans ses fonctions à Qute, la décision a été de conserver les deux. Qute provient de l'écosystème Quarkus de RedHat, qui a été utilisé dans cette preuve de concept. L'effort nécessaire pour ne conserver qu'un seul des deux instruments tout en conservant les intégrations existantes n'était pas efficient à ce moment de la preuve de concept.
+\end{itemize}
+
+}{}{}
+
+\paragraphe{}{
+\figlandscapel
+{Diagramme relationnel du métamodèle de document}
+{figure/chap3/EA.png}
+{}{}{}{H}
+}{}{}
+
+\paragraphe{}{Pour rendre ce modèle de document calculable, l'utilisation d'un langage et d'un système logique est nécessaire. Le système logique utilisé dans la preuve de concept est celui qui provient du langage de spécification Alloy. Il est écrit en Java alors, il s'intègre facilement dans la preuve de concept. Néanmoins, cela impose pour le moment l'utilisation de ce langage pour écrire les énoncés logiques contenus dans le modèle. Aussi, le métamodèle définit formellement le modèle de document et le rend en partie calculable. La figure~3.6 présente la concrétisation du métamodèle dans la preuve de concept. Elle utilise le langage d'un diagramme relationnel. Plusieurs observations sont faites sur ce diagramme~:
+\begin{enumerate}[label=\alph*)]
+    \item Les éléments sont des informations, car ils contiennent que des identifiants et des descriptions en texte.
+    \item Les identifiants sont des références absolues, puisqu'une même information peut se retrouver dans plusieurs modèles apportés par un même document ou non. 
+    \item Les métainformations permettent de conserver des informations sur le contexte des documents et d'un modèle.
+    \item L'ensemble des règles d'un même modèle se retrouve dans les énoncés logiques.
+    \item Grâce à tous les énoncés logiques décrits formellement, il est possible d'utiliser un système logique pour découvrir des incohérences.
+    \item Dans le cas d'une combinaison d'énoncés logiques décrits formellement et d'autres non, il faut réviser l'ensemble pour déterminer les incohérences.
+    \item Les énoncés logiques qui ne sont pas formellement décrits peuvent l'être plus tard.
+\end{enumerate}
+}{}{}
+
+\section{Des exigences à satisfaire pour la solution}
+\paragraphe{}{Par usage et facilité, les règles du modèle du problème sont restreintes aux besoins, et les règles du modèle d'une solution sont restreintes aux exigences. La couverture des besoins par les exigences est l'une des caractéristiques de qualité que la solution doit respecter. Le tableau de correspondance (tableau~3.1) à la fin de cette sous-section sert à vérifier cette caractéristique. Ce tableau permet aussi d'illustrer que ce qui n'est pas formalisé n'est pas pris en charge par le système, mais par les utilisateurs du système. Mais avant, voici une liste qui présente des exigences futures donnant un aperçu des développements possibles à l'IAR. 
+}{}{}
+
+\paragraphe{}{
+L'effort, c'est-à-dire le temps, consacré à la preuve de concept est limité. Dans l'état actuel, il ne serait pas surprenant que certaines caractéristiques de qualité relatives ou absolues ne soient pas respectées. Pour améliorer la solution, la liste d'exigences supplémentaires suivante pourrait être envisagée~: 
+\begin{itemize}
+    \item EX16~: Le système doit permettre à l'utilisateur d'ajouter, de modifier ou de retirer des descriptions formelles.
+    \begin{itemize}
+        \item Dans la preuve de concept, la majorité des descriptions formelles est disposée à l'intérieur d'un dossier accessible uniquement par le configurateur.
+    \end{itemize}
+    \item EX17~: Le système doit permettre à l'utilisateur de récupérer directement les descriptions proposées d'un modèle.
+    \begin{itemize}
+        \item Dans la preuve de concept, tout se joue au niveau de la session pour l'utilisateur. Il récupère une session et, du même coup, la description proposée d'un modèle et le modèle développé de cette session.
+    \end{itemize}
+    \item EX18~: Le système doit permettre à l'utilisateur de récupérer directement un modèle développé.
+    \begin{itemize}
+        \item Par exemple, la preuve de concept ne permet pas, depuis une interface utilisateur de recherche, d'ajouter à une session une description proposée ou un modèle développé. 
+    \end{itemize}
+    \item EX19~: Le système doit permettre de relier un modèle développé à un autre modèle développé.
+    \begin{itemize}
+        \item L'accès aux informations d'un précédent modèle pour en faire des sources \footnote{Chaque information contenue dans un document peut provenir d'une source. Cette source servira à créer un système de références entre des modèles.} dans un nouveau modèle pendant une session nécessite des changements à l'interface utilisateur. Ensuite, il sera possible de construire un système de références et, par la suite, de connaître toutes les répercussions après avoir effectué un changement à un modèle.
+        \item Chaque information n'ayant pas de provenance (source) devrait faire l'objet d'une attention particulière.
+    \end{itemize}
+    \item EX20~: Le système doit permettre la réutilisation d'une même information pour plusieurs modèles développés. 
+    \begin{itemize}
+        \item Il faut s'assurer que l'information est la même et qu'il n'y ait pas de duplicata selon la sémantique. Car, si la détection reposant sur la syntaxe est simple, celle des équivalences, et même, des simples variations lexicales ou de présentation, n’est pas simple. Le changement à l'intérieur d'une information doit aussi relancer les vérifications et les validations pour l'ensemble des modèles l'utilisant. Il suffit de penser à un prédicat non formel dont le texte a changé.
+    \end{itemize}
+    \item EX21~: Le système doit permettre à l'utilisateur de définir les métamodèles incarnés par le système.
+    \begin{itemize}
+        \item Dans la preuve de concept, le métamodèle est décrit une fois avec du code java et une fois avec du code SQL. Un métamétamodèle est nécessaire pour permettre à l'utilisateur de faire des modifications. L'instanciation en métamodèle du métamétamodèle conduirait à générer du code dynamique avec les désavantages que cela peut occasionner. Parmi les désavantages, il y a la sécurité et la fiabilité plus faible, puisqu'il est permis de réécrire certaines parties du logiciel. Aussi, la plupart des instruments ne sont pas conçus pour être employés de cette façon, comme les éditeurs de code source ou les gestionnaires de versions.
+    \end{itemize}
+    \item EX22~: Le système doit permettre des changements aux métamodèles incarnés par le système.
+    \begin{itemize}
+        \item Pour tout changement, le système doit s'assurer que chaque partie utilisant précédemment ces métamodèles continue de fonctionner.
+    \end{itemize}
+    \item EX23~: Le système doit fournir des vues pour réviser certaines informations provenant de différents modèles. 
+    \begin{itemize}
+        \item Advenant que le dépôt interne \titlefig{Modèle vérifié} devienne un agent, ces vues pourraient se réaliser à l'aider d'un autre instrument.
+    \end{itemize}
+    \item EX24~: Le système doit permettre à l'utilisateur d'appliquer plusieurs systèmes logiques à un même modèle.
+    \begin{itemize}
+        \item Il existe des systèmes logiques différents qui utilisent un même langage formel et qui peuvent arriver à des résultats différents. Pour le moment, cela empêche d'intégrer des modèles en monde ouvert\footnote{«~En logique formelle, l’hypothèse du monde ouvert est la supposition selon laquelle la véracité d'une affirmation ne dépend pas de la connaissance d'un agent ou d'un observateur. En d'autres termes, "ce n'est pas parce qu'on ne connaît pas une information que cette information est fausse."~» [Wikipedia, «~Hypothèse du monde ouvert~», \url{https://fr.wikipedia.org/wiki/Hypoth\%C3\%A8se_du_monde_ouvert} (consulté le 2026-05-10)]} pour avoir des logiques multivaluées, des logiques floues et des logiques probabilistes.
+        \item Il serait préférable de restreindre les relations entre des modèles reposant sur un même système logique. 
+    \end{itemize}
+\end{itemize}
+}{}{}
+
+\paragraphe{}{
+
+\tablandscape
+{Correspondances des besoins et des exigences}
+{figure/chap3/besoinexigence.png}
+{}{}{
+\begin{tablenotes}
+\footnotesize
+\item[a] {Les cases grises indiquent qu'une exigence ne couvre pas un besoin.}
+\item[b] {Raccourci vers les \hyperref[listebesoin]{besoins 1 à 5}, les \hyperref[listeexigence1]{exigences 1 à 8}}
+\end{tablenotes}
+}{H}
+
+\tablandscapec
+{Correspondances des besoins et des exigences (suite)}
+{figure/chap3/besoinexigence2.png}
+{}{}{
+\begin{tablenotes}
+\footnotesize
+\item[a] {Les cases grises indiquent qu'une exigence ne couvre pas un besoin.}
+\item[b] {Raccourci vers les \hyperref[listebesoin]{besoins 1 à 5}, les \hyperref[listeexigence1]{exigences 9 à 12} et les \hyperref[listeexigence2]{exigence 13 à 15}.}
+\end{tablenotes}
+}{H}
+
+}{}{}
+
+
+
+

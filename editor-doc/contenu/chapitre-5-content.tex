@@ -1,0 +1,409 @@
+
+\paragraphe{}{En informatique appliquée, l'implémentation, qui est une concrétisation d'un modèle de solution, peut se vérifier avec des tests dérivés du modèle développé. Une bonne conception des tests permet de vérifier la cohérence, la couverture et l'efficacité de la solution. Cependant, cela ne permet pas d'affirmer qu'une solution informatique est une bonne solution en situation réelle. Il faut valider la solution dans la réalité de façon à ce que l'évaluation devienne plus complète. Dans le contexte d'une preuve de concept, la portée de l'évaluation a été volontairement réduite à s'assurer de la validité du modèle, de déterminer la faisabilité d’une solution qui en découlerait, de confirmer la pertinence de cette solution et d’envisager les ressources requises pour la réalisation d’un produit correspondant. Cette évaluation de l'instrument
+d’aide à la rédaction (IAR) comprend deux sections~: la première section porte sur la vérification du respect des exigences avec des cas de tests, tandis que la deuxième section prend la forme d'un guide qui explique la manière de valider rigoureusement certaines attentes.}{}{}
+
+\section{La vérification du respect des exigences}
+
+\paragraphe{}{La description des tests et la manière de conduire les essais sur un logiciel se retrouvent couramment dans un document nommé spécification des essais. C'est pour cette raison que cette section comprend des descriptions portant sur les mêmes sujets~: l'environnement, les cas de tests et la couverture des exigences. Puisqu'il existe une variabilité dans la définition des cas de tests, voici celle provenant d'un ouvrage portant sur l'International Software Testing Qualifications Board (ISTQB)~:
+\quoteenfr{A set of preconditions, inputs, actions (where applicable), expected results and postconditions, developed based on test conditions.}{Un ensemble de préconditions, d'entrées, d'actions (le cas échéant), de résultats attendus et de postconditions, élaboré en fonction des conditions de test.}{\ccite{graham_istqb_2019}[p.~249]}
+Parmi les conditions importantes pour avoir des cas de tests efficaces, il y a un procédé clair et réalisable ainsi qu'une couverture complète des exigences. Relativement à l’exécution, il y a trois composantes importantes~:
+\begin{itemize}
+    \item le protocole d’exécution (commun à toutes les séances);
+    \item le journal d’exécution (propre à chacune des séances);
+    \item le résultat de l’exécution (propre à chacune des séances).
+\end{itemize}
+Ce mémoire présente uniquement les résultats afin d'en limiter le volume.
+}{}{}
+
+\paragraphe{}{L'environnement d'essai doit être en mesure de faire fonctionner la solution. L'environnement utilisé dans le cadre du présent mémoire comprend~: 
+\begin{itemize}
+    \item des composantes matérielles~:
+    \begin{itemize}
+    \item une unité centrale de traitement AMD Ryzen 7 7840HS à 5,1 GHz avec 8~cœurs;
+    \item de la mémoire primaire à hauteur de 16~Go;
+    \item de la mémoire secondaire à hauteur de 500~Go;
+    \end{itemize}
+    \item des composantes logicielles~:
+    \begin{itemize}
+        \item un système d'exploitation Ubuntu (version 24.04);
+        \item une machine virtuelle Java Temurin (version 21);
+        \item une base de données PostgreSQL (version 14.2);
+    \end{itemize}
+%élément du DFD1, instrument utilisé, repo github editor. 
+    \item les composantes de la solution (les informations suivantes sont fournies pour chaque composante~: nom\footnote{Les composantes ont comme qualificatif \emphase{editor} et ils forment ensemble l'IAR.}, rôle, position dans le diagramme de flux de données (DFD) du système \titlefig{IAR} [figure 3.2] et les instruments inclus)\footnote{L'ensemble du code source de ces composantes se retrouve à cette adresse~: \url{https://github.com/mbjolin/IAR}}~:
+    \begin{itemize}
+        \item \emphase{editor-web-library} est la composante web principale et exprime une partie du processus \titlefig{1.1~Diriger}. Cette composante inclut les instruments Ace Editor et Ace Playground; 
+        \item \emphase{editor-ldm} est la composante persistante et exprime le modèle vérifié. Cette composante inclut les instruments SQL, PostgreSQL, qui sont respectivement un langage et une machine abstraite;  
+        \item \emphase{editor-application} est la composante exécutable principale et exprime les parties \titlefig{Session}, \titlefig{Description proposée épurée d'un modèle}, les processus \titlefig{1.2 Résoudre}, \titlefig{1.3~Journaliser}, \titlefig{1.4~Épurer}, \titlefig{1.5~Formaliser}, \titlefig{1.6~Présenter} ainsi qu'une partie du processus \titlefig{1.1~Diriger}. Cette composante inclut les instruments Java, Quarkus, Qute, ANTLR, StringTemplate, Easy-rule et Alloy.
+    \end{itemize}
+\end{itemize}
+Ces composantes peuvent être différentes, mais resteront constantes durant le déroulement des essais. Les explications pour l'installation et la préparation se trouvent dans les documents accompagnant la preuve de concept.}{}{}
+
+\paragraphe{}{La stratégie employée est de décrire des cas de tests. Plus spécifiquement, la description d'un cas de tests débute avec une instance de problème en lien avec une ou plusieurs exigences. Par la suite, une procédure est décrite. Cette procédure répond de manière formelle au problème en utilisant le système; elle a donc des antécédents et des conséquents. Ainsi, il y a un ou plusieurs prérequis, une procédure et une ou plusieurs conditions de réussite. Par la suite, ces cas de tests sont exécutés avec un ou plusieurs intrants lors d'une session de tests et les résultats (couverture) sont rapportés dans un tableau nommé \emphase{Résultats des tests}. En annexe~D se trouvent des exemples d'intrants et d'extrants.
+}{}{}
+
+\paragraphe{}{
+Les intrants pour ces tests doivent être conçus de manière à atteindre une certaine couverture de la description formelle (code source). Plus précisément, il existe des couvertures sur différents éléments, comme les déclarations, les branches et les chemins \ccite{pezze_software_2008}[p.~231]. Une couverture de 100~\% sur les déclarations ou les branches permettrait de confirmer que tout le code source est utilisé, mais ne permet pas d'affirmer l'absence d'erreur. Pour une preuve de concept, une couverture sur les déclarations du moteur d'exécution\footnote{La preuve de concept comprend l'interface utilisateur, l'utilisation du système de gestion de base de données et d'autres fonctionnalités, comme le début d'un atelier qui comporte, entre autres, l'acquisition, la vérification et l'application des éléments de configuration, dont la couverture importe moins pour le moment.} d'au moins 80~\% \footnote{75~\% est qualifié de louable chez Google [Carlos Arguelles \textit{et  al.}, «~Code Coverage Best Practices~», \url{https://testing.googleblog.com/2020/08/code-coverage-best-practices.html} (consulté le 2026-03-31)] et l'ouvrage \titleen{Effective software testing : a developer's guide}{} cite plusieurs études où 90~\% et plus a une utilité débattable pour trouver des erreurs \ccite{aniche_effective_2022}[p.~85-86].} est raisonnable. Dans le cas d'un prototype ou d'un produit, il peut être souhaitable d'atteindre le plus haut niveau possible de couverture, et ce, autant sur les déclarations, les décisions et les conditions. Cependant, même avec une couverture de 100~\%, il peut exister des erreurs, il faut s'en remettre aux différentes techniques de tests. Dans ce mémoire, la technique des cas de tests sert à détecter les inéquations entre les exigences et leurs implémentations \ccite{graham_istqb_2019}[p.~110], c'est-à-dire entre les deux modèles développés.
+}{}{}
+
+\paragraphe{}{Plusieurs cas de tests emploient les mêmes rôles. Dans le cas de documents, les rôles existants sont l'autorat et le lectorat. Puisque l'IAR vise les modèles en logiciel, les rôles de  modélisateur et d'approbateur sont plus appropriés. Le modélisateur crée ou modifie un modèle, tandis que l'approbateur valide des éléments du modèles que l'IAR n'assure pas.}{}{}
+
+\paragraphe{}{CA01~: Vérifier que l'IAR permet la création ou la modification d'un modèle à partir d'une description proposée, ainsi que la journalisation du système, l'épuration de la description proposée et la présentation du modèle.
+\begin{itemize}
+    \item Prérequis~:
+    \begin{itemize}
+        \item une description proposée d'un modèle $description\_1$;
+        \item une description proposée d'un modèle $description\_2$ modifiant certains éléments de $description\_1$;
+        \item une description formelle $formel\_1$ fonctionnelle dans le processus \titlefig{1.5.1 Traduire};
+        \item une description formelle $epure\_1$ fonctionnelle épurant certains éléments dans le processus \titlefig{1.4 Épurer};
+        \item une description formelle $presente\_1$ fonctionnelle pour le processus \titlefig{1.6 Présenter};
+    \end{itemize}
+    \item Procédure~:
+    \begin{enumerate}
+        \item Le modélisateur crée une session avec : $description\_1$, $formel\_1$, $epure\_1$ et $presente\_modele$.
+        \item Le modélisateur compile\footnote{Compile comprend les processus \titlefig{1.4 Épurer}, \titlefig{1.5 Formaliser} et \titlefig{1.6 Présenter}.} avec l'aide du système.
+        \item Le modélisateur sauvegarde le modèle développé.
+        \item Le modélisateur réutilise la session, mais avec $description\_2$. 
+        \item Le modélisateur compile avec l'aide du système.
+        \item Le modélisateur sauvegarde le modèle développé.
+    \end{enumerate}
+    \item Conditions de réussite~:
+    \begin{itemize}
+        \item la base de données (\titlefig{Modèle vérifié}) contient les informations provenant de $description\_1$ dont la $description\_2$ ne les modifie pas [EX01];
+        \item la base de données (\titlefig{Modèle vérifié}) contient les informations provenant de $description\_2$ changeant des informations de la $description\_1$ [EX01];
+        \item la base de données (\titlefig{Modèle vérifié}) contient les informations provenant de $description\_2$ ne changeant pas des informations de la $description\_1$ [EX01];
+        \item le système est en mesure de présenter le modèle développé depuis $description\_1$ et $description\_2$ [EX10];
+        \item les informations sélectionnées comme superflues ont été épurées et ne se retrouvent pas dans la base de données [EX13];
+        \item le système est en mesure de fournir un journal sur le processus et son déroulement [EX14].
+    \end{itemize}
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\paragraphe{}{CA02~: Vérifier que l'IAR ne repose que sur du formalisme.
+\begin{itemize}
+    \item Prérequis~:
+    \begin{itemize}
+        \item une description proposée d'un modèle $description\_1$;
+        \item une description formelle $formel\_1$ fonctionnelle dans le processus \titlefig{1.5.1 Traduire};
+        \item une description formelle $epure\_1$ fonctionnelle dans le processus \titlefig{1.4 Épurer};
+        \item une description formelle $presente\_1$ fonctionnelle dans le processus \titlefig{1.6 Présenter};
+    \end{itemize}
+    \item Procédure~:
+    \begin{enumerate}
+        \item Le modélisateur crée une session avec~: $description\_1$, $formel\_1$, $epure\_1$ et $presente\_1$.
+        \item Le modélisateur compile avec l'aide du système.
+        \item Le modélisateur sauvegarde le modèle développé.
+    \end{enumerate}
+    \item Conditions de réussite~:
+    \begin{itemize}
+        %EX05 : La structure d’un modèle au sein du système doit comprendre des concepts, des règles et des langages.
+        \item un modèle vérifié contenu dans la base de données est associé à des concepts, des règles et des langages [EX05];
+
+        %EX06 : Le système doit permettre de former un modèle en fonction des métamodèles utilisés par le système.
+        \item la journalisation affiche la conformité des informations provenant de documents, de descriptions proposées d'un modèle ou d'une représentation standardisée du modèle par rapport à leurs métamodèles [EX06];
+
+        %EX07 : Le système doit opérer toutes les transformations permises par les modèles sur la base du formalisme qui les décrit.
+        \item la journalisation affiche les transformations ainsi que les formalismes qu'elles ont utilisés [EX07];
+
+        %EX08 : Le système doit extraire les éléments requis à la synthèse d’un modèle développé à partir des documents et de la configuration soumise.
+        \item la journalisation affiche les intrants aux transformations [EX08];
+
+        %EX09 : Le système doit vérifier la description proposée d’un modèle en fonction des intrants (des modèles, des configurations, des documents), et ce, à différents niveaux (lexical, syntaxique et sémantique).
+        \item La journalisation affiche les différentes vérifications avec leurs intrants (des modèles, des configurations, des documents), puis leurs niveaux (lexical, syntaxique et sémantique) [EX09].
+    \end{itemize}
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\paragraphe{}{CA03~: Vérifier que l'utilisateur peut contextualiser l'IAR, incluant la session, les documents, les modèles et les métamodèles. La contextualisation ne se limite pas à annoter les artefacts, mais aussi à adapter l'IAR à un contexte particulier.
+\begin{itemize}
+    \item Prérequis~:
+    \begin{itemize}
+        \item une description proposée d'un modèle $description\_1$;
+        \item une description formelle $formel\_1$ fonctionnelle dans le processus \titlefig{1.5.1 Traduire};
+        \item une description formelle $epure\_1$ fonctionnelle dans le processus \titlefig{1.4 Épurer};
+        \item une description formelle $presente\_approbateur$ fonctionnelle et contextualisée pour le lectorat approbateur dans le processus \titlefig{1.6 Présenter};
+    \end{itemize}
+    \item Procédure~:
+    \begin{enumerate}
+        \item Le modélisateur crée une session avec : $description\_1$, $formel\_1$, $epure\_1$ et $presente\_1$.
+        \item Le modélisateur contextualise la session et utilise un métamodèle déjà contextualisé en changeant la transformation présente pour utiliser la description formelle $presente\_approbateur$.
+        \item Le modélisateur contextualise le document en l'annotant cela prend la forme d'une méta-information ajoutée à la description proposée.
+        \item Le modélisateur contextualise le modèle en ajoutant une méta-information dans la description proposée.
+        \item Le modélisateur compile avec l'aide du système.
+        \item Le modélisateur sauvegarde le modèle développé.
+    \end{enumerate}
+    \item Conditions de réussite~:
+    \begin{itemize}
+        %EX11 : Le système doit donner le moyen de contextualiser les documents (y compris les modèles et métamodèles).
+        \item le modèle vérifié comprend la contextualisation du document et du modèle [EX11];
+
+        %EX15 : Le système doit permettre la contextualisation d’une session de modélisation.
+        \item la journalisation mentionne les contextualisations utilisées pour la session [EX15];
+        \item le modèle développé est présenté selon la contextualisation de la session [EX15].
+    \end{itemize}
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\paragraphe{}{CA04~: Vérifier que l'IAR permet de former un seul modèle à partir de plusieurs documents provenant de différents contextes.
+\begin{itemize}
+    \item Prérequis~:
+    \begin{itemize}
+        \item un modèle développé $modele\_1$ contenu dans la base de données;
+        \item une session $session\_1$ qui a créé le modèle développé $modele\_1$ \footnote{Actuellement, passer par la session est actuellement le seul moyen de récupérer la description proposée.};
+        \item une description formelle $formel\_1$ fonctionnelle dans le processus de traduction;
+        \item une description formelle $epure\_1$ fonctionnelle dans le processus \titlefig{épure};
+        \item une description formelle $presente\_1$ fonctionnelle qui permet de présenter le modèle comme la description proposée dans le processus \titlefig{1.6 Présenter};
+    \end{itemize}
+    \item Procédure~:
+    \begin{enumerate}
+        \item Le modélisateur récupère la session $session\_1$.
+        \item Le modélisateur conserve la représentation standardisée\footnote{La représentation standardisée est celle issue du processus \titlefig{présente}.} du modèle $represente\_1$.
+        \item Le modélisateur crée une session avec $formel\_1$, $epure\_1$, $presente\_1$ et avec $represente\_1$ (document supplémentaire) à mettre à la description proposée.
+        \item Le modélisateur ajoute un document avec une information (prédicat) à la description proposée.
+        \item Le modélisateur ajuste le contexte dans la description proposée.
+        \item Le modélisateur compile avec l'aide du système.
+        \item Le modélisateur sauvegarde le modèle développé $modele\_2$.
+    \end{enumerate}
+    \item Condition de réussite~:
+    \begin{itemize}
+        %EX02: Le système doit permettre l’importation et l’exportation des modèles.
+        %EX03 : Le système doit permettre l’utilisation des modèles développés.
+        \item Le modèle développé $modele\_2$ comprend une copie des informations provenant du modèle développé $modele\_1$ [EX02, EX03].
+    \end{itemize}
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\paragraphe{}{CA05~: Vérifier que l'IAR permet de comparer des modèles. 
+\begin{itemize}
+    \item Prérequis~:
+    \begin{itemize}
+        \item un modèle développé $modele\_1$ contenu dans la base de données;
+        \item une session $session\_1$ qui a créé le modèle développé $modele\_1$;
+         \item un modèle développé $modele\_2$ contenu dans la base de données;
+        \item une session $session\_2$ qui a créé le modèle développé $modele\_1$;
+        \item une description formelle $formel\_1$ fonctionnelle dans le processus \titlefig{1.5.1 Traduire};
+        \item une description formelle $epure\_1$ fonctionnelle dans le processus \titlefig{1.4 Épurer};
+        \item une description formelle $presente\_1$ fonctionnelle qui permet de présenter le modèle comme la description proposée dans le processus \titlefig{1.6 Présenter};
+    \end{itemize}
+    \item Procédure~:
+    \begin{enumerate}
+        \item Le modélisateur récupère la session $session\_1$.
+        \item Le modélisateur compile avec l'aide du système.
+        \item Le modélisateur conserve la journalisation et la présentation à l'extérieur de l'IAR.
+        \item Le modélisateur récupère la session $session\_2$.
+        \item Le modélisateur compile avec l'aide du système.
+    \end{enumerate}
+    \item Conditions de réussite~:
+    \begin{itemize}
+        %EX04: Le système doit permettre la comparaison des modèles développés.
+        \item les deux modèles sont présentés sous une représentation standardisée [EX04];
+        %EX12: Le système doit fournir des informations visant à permettre à l’utilisateur d’évaluer la couverture, l’efficience et l’adaptabilité du modèle développé.
+        \item la journalisation affiche des métriques\footnote{Ces métriques devraient découler d'un modèle de qualité, ce n'est pas un objectif entièrement rempli par cette preuve de concept.} sur le texte (nombre de caractères ou de lignes), sur la structure (nombre d'informations ou de groupes d'énoncés logiques) ou sur la logique (nombre de contradictions trouvées) pour les modèles développés. Cela permet à l'utilisateur de les comparer [EX04, EX12].
+    \end{itemize}
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+
+\paragraphe{}{
+Les résultats des cas de tests sont résumés dans le tableau 4.1 (les descriptions formelles des cas de tests se retrouvent dans la preuve de concept\footnote{À cette adresse~: \url{https://github.com/mbjolin/iar}}) tandis que la couverture des exigences par les cas de tests est complète et s'exprime dans le tableau 4.2. Ces cas de tests possèdent quelques caractéristiques~:
+\begin{itemize}
+    \item La plupart des prérequis sont des intrants aux procédures et ils ne sont pas spécifiés. Ainsi, il peut exister un grand nombre d'implémentations de ces tests. Néanmoins, ils devraient tous être en mesure de vérifier les exigences couvertes par le cas.
+    \item Faire varier les intrants revient à tester les descriptions formelles (grammaire). Ce n'est pas ce qui est recherché.
+    \item Plusieurs cas pourraient vérifier les mêmes exigences, c'est-à-dire des exigences communes à l'usage de l'engin d'exécution. Actuellement, les cas regroupent les vérifications d'exigences similaires dans un objectif de simplification.
+\end{itemize}
+\tabtab
+{Résultats des cas de tests}{
+\begin{tabular}{|c|l|}
+    \hline
+    \textbf{Cas de test} & \textbf{Couverture de} \\ & \textbf{l'engin d'exécution} \\
+    \hline
+    CA01 & 78\% \\
+    \hline
+    CA02 & 77\% \\
+    \hline
+    CA03 & 75\% \\
+    \hline
+    CA04 & 63\% \\
+    \hline
+    CA05 & 62\% \\
+    \hline
+    Union des cas & 80\% \\
+    \hline
+\end{tabular}}
+{}{}{}{H}
+\tablandscape
+{Correspondances des cas de tests et des exigences}
+{figure/chap5/casexigence.png}
+{}{}{
+\begin{tablenotes}
+\footnotesize
+\item[a] {La signification des valeurs est~: O (oui), N (non) et P (partiel).}
+\item[b] {Les cases grises indiquent qu'un cas ne couvre pas une exigence.}
+\item[c] {Raccourcis vers les \hyperref[listeexigence1]{exigences 1 à 12} et vers les \hyperref[listeexigence2]{exigence 13 à 15}.}
+\end{tablenotes}
+}{H}
+}{}{}
+
+\section{Une guide pour la validation des attentes}
+
+\paragraphe{}{Une expérimentation se déroule habituellement en suivant un protocole expérimental. Cette section donne des descriptions comprenant les sujets couverts par un protocole expérimental typique. Il y a la définition de la recherche, la collecte des données et l'analyse des données. La mise en place de cette expérimentation n'a pas encore eu lieu, car elle nécessite un prototype découlant d'une preuve de concept, qui permettra alors de définir les critères de validation et un protocole expérimental. Il s'agit d'une prochaine étape découlant de ce travail. Ainsi, cette section est en fait un guide qui donne plusieurs explications sur la manière de procéder pour arriver à valider les attentes d'une façon rigoureuse. De plus, il faut rappeler que, même avec plusieurs expérimentations, la démonstration du respect des attentes n'est pas assurée pour autant.}{}{}
+
+\paragraphe{}{La définition de la recherche reprend les attentes vis-à-vis de l'IAR. Ces attentes s’adressent aux caractéristiques de qualité relatives suivantes~: la complétude, l'efficience et l'adaptation. Pour chacune de ces attentes, des questions sont formulées et l'expérimentation vise à répondre à ces questions.
+\begin{itemize}
+\item AT01~: La solution devrait améliorer la compréhension des utilisateurs pour les documents servant aux modèles.
+\begin{itemize}
+    \item Est-ce que le nombre d'itérations se trouve diminué s'il y a un cycle d'approbation des modèles?
+    \item Est-ce que l'utilisation de l'IAR dans une expérimentation rétrospective permet de réduire les erreurs trouvées plus loin dans le procédé de développement?
+\end{itemize}
+\item AT02~: La solution devrait fournir, dans le cadre d'un environnement de développement, les fonctionnalités nécessaires à la production et à la maintenance des documents servant aux modèles.
+\begin{itemize}
+    \item Est-ce que les fonctionnalités de l'IAR utilisées retournent le résultat souhaité par les utilisateurs?
+    \item Est-ce que des fonctionnalités manquantes sur l'IAR ont été soulevées pendant une période donnée de la part des utilisateurs?
+\end{itemize}
+\item AT03~: La solution devrait rendre plus efficiente la manipulation des documents servant aux modèles, plus particulièrement en regard du temps requis et de la charge cognitive induite par le processus, et ce, pour l’ensemble des agents.
+\begin{itemize} 
+    \item Quel est le temps consacré à la documentation?
+    \item Subjectivement, selon les utilisateurs, quels sont les facteurs qui peuvent faire varier le temps consacré à la documentation?
+    \item Est-ce que l'utilisation de l'IAR change le temps consacré à la documentation?
+\end{itemize}
+\item AT04~: La solution devrait être utilisable par des utilisateurs ayant des acquis distincts et finirait par être maîtrisée.
+\begin{itemize} 
+     \item Combien de temps doit-on consacrer à la maitrise de l’IAR?
+     \item Est-ce que les acquis influencent le temps devant être consacré à la maîtrise de l'IAR?
+\end{itemize}
+\item AT05~: La solution devrait s'utiliser dans différents environnements de développement faisant appel à différents procédés, gabarits de documents, langages, modèles, métamodèles et configurations.
+\begin{itemize}
+    \item Est-ce que l'IAR peut s'adapter lorsque le procédé de développement change?
+    \item Est-ce que l'IAR peut se déployer dans deux environnements distincts? 
+    \item Quelles sont les formations à offrir en fonction des acquis qui permettent de faciliter et d’accélérer la prise en main de l'IAR et du processus ?
+\end{itemize}
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\paragraphe{}{La stratégie de recherche employée est celle d'une recherche de développement. Cela comprend l'élaboration d'un instrument, tel que décrit dans les précédents chapitres, et sa mise à l'épreuve \ccite{contandriopoulos_savoir_1990}[p.~39]. Dans une telle stratégie, il faut expliciter la mise en place de l'instrument, le contexte et les interventions réalisées. Ainsi, des résultats sont obtenus sur l'instrument et sur sa mise en place.
+}{}{}
+
+\paragraphe{}{La mise en place de l'IAR peut se faire dans tous les environnements où des documents décrivent en fait des modèles. Cependant, c'est seulement là où il y a une surveillance et un contrôle du travail qu'il sera possible de mettre en place une expérimentation en vue de vérifier les bénéfices de l'IAR. Cela implique que certaines hypothèses doivent être respectées, notamment les suivantes~:
+\begin{itemize}
+    \item les membres de l'organisation suivent au moins un procédé, même s'il n'est pas forcément clairement défini;
+    \item les activités et les tâches sont organisées avec l'aide d'un instrument servant à la gestion de projet; 
+    \item les dépenses en ressources sont consignées et accessibles avec l'aide d'un instrument servant au suivi de temps.
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\paragraphe{} {Avec ces hypothèses respectées, il est possible de modéliser le processus avant (figure~5.1) et après la mise en place de l'IAR (figure~5.2). Le cas modélisé est celui d'une modification d'une fonctionnalité induisant des changements à la documentation. Il est important de minimiser les différences entre les deux processus pour assurer un contrôle plus grand au moment de l'expérimentation. 
+\leavevmode\vspace{-2\baselineskip}
+}{}{}
+
+\paragraphe{}{
+{%
+\newgeometry{left=3cm,right=2.5cm,top=5cm,bottom=2.5cm}
+\begin{landscape}
+\pagestyle{empty}
+\begin{textblock*}{1cm}(1cm,17.5cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\rightmark\hfill}}
+\end{textblock*}
+\centering
+\figgm
+{Diagramme BPMN sur des changements aux documents sans l'IAR}
+{figure/chap5/exp1.png}
+{}{}{}{H}
+
+\figgm
+{Diagramme BPMN sur des changements aux documents avec l'IAR}
+{figure/chap5/exp2.png}
+{}{}{}{H}
+
+
+\begin{textblock*}{1cm}(17.5cm,13.7cm)
+\makebox[0pt][l]{\hspace*{1cm}\vspace*{1cm}\rotatebox{90}{\thepage}}
+\end{textblock*}
+\end{landscape}
+\restoregeometry
+\pagestyle{fancyplain}
+}%
+
+}{}{}
+
+
+\paragraphe{}{
+Idéalement, il n'y aurait que l'ajout de l'IAR lors de l'expérimentation sans aucune autre modification. Cela n'est pas possible, puisque l'expérimentation elle-même demande des ajustements~:
+\begin{itemize}
+    \item une formation sur l'IAR dont le premier objectif est d'éveiller l’intérêt et le second objectif est d'en permettre la maîtrise;
+    \item des échanges avec les utilisateurs pour confirmer la signification de concepts, le respect de procédés ou la présence de certains biais;
+    \item l'aide des utilisateurs pour obtenir des données supplémentaires.
+\end{itemize}
+}{}{}
+
+\paragraphe{}{La collecte des données s'opère principalement autour des utilisateurs de l'IAR. Dans un contexte professionnel, ces utilisateurs occupent le plus souvent des postes de professionnels informatiques. Ils font déjà l'usage d'autres instruments, l'IAR se retrouve donc à compétitionner avec ces autres instruments. S'il n'y a pas d'intérêt de la part de ces utilisateurs, et ce, même avec la démonstration de l'utilité, il n'y aura pas d'avenir pour l'IAR. Aussi, les usagers\footnote{Les usagers n'utilisent pas directement l'IAR comme les utilisateurs.} ne sont pas considérés pour le moment, mais ils devraient l'être. Parmi les usagers, il a tous ceux qui interagissent avec les artefacts de documentation. Puisque l'IAR est utilisé dans le procédé de développement d'un logiciel, il se trouve à influencer de nombreux artefacts de documentation, comme la spécification d'interface utilisateur, le plan d'installation ou la description d'une version d'un logiciel. Ces artefacts peuvent s'en trouver amélioré ou détérioré. Ainsi, les usagers peuvent encourager ou décourager l'utilisation de l'IAR.
+\leavevmode\vspace{-1\baselineskip}
+}{}{}
+
+\paragraphe{}{
+\tab
+{Différentes variables pour l'expérimentation}
+{figure/chap5/var.png}
+{}{}{}{tb}
+}{}{}
+
+\paragraphe{}{Définir le protocole d'expérimentation devrait comprendre une classification des différentes variables \mbox{\ccite{contandriopoulos_savoir_1990}[p.~65]}. Ces variables peuvent être qualifiées d'indépendantes, de dépendantes et de contrôlées, le tableau 5.3 énonce une classification de plusieurs variables. Les variables indépendantes et dépendantes fournissent les données à analyser. Plusieurs facteurs agissant sur les variables dépendantes rendent l'analyse des données plus difficile. Les variables contrôlées, quant à elles, sont celles qui peuvent demeurer constantes durant l'expérimentation et, par conséquent, ne devraient pas influencer les autres variables.
+}{}{}
+
+\paragraphe{}{La collecte des données, qui comprend la prise de mesure sur le travail des utilisateurs ou des artefacts, peut se faire par le biais~: d'extractions, d'opérations provenant des utilisateurs ou de questionnaires adressés aux utilisateurs. 
+}{}{}
+
+\paragraphe{}{L'analyse des données doit prendre en compte les biais des données et des instruments. Les biais peuvent toucher  trois types de variables ~:
+\begin{itemize}
+    \item le niveau de scolarité et le nombre d'années d'expérience sont possiblement insuffisants pour décrire exactement les acquis des utilisateurs;
+    \item le nombre de documents, de mots, de prédicats et de citations demeurent des indicateurs partiels de la complexité;
+    \item la prise des mesures peut varier selon les utilisateurs (certains peuvent entrer une heure après avoir consacré réellement cinquante minutes à la tâche);
+    \item la maîtrise des instruments peut provoquer des variations (les utilisateurs maîtrisant davantage l'IAR vont signaler plus de problèmes ou proposer plus d'améliorations);
+    \item certains instruments sont utilisés à distance, ce qui empêche leurs contrôles complets; ils pourraient être modifiés au cours d'une expérimentation. 
+\end{itemize}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+
+\paragraphe{}{Quatre conditions doivent être respectées pour poursuivre la mise en place de l'expérimentation. Ces conditions sont~:
+\begin{enumerate}
+    \item Passer de la preuve de concept à un prototype. L’implication de personnes sur une période de temps significative pour une expérimentation a effectivement un coût significatif. Il est nécessaire que la solution proposée remplisse les caractéristiques de qualité absolues et qu'elle essaie le plus possible de remplir les critères de qualités relatives, puisqu’un dysfonctionnement entraînerait l'invalidation de l'expérimentation. Pour transformer la preuve de concept en prototype qui s'approche davantage d'un produit logiciel, il faut :
+    \begin{enumerate}
+        \item Construire un document de spécification des exigences logiciel;
+            \begin{enumerate}[label=(\roman*)]
+            \item Valider les besoins et exigences auprès de plusieurs parties prenantes attachées au problème ou à la solution.
+            \item Vérifier que les exigences forment un système formel.
+            \end{enumerate}
+        \item Construire un document du plan de test et l'exécuter;
+            \begin{enumerate}[label=(\roman*)]
+            \item Utiliser d'autres techniques de tests~: cela peut être des revues techniques, des tests exploratoires, de l'analyse des valeurs limites, etc. 
+            \item Sélectionner des types et des pourcentages de couverture plus exigeants.
+            \end{enumerate}
+        \item Construire des documents pour l'établissement du logiciel. 
+            \begin{enumerate}[label=(\roman*)]
+            \item S'assurer de transmettre le fonctionnement du logiciel.
+            \item S'assurer de transmettre l'usage du logiciel.
+            \item S'assurer de transmettre la mise en place du logiciel.
+        \end{enumerate}
+    \end{enumerate}
+    \item Avoir à la disposition un environnement pour réaliser un banc d'essai. L'environnement prévu à l'origine possédait les caractéristiques nécessaires : 
+        \begin{itemize}
+        \item les membres de l'organisation suivent un procédé défini dans un diagramme d'activité utilisant le \textit{Unified Modeling Language} (UML);
+        \item les activités et les tâches sont organisées à l'aide de JIRA, un instrument de gestion de projet;
+        \item les dépenses en ressources sont consignées à l'aide de JIRA et du module d'extension Timesheet Tracking.
+    \end{itemize}
+    Cependant, des changements ont conduit à ce que la gestion de projet ou le suivi du temps ne soient plus effectués par des instruments informatiques. Cela a entraîné l'inaccessibilité des variables dépendantes et la disparition des variables contrôlées. Ainsi, il faut trouver un nouvel environnement.
+    \item Construire le document du protocole expérimental complet, ce mémoire en décrit que certaines parties. Le protocole expérimental aide à assurer plusieurs caractéristiques de qualité, comme son efficacité, sa couverture par rapport aux interrogations et sa réfutabilité en décrivant la façon de reproduire l'expérimentation. D'ailleurs, cette condition est nécessaire à la suivante, qui est d'obtenir les autorisations éthiques.
+    \item Obtenir les autorisations nécessaires en suivant le procédé d'évaluation éthique des projets de recherche de l'Université de Sherbrooke. Cette démarche est obligatoire, puisqu'il y a des données liées à des personnes. D'ailleurs, l’établissement d’un protocole adéquat, conforme aux bonnes pratiques d’expérimentation impliquant des humains, est en fait un problème en soi, qu’il convient de traiter séparément.
+\end{enumerate}
+\leavevmode\vspace{-\baselineskip}
+}{}{}
+% Il y a plusieurs dépendances où par exemple le protocole peut influencer le la preuve de concept ou l'instrument.
+
+\paragraphe{}{Même avec l'expérimentation terminée, cela ne permet pas d'affirmer que des exigences aussi subjectives soient respectées, mais elle permet d'obtenir des réponses. En effet, il s'agit d'une recherche appliquée où le contexte varie irrémédiablement selon les acteurs, les procédés et les instruments. Il devient donc difficile d'établir l'apport quantitatif ou qualitatif d'un seul instrument. Cependant, il est probable qu'une expérimentation comme celle-là puisse appuyer et corriger un protocole expérimental, ce qui pourrait faire l'objet d'une publication. Éventuellement, d'autres expérimentations suivant le même protocole seront peut-être menées. Après un nombre suffisant d'expérimentations, une méta-analyse pourrait enfin être entreprise, ce qui pourrait fournir des réponses.
+}{}{}

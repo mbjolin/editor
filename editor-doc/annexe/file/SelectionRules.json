@@ -1,0 +1,43 @@
+[
+  {
+    "etape": "epure",
+    "transformation": "AsciidocMacro",
+    "intrant": "description1",
+    "extrant": "epure1"
+  },
+  {
+    "etape": "epure",
+    "transformation": "AsciidocMacro",
+    "intrant": "description2",
+    "extrant": "epure2"
+  },
+  {
+    "etape": "traduit",
+    "transformation": "Asciidoc",
+    "intrant": "epure1",
+    "extrant": "mmd"
+  },
+  {
+    "etape": "traduit",
+    "transformation": "Asciidoc",
+    "intrant": "epure2",
+    "extrant": "mmd"
+  },
+  {
+    "etape": "assure",
+    "transformation": "CustomRule",
+    "intrant": "mmd",
+    "extrant": "mmdassure"
+  },
+  {
+    "etape": "atteste",
+    "transformation": "Relationnal",
+    "intrant": "mmdassure",
+    "extrant": "mmdatteste"
+  },
+  {
+    "etape": "presente",
+    "transformation": "PresenteModelisateur",
+    "intrant": "mmdatteste",
+    "extrant": "mmdpresente"
+  }]

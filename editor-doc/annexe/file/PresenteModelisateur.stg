@@ -1,0 +1,50 @@
+meta(identifiant, etiquette, valeur) ::= <<
+:<etiquette>: <valeur> [<identifiant>]
+
+>>
+
+doc(identifiant, projet, metas, sections) ::= <<
+<metas>
+= <identifiant>
+
+<sections>
+>>
+
+section(identifiant, etiquette, profondeur, paragraphes, sections) ::= <<
+<etiquette>[<identifiant>]<paragraphes><sections>
+~~~~
+
+>>
+
+paragraphe(contenus, reglelogiquex, citations) ::= <%
+<contenus>
+<reglelogiquex>
+<citations>
+%>
+
+contenu(identifiant, description) ::= <<
+<description>
+>>
+
+citation(identifiant, description, sources) ::= <<
+[quote]
+____
+<description>____
+
+>>
+
+reglelogiqueN(identifiant, descriptionNaturelle, sources) ::= <<
+```
+<descriptionNaturelle>```
+
+>>
+
+reglelogiqueF(identifiant, descriptionFormelle, sources) ::= <<
+++++
+<descriptionFormelle>++++
+
+>>
+
+source(identifiant, description) ::= <<
+<identifiant>"<description>"
+>>

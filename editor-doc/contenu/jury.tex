@@ -1,0 +1,38 @@
+% !TEX root =  ../modele_these.tex
+% à insérer au dépôt final
+
+% format JJ/MM/AAAA
+% date de soumission (affichée si l'option enRedaction est activée)
+\newdate{dateSoumission}{26}{06}{2026}
+
+% date d'acceptation (affichée pour la version finale)
+\newdate{dateAcceptation}{20}{08}{2026}
+
+\DecisionDuJury
+{	% Un seul directeur ou directrice 
+	% Département par défaut : DI, enlever les crochets
+	\Directeur[Département d'informatique]{Luc Lavoie}
+
+%% Possible de préciser l'institution pour les membres externes et les codir.
+
+	% OU
+%	\Directeur{Pr\'enom Nom}
+	
+	% plusieurs codir. sont permis
+	%\Codirectrice[Institution, Nom département]{Pr\'enom et Nom}
+
+	% OU (par défaut, DI)
+	%\Codirecteur{Pr\'enom et Nom}
+	
+%% les membres externes pourraient ne pas être professeurs ou professeures des universités. Il y a une option pour modifier le titre de la personne
+
+	%\MembreExterne[Titre]{Nom institution, département ou affiliation}{Pr\'enom et Nom}
+
+	% au moins un ou une
+	\MembreInterne{Sylvain Giroux}
+
+	\Presidente[Département d'informatique]{Christina Khnaisser}
+	
+%	OU
+%	\Presidente{Pr\'enom et Nom}
+}
